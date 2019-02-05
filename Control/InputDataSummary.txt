@@ -1,0 +1,10 @@
+# Example of summary data report or output from RiverWare
+
+RiverWare Object: 11502500 Williamson River nr Chiloquin
+RiverWare Slot: Inflow
+
+Source Data: Pisces Database
+Source A: USGS Gauge
+Source A Start Date: 2018-02-28
+Source A End Date: 2018-10-01
+Source A Quality Flags: 
