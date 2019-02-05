@@ -1,0 +1,79 @@
+## ---------------------------------------------------------------------
+## Title: Klamath RiverWare Model Operations DMI
+## Author: Dan Broman, Reclamation TSC
+## Last Modified: 2019-01-18
+## Description: Retrieves data from Klamath Pisces Database
+## ---------------------------------------------------------------------
+# USGS Gauge Flows
+11501000 Sprague nr Chiloquin.RawObs:                   file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11502500_WILLIAMSON_RIVER_BLW_SPRAGUE_RIVER_NR_CHILOQUIN_OR_QD
+11502500 Williamson River nr Chiloquin.RawObs:          file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11501000_SPRAGUE_RIVER_NEAR_CHILOQUIN_OR_QD
+11509500 Klamath at Keno.RawObs:                        file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11509500_KLAMATH_RIVER_AT_KENO_OR_QD
+11510700 Klamath bl JC Boyle Pwrplant.RawObs:           file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11510700_KLAMATH_RIVER_BLW_JOHN_C.BOYLE_PWRPLNT_NR_KENO_OR_QD
+11516530 Klamath bl Iron Gate.RawObs:                   file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11516530_KLAMATH_R_BL_IRON_GATE_DAM_CA_QD
+11520500 Klamath nr Seiad Valley.RawObs:                file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11520500_KLAMATH_R_NR_SEIAD_VALLEY_CA_QD
+11523000 Klamath at Orleans.RawObs:                     file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11523000_KLAMATH_R_A_ORLEANS_QD
+11530500 Klamath nr Klamath.RawObs:                     file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11530500_KLAMATH_R_NR_KLAMATH_CA_QD
+11517500 Shasta nr Yreka.RawObs:                        file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11517500_SHASTA_R_NR_YREKA_CA_QD
+11519500 Scott nr Fort Jones.RawObs:                    file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11519500_SCOTT_R_NR_FORT_JONES_CA_QD
+11521500 Indian Creek nr Happy Camp.RawObs:             file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11521500_INDIAN_C_NR_HAPPY_CAMP_CA_QD
+11522500 Salmon at Somes Bar.RawObs:                    file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11522500_SALMON_R_A_SOMES_BAR_CA_QD
+11525500 Trintiy River at Lewiston.RawObs:              file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11525500_TRINITY_R_A_LEWISTON_CA_QD
+11530000 Trinity at Hoopa.RawObs:                       file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=11530000_TRINITY_R_A_HOOPA_CA_QD
+## ----------------------------------------------------------------
+# Klamath Hydromet
+A Canal.RawObs:                                         file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=ACHO_A_Canal_Headworks_QJ
+Miller Hill Pump.RawObs:                                file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=MHPO_Miller_Hill_Pump_Plant_QP
+E and EE Pumps:RawObs:                                  file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=EEEO_Pump_Plants_E_and_EE_GJ
+F and FF Pumps.RawObs:                                  file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=FPPO_Pump_Plants_F_and_FF_GJ
+Gerber Reservoir.RawStorageObs:                         file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=GER_Gerber_Reservoir_AF
+Gerber Reservoir.RawOutflowStageObs:                    file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=GER_Gerber_Reservoir_GD
+Clear Lake.RawElevationObs:                             file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=LRS_Clear_Lake_Dam_FD
+Clear Lake.RawInflowObs:                                file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=WILC_Willow_Creek_QD
+Clear Lake.RawOutflowObs:                               file=~/%s.%o.txt units=cfs scale=1.0 import=resize !series_name=LRSC_Lost_River_below_Clear_Lake_Dam_QD
+## ----------------------------------------------------------------
+# OWRD
+## ----------------------------------------------------------------
+# NRCS
+## ----------------------------------------------------------------
+# CNRFC
+## ----------------------------------------------------------------
+
+
+
+ACHO_A_Canal_Headworks_QJ
+CHRO_Cherry_Creek_near_Fort_Klamath_OR_GH
+CHRO_Cherry_Creek_near_Fort_Klamath_OR_Q
+CHRO_Cherry_Creek_near_Fort_Klamath_OR_CO
+CHRO_Cherry_Creek_near_Fort_Klamath_OR_WC
+CHRO_Cherry_Creek_near_Fort_Klamath_OR_BV
+CLK_Clear_Lake_West_Lobe_FD
+LRS_Clear_Lake_Dam_FB
+LRS_Clear_Lake_Dam_FB2
+LRS_Clear_Lake_Dam_FD
+LRS_Clear_Lake_Dam_AF
+LRS_Clear_Lake_Dam_GD
+LRS_Clear_Lake_Dam_QD
+LRSC_Lost_River_below_Clear_Lake_Dam_GD
+MAL_Malone_Reservoir_GD
+WILC_Willow_Creek_WC
+WILC_Willow_Creek_GH
+WILC_Willow_Creek_GH2
+WILC_Willow_Creek_Q
+GER_Gerber_Reservoir_FB
+GER_Gerber_Reservoir_FB2
+GER_Gerber_Reservoir_FD
+GER_Gerber_Reservoir_AF
+GER_Gerber_Reservoir_GD
+GER_Gerber_Reservoir_QD
+LVNO_Langell_Valley_North_Canal_QJ
+HRPO_Lost_River_at_Harpold_Dam_GD
+HRPO_Lost_River_at_Harpold_Dam_QD
+KELO_Lost_River_at_Keller_Bridge_GD
+KELO_Lost_River_at_Keller_Bridge_QD
+LRVO_Lost_River_Diversion_Channel_at_Tingley_Lane_QJ
+EEEO_Pump_Plants_E_and_EE_GJ
+FPPO_Pump_Plants_F_and_FF_GJ
+LRD_Lost_River_Diversion_Channel_at_C-G_Crossing_QD
+MHPO_Miller_Hill_Pump_Plant_QP
+
+11517000_SHASTA_R_NR_MONTAGUE_CA-QD
