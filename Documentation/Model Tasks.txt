@@ -1,0 +1,5 @@
+To be completed as time allows
+
+Clean up Acct view
+Clean up Geospatial view
+Create georeferenced map and set it up in the geospatial view
