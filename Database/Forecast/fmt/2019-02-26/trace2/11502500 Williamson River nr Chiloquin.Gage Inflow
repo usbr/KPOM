@@ -1,0 +1,12 @@
+start_date: 2019-02-27 24:00
+end_date: 2019-03-03 24:00
+data_date: 2019-02-27 24:00
+timestep: 1 DAY
+units: cfs
+scale: 1.000000
+#S11502500 Williamson River nr Chiloquin.InptFcst Gage Inflow [1 cfs]
+700
+695
+710
+800
+810
