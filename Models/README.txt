@@ -151,3 +151,4 @@
 - Other slots left over in Gerber and Clear objects from basin study
 - Data objects left over from SRO and basin study
 - Where to put reference data? E.g. historical demands? On objects?
+- Added Willow Creek Inflow reach and Willow Creek streamgauge to model; inflow to Clear reservoir object
