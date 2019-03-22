@@ -1,0 +1,35 @@
+# RiverWare_Ruleset 7.4.1 Patch
+# Created 14:15 March 14, 2019
+# 
+RULESET
+NAME "RPL Set 1";
+AGENDA_ORDER ASCENDING;
+DESCRIPTION "";
+PRECISION   8;
+IS_GLOBAL   TRUE;
+NOTES "";
+BEGIN
+
+  UTILITY_GROUP "Utility Group";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Operation Period Start" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] );
+
+    END;
+
+  END;
+
+END
