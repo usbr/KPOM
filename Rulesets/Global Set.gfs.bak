@@ -1,8 +1,8 @@
-# RiverWare_Ruleset 7.4.1 Patch
-# Created 14:15 March 14, 2019
+# RiverWare_Ruleset 7.4.2 Patch
+# Created 13:36 March 24, 2019
 # 
 RULESET
-NAME "RPL Set 1";
+NAME "Global Klamath Operation Functions";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "";
 PRECISION   8;
@@ -16,7 +16,21 @@ BEGIN
   NOTES          "";
   BEGIN
 
-    FUNCTION       "Operation Period Start" (  )
+    FUNCTION       "Final Observation Date" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) - 1.00000000 "day";
+
+    END;
+
+    FUNCTION       "Operation Start Date" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "";
