@@ -1,8 +1,0 @@
-## ---------------------------------------------------------------------
-## Title: Klamath RiverWare Model Operations DMI
-## Author: Dan Broman, Reclamation TSC
-## Last Modified: 2019-02-25
-## Description: Retrieves data from forecast text files
-## ---------------------------------------------------------------------
-## NRCS WSF Forecasts
-11502500 Williamson River nr Chiloquin.InptFcst Gage Inflow:          file=~/11502500 Williamson River nr Chiloquin.Gage Inflow.dat
