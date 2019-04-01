@@ -1,0 +1,45 @@
+RwObjName,RwObjType,Lon,Lat
+11530500 Klamath nr Klamath,StreamGage,-123.98,41.51
+Klamath Y Trinity,Confluence,-123.71,41.19
+11530000 Trinity at Hoopa,StreamGage,-123.67,41.05
+11523000 Klamath at Orleans,StreamGage,-123.53,41.30
+Klamath Y Salmon,Confluence,-123.49,41.38
+11522500 Salmon at Somes Bar,StreamGage,-123.48,41.38
+11521500 Indian Creek nr Happy Camp,StreamGage,-123.38,41.84
+Klamath Y Indian Creek,Confluence,-123.38,41.79
+11520500 Klamath nr Seiad Valley,StreamGage,-123.23,41.85
+Klamath Y Scott,Confluence,-123.04,41.78
+11519500 Scott nr Fort Jones,StreamGage,-123.02,41.64
+11525500 Trintiy River at Lewiston,StreamGage,-122.80,40.72
+11517500 Shasta nr Yreka,StreamGage,-122.60,41.82
+Klamath Y Shasta,Confluence,-122.59,41.83
+11516530 Klamath bl Iron Gate,StreamGage,-122.44,41.93
+11510700 Klamath bl JC Boyle Pwrplant,StreamGage,-122.07,42.08
+11509500 Klamath at Keno,StreamGage,-121.96,42.13
+11502500 Williamson River nr Chiloquin,StreamGage,-121.88,42.56
+Williamson Y Sprague,Confluence,-121.87,42.57
+UKL,StorageReservoir,-121.87,42.37
+11501000 Sprague nr Chiloquin,StreamGage,-121.85,42.58
+11509340 KSD near Worden,StreamGage,-121.84,42.08
+115091200 Ady Canal at HW 97,StreamGage,-121.84,42.08
+11509105 North Canal at HW 97,StreamGage,-121.83,42.12
+11509250 Ady Canal above LKNWR,StreamGage,-121.83,42.00
+Williamson River Inflow,Reach,-121.81,42.78
+A Canal,DiversionObject,-121.80322,42.2385
+Area K,WaterUser,-121.78,42.02
+Miller Hill Pump,DiversionObject,-121.75145,42.14272
+Station 48,DiversionObject,-121.68936,42.14034
+Wilson Dam,Reach,-121.67232,42.14246
+Sprague River Inflow,Reach,-121.65,42.56
+Pumping Plant D,DiversionObject,-121.56619,41.92472
+Anderson Rose Dam,StreamGage,-121.56099,42.01054
+Tule Lake,StorageReservoir,-121.53,41.90
+Lost River Y Miller Creek,Confluence,-121.26,42.11
+MAL Malone Reservoir,StreamGage,-121.22293,42.00642
+Miller Creek To Confluence Routing,Reach,-121.21,42.11
+Miller Diversion Dam,StreamGage,-121.19729,42.13472
+Clear,StorageReservoir,-121.14,41.89
+Gerber,StorageReservoir,-121.10,42.20
+Willow Creek,StreamGage,-121.02694,41.89278
+LRSC Lost below Clear Lake Dam,StreamGage,41.9279,-121.07448
+Willow Creek Inflow,Reach,,

@@ -1,7 +1,9 @@
-
 Database/klamath.pdb
 Models/KlamathOps.mdl.bak.gz
 Models/KlamathOps.mdl.7.3.gz
 Database/Forecast/cnrfc/
 Database/Forecast/nrcs/
 Database/Forecast/comb_cnrfc_det.R
+Database/CNRFC_HEFS_Archive.xlsx
+*.R
+Database/CNRFC_HEFS Archive.xlsx
