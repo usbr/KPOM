@@ -305,4 +305,23 @@ Hydrologic Inflow Method -> set to 'Solve Hydrologic Inflow' for reservoirs wher
 	-> how is this method different from the 'Hydrologic Inflow and Loss'?
 	-> should we also account for evap losses somehow to close the water budget?
 	When using this method, for forecasts, or projections of conditions when pool elevation is not known, both the Inflow and Hydrologic Inflow slots must be set
+
+##-----------------------------
+Ensemble forecasts and historical data
+
+CNRFC HEFS values are imported to aggregate series slots
+	-> with aggregate series slots, for some reason, the first column doesn't use the column header (in references or plotting)
+	-> would it be possible to create an aggregate time aggregate slot (aggregate each series in an aggregate series slot all at once)?
+Best practices for creating a timeseries of lookup values
+	-> Timestep would be tagged as Month-Day without year (ideally)
 	
+	Historical Flows for Williamson 
+	Aggregate series slot:
+	Date (MM-DD)	Year1		Year2		Year3		...
+	
+	
+Also a similar Time aggregate slot that has 
+
+Adding a basemap
+
+Editing run script to set correct Start Date
