@@ -1,0 +1,561 @@
+"measure","scenario","period","climset","strategy","value","value_hist"
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP3","Add 30KAF",156.4,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP3","Baseline",155.3,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP3","Reduce ET 30%",155.3,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP3","Reduce ET 50%",155.5333,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP5","Add 30KAF",145.8,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP5","Baseline",144.4667,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP5","Reduce ET 30%",144.6333,105.9
+"Boyle Mean Spill Days per Year","WD",2030,"CMIP5","Reduce ET 50%",144.8667,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP3","Add 30KAF",196.2667,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP3","Baseline",195.7,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP3","Reduce ET 30%",195.7,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP3","Reduce ET 50%",195.7667,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP5","Add 30KAF",189.2333,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP5","Baseline",187.8,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP5","Reduce ET 30%",188,105.9
+"Boyle Mean Spill Days per Year","WW",2030,"CMIP5","Reduce ET 50%",188.0333,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP3","Add 30KAF",152.6667,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP3","Baseline",151.3667,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP3","Reduce ET 30%",151.6333,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP3","Reduce ET 50%",151.6667,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP5","Add 30KAF",158,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP5","Baseline",156.8,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP5","Reduce ET 30%",157,105.9
+"Boyle Mean Spill Days per Year","HD",2030,"CMIP5","Reduce ET 50%",157.1,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP3","Add 30KAF",218.2333,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP3","Baseline",217.4333,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP3","Reduce ET 30%",217.4667,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP3","Reduce ET 50%",217.6,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP5","Add 30KAF",223.4333,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP5","Baseline",222.6333,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP5","Reduce ET 30%",222.8333,105.9
+"Boyle Mean Spill Days per Year","HW",2030,"CMIP5","Reduce ET 50%",222.9333,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP3","Add 30KAF",177.3333,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP3","Baseline",176.3667,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP3","Reduce ET 30%",176.4333,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP3","Reduce ET 50%",176.5333,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP5","Add 30KAF",194.2,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP5","Baseline",192.9,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP5","Reduce ET 30%",193.3,105.9
+"Boyle Mean Spill Days per Year","CT",2030,"CMIP5","Reduce ET 50%",193.7,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP3","Add 30KAF",165.5,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP3","Baseline",163.9,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP3","Reduce ET 30%",164.1333,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP3","Reduce ET 50%",164.4,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP5","Add 30KAF",169,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP5","Baseline",167.4,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP5","Reduce ET 30%",167.6667,105.9
+"Boyle Mean Spill Days per Year","WD",2070,"CMIP5","Reduce ET 50%",168.0333,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP3","Add 30KAF",237.3667,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP3","Baseline",236.6667,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP3","Reduce ET 30%",236.6667,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP3","Reduce ET 50%",236.6667,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP5","Add 30KAF",230.8333,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP5","Baseline",230.1333,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP5","Reduce ET 30%",230.2667,105.9
+"Boyle Mean Spill Days per Year","WW",2070,"CMIP5","Reduce ET 50%",230.2667,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP3","Add 30KAF",158.1,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP3","Baseline",156.5667,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP3","Reduce ET 30%",157.9,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP3","Reduce ET 50%",158.0667,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP5","Add 30KAF",177.9333,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP5","Baseline",176.4333,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP5","Reduce ET 30%",177.7,105.9
+"Boyle Mean Spill Days per Year","HD",2070,"CMIP5","Reduce ET 50%",178.1,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP3","Add 30KAF",239.8667,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP3","Baseline",238.7,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP3","Reduce ET 30%",239.3333,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP3","Reduce ET 50%",239.6667,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP5","Add 30KAF",254.6,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP5","Baseline",253.1,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP5","Reduce ET 30%",253.6667,105.9
+"Boyle Mean Spill Days per Year","HW",2070,"CMIP5","Reduce ET 50%",253.9333,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP3","Add 30KAF",207.3667,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP3","Baseline",205.9667,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP3","Reduce ET 30%",206.5667,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP3","Reduce ET 50%",206.6667,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP5","Add 30KAF",205.0667,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP5","Baseline",203.5333,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP5","Reduce ET 30%",203.8667,105.9
+"Boyle Mean Spill Days per Year","CT",2070,"CMIP5","Reduce ET 50%",204.3667,105.9
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP3","Add 30KAF",204.5044,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP3","Baseline",196.0889,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP3","Reduce ET 30%",196.4472,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP3","Reduce ET 50%",195.8523,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP5","Add 30KAF",183.4605,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP5","Baseline",175.9983,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP5","Reduce ET 30%",176.3519,163.0602
+"Boyle Mean Spill Volume per Year","WD",2030,"CMIP5","Reduce ET 50%",176.9633,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP3","Add 30KAF",323.6345,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP3","Baseline",314.4029,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP3","Reduce ET 30%",315.5551,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP3","Reduce ET 50%",316.6878,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP5","Add 30KAF",329.3524,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP5","Baseline",319.4842,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP5","Reduce ET 30%",320.0068,163.0602
+"Boyle Mean Spill Volume per Year","WW",2030,"CMIP5","Reduce ET 50%",320.6619,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP3","Add 30KAF",201.7553,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP3","Baseline",194.6359,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP3","Reduce ET 30%",195.1007,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP3","Reduce ET 50%",195.2558,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP5","Add 30KAF",190.2479,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP5","Baseline",183.0942,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP5","Reduce ET 30%",184.1748,163.0602
+"Boyle Mean Spill Volume per Year","HD",2030,"CMIP5","Reduce ET 50%",184.7881,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP3","Add 30KAF",425.2957,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP3","Baseline",413.7387,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP3","Reduce ET 30%",415.6124,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP3","Reduce ET 50%",417.1299,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP5","Add 30KAF",405.2618,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP5","Baseline",393.6513,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP5","Reduce ET 30%",395.6587,163.0602
+"Boyle Mean Spill Volume per Year","HW",2030,"CMIP5","Reduce ET 50%",396.9052,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP3","Add 30KAF",264.2508,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP3","Baseline",255.8815,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP3","Reduce ET 30%",256.5593,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP3","Reduce ET 50%",257.1903,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP5","Add 30KAF",330.6893,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP5","Baseline",321.0458,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP5","Reduce ET 30%",322.3668,163.0602
+"Boyle Mean Spill Volume per Year","CT",2030,"CMIP5","Reduce ET 50%",323.3242,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP3","Add 30KAF",214.8546,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP3","Baseline",207.0029,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP3","Reduce ET 30%",207.9,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP3","Reduce ET 50%",208.6518,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP5","Add 30KAF",226.813,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP5","Baseline",218.8711,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP5","Reduce ET 30%",220.4421,163.0602
+"Boyle Mean Spill Volume per Year","WD",2070,"CMIP5","Reduce ET 50%",221.383,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP3","Add 30KAF",505.2351,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP3","Baseline",493.4879,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP3","Reduce ET 30%",496.902,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP3","Reduce ET 50%",498.9992,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP5","Add 30KAF",408.156,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP5","Baseline",398.7803,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP5","Reduce ET 30%",401.1018,163.0602
+"Boyle Mean Spill Volume per Year","WW",2070,"CMIP5","Reduce ET 50%",402.6087,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP3","Add 30KAF",224.9596,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP3","Baseline",216.5871,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP3","Reduce ET 30%",218.7361,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP3","Reduce ET 50%",220.1271,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP5","Add 30KAF",260.5252,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP5","Baseline",251.7423,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP5","Reduce ET 30%",255.7227,163.0602
+"Boyle Mean Spill Volume per Year","HD",2070,"CMIP5","Reduce ET 50%",257.7732,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP3","Add 30KAF",555.771,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP3","Baseline",544.1491,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP3","Reduce ET 30%",546.967,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP3","Reduce ET 50%",549.5237,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP5","Add 30KAF",593.6788,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP5","Baseline",582.7187,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP5","Reduce ET 30%",587.5005,163.0602
+"Boyle Mean Spill Volume per Year","HW",2070,"CMIP5","Reduce ET 50%",590.2315,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP3","Add 30KAF",388.2064,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP3","Baseline",378.0733,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP3","Reduce ET 30%",380.5482,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP3","Reduce ET 50%",382.5295,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP5","Add 30KAF",351.0212,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP5","Baseline",341.6041,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP5","Reduce ET 30%",343.2358,163.0602
+"Boyle Mean Spill Volume per Year","CT",2070,"CMIP5","Reduce ET 50%",344.3338,163.0602
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP3","Add 30KAF",46.4,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP3","Baseline",44.2,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP3","Reduce ET 30%",44.3333,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP3","Reduce ET 50%",44.5333,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP5","Add 30KAF",44.1,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP5","Baseline",42.6333,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP5","Reduce ET 30%",43.1,42.8
+"Copco1 Mean Spill Days per Year","WD",2030,"CMIP5","Reduce ET 50%",43.3,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP3","Add 30KAF",58.9,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP3","Baseline",57.3,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP3","Reduce ET 30%",57.5,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP3","Reduce ET 50%",57.6333,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP5","Add 30KAF",57.7333,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP5","Baseline",55.5333,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP5","Reduce ET 30%",55.5333,42.8
+"Copco1 Mean Spill Days per Year","WW",2030,"CMIP5","Reduce ET 50%",55.8667,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP3","Add 30KAF",40.5667,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP3","Baseline",38.8333,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP3","Reduce ET 30%",39.3667,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP3","Reduce ET 50%",39.5333,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP5","Add 30KAF",38.2333,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP5","Baseline",37.1,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP5","Reduce ET 30%",37.2667,42.8
+"Copco1 Mean Spill Days per Year","HD",2030,"CMIP5","Reduce ET 50%",37.5667,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP3","Add 30KAF",61.2667,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP3","Baseline",59.2,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP3","Reduce ET 30%",59.6333,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP3","Reduce ET 50%",59.7,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP5","Add 30KAF",59.1,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP5","Baseline",57.2667,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP5","Reduce ET 30%",57.7333,42.8
+"Copco1 Mean Spill Days per Year","HW",2030,"CMIP5","Reduce ET 50%",57.9333,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP3","Add 30KAF",51.5667,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP3","Baseline",49.6667,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP3","Reduce ET 30%",49.9333,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP3","Reduce ET 50%",50.1667,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP5","Add 30KAF",53.5667,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP5","Baseline",51.7,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP5","Reduce ET 30%",52.1,42.8
+"Copco1 Mean Spill Days per Year","CT",2030,"CMIP5","Reduce ET 50%",52.4333,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP3","Add 30KAF",43.5,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP3","Baseline",41.7,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP3","Reduce ET 30%",41.9333,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP3","Reduce ET 50%",42.1,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP5","Add 30KAF",45.8,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP5","Baseline",44.1667,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP5","Reduce ET 30%",44.1,42.8
+"Copco1 Mean Spill Days per Year","WD",2070,"CMIP5","Reduce ET 50%",44.3333,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP3","Add 30KAF",66.3333,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP3","Baseline",64.9,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP3","Reduce ET 30%",65.2333,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP3","Reduce ET 50%",65.5,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP5","Add 30KAF",60.2,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP5","Baseline",59,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP5","Reduce ET 30%",59.2333,42.8
+"Copco1 Mean Spill Days per Year","WW",2070,"CMIP5","Reduce ET 50%",59.4333,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP3","Add 30KAF",38.8,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP3","Baseline",37.5333,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP3","Reduce ET 30%",37.8,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP3","Reduce ET 50%",38.0667,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP5","Add 30KAF",39.2333,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP5","Baseline",38.0333,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP5","Reduce ET 30%",38.7,42.8
+"Copco1 Mean Spill Days per Year","HD",2070,"CMIP5","Reduce ET 50%",39.1667,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP3","Add 30KAF",63.5,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP3","Baseline",61.8333,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP3","Reduce ET 30%",62.7,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP3","Reduce ET 50%",63.1333,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP5","Add 30KAF",64.4667,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP5","Baseline",62.4333,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP5","Reduce ET 30%",63.1,42.8
+"Copco1 Mean Spill Days per Year","HW",2070,"CMIP5","Reduce ET 50%",63.5667,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP3","Add 30KAF",56,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP3","Baseline",54.4333,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP3","Reduce ET 30%",55,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP3","Reduce ET 50%",55.0667,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP5","Add 30KAF",53.4,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP5","Baseline",51.2333,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP5","Reduce ET 30%",51.5667,42.8
+"Copco1 Mean Spill Days per Year","CT",2070,"CMIP5","Reduce ET 50%",52,42.8
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP3","Add 30KAF",221.1616,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP3","Baseline",211.8479,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP3","Reduce ET 30%",212.1443,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP3","Reduce ET 50%",211.8711,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP5","Add 30KAF",201.1513,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP5","Baseline",192.9485,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP5","Reduce ET 30%",193.3594,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2030,"CMIP5","Reduce ET 50%",193.8772,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP3","Add 30KAF",352.7075,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP3","Baseline",342.3819,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP3","Reduce ET 30%",343.6325,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP3","Reduce ET 50%",344.6712,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP5","Add 30KAF",357.8191,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP5","Baseline",347.0357,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP5","Reduce ET 30%",347.5113,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2030,"CMIP5","Reduce ET 50%",348.2615,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP3","Add 30KAF",233.2393,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP3","Baseline",224.3456,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP3","Reduce ET 30%",225.0759,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP3","Reduce ET 50%",225.5267,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP5","Add 30KAF",211.7199,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP5","Baseline",203.2339,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP5","Reduce ET 30%",204.3828,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2030,"CMIP5","Reduce ET 50%",205.1439,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP3","Add 30KAF",467.945,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP3","Baseline",454.8438,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP3","Reduce ET 30%",456.9739,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP3","Reduce ET 50%",458.8738,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP5","Add 30KAF",440.387,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP5","Baseline",428.1692,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP5","Reduce ET 30%",430.1266,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2030,"CMIP5","Reduce ET 50%",431.5402,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP3","Add 30KAF",298.0948,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP3","Baseline",288.0424,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP3","Reduce ET 30%",288.935,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP3","Reduce ET 50%",289.7193,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP5","Add 30KAF",362.8652,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP5","Baseline",351.3173,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP5","Reduce ET 30%",353.0174,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2030,"CMIP5","Reduce ET 50%",354.3464,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP3","Add 30KAF",239.0322,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP3","Baseline",228.8718,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP3","Reduce ET 30%",229.995,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP3","Reduce ET 50%",230.9022,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP5","Add 30KAF",242.2517,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP5","Baseline",233.6029,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP5","Reduce ET 30%",234.5665,186.3791
+"Copco1 Mean Spill Volume per Year","WD",2070,"CMIP5","Reduce ET 50%",235.6685,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP3","Add 30KAF",541.416,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP3","Baseline",529.2919,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP3","Reduce ET 30%",532.6056,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP3","Reduce ET 50%",534.706,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP5","Add 30KAF",426.58,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP5","Baseline",416.2883,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP5","Reduce ET 30%",418.5846,186.3791
+"Copco1 Mean Spill Volume per Year","WW",2070,"CMIP5","Reduce ET 50%",420.2266,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP3","Add 30KAF",252.9846,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP3","Baseline",243.2811,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP3","Reduce ET 30%",245.4907,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP3","Reduce ET 50%",246.929,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP5","Add 30KAF",266.9033,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP5","Baseline",257.5221,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP5","Reduce ET 30%",261.4338,186.3791
+"Copco1 Mean Spill Volume per Year","HD",2070,"CMIP5","Reduce ET 50%",263.4786,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP3","Add 30KAF",579.4563,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP3","Baseline",566.2908,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP3","Reduce ET 30%",569.2722,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP3","Reduce ET 50%",572.1865,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP5","Add 30KAF",596.2784,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP5","Baseline",583.8971,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP5","Reduce ET 30%",589.037,186.3791
+"Copco1 Mean Spill Volume per Year","HW",2070,"CMIP5","Reduce ET 50%",592.1221,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP3","Add 30KAF",430.6592,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP3","Baseline",419.0979,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP3","Reduce ET 30%",421.712,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP3","Reduce ET 50%",423.781,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP5","Add 30KAF",385.9215,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP5","Baseline",374.9456,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP5","Reduce ET 30%",376.6548,186.3791
+"Copco1 Mean Spill Volume per Year","CT",2070,"CMIP5","Reduce ET 50%",378.1492,186.3791
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP3","Add 30KAF",139.4,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP3","Baseline",132.2333,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP3","Reduce ET 30%",133.4667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP3","Reduce ET 50%",134.3667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP5","Add 30KAF",136.6,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP5","Baseline",130.7,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP5","Reduce ET 30%",133.4,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2030,"CMIP5","Reduce ET 50%",133.8,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP3","Add 30KAF",161.2333,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP3","Baseline",155.7,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP3","Reduce ET 30%",156.2333,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP3","Reduce ET 50%",156.4667,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP5","Add 30KAF",148,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP5","Baseline",144.5333,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP5","Reduce ET 30%",144.3667,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2030,"CMIP5","Reduce ET 50%",144.2667,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP3","Add 30KAF",115.2333,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP3","Baseline",111.1333,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP3","Reduce ET 30%",112.1333,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP3","Reduce ET 50%",113.1,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP5","Add 30KAF",119.4,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP5","Baseline",115,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP5","Reduce ET 30%",116.5333,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2030,"CMIP5","Reduce ET 50%",117.3333,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP3","Add 30KAF",142.7,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP3","Baseline",140.1667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP3","Reduce ET 30%",140.9333,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP3","Reduce ET 50%",141.9667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP5","Add 30KAF",145.1667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP5","Baseline",141.7333,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP5","Reduce ET 30%",142.5667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2030,"CMIP5","Reduce ET 50%",143.4333,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP3","Add 30KAF",135.2667,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP3","Baseline",131.8333,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP3","Reduce ET 30%",133.5,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP3","Reduce ET 50%",133.9333,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP5","Add 30KAF",139.1,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP5","Baseline",135.7333,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP5","Reduce ET 30%",136.3,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2030,"CMIP5","Reduce ET 50%",136.6667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP3","Add 30KAF",120.6667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP3","Baseline",117.6667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP3","Reduce ET 30%",118.9333,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP3","Reduce ET 50%",119.9333,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP5","Add 30KAF",127.1667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP5","Baseline",123.1,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP5","Reduce ET 30%",124.7667,170.3333
+"Iron Gate Mean Spill Days per Year","WD",2070,"CMIP5","Reduce ET 50%",125,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP3","Add 30KAF",160.4667,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP3","Baseline",156.7,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP3","Reduce ET 30%",157.6,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP3","Reduce ET 50%",157.9333,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP5","Add 30KAF",155.2,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP5","Baseline",149.7667,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP5","Reduce ET 30%",150.2,170.3333
+"Iron Gate Mean Spill Days per Year","WW",2070,"CMIP5","Reduce ET 50%",150.6333,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP3","Add 30KAF",111.7,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP3","Baseline",110.1,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP3","Reduce ET 30%",112.7333,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP3","Reduce ET 50%",113.7667,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP5","Add 30KAF",124.3667,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP5","Baseline",121.4,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP5","Reduce ET 30%",123.1,170.3333
+"Iron Gate Mean Spill Days per Year","HD",2070,"CMIP5","Reduce ET 50%",124,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP3","Add 30KAF",152.3667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP3","Baseline",149.6,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP3","Reduce ET 30%",151.5333,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP3","Reduce ET 50%",151.8667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP5","Add 30KAF",153.7,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP5","Baseline",151.8667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP5","Reduce ET 30%",153.5667,170.3333
+"Iron Gate Mean Spill Days per Year","HW",2070,"CMIP5","Reduce ET 50%",154.8667,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP3","Add 30KAF",142.7,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP3","Baseline",141.2667,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP3","Reduce ET 30%",142.2,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP3","Reduce ET 50%",142.7333,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP5","Add 30KAF",138.4333,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP5","Baseline",135.2667,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP5","Reduce ET 30%",137.0667,170.3333
+"Iron Gate Mean Spill Days per Year","CT",2070,"CMIP5","Reduce ET 50%",137.6,170.3333
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP3","Add 30KAF",531.7226,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP3","Baseline",512.654,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP3","Reduce ET 30%",514.174,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP3","Reduce ET 50%",514.8169,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP5","Add 30KAF",506.6592,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP5","Baseline",488.9585,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP5","Reduce ET 30%",491.1856,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2030,"CMIP5","Reduce ET 50%",493.0662,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP3","Add 30KAF",733.1502,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP3","Baseline",711.7701,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP3","Reduce ET 30%",713.6855,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP3","Reduce ET 50%",714.794,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP5","Add 30KAF",730.7967,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP5","Baseline",709.8225,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP5","Reduce ET 30%",711.8138,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2030,"CMIP5","Reduce ET 50%",713.3861,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP3","Add 30KAF",509.4214,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP3","Baseline",493.2449,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP3","Reduce ET 30%",496.8811,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP3","Reduce ET 50%",498.8878,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP5","Add 30KAF",473.931,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP5","Baseline",456.6857,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP5","Reduce ET 30%",459.9391,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2030,"CMIP5","Reduce ET 50%",462.8315,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP3","Add 30KAF",827.8571,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP3","Baseline",806.5499,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP3","Reduce ET 30%",810.5353,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP3","Reduce ET 50%",813.6461,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP5","Add 30KAF",801.9168,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP5","Baseline",781.547,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP5","Reduce ET 30%",785.6318,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2030,"CMIP5","Reduce ET 50%",788.6034,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP3","Add 30KAF",632.0062,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP3","Baseline",613.494,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP3","Reduce ET 30%",616.4567,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP3","Reduce ET 50%",618.456,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP5","Add 30KAF",704.8375,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP5","Baseline",685.8091,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP5","Reduce ET 30%",689.2664,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2030,"CMIP5","Reduce ET 50%",691.7042,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP3","Add 30KAF",522.6798,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP3","Baseline",506.29,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP3","Reduce ET 30%",509.197,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP3","Reduce ET 50%",511.6263,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP5","Add 30KAF",535.7542,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP5","Baseline",517.6026,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP5","Reduce ET 30%",520.797,533.8601
+"Iron Gate Mean Spill Volume per Year","WD",2070,"CMIP5","Reduce ET 50%",523.1832,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP3","Add 30KAF",934.224,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP3","Baseline",913.0865,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP3","Reduce ET 30%",917.4902,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP3","Reduce ET 50%",921.0097,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP5","Add 30KAF",804.4523,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP5","Baseline",783.8572,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP5","Reduce ET 30%",786.9697,533.8601
+"Iron Gate Mean Spill Volume per Year","WW",2070,"CMIP5","Reduce ET 50%",789.2198,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP3","Add 30KAF",503.0186,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP3","Baseline",485.9708,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP3","Reduce ET 30%",492.6857,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP3","Reduce ET 50%",495.4437,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP5","Add 30KAF",521.4994,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP5","Baseline",505.8834,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP5","Reduce ET 30%",513.4298,533.8601
+"Iron Gate Mean Spill Volume per Year","HD",2070,"CMIP5","Reduce ET 50%",516.888,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP3","Add 30KAF",948.9509,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP3","Baseline",928.9193,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP3","Reduce ET 30%",936.6738,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP3","Reduce ET 50%",941.7989,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP5","Add 30KAF",971.7988,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP5","Baseline",951.7957,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP5","Reduce ET 30%",961.4467,533.8601
+"Iron Gate Mean Spill Volume per Year","HW",2070,"CMIP5","Reduce ET 50%",966.7332,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP3","Add 30KAF",774.4504,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP3","Baseline",754.2105,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP3","Reduce ET 30%",759.7491,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP3","Reduce ET 50%",763.6611,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP5","Add 30KAF",707.3745,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP5","Baseline",687.8628,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP5","Reduce ET 30%",693.2828,533.8601
+"Iron Gate Mean Spill Volume per Year","CT",2070,"CMIP5","Reduce ET 50%",697.5314,533.8601
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP3","Add 30KAF",25825.1502,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP3","Baseline",25394.6459,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP3","Reduce ET 30%",25448.3039,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP3","Reduce ET 50%",25492.9072,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP5","Add 30KAF",25326.9697,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP5","Baseline",24900.6662,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP5","Reduce ET 30%",25005.5951,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2030,"CMIP5","Reduce ET 50%",25064.8407,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP3","Add 30KAF",28164.3016,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP3","Baseline",27715.0688,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP3","Reduce ET 30%",27746.6651,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP3","Reduce ET 50%",27762.8102,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP5","Add 30KAF",27458.4202,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP5","Baseline",27029.5437,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP5","Reduce ET 30%",27089.8268,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2030,"CMIP5","Reduce ET 50%",27120.1843,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP3","Add 30KAF",23749.9236,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP3","Baseline",23371.6167,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP3","Reduce ET 30%",23532.1119,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP3","Reduce ET 50%",23627.2304,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP5","Add 30KAF",23724.9525,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP5","Baseline",23340.3422,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP5","Reduce ET 30%",23474.2121,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2030,"CMIP5","Reduce ET 50%",23568.7151,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP3","Add 30KAF",26864.9071,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP3","Baseline",26527.262,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP3","Reduce ET 30%",26629.4233,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP3","Reduce ET 50%",26699.087,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP5","Add 30KAF",26870.4689,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP5","Baseline",26524.9381,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP5","Reduce ET 30%",26638.2451,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2030,"CMIP5","Reduce ET 50%",26720.2567,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP3","Add 30KAF",26027.2985,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP3","Baseline",25595.2076,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP3","Reduce ET 30%",25714.7781,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP3","Reduce ET 50%",25782.5856,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP5","Add 30KAF",26388.9542,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP5","Baseline",25991.6784,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP5","Reduce ET 30%",26104.5934,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2030,"CMIP5","Reduce ET 50%",26172.2223,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP3","Add 30KAF",24485.9456,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP3","Baseline",24133.3771,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP3","Reduce ET 30%",24266.1219,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP3","Reduce ET 50%",24353.5064,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP5","Add 30KAF",24859.318,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP5","Baseline",24451.3807,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP5","Reduce ET 30%",24557.9773,26741.1142
+"Mean Annual Hydropower Generated (MW)","WD",2070,"CMIP5","Reduce ET 50%",24628.6562,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP3","Add 30KAF",28197.0027,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP3","Baseline",27828.3906,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP3","Reduce ET 30%",27921.2526,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP3","Reduce ET 50%",27991.4678,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP5","Add 30KAF",27812.3624,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP5","Baseline",27374.5849,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP5","Reduce ET 30%",27434.1526,26741.1142
+"Mean Annual Hydropower Generated (MW)","WW",2070,"CMIP5","Reduce ET 50%",27468.9751,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP3","Add 30KAF",22976.308,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP3","Baseline",22661.943,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP3","Reduce ET 30%",22888.1445,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP3","Reduce ET 50%",23011.707,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP5","Add 30KAF",23039.9411,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP5","Baseline",22714.8808,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP5","Reduce ET 30%",22967.2874,26741.1142
+"Mean Annual Hydropower Generated (MW)","HD",2070,"CMIP5","Reduce ET 50%",23087.5017,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP3","Add 30KAF",26848.6051,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP3","Baseline",26511.3132,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP3","Reduce ET 30%",26739.8716,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP3","Reduce ET 50%",26868.4624,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP5","Add 30KAF",26628.5484,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP5","Baseline",26283.7877,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP5","Reduce ET 30%",26519.8092,26741.1142
+"Mean Annual Hydropower Generated (MW)","HW",2070,"CMIP5","Reduce ET 50%",26674.4486,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP3","Add 30KAF",26272.841,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP3","Baseline",25923.4083,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP3","Reduce ET 30%",26068.8609,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP3","Reduce ET 50%",26156.2689,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP5","Add 30KAF",25531.8755,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP5","Baseline",25147.6534,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP5","Reduce ET 30%",25331.5785,26741.1142
+"Mean Annual Hydropower Generated (MW)","CT",2070,"CMIP5","Reduce ET 50%",25450.6356,26741.1142

@@ -1,0 +1,321 @@
+"measure","scenario","period","climset","strategy","value","value_hist"
+"Mean Annual Scott Flow","WD",2030,"CMIP3","Add 30KAF",629.2486,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP3","Baseline",629.2486,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP3","Reduce ET 30%",630.5846,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP3","Reduce ET 50%",631.6089,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP5","Add 30KAF",632.5014,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP5","Baseline",632.5014,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP5","Reduce ET 30%",633.8177,668.7854
+"Mean Annual Scott Flow","WD",2030,"CMIP5","Reduce ET 50%",634.8571,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP3","Add 30KAF",842.3987,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP3","Baseline",842.3987,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP3","Reduce ET 30%",843.3326,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP3","Reduce ET 50%",844.0362,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP5","Add 30KAF",827.2676,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP5","Baseline",827.2676,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP5","Reduce ET 30%",827.9518,668.7854
+"Mean Annual Scott Flow","WW",2030,"CMIP5","Reduce ET 50%",828.5148,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP3","Add 30KAF",613.0855,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP3","Baseline",613.0855,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP3","Reduce ET 30%",615.1236,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP3","Reduce ET 50%",616.8022,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP5","Add 30KAF",588.4362,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP5","Baseline",588.4362,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP5","Reduce ET 30%",589.9414,668.7854
+"Mean Annual Scott Flow","HD",2030,"CMIP5","Reduce ET 50%",591.2283,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP3","Add 30KAF",834.5261,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP3","Baseline",834.5261,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP3","Reduce ET 30%",836.4532,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP3","Reduce ET 50%",837.9692,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP5","Add 30KAF",806.3598,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP5","Baseline",806.3598,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP5","Reduce ET 30%",808.0506,668.7854
+"Mean Annual Scott Flow","HW",2030,"CMIP5","Reduce ET 50%",809.4466,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP3","Add 30KAF",712.1465,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP3","Baseline",712.1465,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP3","Reduce ET 30%",713.5683,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP3","Reduce ET 50%",714.6789,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP5","Add 30KAF",738.8394,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP5","Baseline",738.8394,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP5","Reduce ET 30%",740.2342,668.7854
+"Mean Annual Scott Flow","CT",2030,"CMIP5","Reduce ET 50%",741.3623,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP3","Add 30KAF",593.5264,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP3","Baseline",593.5264,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP3","Reduce ET 30%",595.4132,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP3","Reduce ET 50%",596.9744,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP5","Add 30KAF",618.6662,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP5","Baseline",618.6662,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP5","Reduce ET 30%",619.8416,668.7854
+"Mean Annual Scott Flow","WD",2070,"CMIP5","Reduce ET 50%",620.8246,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP3","Add 30KAF",880.7489,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP3","Baseline",880.7489,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP3","Reduce ET 30%",881.8964,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP3","Reduce ET 50%",882.8396,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP5","Add 30KAF",859.7871,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP5","Baseline",859.7871,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP5","Reduce ET 30%",859.9095,668.7854
+"Mean Annual Scott Flow","WW",2070,"CMIP5","Reduce ET 50%",860.1197,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP3","Add 30KAF",547.4564,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP3","Baseline",547.4564,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP3","Reduce ET 30%",550.4675,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP3","Reduce ET 50%",552.8526,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP5","Add 30KAF",563.7812,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP5","Baseline",563.7812,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP5","Reduce ET 30%",566.803,668.7854
+"Mean Annual Scott Flow","HD",2070,"CMIP5","Reduce ET 50%",569.0945,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP3","Add 30KAF",823.2052,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP3","Baseline",823.2052,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP3","Reduce ET 30%",825.1143,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP3","Reduce ET 50%",826.6372,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP5","Add 30KAF",839.7791,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP5","Baseline",839.7791,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP5","Reduce ET 30%",842.5903,668.7854
+"Mean Annual Scott Flow","HW",2070,"CMIP5","Reduce ET 50%",844.7185,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP3","Add 30KAF",755.673,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP3","Baseline",755.673,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP3","Reduce ET 30%",757.5572,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP3","Reduce ET 50%",759.0676,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP5","Add 30KAF",766.2631,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP5","Baseline",766.2631,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP5","Reduce ET 30%",767.9676,668.7854
+"Mean Annual Scott Flow","CT",2070,"CMIP5","Reduce ET 50%",769.3918,668.7854
+"Mean Annual Shasta Flow","WD",2030,"CMIP3","Add 30KAF",179.9013,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP3","Baseline",179.9013,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP3","Reduce ET 30%",180.4906,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP3","Reduce ET 50%",181.009,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP5","Add 30KAF",175.7829,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP5","Baseline",175.7829,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP5","Reduce ET 30%",176.9385,187.6871
+"Mean Annual Shasta Flow","WD",2030,"CMIP5","Reduce ET 50%",177.8569,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP3","Add 30KAF",217.7961,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP3","Baseline",217.7961,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP3","Reduce ET 30%",217.7904,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP3","Reduce ET 50%",217.8609,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP5","Add 30KAF",212.2924,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP5","Baseline",212.2924,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP5","Reduce ET 30%",212.5913,187.6871
+"Mean Annual Shasta Flow","WW",2030,"CMIP5","Reduce ET 50%",212.8666,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP3","Add 30KAF",173.102,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP3","Baseline",173.102,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP3","Reduce ET 30%",174.7543,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP3","Reduce ET 50%",176.1537,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP5","Add 30KAF",173.1132,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP5","Baseline",173.1132,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP5","Reduce ET 30%",173.8419,187.6871
+"Mean Annual Shasta Flow","HD",2030,"CMIP5","Reduce ET 50%",174.603,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP3","Add 30KAF",206.1746,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP3","Baseline",206.1746,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP3","Reduce ET 30%",207.5701,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP3","Reduce ET 50%",208.6852,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP5","Add 30KAF",209.9437,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP5","Baseline",209.9437,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP5","Reduce ET 30%",210.7404,187.6871
+"Mean Annual Shasta Flow","HW",2030,"CMIP5","Reduce ET 50%",211.4855,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP3","Add 30KAF",188.9612,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP3","Baseline",188.9612,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP3","Reduce ET 30%",190.2655,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP3","Reduce ET 50%",191.293,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP5","Add 30KAF",195.5116,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP5","Baseline",195.5116,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP5","Reduce ET 30%",196.0878,187.6871
+"Mean Annual Shasta Flow","CT",2030,"CMIP5","Reduce ET 50%",196.636,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP3","Add 30KAF",172.4926,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP3","Baseline",172.4926,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP3","Reduce ET 30%",173.5689,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP3","Reduce ET 50%",174.583,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP5","Add 30KAF",177.0495,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP5","Baseline",177.0495,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP5","Reduce ET 30%",177.4162,187.6871
+"Mean Annual Shasta Flow","WD",2070,"CMIP5","Reduce ET 50%",177.8528,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP3","Add 30KAF",223.0565,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP3","Baseline",223.0565,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP3","Reduce ET 30%",222.6338,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP3","Reduce ET 50%",222.4625,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP5","Add 30KAF",224.3609,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP5","Baseline",224.3609,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP5","Reduce ET 30%",222.7186,187.6871
+"Mean Annual Shasta Flow","WW",2070,"CMIP5","Reduce ET 50%",221.6878,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP3","Add 30KAF",159.4919,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP3","Baseline",159.4919,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP3","Reduce ET 30%",161.7972,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP3","Reduce ET 50%",163.8013,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP5","Add 30KAF",164.3148,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP5","Baseline",164.3148,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP5","Reduce ET 30%",166.2296,187.6871
+"Mean Annual Shasta Flow","HD",2070,"CMIP5","Reduce ET 50%",167.8642,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP3","Add 30KAF",208.8059,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP3","Baseline",208.8059,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP3","Reduce ET 30%",209.6221,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP3","Reduce ET 50%",210.436,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP5","Add 30KAF",214.1093,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP5","Baseline",214.1093,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP5","Reduce ET 30%",215.3419,187.6871
+"Mean Annual Shasta Flow","HW",2070,"CMIP5","Reduce ET 50%",216.4236,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP3","Add 30KAF",196.5632,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP3","Baseline",196.5632,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP3","Reduce ET 30%",197.3168,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP3","Reduce ET 50%",198.0679,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP5","Add 30KAF",198.2554,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP5","Baseline",198.2554,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP5","Reduce ET 30%",198.9174,187.6871
+"Mean Annual Shasta Flow","CT",2070,"CMIP5","Reduce ET 50%",199.6037,187.6871
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP3","Add 30KAF",1388.9935,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP3","Baseline",1366.7066,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP3","Reduce ET 30%",1369.1435,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP3","Reduce ET 50%",1370.376,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP5","Add 30KAF",1322.2676,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP5","Baseline",1299.3735,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP5","Reduce ET 30%",1304.0376,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2030,"CMIP5","Reduce ET 50%",1307.4504,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP3","Add 30KAF",1498.1395,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP3","Baseline",1478.3166,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP3","Reduce ET 30%",1481.3147,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP3","Reduce ET 50%",1483.3862,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP5","Add 30KAF",1484.0562,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP5","Baseline",1463.9046,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP5","Reduce ET 30%",1466.6778,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2030,"CMIP5","Reduce ET 50%",1468.9884,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP3","Add 30KAF",1279.0301,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP3","Baseline",1256.1549,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP3","Reduce ET 30%",1263.2747,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP3","Reduce ET 50%",1268.4014,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP5","Add 30KAF",1270.2047,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP5","Baseline",1247.6567,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP5","Reduce ET 30%",1254.6907,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2030,"CMIP5","Reduce ET 50%",1259.8615,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP3","Add 30KAF",1487.6463,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP3","Baseline",1467.6009,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP3","Reduce ET 30%",1473.7861,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP3","Reduce ET 50%",1478.208,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP5","Add 30KAF",1481.3384,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP5","Baseline",1461.5291,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP5","Reduce ET 30%",1467.6966,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2030,"CMIP5","Reduce ET 50%",1472.1508,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP3","Add 30KAF",1393.353,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP3","Baseline",1372.1452,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP3","Reduce ET 30%",1377.0365,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP3","Reduce ET 50%",1380.2383,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP5","Add 30KAF",1427.627,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP5","Baseline",1407.597,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP5","Reduce ET 30%",1412.8667,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2030,"CMIP5","Reduce ET 50%",1416.5688,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP3","Add 30KAF",1298.571,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP3","Baseline",1275.3916,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP3","Reduce ET 30%",1282.6932,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP3","Reduce ET 50%",1287.9586,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP5","Add 30KAF",1334.6663,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP5","Baseline",1311.9542,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP5","Reduce ET 30%",1317.4683,1377.9978
+"Mean Annual UKL Stg and Inflow","WD",2070,"CMIP5","Reduce ET 50%",1321.0846,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP3","Add 30KAF",1563.868,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP3","Baseline",1544.2551,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP3","Reduce ET 30%",1550.3661,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP3","Reduce ET 50%",1554.1082,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP5","Add 30KAF",1533.7912,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP5","Baseline",1514.5107,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP5","Reduce ET 30%",1518.0423,1377.9978
+"Mean Annual UKL Stg and Inflow","WW",2070,"CMIP5","Reduce ET 50%",1520.4991,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP3","Add 30KAF",1218.6365,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP3","Baseline",1195.9243,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP3","Reduce ET 30%",1207.4062,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP3","Reduce ET 50%",1215.1082,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP5","Add 30KAF",1236.6646,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP5","Baseline",1214.6988,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP5","Reduce ET 30%",1225.6695,1377.9978
+"Mean Annual UKL Stg and Inflow","HD",2070,"CMIP5","Reduce ET 50%",1233.1521,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP3","Add 30KAF",1493.4473,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP3","Baseline",1474.4483,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP3","Reduce ET 30%",1481.7982,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP3","Reduce ET 50%",1486.8628,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP5","Add 30KAF",1515.2555,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP5","Baseline",1495.9553,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP5","Reduce ET 30%",1504.2464,1377.9978
+"Mean Annual UKL Stg and Inflow","HW",2070,"CMIP5","Reduce ET 50%",1509.6848,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP3","Add 30KAF",1417.8674,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP3","Baseline",1397.6768,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP3","Reduce ET 30%",1405.271,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP3","Reduce ET 50%",1410.5579,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP5","Add 30KAF",1400.7487,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP5","Baseline",1381.3562,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP5","Reduce ET 30%",1388.1674,1377.9978
+"Mean Annual UKL Stg and Inflow","CT",2070,"CMIP5","Reduce ET 50%",1392.8515,1377.9978
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP3","Add 30KAF",361.5454,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP3","Baseline",357.2308,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP3","Reduce ET 30%",357.5844,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP3","Reduce ET 50%",357.8751,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP5","Add 30KAF",349.6558,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP5","Baseline",344.349,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP5","Reduce ET 30%",345.1977,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2030,"CMIP5","Reduce ET 50%",345.9287,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP3","Add 30KAF",371.7721,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP3","Baseline",369.2528,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP3","Reduce ET 30%",369.6506,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP3","Reduce ET 50%",369.9482,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP5","Add 30KAF",374.0289,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP5","Baseline",371.4376,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP5","Reduce ET 30%",371.9107,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2030,"CMIP5","Reduce ET 50%",372.2228,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP3","Add 30KAF",337.0918,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP3","Baseline",330.0919,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP3","Reduce ET 30%",331.8178,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP3","Reduce ET 50%",333.5105,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP5","Add 30KAF",345.5461,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP5","Baseline",339.2009,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP5","Reduce ET 30%",340.6088,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2030,"CMIP5","Reduce ET 50%",341.8316,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP3","Add 30KAF",368.3456,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP3","Baseline",365.0589,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP3","Reduce ET 30%",365.8671,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP3","Reduce ET 50%",366.4327,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP5","Add 30KAF",372.5027,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP5","Baseline",369.2656,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP5","Reduce ET 30%",369.9975,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2030,"CMIP5","Reduce ET 50%",370.5856,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP3","Add 30KAF",361.798,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP3","Baseline",357.9902,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP3","Reduce ET 30%",358.4929,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP3","Reduce ET 50%",358.8836,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP5","Add 30KAF",362.4209,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP5","Baseline",359.0016,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP5","Reduce ET 30%",359.6106,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2030,"CMIP5","Reduce ET 50%",360.1116,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP3","Add 30KAF",346.5027,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP3","Baseline",339.0871,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP3","Reduce ET 30%",341.1105,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP3","Reduce ET 50%",342.6326,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP5","Add 30KAF",353.9781,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP5","Baseline",348.7321,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP5","Reduce ET 30%",349.6375,361.3104
+"Mean Project Supply (Apr-Sep)","WD",2070,"CMIP5","Reduce ET 50%",350.3477,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP3","Add 30KAF",376.5777,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP3","Baseline",373.8168,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP3","Reduce ET 30%",374.4557,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP3","Reduce ET 50%",374.8926,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP5","Add 30KAF",375.1055,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP5","Baseline",372.4986,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP5","Reduce ET 30%",373.0194,361.3104
+"Mean Project Supply (Apr-Sep)","WW",2070,"CMIP5","Reduce ET 50%",373.3914,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP3","Add 30KAF",325.3669,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP3","Baseline",317.8179,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP3","Reduce ET 30%",320.8649,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP3","Reduce ET 50%",323.2803,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP5","Add 30KAF",329.1458,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP5","Baseline",321.1393,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP5","Reduce ET 30%",324.507,361.3104
+"Mean Project Supply (Apr-Sep)","HD",2070,"CMIP5","Reduce ET 50%",326.936,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP3","Add 30KAF",368.4573,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP3","Baseline",365.6945,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP3","Reduce ET 30%",366.4002,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP3","Reduce ET 50%",366.955,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP5","Add 30KAF",371.6534,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP5","Baseline",368.422,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP5","Reduce ET 30%",369.8137,361.3104
+"Mean Project Supply (Apr-Sep)","HW",2070,"CMIP5","Reduce ET 50%",370.6942,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP3","Add 30KAF",364.1494,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP3","Baseline",360.073,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP3","Reduce ET 30%",361.2039,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP3","Reduce ET 50%",361.9933,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP5","Add 30KAF",365.4316,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP5","Baseline",361.6493,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP5","Reduce ET 30%",362.5006,361.3104
+"Mean Project Supply (Apr-Sep)","CT",2070,"CMIP5","Reduce ET 50%",363.2184,361.3104
