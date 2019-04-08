@@ -1,0 +1,321 @@
+"measure","scenario","period","climset","strategy","value_hist","pctchange","colournm"
+"Mean Annual MWAT","1",2030,"CMIP3","Baseline",75.7443,3.56911345144123,"3"
+"Mean Annual MWAT","1",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",75.7443,3.44012684782881,"3"
+"Mean Annual MWAT","1",2030,"CMIP3","Add Flow
+10%",75.7443,3.09607455610521,"3"
+"Mean Annual MWAT","1",2030,"CMIP3","Add Flow
+20%",75.7443,2.72601370664196,"3"
+"Mean Annual MWAT","1",2030,"CMIP3","Reduce
+Tribs
+4degC",75.7443,-1.06833121436199,"2"
+"Mean Annual MWAT","1",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",75.7443,-0.36438385462668,"2"
+"Mean Annual MWAT","1",2030,"CMIP5","Baseline",75.7443,4.29339237407965,"3"
+"Mean Annual MWAT","1",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",75.7443,4.16440577046722,"3"
+"Mean Annual MWAT","1",2030,"CMIP5","Add Flow
+10%",75.7443,3.77163694165767,"3"
+"Mean Annual MWAT","1",2030,"CMIP5","Add Flow
+20%",75.7443,3.36091296638824,"3"
+"Mean Annual MWAT","1",2030,"CMIP5","Reduce
+Tribs
+4degC",75.7443,-0.267082803590493,"2"
+"Mean Annual MWAT","1",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",75.7443,0.355274258261029,"3"
+"Mean Annual MWAT","2",2030,"CMIP3","Baseline",75.7443,4.19490311482185,"3"
+"Mean Annual MWAT","2",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",75.7443,4.10552345192972,"3"
+"Mean Annual MWAT","2",2030,"CMIP3","Add Flow
+10%",75.7443,3.63367276481531,"3"
+"Mean Annual MWAT","2",2030,"CMIP3","Add Flow
+20%",75.7443,3.20591780503616,"3"
+"Mean Annual MWAT","2",2030,"CMIP3","Reduce
+Tribs
+4degC",75.7443,-0.381414839136408,"2"
+"Mean Annual MWAT","2",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",75.7443,0.254540605695749,"3"
+"Mean Annual MWAT","2",2030,"CMIP5","Baseline",75.7443,4.92142643076773,"3"
+"Mean Annual MWAT","2",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",75.7443,4.84894572924961,"3"
+"Mean Annual MWAT","2",2030,"CMIP5","Add Flow
+10%",75.7443,4.32613411174175,"3"
+"Mean Annual MWAT","2",2030,"CMIP5","Add Flow
+20%",75.7443,3.88491279211769,"3"
+"Mean Annual MWAT","2",2030,"CMIP5","Reduce
+Tribs
+4degC",75.7443,0.354218073175157,"3"
+"Mean Annual MWAT","2",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",75.7443,0.951622762372893,"3"
+"Mean Annual MWAT","3",2030,"CMIP3","Baseline",75.7443,5.81878768435382,"3"
+"Mean Annual MWAT","3",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",75.7443,5.72716362815421,"3"
+"Mean Annual MWAT","3",2030,"CMIP3","Add Flow
+10%",75.7443,5.2734001106354,"3"
+"Mean Annual MWAT","3",2030,"CMIP3","Add Flow
+20%",75.7443,4.85686711739366,"3"
+"Mean Annual MWAT","3",2030,"CMIP3","Reduce
+Tribs
+4degC",75.7443,1.3330376015093,"3"
+"Mean Annual MWAT","3",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",75.7443,1.9192203241696,"3"
+"Mean Annual MWAT","3",2030,"CMIP5","Baseline",75.7443,6.30885756419957,"3"
+"Mean Annual MWAT","3",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",75.7443,6.21828969308583,"3"
+"Mean Annual MWAT","3",2030,"CMIP5","Add Flow
+10%",75.7443,5.76452617556702,"3"
+"Mean Annual MWAT","3",2030,"CMIP5","Add Flow
+20%",75.7443,5.35261399207597,"3"
+"Mean Annual MWAT","3",2030,"CMIP5","Reduce
+Tribs
+4degC",75.7443,1.76871394943251,"3"
+"Mean Annual MWAT","3",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",75.7443,2.35265227878535,"3"
+"Mean Annual MWAT","4",2030,"CMIP3","Baseline",75.7443,6.38345063588945,"3"
+"Mean Annual MWAT","4",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",75.7443,6.32575652557355,"3"
+"Mean Annual MWAT","4",2030,"CMIP3","Add Flow
+10%",75.7443,5.78934652508507,"3"
+"Mean Annual MWAT","4",2030,"CMIP3","Add Flow
+20%",75.7443,5.32422901789311,"3"
+"Mean Annual MWAT","4",2030,"CMIP3","Reduce
+Tribs
+4degC",75.7443,1.94179628038019,"3"
+"Mean Annual MWAT","4",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",75.7443,2.50989183344489,"3"
+"Mean Annual MWAT","4",2030,"CMIP5","Baseline",75.7443,6.32575652557355,"3"
+"Mean Annual MWAT","4",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",75.7443,6.24311004260387,"3"
+"Mean Annual MWAT","4",2030,"CMIP5","Add Flow
+10%",75.7443,5.72940802146169,"3"
+"Mean Annual MWAT","4",2030,"CMIP5","Add Flow
+20%",75.7443,5.26996750910631,"3"
+"Mean Annual MWAT","4",2030,"CMIP5","Reduce
+Tribs
+4degC",75.7443,1.78574493394224,"3"
+"Mean Annual MWAT","4",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",75.7443,2.41153459732283,"3"
+"Mean Annual MWAT","5",2030,"CMIP3","Baseline",75.7443,5.45097122819803,"3"
+"Mean Annual MWAT","5",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",75.7443,5.35591457046934,"3"
+"Mean Annual MWAT","5",2030,"CMIP3","Add Flow
+10%",75.7443,4.88406388335493,"3"
+"Mean Annual MWAT","5",2030,"CMIP3","Add Flow
+20%",75.7443,4.48575008284452,"3"
+"Mean Annual MWAT","5",2030,"CMIP3","Reduce
+Tribs
+4degC",75.7443,0.926802412854826,"3"
+"Mean Annual MWAT","5",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",75.7443,1.55364826132131,"3"
+"Mean Annual MWAT","5",2030,"CMIP5","Baseline",75.7443,5.34350439571032,"3"
+"Mean Annual MWAT","5",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",75.7443,5.24963594620323,"3"
+"Mean Annual MWAT","5",2030,"CMIP5","Add Flow
+10%",75.7443,4.79468422046281,"3"
+"Mean Annual MWAT","5",2030,"CMIP5","Add Flow
+20%",75.7443,4.3770950421352,"3"
+"Mean Annual MWAT","5",2030,"CMIP5","Reduce
+Tribs
+4degC",75.7443,0.816959163923896,"3"
+"Mean Annual MWAT","5",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",75.7443,1.41568408447896,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP3","Baseline",12.0643,22.4082623940055,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",12.0643,21.5984350521788,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP3","Add Flow
+10%",12.0643,19.4383428794045,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP3","Add Flow
+20%",12.0643,17.1149590112978,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP3","Reduce
+Tribs
+4degC",12.0643,-6.7073928864501,"2"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",12.0643,-2.2877415183641,"2"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP5","Baseline",12.0643,26.9555631076813,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",12.0643,26.1457357658546,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP5","Add Flow
+10%",12.0643,23.6797824987774,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP5","Add Flow
+20%",12.0643,21.1010999394909,"3"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP5","Reduce
+Tribs
+4degC",12.0643,-1.67684822161252,"2"
+"Mean exceedence of MWAT - Poor","1",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",12.0643,2.230547980405,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP3","Baseline",12.0643,26.3372097842395,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",12.0643,25.7760499987567,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP3","Add Flow
+10%",12.0643,22.8135905108461,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP3","Add Flow
+20%",12.0643,20.1279809023317,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP3","Reduce
+Tribs
+4degC",12.0643,-2.39466856759199,"2"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",12.0643,1.59810349543695,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP5","Baseline",12.0643,30.8986016594415,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",12.0643,30.4435400313321,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP5","Add Flow
+10%",12.0643,27.1611282875923,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP5","Add Flow
+20%",12.0643,24.390971709921,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP5","Reduce
+Tribs
+4degC",12.0643,2.22391684556916,"3"
+"Mean exceedence of MWAT - Poor","2",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",12.0643,5.97465248709001,"3"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP3","Baseline",12.0643,36.5325795943403,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",12.0643,35.9573286473314,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP3","Add Flow
+10%",12.0643,33.1084273434845,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP3","Add Flow
+20%",12.0643,30.4932735426009,"3"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP3","Reduce
+Tribs
+4degC",12.0643,8.369321054682,"3"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",12.0643,12.0496008885721,"3"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP5","Baseline",12.0643,39.6094261581691,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",12.0643,39.040806345996,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP5","Add Flow
+10%",12.0643,36.1919050421491,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP5","Add Flow
+20%",12.0643,33.6057624561724,"4"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP5","Reduce
+Tribs
+4degC",12.0643,11.1046641744652,"3"
+"Mean exceedence of MWAT - Poor","3",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",12.0643,14.7708528468291,"3"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP3","Baseline",12.0643,40.0777500559502,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",12.0643,39.7155243155426,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP3","Add Flow
+10%",12.0643,36.3477367107914,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP3","Add Flow
+20%",12.0643,33.4275507074592,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP3","Reduce
+Tribs
+4degC",12.0643,12.1913413956881,"3"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",12.0643,15.7580630455145,"3"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP5","Baseline",12.0643,39.7155243155426,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",12.0643,39.1966380146382,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP5","Add Flow
+10%",12.0643,35.9714198088575,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP5","Add Flow
+20%",12.0643,33.086876155268,"4"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP5","Reduce
+Tribs
+4degC",12.0643,11.2115912236931,"3"
+"Mean exceedence of MWAT - Poor","4",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",12.0643,15.140538613927,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP3","Baseline",12.0643,34.2232868877598,"4"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP3","Reduce
+Shasta
+Scott
+4degC",12.0643,33.6264847525343,"4"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP3","Add Flow
+10%",12.0643,30.6640252646237,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP3","Add Flow
+20%",12.0643,28.1632585396583,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP3","Reduce
+Tribs
+4degC",12.0643,5.81882081844782,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP3","Reduce
+Dam
+Outflow
+4degC",12.0643,9.75439934351765,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP5","Baseline",12.0643,33.5485689182132,"4"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP5","Reduce
+Shasta
+Scott
+4degC",12.0643,32.9592268096782,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP5","Add Flow
+10%",12.0643,30.1028654791409,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP5","Add Flow
+20%",12.0643,27.4810805434215,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP5","Reduce
+Tribs
+4degC",12.0643,5.12918279552067,"3"
+"Mean exceedence of MWAT - Poor","5",2030,"CMIP5","Reduce
+Dam
+Outflow
+4degC",12.0643,8.88820735558632,"3"
