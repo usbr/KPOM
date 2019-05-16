@@ -1,0 +1,36 @@
+# RiverWare_Ruleset 7.4.4 Patch
+# Created 15:59 May 9, 2019
+# 
+RULESET
+NAME "KBS_DamsIn_DecisionModel";
+AGENDA_ORDER ASCENDING;
+DESCRIPTION "";
+PRECISION   8;
+NOTES "";
+BEGIN
+
+  POLICY_GROUP   "Lost River Operations";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Gerber Dam Target  Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      $ "ReservoirOperations.TargetRelease" [@"t", "Gerber Reservoir"] := IF ( "DecisionDate"( @"t", $ "ReservoirData.DecisionDates", "Normal" ) OR $ "Clear Lake.Pool Elevation" [@"t - 1"] > 0.50000000 * ( $ "ReservoirOperations.TargetElevation" [@"t", "Gerber Reservoir"] + $ "ReservoirData.MaxElevation" [@"t", "Gerber Reservoir"] ) OR $ "ReservoirOperations.TargetRelease" [@"t - 1", "Gerber Reservoir"] > 0.00000000 "cms" )
+ THEN
+  "AverageDailyFlowForVolume"( "SurplusVolumeBySlotWithErrAndLosses"( % "Gerber Reservoir", "Gerber Reservoir", $ "Gerber Reservoir.Inflow", $ "ReservoirData.WilliamsonPercentForecastError", "EstimateSeepage"( $ "ProjectData.LostRiverSeepageRates", "Gerber Reservoir", "GetMeanArea"( % "Clear Lake", "PreviousStorage"( % "Gerber Reservoir" ), "DailyTargetStorage"( % "Gerber Reservoir", "Gerber Reservoir", "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) ) ), "DateMin"( @"t", @"Finish Timestep" ), "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) )
+ ELSE
+  $ "ReservoirOperations.TargetRelease" [@"t - 1", "Gerber Reservoir"]
+ ENDIF;
+
+    END;
+
+  END;
+
+END
