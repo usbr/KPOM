@@ -1,0 +1,3434 @@
+# RiverWare_Ruleset 7.4.4 Patch
+# Created 11:49 May 16, 2019
+# 
+RULESET
+NAME "Klamath Operations RBS ruleset";
+AGENDA_ORDER ASCENDING;
+DESCRIPTION "";
+PRECISION   3;
+NOTES "";
+BEGIN
+
+  POLICY_GROUP   "Summer Operations";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Compute UKL for River";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            $ "UKL.For River" [] := "Min"( $ "UKL.Max Outflow" [], $ "UKL.For IGD" [] + $ "UKL.For IGD Ramping" [] + $ "UKL.For Flood Control" [] + $ "UKL.For Proj Igmin" [] + $ "UKL.Corrected Override Flow" [] + $ "IGD.Corrected Override Flow" [@"t + 7"] );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set IGD Outflow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC Override = IF ( IsNaN $ "IGD.Override Flow" [@"t + 7"] )
+ THEN
+  IF ( $ "IGD.Prelim Outflow" [@"t + 7"] < $ "IGD.ScheduledRampdownFlow" [@"t + 7"] )
+  THEN
+   $ "IGD.ScheduledRampdownFlow" [@"t + 7"]
+  ELSE
+   $ "IGD.Prelim Outflow" [@"t + 7"]
+  ENDIF
+  ELSEIF_COND ( $ "IGD.Prelim Outflow" [@"t + 7"] < $ "IGD.Proj Min" [@"t + 7", 0.00000000] )
+  ELSEIF_CLAUSE ( $ "IGD.Proj Min" [@"t + 7", 0.00000000] )
+  END_ELSEIF
+ ELSE
+  $ "IGD.Override Flow" [@"t + 7"]
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC Outflow = "MaxItem"( { $ "IGD.MinRelease" [@"t + 7"] , $ "IGD.Proj Min" [@"t + 7", 0.00000000] , Override } ) + $ "UKL.Corrected Override Flow" []) DO
+            $ "IGD.Final Est Outflow" [@"t + 7"] := Outflow;
+
+            $ "IGD.Outflow" [@"t + 7"] := IF ( "Operation Start - 7"(  ) AND "BeforeJune"(  ) )
+ THEN
+  Outflow
+ ENDIF
+ ELSEIF_COND ( "Operation Start - 7"(  ) )
+ ELSEIF_CLAUSE ( Outflow + $ "IGD.Corrected Override Flow" [@"t + 7"] - $ "UKL.Corrected Override Flow" [] )
+ END_ELSEIF;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Corrected Override Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            $ "UKL.Corrected Override Flow" [] := IF ( IsNaN $ "UKL.Override Flow" [] )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "UKL.Override Flow" [] - ( $ "UKL.For IGD" [] + $ "UKL.For IGD Ramping" [] + $ "UKL.For Flood Control" [] + $ "UKL.For Proj Igmin" [] + $ "IGD.Corrected Override Flow" [@"t + 7"] )
+ ENDIF;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Ramping & Proj Min Release for IGD";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            WITH_STATEMENT (NUMERIC Ramping = IF ( "Winter Spring Transition"(  ) )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  "Max"( 0.00000000 "cfs", $ "IGD.MinRelease" [@"t + 7"] - $ "IGD.Prelim Outflow" [@"t + 7"] )
+ ENDIF) DO
+            $ "UKL.For IGD Ramping" [] := Ramping;
+
+      END_WITH_STATEMENT;
+
+            $ "UKL.For Proj Igmin" [] := "Max"( 0.00000000 "cfs", $ "IGD.Proj Min" [@"t + 7", 0.00000000] - "Max"( $ "IGD.Prelim Outflow" [@"t + 7"], IF ( IsNaN $ "IGD.Override Flow" [@"t + 7"] )
+ THEN
+  "Max"( $ "IGD.MinRelease" [@"t + 7"], $ "IGD.ScheduledRampdownFlow" [@"t + 7"] )
+ ELSE
+  $ "IGD.MinRelease" [@"t + 7"]
+ ENDIF ) );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL for Flood Control";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            $ "UKL.For Flood Control" [] := "Max"( 0.00000000 "cfs", $ "UKL.Flood Release" [] - $ "UKL.For IGD" [] );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute IGD Corrected Override Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            $ "IGD.Corrected Override Flow" [@"t + 7"] := IF ( IsNaN $ "IGD.Override Flow" [@"t + 7"] )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "IGD.Override Flow" [@"t + 7"] - "Max"( $ "IGD.Proj Min" [@"t + 7"], $ "IGD.Prelim Outflow" [@"t + 7"] )
+ ENDIF;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute IGD Preliminary Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC LRDC = IF ( "Operations Period"(  ) )
+ THEN
+  $ "Lost River Diversion Channel.Outflow" []
+ ELSE
+  $ "Lost River To Klamath River.Inflow2" []
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC FandFF = "Max"( 0.00000000 "cfs", $ "F and FF Pump.Outflow" [] - $ "Refuge.Discharge To Drain" [] )) DO
+            $ "IGD.Prelim Outflow" [@"t + 7"] := $ "Lake Ewuana Gain.Local Inflow" [] + $ "UKL.For IGD" [] + $ "UKL.For Flood Control" [] + $ "Ag Sheet.Pacificorp Accretions" [@"t + 7"] + FandFF + LRDC - $ "Lost River Diversion Channel.To North" [] - $ "Lost River Diversion Channel.To Ady" [];
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL for IGD";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            WITH_STATEMENT (NUMERIC Accrete = IF ( "Winter Spring Transition"(  ) )
+ THEN
+  "WSTransitionNetAccrete"(  )
+ ELSE
+  $ "Ag Sheet.Net Accrete" []
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC SprFillRate = IF ( @"t" < @"24:00:00 June 1, Current Year" )
+ THEN
+  $ "UKL.Spring Fill Rate" []
+ ELSE
+  1.00000000
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC EWAReserve = IF ( @"t" < @"24:00:00 June 1, Current Year" )
+ THEN
+  $ "Dashboard Controls.EWA Reserve" []
+ ELSE
+  0.50000000 * $ "Dashboard Controls.EWA Reserve" []
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC LimitingIGmax = IF ( @"t" < @"24:00:00 June 24, Current Year" )
+ THEN
+  100000.00000000 "cfs"
+ ELSE
+  "IGmaxBoundonUKL"(  )
+ ENDIF) DO
+            $ "UKL.For IGD" [] := "Min"( LimitingIGmax, IF ( @"t" < @"24:00:00 July 1, Current Year" )
+ THEN
+  "Max"( 0.00000000 "cfs", SprFillRate * $ "Williamson River Inflow.Cumulative Proportion" [] * "VolumeToFlow"( $ "Dashboard Controls.EWA" [] - EWAReserve - $ "Dashboard Controls.EWA Used" [], @"t" ) - $ "UKL.For IGD Ramping" [@"t - 1"] - $ "UKL.For Flood Control" [@"t - 1"] - Accrete )
+ ELSE
+  $ "Dashboard Controls.EWA Remain JS" [] / "GetDaysInMonth"( "EndOfMonthDate"( @"t" ) + 1.00000000 "day" )
+ ENDIF );
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute IGD Summer Ramping";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC Rampdown = IF ( $ "IGD.Final Est Outflow" [@"t + 6"] < 1900.00000000 "cfs" )
+ THEN
+  150.00000000 "cfs"
+ ELSE
+  300.00000000 "cfs"
+ ENDIF
+ ELSEIF_COND ( $ "IGD.Final Est Outflow" [@"t + 6"] > 3300.00000000 "cfs" )
+ ELSEIF_CLAUSE ( 600.00000000 "cfs" )
+ END_ELSEIF) DO
+            $ "IGD.ScheduledRampdownFlow" [@"t + 7"] := $ "IGD.Final Est Outflow" [@"t + 6"] - Rampdown;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Spring Fill Rate";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            WITH_STATEMENT (BOOLEAN Criteria = IF ( "SummerOps"(  ) )
+ THEN
+  @"t" < @"24:00:00 June 1, Current Year" AND $ "UKL.Max Summer Elevation" [@"t - 2"] + $ "UKL.Max Summer Elevation" [@"t - 6"] < 2.00000000 * $ "UKL.Max Summer Elevation" [@"t - 1"]
+ ELSE
+  TRUE
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC YestElev = IF ( @"t" == @"24:00:00 February 22, Current Year" )
+ THEN
+  $ "UKL.Pool Elevation" []
+ ELSE
+  $ "UKL.Pool Elevation" [@"t - 1"]
+ ENDIF) DO
+            IF_STATEMENT (Criteria) THEN
+            $ "UKL.Spring Fill Rate" [] := "Min"( 1.00000000, ( YestElev - 4136.00000000 "ft" ) / ( $ "UKL.Target Fill Level" [] - 4136.00000000 "ft" ) );
+
+      ELSE
+            $ "UKL.Spring Fill Rate" [] := 1.00000000;
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Max Elevation";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            WITH_STATEMENT (NUMERIC PrevMaxElev = IF ( IsNaN $ "UKL.Max Summer Elevation" [@"t - 1"] )
+ THEN
+  0.00000000 "ft"
+ ELSE
+  $ "UKL.Max Summer Elevation" [@"t - 1"]
+ ENDIF) DO
+            $ "UKL.Max Summer Elevation" [] := "Max"( PrevMaxElev, $ "UKL.Pool Elevation" [] );
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Williamson Cumulative Proportion";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC Cumulative = IF ( "Winter Spring Transition"(  ) )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "Williamson River Inflow.Summer Cum Inflow" []
+ ENDIF) DO
+            $ "Williamson River Inflow.Cumulative Proportion" [] := "FlowToVolume"( $ "Williamson River Inflow.Inflow" [@"t - 1"], @"t" ) / ( $ "Williamson River Inflow.50Vol" [] - Cumulative );
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Williamson Cumulative Inflow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC Cumulative = IF ( IsNaN $ "Williamson River Inflow.Summer Cum Inflow" [@"t - 1"] )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "Williamson River Inflow.Summer Cum Inflow" [@"t - 1"]
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC SummerFlow = IF ( @"t" == @"24:00:00 March 1, Current Year" )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  "FlowToVolume"( $ "Williamson River Inflow.Inflow" [@"t - 1"], @"t" )
+ ENDIF) DO
+            $ "Williamson River Inflow.Summer Cum Inflow" [] := Cumulative + SummerFlow;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute EWA Remain";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            WITH_STATEMENT (NUMERIC CumUKLFor = IF ( IsNaN $ "UKL.Cumulative For" [@"t - 1"] )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "UKL.Cumulative For" [@"t - 1"] + "Max"( 0.00000000 "acre-ft", "FlowToVolume"( $ "UKL.For IGD Ramping" [@"t - 1"] + $ "UKL.For Flood Control" [@"t - 1"] + $ "IGD.Corrected Override Flow" [@"t - 1"], @"t" ) )
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC RemainMin = IF ( @"t" < @"24:00:00 June 1, Current Year" OR CumUKLFor < 0.22000000 * $ "Dashboard Controls.EWA" [] )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "Dashboard Controls.EWA" [] * $ "Dashboard Controls.Remain Factor" [@"t", "Summer"]
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC Result = IF ( @"t" == "BeginOfMonthDate"( @"t" ) AND "MarchThruSeptember"(  ) )
+ THEN
+  "Max"( RemainMin, $ "Dashboard Controls.EWA" [] - $ "Dashboard Controls.EWA Used" [] )
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF
+ ELSEIF_COND ( "MarchThruSeptember"(  ) )
+ ELSEIF_CLAUSE ( $ "Dashboard Controls.EWA Remain" [@"t - 1"] )
+ END_ELSEIF) DO
+            $ "Dashboard Controls.EWA Remain" [] := Result;
+
+            $ "UKL.Cumulative For" [] := CumUKLFor;
+
+            $ "Dashboard Controls.EWA Remain JS" [] := IF ( "JulyThruSeptember"(  ) )
+ THEN
+  Result * $ "Dashboard Controls.Remain Factor" [@"t", "JulySep"]
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute EWA Used";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC LRDCdeficit = $ "Lost River Diversion Channel.Inflow" [@"t - 1"] - $ "Station 48.Diversion Request" [@"t - 1"] - $ "Miller Hill Pump.Diversion Request" [@"t - 1"] - $ "Ady Canal Split.Outflow" [@"t - 1"] - $ "North Canal.Diversion Request" [@"t - 1"]) DO
+            WITH_STATEMENT (NUMERIC ActualRiverFlow = IF ( LRDCdeficit > 0.00000000 "cfs" )
+ THEN
+  $ "Link River.Inflow" [@"t - 1"]
+ ELSE
+  $ "Link River.Inflow" [@"t - 1"] + LRDCdeficit
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC Flushing = IF ( @"t" <= @"24:00:00 May 1, Current Year" )
+ THEN
+  $ "Dilution and Flushing.Surface or Deep" [@"t - 1"]
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF
+ ELSEIF_COND ( @"t" <= @"24:00:00 June 15, Current Year" )
+ ELSEIF_CLAUSE ( $ "Dilution and Flushing.Flow" [@"t - 1"] )
+ END_ELSEIF) DO
+            WITH_STATEMENT (NUMERIC Result = IF ( @"t" <= @"24:00:00 March 1, Current Year" )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "Dashboard Controls.EWA Used" [@"t - 1"] + "FlowToVolume"( ActualRiverFlow, @"t" ) - "FlowToVolume"( $ "UKL.For Proj Igmin" [@"t - 1"], @"t" ) + Flushing + "FlowToVolume"( $ "F and FF Pump.Outflow Reduction" [@"t - 1"], @"t" ) + $ "Ag Sheet.Pacificorp Borrow" [@"t - 1"]
+ ENDIF
+ ELSEIF_COND ( "Operations Period"(  ) )
+ ELSEIF_CLAUSE ( $ "Dashboard Controls.EWA Used" [@"t - 1"] + "FlowToVolume"( $ "UKL.For River" [@"t - 1"], @"t" ) + $ "Ag Sheet.Sukraw Well Pumping" [@"t + 7"] )
+ END_ELSEIF) DO
+            $ "Dashboard Controls.EWA Used" [] := Result;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute EWA Reserve";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            $ "Dashboard Controls.EWA Reserve" [] := "TableLookup"( $ "Dashboard Controls.EWA Reserve Table", 0.00000000, 1.00000000, $ "Dashboard Controls.EWA" [], @"t", TRUE );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute EWA & Will50";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SummerOps"(  ) OR "Winter Spring Transition"(  )) THEN
+            $ "Dashboard Controls.EWA" [@"t + 1"] := $ "Dashboard Controls.EWA" [];
+
+            $ "Williamson River Inflow.50Vol" [@"t + 1"] := $ "Williamson River Inflow.50Vol" [];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute F AND FF Pump Outflow Reduction";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Winter Spring Transition"(  ) OR "SummerOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC Borrow = IF ( IsNaN $ "Refuge.Discharge To Drain" [] )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "Refuge.Discharge To Drain" []
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC Reduction = IF ( "Operations Period"(  ) )
+ THEN
+  Borrow
+ ELSE
+  "Min"( Borrow, $ "F and FF Pump.Outflow" [] )
+ ENDIF) DO
+            $ "F and FF Pump.Outflow Reduction" [] := Reduction;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+  END;
+
+  POLICY_GROUP   "Winter Operations";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NAMES_COLOR  "#000000";
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Set IGD Outflow and Compute Rampdown";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC RampAdj = IF ( $ "IGD.Outflow" [@"t - 1"] < $ "IGD.Ramping Adjustments" [0.00000000, "IGD Outflow"] )
+ THEN
+  $ "IGD.Ramping Adjustments" [0.00000000, "Ramping Adj"]
+ ELSE
+  $ "IGD.Outflow" [@"t - 1"] - $ "IGD.Ramping Adjustments" [2.00000000, "Ramping Adj"]
+ ENDIF
+ ELSEIF_COND ( $ "IGD.Outflow" [@"t - 1"] < $ "IGD.Ramping Adjustments" [1.00000000, "IGD Outflow"] )
+ ELSEIF_CLAUSE ( $ "IGD.Ramping Adjustments" [1.00000000, "Ramping Adj"] )
+ END_ELSEIF) DO
+            WITH_STATEMENT (NUMERIC NoRampdown = "Max"( $ "IGD.MinRelease" [], $ "IGD.WFloodorTargetFlow" [] )) DO
+            WITH_STATEMENT (NUMERIC ScheduledRampdown = "Max"( $ "IGD.ScheduledRampdownFlow" [@"t - 1"] - RampAdj, NoRampdown )) DO
+            $ "IGD.ActualRampdownFlow" [] := "Max"( $ "IGD.Outflow" [@"t - 1"] - RampAdj, NoRampdown );
+
+            $ "IGD.NoRampdownFlow" [] := NoRampdown;
+
+            $ "IGD.ScheduledRampdownFlow" [] := ScheduledRampdown;
+
+            IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "IGD.Outflow" [] := ScheduledRampdown;
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute IGD General Flow Components";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC FALSE;
+    BREAKPOINT AFTER_EXEC FALSE;
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            $ "IGD.WLinkMinFlow" [] := $ "Ag Sheet.Net Accrete" [@"t - 7"] + $ "Link River.Min Release" [@"t - 7"];
+
+            $ "IGD.WLinkReleaseFlow" [] := $ "Ag Sheet.Net Accrete" [@"t - 7"] + $ "Link River.Fall Winter Release" [@"t - 7"];
+
+            $ "IGD.WFloodorTargetFlow" [] := $ "Ag Sheet.Net Accrete" [@"t - 7"] + "Max"( $ "Link River.Fall Winter Target" [@"t - 7"], $ "UKL.Flood Release" [@"t - 7"] );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set UKL Outflow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "UKL.Outflow" [] := $ "Link River.Fall Winter Target" [] + $ "UKL.Ag Demand" [] - $ "A Canal.Diversion Request" [];
+
+            $ "UKL.Projected Outflow" [] := $ "Link River.Fall Winter Target" [] + $ "UKL.Ag Demand" [] - $ "A Canal.Diversion Request" [];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Link Fall Winter Target";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC OptRelease = IF ( IsNaN $ "UKL.FillRateAdjust" [] )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "Link River.Fall Winter Release" []
+ ENDIF) DO
+            $ "Link River.Fall Winter Target" [] := "MaxItem"( { $ "Link River.Min Release" [] , $ "Link River.Release for IGD Min" [] , OptRelease } );
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Link Release Fall Winter";
+    DESCRIPTION          "Rewrite cutoff dates to work for any given years, possibly assigning a user-defined function or an and logic constraint";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC OctNovAug = IF ( @"t" < @"24:00:00 November 9, 2018" )
+ THEN
+  $ "Ag Sheet.OctNov Augment" []
+ ELSE
+  0.00000000 "cfs"
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC AdjFactor = IF ( @"t" < @"24:00:00 November 9, 2018" )
+ THEN
+  1.00000000
+ ELSE
+  1.00000000
+ ENDIF
+ ELSEIF_COND ( $ "UKL.CumInfIndex" [] < 0.30000000 )
+ ELSEIF_CLAUSE ( IF ( IsNaN $ "UKL.FillRateAdjust" [] )
+ THEN
+  1.00000000
+ ELSE
+  $ "UKL.FillRateAdjust" []
+ ENDIF )
+ END_ELSEIF) DO
+            $ "Link River.Fall Winter Release" [] := $ "Williamson River Inflow.Inflow" [@"t - 1"] * $ "Ag Sheet.Accrete Adj Factor" [] * $ "Williamson River Inflow.Proportion Factor" [] * AdjFactor + OctNovAug;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Link Release for IGD Min";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            $ "Link River.Release for IGD Min" [] := $ "IGD.MinRelease" [@"t + 7"] - $ "Ag Sheet.Net Accrete" [];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Accretion Adj Factor";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            $ "Ag Sheet.Accrete Adj Factor" [] := "TableInterpolation"( $ "Ag Sheet.Net Accrete Adj Table", "GetColumnIndex"( $ "Ag Sheet.Net Accrete Adj Table", "GetMonthAsString"( @"t" ) CONCAT " Net Accrete" ), "GetColumnIndex"( $ "Ag Sheet.Net Accrete Adj Table", "GetMonthAsString"( @"t" ) CONCAT " Accrete Adj" ), $ "Ag Sheet.Net Accrete" [], @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Fill Rate Adjust";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC ColumnNum = IF ( $ "UKL.CumInfIndex" [] < 0.30000000 )
+ THEN
+  2.00000000
+ ELSE
+  1.00000000
+ ENDIF) DO
+            $ "UKL.FillRateAdjust" [] := "TableInterpolation"( $ "UKL.Fill Rate Adj Table", 0.00000000, ColumnNum, $ "UKL.FillRateDiff" [], @"t" );
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Fill Rates";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC FALSE;
+    BREAKPOINT AFTER_EXEC FALSE;
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            WITH_STATEMENT (NUMERIC Recent = ( $ "UKL.Pool Elevation" [@"t"] - $ "UKL.Pool Elevation" [@"t - 7"] ) / 7.00000000 "day") DO
+            WITH_STATEMENT (NUMERIC Needed = ( $ "UKL.TargetElevation" [@"24:00:00 March 1, 2019"] - $ "UKL.Pool Elevation" [] ) / ( 151.00000000 "day" - ( @"t" - @"24:00:00 October 1, 2018" ) )) DO
+            $ "UKL.FillRateDiff" [] := Recent - Needed;
+
+            $ "UKL.RecentFillRate" [] := Recent;
+
+            $ "UKL.NeededFillRate" [] := Needed;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Cumulative Inflow Index";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SeptemberThruFebruary"(  )) THEN
+            WITH_STATEMENT (NUMERIC CumInflow = $ "UKL.CumInflow" [@"t - 1"] + "FlowToVolume"( $ "UKL.Inflow" [], @"t" )) DO
+            $ "UKL.CumInflow" [] := CumInflow;
+
+            IF_STATEMENT ("OctoberThruFebruary"(  )) THEN
+            $ "UKL.CumInfIndex" [] := ( CumInflow - $ "UKL.POR Cum Inf" [@"t", "MIN"] ) / ( $ "UKL.POR Cum Inf" [@"t", "MAX"] - $ "UKL.POR Cum Inf" [@"t", "MIN"] );
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Williamson Proportion Factor";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("WinterOps"(  )) THEN
+            $ "Williamson River Inflow.Proportion Factor" [] := "TableInterpolation"( $ "Williamson River Inflow.Williamson Proportion Table", "GetColumnIndex"( $ "Williamson River Inflow.Williamson Proportion Table", "GetMonthAsString"( @"t" ) CONCAT " Williamson Flow" ), "GetColumnIndex"( $ "Williamson River Inflow.Williamson Proportion Table", "GetMonthAsString"( @"t" ) CONCAT " Prop Factor" ), $ "Williamson River Inflow.Inflow" [@"t - 1"], @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+  END;
+
+  POLICY_GROUP   "Dilution and Flushing";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Compute Cumulative Dilution Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("MarchThruJune"(  )) THEN
+            $ "Dilution and Flushing.Cumulative Short" [] := IF ( IsNaN $ "Dilution and Flushing.Cumulative Short" [@"t - 1"] )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "Dilution and Flushing.Cumulative Short" [@"t - 1"] + $ "Dilution and Flushing.Short Duration" []
+ ENDIF
+ ELSEIF_COND ( $ "Dilution and Flushing.Cumulative Short" [@"t - 1"] + $ "Dilution and Flushing.Short Duration" [] < - 50000.00000000 "acre-ft" )
+ ELSEIF_CLAUSE ( - 50000.00000000 "acre-ft" )
+ END_ELSEIF;
+
+            $ "Dilution and Flushing.Cumulative Long" [] := IF ( IsNaN $ "Dilution and Flushing.Cumulative Long" [@"t - 1"] )
+ THEN
+  0.00000000 "acre-ft"
+ ELSE
+  $ "Dilution and Flushing.Cumulative Long" [@"t - 1"] + $ "Dilution and Flushing.Flow" []
+ ENDIF;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Long Dilution Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      WITH_STATEMENT (NUMERIC Dilute = IF ( "TableLookup"( $ "Dilution and Flushing.Disease Trigger", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND "IGDwithoutDilution"(  ) < 3000.00000000 "cfs" AND $ "Dilution and Flushing.Cumulative Long" [@"t - 1"] > - 50000.00000000 "acre-ft" AND @"t" > "CompletePartialDate"( "NumberToDate"( "TableLookup"( $ "Dilution and Flushing.Disease Table", 0.00000000, 1.00000000, $ "Dilution and Flushing.Disease Year" [@"24:00:00 December 31, Current Year"], @"t", TRUE ) ), @"t" ) AND @"t" < "CompletePartialDate"( "NumberToDate"( "TableLookup"( $ "Dilution and Flushing.Disease Table", 0.00000000, 2.00000000, $ "Dilution and Flushing.Disease Year" [@"24:00:00 December 31, Current Year"], @"t", TRUE ) ), @"t" ) AND FOR ( DATETIME Date IN @"t - 7" TO @"t - 1" ) STAT_AVE
+  $ "Dilution and Flushing.IGD Release" [Date]
+ ENDFOR < 2999.00000000 "cfs" AND "VolumeToFlow"( - ( $ "Dilution and Flushing.Flow" [@"t - 1"] ), @"t" ) + "IGDwithoutDilution"(  ) < 4000.00000000 "cfs" )
+ THEN
+  "FlowToVolume"( 3000.00000000 "cfs" - "IGDwithoutDilution"(  ), @"t" ) - 1.00000000 "acre-ft"
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF
+ ELSEIF_COND ( "TableLookup"( $ "Dilution and Flushing.Disease Trigger", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND $ "Dilution and Flushing.Cumulative Long" [@"t - 1"] > - 50000.00000000 "acre-ft" AND @"t" > "CompletePartialDate"( "NumberToDate"( "TableLookup"( $ "Dilution and Flushing.Disease Table", 0.00000000, 1.00000000, $ "Dilution and Flushing.Disease Year" [@"24:00:00 December 31, Current Year"], @"t", TRUE ) ), @"t" ) AND @"t" < "CompletePartialDate"( "NumberToDate"( "TableLookup"( $ "Dilution and Flushing.Disease Table", 0.00000000, 2.00000000, $ "Dilution and Flushing.Disease Year" [@"24:00:00 December 31, Current Year"], @"t", TRUE ) ), @"t" ) )
+ ELSEIF_CLAUSE ( "FlowToVolume"( 4000.00000000 "cfs" - "IGDwithoutDilution"(  ), @"t" ) - 1.00000000 "acre-ft" )
+ END_ELSEIF) DO
+            $ "Dilution and Flushing.Flow" [] := Dilute * ( 1.00000000 - $ "Dilution and Flushing.Ramping Trigger" [] ) + $ "Dilution and Flushing.Ramping Trigger" [] * "Min"( 0.00000000 "acre-ft", "FlowToVolume"( "IGDwithoutDilution"(  ) - $ "Dilution and Flushing.IGD Release" [@"t - 1"] + $ "Dilution and Flushing.Ramping Rate" [], @"t" ) );
+
+      END_WITH_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Short Dilution Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      $ "Dilution and Flushing.Short Duration" [] := IF ( "TableLookup"( $ "Dilution and Flushing.Disease Trigger", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 2.00000000 AND $ "Dilution and Flushing.Cumulative Short" [] > - 50000.00000000 AND @"t" > "OffsetDate"( "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.Short Start Date" [] ), @"t" ), - 1.00000000, "1 day" ) AND FOR ( DATETIME Date IN @"t - 7" TO @"t - 1" ) STAT_AVE
+  $ "Dilution and Flushing.IGD Release" [Date]
+ ENDFOR < 3000.00000000 "cfs" AND 3000.00000000 "cfs" - "IGDwithoutDilution"(  ) > 0.00000000 "cfs" AND @"t" < "OffsetDate"( "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.Short Start Date" [] ), @"t" ), 7.00000000, "1 day" ) )
+ THEN
+  "FlowToVolume"( 3000.00000000 "cfs" - "IGDwithoutDilution"(  ), @"t" ) - 1.00000000 "acre-ft"
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF
+ ELSEIF_COND ( "TableLookup"( $ "Dilution and Flushing.Disease Trigger", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 2.00000000 AND $ "Dilution and Flushing.Cumulative Short" [] > - 50000.00000000 AND @"t" >= "OffsetDate"( "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.Short Start Date" [] ), @"t" ), 7.00000000, "1 day" ) )
+ ELSEIF_CLAUSE ( "FlowToVolume"( 4000.00000000 - "IGDwithoutDilution"(  ), @"t" ) - 1.00000000 "acre-ft" )
+ END_ELSEIF;
+
+    END;
+
+    RULE                 "Compute Surface or Deep Flushing";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      $ "Dilution and Flushing.Surface or Deep" [] := IF ( "TableLookup"( $ "Dilution and Flushing.DG1", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND @"t" >= "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.DG1 Start Date" [] ), @"t" ) AND @"t" <= "OffsetDate"( "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.DG1 End Date" [] ), @"t" ), 7.00000000, "1 days" ) AND "Before Operations Period"(  ) )
+ THEN
+  WITH NUMERIC projLink = $ "UKL.For River" [@"t - 6"] - $ "UKL.Corrected Override Flow" [@"t - 6"] - $ "UKL.For Flood Control" [@"t - 6"] DO
+   IF ( IsNaN projLink )
+   THEN
+    "FlowToVolume"( 0.00000000 "cfs" - "ObsUKLtoIGD"(  ), @"t" )
+   ELSE
+    "FlowToVolume"( "Min"( 0.00000000 "cfs", projLink - "ObsUKLtoIGD"(  ) ), @"t" )
+   ENDIF
+  ENDWITH
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF
+ ELSEIF_COND ( "TableLookup"( $ "Dilution and Flushing.DG1", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND @"t" >= "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.DG1 Start Date" [] ), @"t" ) AND @"t" <= "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.DG1 End Date" [] ), @"t" ) AND $ "IGD.with Accrete" [] <= 6030.00000000 "cfs" )
+ ELSEIF_CLAUSE ( "FlowToVolume"( $ "IGD.with Accrete" [] - 6030.00000000 "cfs", @"t" ) )
+ END_ELSEIF
+ ELSEIF_COND ( $ "Dilution and Flushing.IGD Release" [@"t - 1"] > $ "IGD.with Accrete" [@"t - 1"] )
+ ELSEIF_CLAUSE ( "FlowToVolume"( $ "IGD.with Accrete" [] - $ "Dilution and Flushing.IGD Release" [], @"t" ) )
+ END_ELSEIF;
+
+    END;
+
+    RULE                 "Compute IGD Release for D&F";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      IF_STATEMENT (@"t" <= "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.Surface End Date" [] ), @"t" )) THEN
+            $ "Dilution and Flushing.IGD Release" [] := IF ( "TableLookup"( $ "Dilution and Flushing.DG1", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 0.00000000 OR "TableLookup"( $ "Dilution and Flushing.DG1", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND $ "Dilution and Flushing.Day Count" [] == 0.00000000 )
+ THEN
+  $ "IGD.with Accrete" [] - "VolumeToFlow"( "Min"( $ "Dilution and Flushing.Surface or Deep" [], $ "Dilution and Flushing.Short Duration" [] ), @"t" )
+ ELSE
+  $ "IGD.with Accrete" []
+ ENDIF
+ ELSEIF_COND ( $ "Dilution and Flushing.Day Count" [] >= 1.00000000 AND "TableLookup"( $ "Dilution and Flushing.Ramp Table", 0.00000000, 1.00000000, $ "Dilution and Flushing.Day Count" [], @"t", TRUE ) > $ "IGD.with Accrete" [] )
+ ELSEIF_CLAUSE ( "TableLookup"( $ "Dilution and Flushing.Ramp Table", 0.00000000, 1.00000000, $ "Dilution and Flushing.Day Count" [], @"t", TRUE ) )
+ END_ELSEIF;
+
+      ELSE
+            $ "Dilution and Flushing.IGD Release" [] := "IGDwithoutDilution"(  ) - "VolumeToFlow"( "Min"( $ "Dilution and Flushing.Flow" [], $ "Dilution and Flushing.Short Duration" [] ), @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Day Count";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      IF_STATEMENT ("JanuaryThruApril"(  )) THEN
+            $ "Dilution and Flushing.Day Count" [] := IF ( "TableLookup"( $ "Dilution and Flushing.DG1", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND "OffsetDate"( "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.DG1 End Date" [] ), @"t" ), 1.00000000, "1 days" ) == @"t" )
+ THEN
+  1.00000000
+ ELSE
+  0.00000000
+ ENDIF
+ ELSEIF_COND ( "TableLookup"( $ "Dilution and Flushing.DG1", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 AND "OffsetDate"( "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.DG1 End Date" [] ), @"t" ), 1.00000000, "1 days" ) < @"t" AND $ "Dilution and Flushing.IGD Release" [@"t - 1"] > $ "IGD.with Accrete" [@"t - 1"] )
+ ELSEIF_CLAUSE ( $ "Dilution and Flushing.Day Count" [@"t - 1"] + 1.00000000 )
+ END_ELSEIF;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute IGD with Accrete";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("JanuaryThruApril"(  )) THEN
+            $ "IGD.with Accrete" [] := WITH NUMERIC IGDflow = IF ( @"t" < @"24:00:00 March 8, Current Year" )
+ THEN
+  $ "IGD.ActualRampdownFlow" [@"t - 1"]
+ ELSE
+  $ "IGD.Final Est Outflow" []
+ ENDIF DO
+  IF ( "TableLookup"( $ "Dilution and Flushing.Alt Accrete", 0.00000000, 1.00000000, "GetYear"( @"t" ), @"t", TRUE ) == 1.00000000 )
+  THEN
+   $ "Dilution and Flushing.Alt Accrete Table" [@"t", STRINGIFY $ "Dilution and Flushing.Alt Accrete Year" []] + IGDflow - $ "Ag Sheet.Net Accrete" []
+  ELSE
+   IGDflow
+  ENDIF
+ ENDWITH;
+
+      END_IF_STATEMENT;
+
+    END;
+
+  END;
+
+  POLICY_GROUP   "General Klamath Project Operations";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Compute Net Accrete";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
+      WITH_STATEMENT (DATETIME TimeStep = IF ( "Winter Spring Transition"(  ) OR "SummerOps"(  ) )
+ THEN
+  @"t - 1"
+ ELSE
+  @"t"
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC PacifiCorp = IF ( "Winter Spring Transition"(  ) OR "SummerOps"(  ) )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "Ag Sheet.Pacificorp Accretions" [@"t + 7"]
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC LRDC = IF ( "Operations Period"(  ) )
+ THEN
+  $ "Lost River Diversion Channel.Inflow" [TimeStep]
+ ELSE
+  $ "Lost River To Klamath River.Inflow2" [TimeStep]
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC ToAdyAndNorth = IF ( "SummerOps"(  ) )
+ THEN
+  $ "Lost River Diversion Channel.To Ady" [TimeStep] + $ "Lost River Diversion Channel.To North" [TimeStep]
+ ELSE
+  0.00000000 "cfs"
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC FandFF = IF ( "SummerOps"(  ) )
+ THEN
+  "Max"( 0.00000000 "cfs", $ "F and FF Pump.Outflow" [TimeStep] - $ "Refuge.Discharge To Drain" [TimeStep] )
+ ELSE
+  $ "F and FF Pump.Outflow" [TimeStep]
+ ENDIF) DO
+            $ "Ag Sheet.Net Accrete" [] := LRDC + FandFF + $ "Lake Ewuana Gain.Local Inflow" [TimeStep] + PacifiCorp - ToAdyAndNorth;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+    END;
+
+    RULE                 "Compute LRDC to North & Ady Canal";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Lost River Diversion Channel.To North" [] := 0.00000000 "cfs";
+
+            $ "Lost River Diversion Channel.To Ady" [] := 0.00000000 "cfs";
+
+      ELSE
+            $ "Lost River Diversion Channel.To North" [] := "LRDC to North Canal"( @"t" );
+
+            $ "Lost River Diversion Channel.To Ady" [] := "LRDC to Ady Canal"( @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Local Inflow to Excess Ag Allocation";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            IF_STATEMENT ($ "JC Boyle.Inflow" [] > $ "IGD.Outflow" []) THEN
+            $ "Copco to Iron Gate Gain.Local Inflow" [] := $ "IGD.Outflow" [] - $ "JC Boyle.Inflow" [];
+
+      ELSE
+            $ "Copco to Iron Gate Gain.Local Inflow" [] := 0.00000000 "cfs";
+
+      END_IF_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Keno PE to Previous Value";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Keno.Pool Elevation" [] := $ "Keno.Pool Elevation" [@"t - 1"];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set UKL Threshold";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC FALSE;
+    BREAKPOINT AFTER_EXEC FALSE;
+      IF_STATEMENT (@"t" == @"24:00:00 Current Month Max DayOfMonth, Current Year") THEN
+            WITH_STATEMENT (STRING Month = "GetMonthAsString"( @"t" )) DO
+            BREAKPOINT BEFORE_EXEC FALSE;
+      WITH_STATEMENT (NUMERIC VarType = IF ( Month == "February" OR Month == "October" OR Month == "November" )
+ THEN
+  $ "UKL.Formula and Curve Data" [Month, "x slope"] * ( "Ln"( $ "UKL.Projected Inflow and Storage Totals" [], 0.00000000 "KAF" ) / 1.00000000 "KAF" )
+ ELSE
+  $ "UKL.Formula and Curve Data" [Month, "x^2 slope"] * ( $ "UKL.Projected Inflow and Storage Totals" [] / 1.00000000 "KAF" ) ^ 2.00000000 + $ "UKL.Formula and Curve Data" [Month, "x slope"] * ( $ "UKL.Projected Inflow and Storage Totals" [] / 1.00000000 "KAF" )
+ ENDIF
+ ELSEIF_COND ( Month == "January" OR Month == "June" OR Month == "July" )
+ ELSEIF_CLAUSE ( $ "UKL.Formula and Curve Data" [Month, "x slope"] * ( $ "UKL.Projected Inflow and Storage Totals" [] / 1.00000000 "KAF" ) )
+ END_ELSEIF) DO
+            IF_STATEMENT ($ "UKL.Projected Inflow and Storage Totals" [] < $ "UKL.Formula and Curve Data" [Month, "End Func"]) THEN
+            $ "UKL.Threshold" [] := "Max"( "Min"( VarType + $ "UKL.Formula and Curve Data" [Month, "Intercept"] - $ "UKL.Formula and Curve Data" [Month, "Diff"], $ "UKL.Formula and Curve Data" [Month, "Max"] ), $ "UKL.Formula and Curve Data" [Month, "Min"] );
+
+      ELSE
+            $ "UKL.Threshold" [] := $ "UKL.Formula and Curve Data" [Month, "Max"];
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute Misc Flows";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "This may be a temporary rule, will need to decide where to assign the flow to if not hydrologic inflow.";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "UKL.Hydrologic Inflow" [] := "VolumeToFlow"( $ "UKL.Misc Flows" [], @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Flood Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      WITH_STATEMENT (NUMERIC Scenario = IF ( $ "UKL.Flood Scenario" [] < 3.00000000 )
+ THEN
+  1.00000000
+ ELSE
+  2.00000000
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC RampdownDays = IF ( $ "UKL.Pool Elevation" [@"t - 1"] <= $ "UKL.Flood Elevation Table" [@"t - 1", Scenario] )
+ THEN
+  0.00000000
+ ELSE
+  $ "UKL.RampdownPeriod" []
+ ENDIF
+ ELSEIF_COND ( $ "UKL.Pool Elevation" [@"t - 1"] <= $ "UKL.Flood Elev Correction" [@"t - 1"] )
+ ELSEIF_CLAUSE ( $ "UKL.RampdownDays" [] - 1.00000000 )
+ END_ELSEIF) DO
+            WITH_STATEMENT (NUMERIC IncrementalChange = IF ( RampdownDays > 0.00000000 )
+ THEN
+  ( $ "UKL.Flood Elevation Table" ["OffsetDate"( @"t - 1", RampdownDays, "1 days" ), Scenario] - $ "UKL.Pool Elevation" ["OffsetDate"( @"t - 1", RampdownDays - $ "UKL.RampdownPeriod" [], "1 days" )] ) / $ "UKL.RampdownPeriod" []
+ ELSE
+  0.00000000 "ft"
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC FloodElevCorrection = IF ( RampdownDays > 0.00000000 )
+ THEN
+  $ "UKL.Pool Elevation" ["OffsetDate"( @"t - 1", RampdownDays - $ "UKL.RampdownPeriod" [], "1 days" )] + IncrementalChange * ( $ "UKL.RampdownPeriod" [] + 1.00000000 - RampdownDays )
+ ELSE
+  $ "UKL.Flood Elevation Table" [@"t", Scenario]
+ ENDIF) DO
+            $ "UKL.Flood Release" [] := "Max"( 0.00000000 "cfs", "Min"( $ "UKL.Max Outflow" [], "VolumeToFlow"( $ "UKL.Storage" [@"t - 1"] - "ElevationToStorage"( % "UKL", FloodElevCorrection ), @"t" ) + $ "UKL.Inflow" [] - $ "UKL.Ag Demand" [] - $ "UKL.Flood Override Correction" [] ) );
+
+            $ "UKL.RampdownDays" [] := RampdownDays;
+
+            $ "UKL.Flood Elev Correction" [] := FloodElevCorrection;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+    END;
+
+    RULE                 "Set Klamath to LRDC Diversion Request";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ($ "Station 48.Diversion Request" [] + $ "Miller Hill Pump.Diversion Request" [] > $ "Lost River Diversion Channel.Outflow" []) THEN
+            $ "Div To LRDC.Diversion Request" [] := $ "Miller Hill Pump.Diversion Request" [] + $ "Station 48.Diversion Request" [] - $ "Lost River Diversion Channel.Outflow" [];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set UKL Inflow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      WITH_STATEMENT (NUMERIC scenario = IF ( $ "UKL.Inflow Scenario" [] == 1.00000000 )
+ THEN
+  $ "UKL.Dry Scenario" []
+ ELSE
+  $ "UKL.Wet Scenario" []
+ ENDIF
+ ELSEIF_COND ( $ "UKL.Inflow Scenario" [] == 2.00000000 )
+ ELSEIF_CLAUSE ( $ "UKL.Med Scenario" [] )
+ END_ELSEIF) DO
+            WITH_STATEMENT (NUMERIC AdjFactor = IF ( @"t" - $ "UKL.Short Season Adj Period" [] < "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) )
+ THEN
+  $ "UKL.Short Season Adj Factor" []
+ ELSE
+  1.00000000
+ ENDIF
+ ELSEIF_COND ( @"t" - $ "UKL.Season Adj Period" [] < "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) )
+ ELSEIF_CLAUSE ( $ "UKL.Season Adj Factor" [] )
+ END_ELSEIF) DO
+            IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "UKL.Inflow" [] := $ "UKL.Historical Inflows" [@"t", scenario] * AdjFactor;
+
+            $ "UKL.Projected Inflow" [] := $ "UKL.Historical Inflows" [@"t", scenario] * AdjFactor;
+
+      ELSE
+            $ "UKL.Projected Inflow" [] := $ "UKL.Historical Inflows" [@"t", scenario] * AdjFactor;
+
+      END_IF_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+    END;
+
+    RULE                 "Compute UKL Ag Demand";
+    DESCRIPTION          "Correct for Miller Hill and Station 48 cosiderations for pre Operation Start scenarios - in winter season";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            IF_STATEMENT ("DecemberThruFebruary"(  )) THEN
+            WITH_STATEMENT (NUMERIC AdditionalDemands = IF ( $ "Ag Sheet.2016 Demands" [] > $ "Ag Sheet.2015 LRDC" [] )
+ THEN
+  "VolumeToFlow"( $ "Ag Sheet.2016 Demands" [] - $ "Ag Sheet.2015 LRDC" [], @"t" )
+ ELSE
+  0.00000000 "cfs"
+ ENDIF) DO
+            $ "UKL.Ag Demand" [] := AdditionalDemands + $ "Ady Canal.Diversion Request" [] + $ "North Canal.Diversion Request" [];
+
+      END_WITH_STATEMENT;
+
+      ELSE
+            $ "UKL.Ag Demand" [] := ( $ "Ag Sheet.Total Deliveries" [] - "SumFlowsToVolume"( $ "UKL.Ag Demand", @"24:00:00 Current Month 1, Current Year", @"t - 1" ) ) / ( "GetDaysInMonth"( @"t" ) - "GetDayOfMonth"( @"t - 1" ) );
+
+      END_IF_STATEMENT
+      ELSEIF_COND ( "FirstDayOfMonth"(  ) )
+      ELSEIF_CLAUSE
+            $ "UKL.Ag Demand" [] := $ "Ag Sheet.Total Deliveries" [] / "GetDaysInMonth"( @"t" );
+      END_ELSEIF;
+
+      ELSE
+            $ "UKL.Ag Demand" [] := "Historic Ag Demands"( @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "New UKL Ag Demand Logic";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            WITH_STATEMENT (NUMERIC NonADivert = $ "Miller Hill Pump.Diversion Request" [] + $ "North Canal.Diversion Request" [] + $ "Station 48.Diversion Request" [] + $ "Ady Canal.Diversion Request" []) DO
+            WITH_STATEMENT (NUMERIC LRDCdeficit = IF ( $ "Lost River Diversion Channel.Diversion Request" [] < NonADivert )
+ THEN
+  NonADivert - $ "Lost River Diversion Channel.Diversion Request" []
+ ELSE
+  0.00000000 "cfs"
+ ENDIF) DO
+            WITH_STATEMENT (NUMERIC AdjFactor = IF ( @"t" < "OffsetDate"( "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ), $ "UKL.AgShortPeriod" [], "1 days" ) )
+ THEN
+  $ "UKL.AgShortAdj" []
+ ELSE
+  1.00000000
+ ENDIF
+ ELSEIF_COND ( @"t" < "OffsetDate"( "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ), $ "UKL.AgLongPeriod" [], "1 days" ) )
+ ELSEIF_CLAUSE ( $ "UKL.AgLongAdj" [] )
+ END_ELSEIF) DO
+            $ "UKL.Ag Demand" [] := AdjFactor * ( $ "A Canal.Diversion Request" [] + LRDCdeficit );
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      ELSE
+            WITH_STATEMENT (NUMERIC AgConsiderations = $ "A Canal.Diversion" [] + $ "North Canal.Diversion" [] + $ "Ady Canal.Diversion" [] - $ "Ady Canal Remain.Diversion" [] - ( $ "Lost River Diversion Channel.Inflow" [] - $ "Station 48.Diversion" [] - $ "Miller Hill Pump.Diversion" [] )) DO
+            WITH_STATEMENT (NUMERIC SetDemand = IF ( "NovemberThruFebruary"(  ) )
+ THEN
+  $ "A Canal.Diversion" []
+ ELSE
+  AgConsiderations
+ ENDIF
+ ELSEIF_COND ( AgConsiderations < 0.00000000 "cfs" )
+ ELSEIF_CLAUSE ( 0.00000000 "cfs" )
+ END_ELSEIF
+ ELSEIF_COND ( AgConsiderations < $ "A Canal.Diversion" [] )
+ ELSEIF_CLAUSE ( $ "A Canal.Diversion" [] )
+ END_ELSEIF) DO
+            $ "UKL.Ag Demand" [] := SetDemand;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Adj Diversion Requests";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      FOREACH (OBJECT AgObj IN { % "Lost River Diversion Channel" , % "Ady Canal" , % "North Canal" , % "A Canal" , % "Station 48" , % "Miller Hill Pump" }) DO
+            IF_STATEMENT ("Operations Period"(  )) THEN
+            WITH_STATEMENT (STRING Season = IF ( "OctoberThruFebruary"(  ) )
+ THEN
+  "FW"
+ ELSE
+  "SS"
+ ENDIF) DO
+            AgObj & "Diversion Request" [] := AgObj & "Baseline" [] * AgObj & "Dist Control" [Season, "Adj %"];
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+      ENDFOREACH;
+
+    END;
+
+    RULE                 "Set Baseline Ag Demands";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      FOREACH (OBJECT AgObj IN { % "Lost River Diversion Channel" , % "Ady Canal" , % "North Canal" , % "A Canal" , % "Station 48" , % "Miller Hill Pump" }) DO
+            WITH_STATEMENT (STRING Season = IF ( "OctoberThruFebruary"(  ) )
+ THEN
+  "FW"
+ ELSE
+  "SS"
+ ENDIF) DO
+            AgObj & "Baseline" [] := AgObj & "Distribution Percentage" [] * "VolumeToFlow"( AgObj & "Dist Control" [Season, "Proj Volume"], @"t" );
+
+      END_WITH_STATEMENT;
+
+      ENDFOREACH;
+
+    END;
+
+    RULE                 "Set KDD Accounting Supplies";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT "OctoberThruFebruary"(  );
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      $ "Upper Klamath Lake KDD Winter to Link River KDD Winter.Supply" [] := IF ( "Operations Period"(  ) )
+ THEN
+  $ "North Canal.Diversion" [] + $ "Ady Canal.Diversion" []
+ ELSE
+  $ "North Canal.Diversion" [] + ( $ "Ady Canal.Diversion" [] - $ "Area 2 Supply.Outflow" [] )
+ ENDIF;
+
+      $ "Diversion To North KDD Winter to North Canal KDD Winter Div.Supply" [] := $ "North Canal.Diversion" [];
+
+      $ "Diversion To Ady KDD Winter to Ady Canal KDD Winter Div.Supply" [] := IF ( "Operations Period"(  ) )
+ THEN
+  $ "Ady Canal.Diversion" []
+ ELSE
+  $ "Ady Canal.Diversion" [] - $ "Area 2 Supply.Outflow" []
+ ENDIF;
+
+    END;
+
+    RULE                 "Set Ady and North Diversion Request";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Ady Canal.Diversion Request" [] := $ "Ag Sheet.KlamathToAdy" [@"t", $ "Ag Sheet.KDD Irrigation Scenario" []] * $ "Ag Sheet.KDDtoAdy adj" [];
+
+            $ "North Canal.Diversion Request" [] := $ "Ag Sheet.KlamathToNorth" [@"t", $ "Ag Sheet.KDD Irrigation Scenario" []] * $ "Ag Sheet.KDDtoNorth adj" [];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set LRDC Flow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period - 3"(  )) THEN
+            IF_STATEMENT (@"t - 10" <= "NumberToDate"( $ "Dashboard Controls.Operation Start" [] )) THEN
+            $ "Lost River Diversion Channel.Inflow" [@"t + 3"] := FOR ( DATETIME date IN "GetDates"( @"t - 4", @"t + 2", "1 Days" ) ) STAT_AVE
+  $ "Lost River Diversion Channel.Inflow" [date]
+ ENDFOR;
+
+      ELSE
+            $ "Lost River Diversion Channel.Inflow" [@"t + 3"] := $ "Lost River Diversion Channel.LRDC Historic Flows" [@"t + 3", $ "Lost River Diversion Channel.OpPercentile" []];
+
+      END_IF_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Williamson Inflow";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+  NAMES_COLOR  "#0000ff";
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC FALSE;
+    BREAKPOINT AFTER_EXEC FALSE;
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            IF_STATEMENT (IsNaN $ "Williamson River Inflow.CNRFC Short Term" []) THEN
+            WITH_STATEMENT (NUMERIC AdjFactor = IF ( @"t - 5" <= "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) )
+ THEN
+  $ "Williamson River Inflow.Short Adj Factor" []
+ ELSE
+  $ "Williamson River Inflow.Season Adj Factor" []
+ ENDIF) DO
+            $ "Williamson River Inflow.Inflow" [] := $ "Williamson River Inflow.CNRFC Forecast Flows" [@"t", "CNRFC " CONCAT "IntegerToString"( $ "Williamson River Inflow.CNRFC" [] )] * AdjFactor;
+
+      END_WITH_STATEMENT;
+
+      ELSE
+            $ "Williamson River Inflow.Inflow" [] := $ "Williamson River Inflow.CNRFC Short Term" [];
+
+      END_IF_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+  END;
+
+  POLICY_GROUP   "Lost River Operations";
+  DESCRIPTION    "";
+  ACTIVE         FALSE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Lost River Irrigation Supply";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC FALSE;
+    BREAKPOINT AFTER_EXEC FALSE;
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Lost River Irrigation Depletions.Incoming Available Water" [] := "Max"( "Min"( $ "Lost River Irrigation Diversions.Inflow" [], $ "Lost River Irrigation Depletions.Diversion Requested" [] ), 0.00000000 "cms" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Gerber Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Gerber.Outflow" [] := "UnregSpillwayCapacityCheck"( % "Gerber", "MaxMinElevationCheck"( % "Gerber", "Gerber", "MaxItem"( { "GerberIrrigationRelease"(  ) + $ "Gerber.TargetRelease" [] , $ "Gerber.Custom Flood Control Release" [] , $ "Gerber.InstreamFlowRelease" [] } ) ) );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Gerber Seepage";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Gerber.Seepage" [] := "ComputeAvgSeepageOverPeriod"( $ "Gerber.SeepageRates", "Gerber", $ "Gerber.Surface Area" [@"t - 1"], $ "Gerber.Surface Area" [@"t - 1"], @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Gerber Lake Flood Control Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Gerber.Custom Flood Control Release" [] := IF ( "JanuaryThruApril"(  ) )
+ THEN
+  WITH NUMERIC coeFloodControl = "DailyFloodControlRelease"( % "Gerber", "Gerber", "GetDate"( "April 30, Current Year" ), $ "Gerber.MaxRelease" [], "EstimatedInflowForecast"( $ "Gerber.Inflow", @"t", "GetDate"( "April 30, Current Year" ) ) ) DO
+   "MaxItem"( { coeFloodControl , "DailyMaximumStorageRelease"( % "Gerber", @"t", % "Gerber" & "Storage" [@"t - 1"], 0.50000000 * ( $ "Gerber.Inflow" [] + $ "Gerber.Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )] ) ) , "DailyFloodControlRelease"( % "Gerber", "Gerber", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ), $ "Gerber.MaxRelease" [], "EstimatedInflowForecast"( $ "Gerber.Inflow", @"t", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ) } )
+  ENDWITH
+ ELSE
+  "Max"( "DailyMaximumStorageRelease"( % "Gerber", @"t", % "Gerber" & "Storage" [@"t - 1"], 0.50000000 * ( $ "Gerber.Inflow" [] + $ "Gerber.Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )] ) ), "DailyFloodControlRelease"( % "Gerber", "Gerber", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ), $ "Gerber.MaxRelease" [], "EstimatedInflowForecast"( $ "Gerber.Inflow", @"t", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ) )
+ ENDIF;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Gerber Target Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      $ "Gerber.TargetRelease" [] := IF ( $ "Gerber.Pool Elevation" [@"t - 1"] >= $ "Gerber.DailyTargetElevation" [] )
+ THEN
+  "AverageDailyFlowForVolume"( "SurplusVolumeBySlotWithLosses"( % "Gerber", "Gerber", $ "Gerber.Inflow", "EstimateSeepage"( $ "Gerber.SeepageRates", "Gerber", "GetMeanArea"( % "Gerber", $ "Gerber.Storage" [@"t - 1"], "DailyTargetStorage"( % "Gerber", "Gerber", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ), "DateMin"( @"t", @"Finish Timestep" ), "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ), $ "ReservoirOperations.AverageRelease" ), @"t", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) )
+ ELSE
+  $ "Gerber.TargetRelease" [@"t - 1"]
+ ENDIF;
+
+    END;
+
+    RULE                 "Gerber Target Release1";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      $ "Gerber.TargetRelease" [] := IF ( $ "Gerber.Pool Elevation" [@"t - 1"] >= $ "Gerber.DailyTargetElevation" [] )
+ THEN
+  "AverageDailyFlowForVolume"( "SurplusVolumeBySlotWithLosses"( % "Gerber", "Gerber", $ "Gerber.Inflow", "EstimateSeepage"( $ "Gerber.SeepageRates", "Gerber", "GetMeanArea"( % "Clear", $ "Gerber.Storage" [@"t - 1"], "DailyTargetStorage"( % "Gerber", "Gerber", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ), "DateMin"( @"t", @"Finish Timestep" ), "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "Gerber.Fcst Period" [], "1 days" ), @"Finish Timestep" ) )
+ ELSE
+  $ "Gerber.TargetRelease" [@"t - 1"]
+ ENDIF;
+
+    END;
+
+    RULE                 "Gerber Dam Target  Release";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      $ "ReservoirOperations.TargetRelease" [@"t", "Gerber Reservoir"] := IF ( "DecisionDate"( @"t", $ "ReservoirData.DecisionDates", "Normal" ) OR $ "Clear Lake.Pool Elevation" [@"t - 1"] > 0.50000000 * ( $ "ReservoirOperations.TargetElevation" [@"t", "Gerber Reservoir"] + $ "ReservoirData.MaxElevation" [@"t", "Gerber Reservoir"] ) OR $ "ReservoirOperations.TargetRelease" [@"t - 1", "Gerber Reservoir"] > 0.00000000 "cms" )
+ THEN
+  "AverageDailyFlowForVolume"( "SurplusVolumeBySlotWithErrAndLosses"( % "Gerber Reservoir", "Gerber Reservoir", $ "Gerber Reservoir.Inflow", $ "ReservoirData.WilliamsonPercentForecastError", "EstimateSeepage"( $ "ProjectData.LostRiverSeepageRates", "Gerber Reservoir", "GetMeanArea"( % "Clear Lake", "PreviousStorage"( % "Gerber Reservoir" ), "DailyTargetStorage"( % "Gerber Reservoir", "Gerber Reservoir", "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) ) ), "DateMin"( @"t", @"Finish Timestep" ), "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "UKLShortTermForecast.Forecast Period" [], "1 days" ), @"Finish Timestep" ) )
+ ELSE
+  $ "ReservoirOperations.TargetRelease" [@"t - 1", "Gerber Reservoir"]
+ ENDIF;
+
+    END;
+
+    RULE                 "Max Storage Failsafe Clear";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("SolveStorage"( % "Clear", $ "Clear.Total Inflows" [], $ "Clear.Outflow" [], $ "Clear.Storage" [@"t - 1"], @"t" ) >= "ElevationToStorage"( % "Clear", $ "Clear.MaxElevation" [@"t", 0.00000000] )) THEN
+            $ "Clear.Release" [] := "Min"( "Reservoir Outflow at Drawdown to Rule Curve"( % "Clear" ), "GetMaxReleaseGivenInflow"( % "Clear", $ "Clear.Total Inflows" [], @"t" ) );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Clear Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Clear.Outflow" [] := "UnregSpillwayCapacityCheck"( % "Clear", "MaxMinElevationCheck"( % "Clear", "Clear", "MaxItem"( { "ClearLakeIrrigationRelease"(  ) + $ "Clear.TargetRelease" [] , $ "Clear.Custom Flood Control Release" [] , $ "Clear.InstreamFlowRelease" [] } ) ) );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Clear Seepage";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Clear.Seepage" [] := "ComputeAvgSeepageOverPeriod"( $ "Clear.SeepageRates", "Clear", $ "Clear.Surface Area" [@"t - 1"], $ "Clear.Surface Area" [@"t - 1"], @"t" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Clear Flood Control Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Clear.Custom Flood Control Release" [] := IF ( "JanuaryThruApril"(  ) )
+ THEN
+  WITH NUMERIC coeFloodControl = "DailyFloodControlRelease"( % "Clear", "Clear", "GetDate"( "April 30, Current Year" ), $ "Clear.MaxRelease" [], "EstimatedInflowForecast"( $ "Clear.Inflow", @"t", "GetDate"( "April 30, Current Year" ) ) ) DO
+   "MaxItem"( { coeFloodControl , "DailyMaximumStorageRelease"( % "Clear", @"t", % "Clear" & "Storage" [@"t - 1"], 0.50000000 * ( $ "Clear.Inflow" [] + $ "Clear.Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )] ) ) , "DailyFloodControlRelease"( % "Clear", "Clear", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ), $ "Clear.MaxRelease" [], "EstimatedInflowForecast"( $ "Clear.Inflow", @"t", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ) } )
+  ENDWITH
+ ELSE
+  "Max"( "DailyMaximumStorageRelease"( % "Clear", @"t", % "Clear" & "Storage" [@"t - 1"], 0.50000000 * ( $ "Clear.Inflow" [] + $ "Clear.Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )] ) ), "DailyFloodControlRelease"( % "Clear", "Clear", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ), $ "Clear.MaxRelease" [], "EstimatedInflowForecast"( $ "Clear.Inflow", @"t", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ) )
+ ENDIF;
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Clear Target Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      $ "Clear.TargetRelease" [] := IF ( $ "Clear.Pool Elevation" [@"t - 1"] >= $ "Clear.DailyTargetElevation" [] )
+ THEN
+  "AverageDailyFlowForVolume"( "SurplusVolumeBySlotWithLosses"( % "Clear", "Clear", $ "Clear.Inflow", "EstimateSeepage"( $ "Clear.SeepageRates", "Clear", "GetMeanArea"( % "Clear", $ "Clear.Storage" [@"t - 1"], "DailyTargetStorage"( % "Clear", "Clear", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ) ), "DateMin"( @"t", @"Finish Timestep" ), "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ) ), @"t", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ), $ "ReservoirOperations.AverageRelease" ), @"t", "DateMin"( "OffsetDate"( @"t", $ "Clear.Fcst Period" [], "1 days" ), @"Finish Timestep" ) )
+ ELSE
+  $ "Clear.TargetRelease" [@"t - 1"]
+ ENDIF;
+
+    END;
+
+    RULE                 "Adjust Clear Target Elevation For Surcharging";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Clear.DailyTargetElevation" [] := $ "Clear.TargetElevation" [];
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Gerber Instream Flow Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Gerber.InstreamFlowRelease" [] := "Max"( "Min"( "Min"( $ "Gerber.Inflow" [], "Min"( $ "Gerber.MinRelease" [], "GetMaxReleaseGivenInflow"( % "Gerber", $ "Gerber.Inflow" [], @"t" ) ) ), "SolveOutflow"( % "Gerber", $ "Gerber.Inflow" [], "ElevationToStorage"( % "Gerber", $ "Gerber.ReservoirAllocations" ["Inactive", "Gerber Reservoir"] ), "PreviousStorage"( % "Gerber" ), @"t" ) COMMENTED_BY "Check for low reservoir conditions." ), 0.00000000 "cms" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Clear Instream Flow Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT NOT "HasRuleFiredSuccessfully"( "Current Rule" );
+    NOTES                "";
+    BEGIN
+
+      IF_STATEMENT ("Operations Period"(  )) THEN
+            $ "Clear.InstreamFlowRelease" [] := "Max"( "Min"( "Min"( $ "Clear.Inflow" [], "Min"( $ "Clear.MinRelease" [], "GetMaxReleaseGivenInflow"( % "Clear", $ "Clear.Inflow" [], @"t" ) ) ), "SolveOutflow"( % "Clear", $ "Clear.Inflow" [], "ElevationToStorage"( % "Clear", $ "Clear.ReservoirAllocations" ["Inactive", "Clear Lake"] ), "PreviousStorage"( % "Clear" ), @"t" ) COMMENTED_BY "Check for low reservoir conditions." ), 0.00000000 "cms" );
+
+      END_IF_STATEMENT;
+
+    END;
+
+    RULE                 "Set Lost Res Release";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+      IF_STATEMENT ("Operations Period - 3"(  )) THEN
+            $ "Gerber.Outflow" [@"t + 3"] := $ "Gerber.AverageRelease" [@"t + 3"];
+
+            $ "Clear.Outflow" [@"t + 3"] := $ "Clear.AverageRelease" [@"t + 3"];
+
+      END_IF_STATEMENT;
+
+    END;
+
+  END;
+
+  POLICY_GROUP   "Planning Specific Rules";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Compute UKL Pool Elevation Projection - Test for Planning";
+    DESCRIPTION          "";
+    ACTIVE               FALSE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    NOTES                "";
+    BEGIN
+
+    DESCRIPTION          "This is a prototype rule that will project the pool elevation out X number of timesteps, based on <br>the specified inflows, outflows, and diversions. It may be useful in a planning application <br>";
+      IF_STATEMENT ("NumberToDate"( $ "KBPMOperationsData.Operation Start" [] ) == @"t") THEN
+            WITH_STATEMENT (NUMERIC NumOfProjectionTimesteps = 60.00000000) DO
+            WITH_STATEMENT (DATETIME endDate = "OffsetDate"( @"t", NumOfProjectionTimesteps - 1.00000000, "1 Days" )) DO
+            WITH_STATEMENT (LIST ListOfIndex = "GetNumbers"( 0.00000000, NumOfProjectionTimesteps - 1.00000000, 1.00000000 )) DO
+            WITH_STATEMENT (LIST hypSimResults = "HypSim"( "UKL", "CreateListOfProjectedInAndOut"( endDate ), "ListOfProjectedPE"( endDate ), 0.00000000 )) DO
+            FOREACH (NUMERIC index IN ListOfIndex) DO
+            $ "UKL.Pool Elevation Projected" ["OffsetDate"( @"t", index, "1 Days" )] := GET @INDEX index FROM hypSimResults;
+
+      ENDFOREACH;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_WITH_STATEMENT;
+
+      END_IF_STATEMENT;
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "-------------------------------------";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+  END;
+
+  UTILITY_GROUP "Model Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "AvailableClearLakeWater" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cms";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "NovemberThruMarch"(  ) )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "VolumeToFlow"( "Max"( $ "Clear.Storage" [@"t - 1"] - "ElevationToStorage"( % "Clear", $ "Clear.ReservoirAllocations" ["Normal Minimum", "Clear Lake"] ), 0.00000000 "m3" ), @"t" )
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AvailableGerberReservoirWater" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cms";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "NovemberThruMarch"(  ) )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "VolumeToFlow"( "Max"( "PreviousStorage"( % "Gerber" ) - "ElevationToStorage"( % "Gerber", $ "Gerber.ReservoirAllocations" ["Normal Minimum", "Gerber Reservoir"] ), 0.00000000 "m3" ), @"t" )
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AvailableLostRiverStorageWater" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "AvailableGerberReservoirWater"(  ) + "AvailableClearLakeWater"(  );
+
+    END;
+
+    FUNCTION       "ClearLakeIrrigationRelease" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AvailableLostRiverStorageWater"(  ) > 0.00000000 "cms" )
+ THEN
+  "Min"( "AvailableClearLakeWater"(  ) / "AvailableLostRiverStorageWater"(  ) * "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ), "GetMaxOutflowGivenInflow"( % "Clear", $ "Clear.Inflow" [], @"t" ) )
+ ELSE
+  0.00000000 "cms"
+ ENDIF;
+
+    END;
+
+    FUNCTION       "ComputeAvgSeepageOverPeriod" ( SLOT SpgRate, STRING column, NUMERIC startingArea, NUMERIC endingArea, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      0.50000000 * ( startingArea + endingArea ) * SpgRate [date, column];
+
+    END;
+
+    FUNCTION       "EstimateSeepage" ( SLOT seepageRate, STRING column, NUMERIC meanArea, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "Estimates furture reservoir evaporation form startDate (usually current time step)<br>thru endDate.  Additional argument of meanArea is estimated average surface<br>area during interval.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( seepageRate [date, column] * meanArea, date )
+ ENDFOR;
+
+    END;
+
+    FUNCTION       "ObsUKLtoIGD" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC LRDCdeficit = $ "Lost River Diversion Channel.Inflow" [] - $ "Station 48.Diversion Request" [] - $ "Miller Hill Pump.Diversion Request" [] - $ "Ady Canal Split.Outflow" [] - $ "North Canal.Diversion Request" [] DO
+  IF ( LRDCdeficit > 0.00000000 "cfs" )
+  THEN
+   $ "Link River.Inflow" []
+  ELSE
+   $ "Link River.Inflow" [] + LRDCdeficit
+  ENDIF
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "IGDwithoutDilution" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "SummerOps"(  ) )
+ THEN
+  $ "IGD.Final Est Outflow" []
+ ELSE
+  $ "IGD.ActualRampdownFlow" []
+ ENDIF;
+
+    END;
+
+    FUNCTION       "WSTransitionNetAccrete" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC LRDC = IF ( "Operations Period"(  ) )
+ THEN
+  $ "Lost River Diversion Channel.Inflow" [@"t - 1"]
+ ELSE
+  $ "Lost River To Klamath River.Inflow2" [@"t - 1"]
+ ENDIF DO
+  LRDC + $ "F and FF Pump.Outflow" [@"t - 1"] + $ "Lake Ewuana Gain.Local Inflow" [@"t - 1"] - $ "Lost River Diversion Channel.To Ady" [@"t - 1"] - $ "Lost River Diversion Channel.To North" [@"t - 1"]
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "IGmaxBoundonUKL" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC IGmax = IF ( $ "Dashboard Controls.EWA" [] < 320001.00000000 "acre-ft" )
+ THEN
+  1000.00000000 "cfs"
+ ELSE
+  1000.00000000 "cfs" + "VolumeToFlow"( $ "Dashboard Controls.EWA" [] - 320001.00000000 "acre-ft", @"t" ) * 0.00042400
+ ENDIF
+ ELSEIF_COND ( $ "Dashboard Controls.EWA" [] > 1499999.00000000 "acre-ft" )
+ ELSEIF_CLAUSE ( 1500.00000000 "cfs" )
+ END_ELSEIF DO
+  WITH NUMERIC LRDC = IF ( "Operations Period"(  ) )
+  THEN
+   $ "Lost River Diversion Channel.Inflow" []
+  ELSE
+   $ "Lost River To Klamath River.Inflow2" []
+  ENDIF DO
+   IGmax - $ "Ag Sheet.Pacificorp Accretions" [@"t + 7"] - $ "F and FF Pump.Outflow" [] - $ "Ag Sheet.Net Accrete" [] - LRDC + $ "Lost River Diversion Channel.To North" [] + $ "Lost River Diversion Channel.To Ady" []
+  ENDWITH
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "GerberIrrigationRelease" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AvailableLostRiverStorageWater"(  ) > 0.00000000 "cms" )
+ THEN
+  "Min"( "Min"( "AvailableGerberReservoirWater"(  ), "Max"( "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ) - "Min"( $ "Clear.Outflow" [], "ClearLakeIrrigationRelease"(  ) ), 0.00000000 "cms" ) ), "GetMaxOutflowGivenInflow"( % "Gerber", $ "Gerber.Inflow" [], @"t" ) )
+ ELSE
+  0.00000000 "cms"
+ ENDIF;
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "AggDisagg Averaging Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "AverageDailyFlowForVolume" ( NUMERIC volume, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[cfs]";
+    DESCRIPTION    "Computes average daily flow given a volume and period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "VolumeToFlow"( volume * 1.00000000 "day" / ( "GetJulianDate"( endDate ) * 1.00000000 "day" - "GetJulianDate"( startDate ) * 1.00000000 "day" + 1.00000000 "day" ), @"t" );
+
+    END;
+
+    FUNCTION       "SumFlowValueToVolume" ( DATETIME startDate, DATETIME endDate, NUMERIC valueToSum )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "Sum specified flow value to a volume for specified time period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME dateTime IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( valueToSum, dateTime )
+ ENDFOR;
+
+    END;
+
+    FUNCTION       "SumPeriodicFlowToVolume" ( SLOT slot, DATETIME startDate, DATETIME endDate, STRING column )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Sums a periodic slot flow to a volume for specified time period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( slot [date, column], date )
+ ENDFOR;
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "Datetime Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "AprilThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 August 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AprilThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 July 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AprilThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 November 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AugustThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 July 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AugustThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 July 31, Current Year" AND @"t" < @"24:00:00 November 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "AugustThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 July 31, Current Year" AND @"t" < @"24:00:00 December 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "BeginOfMonthDate" ( DATETIME dateTime )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Returns beginning of month date given a date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "PreviousDate"( dateTime, @"Min DayOfMonth" );
+
+    END;
+
+    FUNCTION       "DecemberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "DecemberThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 July 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "DecemberThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 August 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "DecemberThruMay" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 June 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "EndOfMonthDate" ( DATETIME dateTime )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Returns end of month date given date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "NextDate"( dateTime, @"Max DayOfMonth" );
+
+    END;
+
+    FUNCTION       "JanuaryThruApril" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" <= @"24:00:00 April 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "BeforeJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" <= @"24:00:00 May 25, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JanuaryThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" <= @"24:00:00 July 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JanuaryThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" <= @"24:00:00 February Max DayOfMonth, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JanuaryThruMarch" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" <= @"24:00:00 March 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JulyThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 June 30, Current Year" AND @"t" < @"24:00:00 November 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JulyThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 June 30, Current Year" AND @"t" < @"24:00:00 October 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JulyThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 June 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JulyThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 June 30, Current Year" AND @"t" < @"24:00:00 December 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JuneThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 May 31, Current Year" AND @"t" < @"24:00:00 December 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "JuneThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 May 31, Current Year" AND @"t" < @"24:00:00 October 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MarchThruApril" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 May 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MarchThruMay" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 June 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MarchThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 July 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MarchThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 August 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MayThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 April 30, Current Year" AND @"t" < @"24:00:00 October 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MarchThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 October 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MarchThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 December 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MayThruAugust" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 April 30, Current Year" AND @"t" < @"24:00:00 September 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "NovemberThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 October 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "NovemberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 October 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "NovemberThruMarch" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 April 1, Current Year" OR @"t" > @"24:00:00 October 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "OctoberThruMarch" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 April 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "SeptemberThruApril" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 May 1, Current Year" OR @"t" > @"24:00:00 August 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "OctoberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "SeptemberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 August 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "OctoberThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 September 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "OctoberThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 July 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "OctoberThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" > @"24:00:00 September Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 December 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "Operations Period" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) <= @"t";
+
+    END;
+
+    FUNCTION       "Operations Period - 3" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) <= @"t + 3";
+
+    END;
+
+    FUNCTION       "WinterOps" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 March 1, Current Year" OR @"t" >= @"24:00:00 October 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "FirstDayOfMonth" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" == @"Min DayOfMonth" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "Operation Start - 7" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) <= @"t + 7";
+
+    END;
+
+    FUNCTION       "SummerOps" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" >= @"24:00:00 March 1, Current Year" AND @"t" < @"24:00:00 October 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+    FUNCTION       "Winter Spring Transition" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" >= @"24:00:00 February 22, Current Year" AND @"t" < @"24:00:00 March 1, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "Generic Functions";
+  DESCRIPTION   "Functions that support generic rule set.";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "GetMeanArea" ( OBJECT reservoir, NUMERIC startStorage, NUMERIC endStorage )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 [acre]";
+    DESCRIPTION    "Computes mean surface area for 2 storage values.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      ( "StorageToArea"( reservoir, startStorage ) + "StorageToArea"( reservoir, endStorage ) ) * 0.50000000;
+
+    END;
+
+    FUNCTION       "PreviousStorage" ( OBJECT reservoir )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Returns previous storage of reservoir.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      reservoir & "Storage" [@"t - 1"];
+
+    END;
+
+    FUNCTION       "UnregSpillwayCapacityCheck" ( OBJECT reservoir, NUMERIC request )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  cfs";
+    DESCRIPTION    "Checks a tenative outflow against outlet works and spillway capacities. <br>Also determines if we have to spill thru unregulated spillway.<br>Assumes that monthly spill calc is used for monthly time steps.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "Min"( "GetMaxOutflowGivenInflow"( reservoir, reservoir & "Inflow" [], @"t" ), WITH NUMERIC release = "Min"( request, "GetMaxReleaseGivenInflow"( reservoir, reservoir & "Inflow" [], @"t" ) COMMENTED_BY "GetMaxReleaseGivenInflow is only Turbine or Outlet Works" ) DO
+  release + "GetMinSpillGivenInflowRelease"( reservoir, reservoir & "Inflow" [], release, @"t" )
+ ENDWITH );
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "Operation Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "ComputeAvailableSpace" ( OBJECT reservoir, STRING column, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, $ "ReservoirOperations.TargetElevation" [datetime, column] ) - reservoir & "Storage" [@"t - 1"];
+
+    END;
+
+    FUNCTION       "DailyMaximumStorage" ( OBJECT reservoir, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes daily maximum storage as a function of daily maximum elevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, reservoir & "MaxElevation" [datetime, "MaxElevation"] );
+
+    END;
+
+    FUNCTION       "DailyMinimumStorage" ( OBJECT reservoir, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes daily minimum storage as a function of daily minimum elevation";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, reservoir & "MinElevation" [datetime, "MinElevation"] );
+
+    END;
+
+    FUNCTION       "DailyTargetStorage" ( OBJECT reservoir, STRING column, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes daily target storage as a function of daily target elevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, $ "ReservoirOperations.TargetElevation" [datetime, column] );
+
+    END;
+
+    FUNCTION       "EstimatedInflowForecast" ( SLOT forecastSlot, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC inflowNoError = "SumFlowsToVolume"( forecastSlot, startDate, endDate ) DO
+  inflowNoError
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "Reservoir Outflow at Drawdown to Rule Curve" ( OBJECT reservoir )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Calculates the outflow to drawdown the reservoir to the rule curve storage in one timestep.  The argument is the reservoir object.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( "SolveOutflow"( reservoir, reservoir & "Inflow" [], $ "Clear.TargetElevation" [@"t - 1", "TargetElevation"], reservoir & "Storage" [@"t - 1"], @"t" ), 0.00000000 "cfs" );
+
+    END;
+
+    FUNCTION       "DailyMaximumStorageRelease" ( OBJECT reservoir, DATETIME datetime, NUMERIC prevStorage, NUMERIC inflow )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( datetime < @"Start Timestep" )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "Max"( "SolveOutflow"( reservoir, inflow, "DailyMaximumStorage"( reservoir, datetime ), prevStorage, datetime ), 0.00000000 "cms" )
+ ENDIF;
+
+    END;
+
+    FUNCTION       "DailyMinimumStorageRelease" ( OBJECT reservoir, DATETIME datetime, NUMERIC prevStorage, NUMERIC inflow )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( datetime < @"Start Timestep" )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "Max"( "SolveOutflow"( reservoir, inflow, "DailyMinimumStorage"( reservoir, datetime ), prevStorage, datetime ), 0.00000000 "cms" )
+ ENDIF;
+
+    END;
+
+    FUNCTION       "MaxMinElevationCheck" ( OBJECT reservoir, STRING column, NUMERIC request )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "Checks for maximum and minimum elevation constraints expressed in table <br>ReservoirData.MinElevation and ReservoirData.MaxElevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( "DailyMaximumStorageRelease"( reservoir, @"t", reservoir & "Storage" [@"t - 1"], reservoir & "Inflow" [] ), "Min"( "DailyMinimumStorageRelease"( reservoir, @"t", reservoir & "Storage" [@"t - 1"], reservoir & "Inflow" [] ), request ) );
+
+    END;
+
+    FUNCTION       "DailyFloodControlRelease" ( OBJECT reservoir, STRING column, DATETIME endDate, NUMERIC maxRelease, NUMERIC forecastVolume )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[cfs]";
+    DESCRIPTION    "Computes flood control release for a daily time step as function of today's maximum storage<br>and today's flood control storage.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC fcStorage = "DailyFloodControlStorage"( reservoir, column, endDate, maxRelease, forecastVolume ) DO
+  WITH NUMERIC fcRelease = "Max"( 0.00000000 "cms", "SolveOutflow"( reservoir, reservoir & "Inflow" [], fcStorage, reservoir & "Storage" [@"t - 1"], @"t" ) ) DO
+   IF ( fcRelease > maxRelease )
+   THEN
+    WITH NUMERIC maxRelStorage = "Max"( 0.00000000 "m3", "SolveStorage"( reservoir, reservoir & "Inflow" [], maxRelease, reservoir & "Storage" [@"t - 1"], @"t" ) ) DO
+     WITH NUMERIC maxStorage = "ElevationToStorage"( reservoir, $ "Clear.MaxElevation" [@"t", "MaxElevation"] ) DO
+      IF ( maxRelStorage > maxStorage )
+      THEN
+       "Max"( 0.00000000 "cms", "SolveOutflow"( reservoir, reservoir & "Inflow" [], maxStorage, reservoir & "Storage" [@"t - 1"], @"t" ) )
+      ELSE
+       maxRelease
+      ENDIF
+     ENDWITH
+    ENDWITH
+   ELSE
+    fcRelease
+   ENDIF
+  ENDWITH
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "SurplusVolumeBySlotWithLosses" ( OBJECT reservoir, STRING column, SLOT inflow, NUMERIC anticipatedLoss, DATETIME startDate, DATETIME endDate, SLOT ResAvgRelease )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes surplus volume from inflows less depletions stored in specified slot.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( 0.00000000 "m3", "SumFlowsToVolume"( inflow, startDate, endDate ) - ( "ComputeAvailableSpace"( reservoir, column, endDate ) + ( "SumPeriodicFlowToVolume"( ResAvgRelease, @"t", endDate, column ) + ( "EstimateEvaporation"( reservoir, "GetMeanArea"( reservoir, "PreviousStorage"( reservoir ), "DailyTargetStorage"( reservoir, column, endDate ) ), startDate, endDate ) + anticipatedLoss ) ) ) );
+
+    END;
+
+    FUNCTION       "DailyFloodControlStorage" ( OBJECT reservoir, STRING column, DATETIME endDate, NUMERIC maxRelease, NUMERIC forecastVolume )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes maximum storage that we can be at today given a forecast thru endDate<br>and the maximum daily release (maxRelease).";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC maxEOPContent = "DailyMaximumStorage"( reservoir, endDate ) DO
+  WITH NUMERIC maxPeriodRelease = "SumFlowValueToVolume"( "DateMin"( @"t + 1", endDate ), endDate, maxRelease ) DO
+   "Max"( "DailyMinimumStorage"( reservoir, @"t" ), "Min"( maxEOPContent - forecastVolume + maxPeriodRelease, "DailyMaximumStorage"( reservoir, @"t" ) ) )
+  ENDWITH
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "EstimateEvaporation" ( OBJECT reservoir, NUMERIC meanArea, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "Estimates furture reservoir evaporation form startDate (usually current time step)<br>thru endDate.  Additional argument of meanArea is estimated average surface<br>area during interval.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( ( reservoir & "Evaporation Rate" [date] - reservoir & "Precipitation Rate" [date] ) * meanArea, date )
+ ENDFOR;
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "HypSimFunctions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "CreateListOfProjectedInAndOut" ( DATETIME endDate )
+    RETURN_TYPE    LIST;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN @"t" TO endDate ) WITH LIST result = {  } DO
+  APPEND { $ "UKL.Outflow" , $ "UKL.Outflow" [@"t - 1"] , date } ONTO result
+ ENDFOR SET_UNION FOR ( DATETIME date IN @"t" TO endDate ) WITH LIST result = {  } DO
+  APPEND { $ "UKL.Diversion" , $ "UKL.Diversion" [@"t - 1"] , date } ONTO result
+ ENDFOR;
+
+    END;
+
+    FUNCTION       "ListOfProjectedPE" ( DATETIME endDate )
+    RETURN_TYPE    LIST;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN @"t" TO endDate ) WITH LIST result = {  } DO
+  APPEND { $ "UKL.Pool Elevation" , date } ONTO result
+ ENDFOR;
+
+    END;
+
+  END;
+
+  PREDEFINED_GROUP "Numeric / Math";
+  DESCRIPTION   "Predefined functions which perform generic numerical computations.";
+  ACTIVE        TRUE;
+  BEGIN
+
+    PREDEFINED_FUNCTION "Floor" ( NUMERIC arg1, NUMERIC arg2 )
+    SCALE_UNITS    "";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "Mod" ( NUMERIC arg1, NUMERIC arg2, NUMERIC arg3, NUMERIC arg4 )
+    SCALE_UNITS    "";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "SumFlowsToVolume" ( SLOT arg1, DATETIME arg2, DATETIME arg3 )
+    SCALE_UNITS    "1  acre-feet ";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "SumFlowsToVolumeSkipNaN" ( SLOT arg1, DATETIME arg2, DATETIME arg3 )
+    SCALE_UNITS    "1 acre-feet";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+  END;
+
+  PREDEFINED_GROUP "Date / Time";
+  DESCRIPTION   "Predefined functions which access and manipulate date/times.";
+  ACTIVE        TRUE;
+  BEGIN
+
+    PREDEFINED_FUNCTION "GetDate" ( STRING arg1 )
+    SCALE_UNITS    "";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetDates" ( DATETIME arg1, DATETIME arg2, STRING arg3 )
+    SCALE_UNITS    "";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetDaysInMonth" ( DATETIME arg1 )
+    SCALE_UNITS    " day ";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetDayOfMonth" ( DATETIME arg1 )
+    SCALE_UNITS    "";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetDayOfYear" ( DATETIME arg1 )
+    SCALE_UNITS    " day ";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetYear" ( DATETIME arg1 )
+    SCALE_UNITS    "";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "NumberToDate" ( NUMERIC arg1 )
+    SCALE_UNITS    " FullDateTime ";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+  END;
+
+  PREDEFINED_GROUP "Engineering";
+  DESCRIPTION   "Predefined functions similar to methods on objects.";
+  ACTIVE        TRUE;
+  BEGIN
+
+    PREDEFINED_FUNCTION "GetMaxOutflowGivenInflow" ( OBJECT arg1, NUMERIC arg2, DATETIME arg3 )
+    SCALE_UNITS    "1  cfs";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetMaxReleaseGivenInflow" ( OBJECT arg1, NUMERIC arg2, DATETIME arg3 )
+    SCALE_UNITS    "1 cfs";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "GetMinSpillGivenInflowRelease" ( OBJECT arg1, NUMERIC arg2, NUMERIC arg3, DATETIME arg4 )
+    SCALE_UNITS    "1 cfs";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "SolveOutflow" ( OBJECT arg1, NUMERIC arg2, NUMERIC arg3, NUMERIC arg4, DATETIME arg5 )
+    SCALE_UNITS    "1 cfs";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "SolveStorage" ( OBJECT arg1, NUMERIC arg2, NUMERIC arg3, NUMERIC arg4, DATETIME arg5 )
+    SCALE_UNITS    "1 acre-feet";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+  END;
+
+  PREDEFINED_GROUP "Workspace";
+  DESCRIPTION   "Predefined functions which access information on slots and objects.";
+  ACTIVE        TRUE;
+  BEGIN
+
+    PREDEFINED_FUNCTION "ElevationToStorage" ( OBJECT arg1, NUMERIC arg2 )
+    SCALE_UNITS    "1 acre-feet";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "StorageToElevation" ( OBJECT arg1, NUMERIC arg2 )
+    SCALE_UNITS    "1 feet";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+    PREDEFINED_FUNCTION "VolumeToFlow" ( NUMERIC arg1, DATETIME arg2 )
+    SCALE_UNITS    "1 cfs";
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+;
+
+  END;
+
+END

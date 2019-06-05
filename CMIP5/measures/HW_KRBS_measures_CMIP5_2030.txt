@@ -1,0 +1,34 @@
+     Measure	       Value	       Units
+----------------------------------------
+Frequency Meeting Dry Year Fish Targets Scott	      70.8406	    % of Days
+Frequency Meeting Dry Year Fish Targets Shasta	      59.9708	    % of Days
+Mean Annual Water Delivery to LKNWR	      13.3284	          KAF
+Mean Annual Hydropower Generated (MW)	   26524.9381	           MW
+Boyle Mean Spill Volume per Year	     393.6513	          KAF
+Copco1 Mean Spill Volume per Year	     428.1692	          KAF
+Iron Gate Mean Spill Volume per Year	     781.5470	          KAF
+Boyle Mean Spill Days per Year	     222.6333	         days
+Copco1 Mean Spill Days per Year	      57.2667	         days
+Iron Gate Mean Spill Days per Year	     141.7333	         days
+Freq of UKL Flood Control Release	      44.1179	 Percent of Days
+Mean Ann UKL Flood Control Release Volume	     366.1015	          KAF
+KenoReach Mean Ann Fishing Days	     226.8333	         days
+BoyleReach Mean Ann Fishing Days	     143.5333	         days
+HellsCornerReach Mean Ann Fishing Days	     243.9000	         days
+IGScottReach Mean Ann Fishing Days	     270.2000	         days
+ScottSalmonReach Mean Ann Fishing Days	     185.2333	         days
+SalmonTrinityReach Mean Ann Fishing Days	     214.5667	         days
+TrinityOceanReach Mean Ann Fishing Days	     241.6667	         days
+KenoReach Mean Ann Boating Days	     188.7667	         days
+BoyleReach Mean Ann Boating Days	      52.9000	         days
+HellsCornerReach Mean Ann Boating Days	     181.1000	         days
+IGScottReach Mean Ann Boating Days	     270.2000	         days
+ScottSalmonReach Mean Ann Boating Days	     237.3333	         days
+SalmonTrinityReach Mean Ann Boating Days	     214.5667	         days
+TrinityOceanReach Mean Ann Boating Days	     241.6667	         days
+Mean Project Supply (Apr-Sep)	     369.2656	          KAF
+Mean Annual UKL Stg and Inflow	    1461.5291	          KAF
+ Mean Annual Shasta Flow	     209.9437	          cfs
+  Mean Annual Scott Flow	     806.3598	          cfs
+        Mean Annual MWAT	      80.5229	         degF
+Mean exceedence of MWAT - Poor	      16.8429	         degF
