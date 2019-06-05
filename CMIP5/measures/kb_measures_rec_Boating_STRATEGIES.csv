@@ -1,0 +1,561 @@
+"measure","scenario","period","climset","strategy","value","value_hist"
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",55.8667,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",52.6,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",52.5667,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",52.3,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",56.2333,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",52.5333,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",54.1333,59
+"BoyleReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",54.3,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",67.4667,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",67.4,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",67.7,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",69.5333,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",57.4333,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",57.4,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",57.9,59
+"BoyleReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",58.0667,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",43.7,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",41.9667,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",41.8333,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",42.7333,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",47.6333,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",46.6,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",47.0333,59
+"BoyleReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",47.4333,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",54.6333,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",54.7667,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",54.4,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",54.8333,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",53.9,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",52.9,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",53.7,59
+"BoyleReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",53.6667,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",53.3,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",52.1667,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",52.7333,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",52.9333,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",57.9333,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",55.6333,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",57.2667,59
+"BoyleReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",57.9333,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",48.8667,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",47.5667,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",47.3,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",47.4667,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",53.3333,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",51.4,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",52.0667,59
+"BoyleReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",52.5,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",58.5667,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",59.8333,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",59.7333,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",59.5333,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",64.5,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",61.8667,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",62,59
+"BoyleReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",62.4,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",52.3667,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",51,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",52.4333,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",53.5667,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",46.7333,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",44.8667,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",46,59
+"BoyleReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",46.8,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",54.2,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",53.6,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",54.2,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",54.4667,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",50.5333,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",50.7333,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",50.7667,59
+"BoyleReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",51.2,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",50.2333,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",50.8,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",51.3667,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",51.5333,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",53.0667,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",51.3667,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",51.6667,59
+"BoyleReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",52.4,59
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",215.3,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",210.9667,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",211.4,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",211.4667,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",216.6333,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",209.3333,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",211.2333,256
+"HellsCornerReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",212.3667,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",230.9667,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",224.4667,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",225.0333,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",224.8333,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",212.5,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",209.7667,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",210.5,256
+"HellsCornerReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",210.3667,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",183.7,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",179.6,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",182.3,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",183.7333,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",182.5667,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",180.8667,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",182.0333,256
+"HellsCornerReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",182.9667,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",183.6,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",181.1333,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",182.8,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",183.6667,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",185.4,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",181.1,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",182.4333,256
+"HellsCornerReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",183.4333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",206.2,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",200.6,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",202.3,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",203.9333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",204.0333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",199.3,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",200.4333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",201.0667,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",190.4667,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",187.8667,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",188.7667,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",189.9,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",192.0333,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",188.5333,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",189.5,256
+"HellsCornerReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",190.8333,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",197.2667,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",193.4667,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",194.8,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",195.3333,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",208.7333,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",204.3333,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",204.6,256
+"HellsCornerReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",204.5,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",170.2,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",168.1,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",169.1667,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",172.1667,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",166.5333,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",163.5667,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",164.7,256
+"HellsCornerReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",165.5667,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",171.1667,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",169,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",170.1,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",171.2,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",167,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",165.5333,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",166.2667,256
+"HellsCornerReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",167.2667,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",179.6333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",176.9,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",178.6,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",179.9333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",177.2667,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",173.3,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",175.9333,256
+"HellsCornerReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",176.6333,256
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",280.4667,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",281.9667,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",282.0333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",282.2333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",277.0333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",277.5333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",277.5,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",277.5,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",267.1,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",268.6667,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",268.7333,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",268.7333,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",273.0667,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",274.4,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",273.9667,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",273.9667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",284.4667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",285.1667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",285.1333,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",285.2667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",286.6667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",287.5333,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",287.2333,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",286.7,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",265.5,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",266.1,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",265.8333,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",265.7333,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",269.2,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",270.2,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",270.3667,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",269.6667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",279.0667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",280.3333,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",280.2667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",280.1,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",273.9667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",274.9,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",274.9,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",274.8333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",285.3,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",285.2333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",285.7333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",285.6667,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",284,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",284.2667,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",284.3333,274.7333
+"IGScottReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",284.1,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",261.6667,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",262.8667,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",262.6,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",262.3333,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",268.4333,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",269.2,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",268.9667,274.7333
+"IGScottReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",268.9333,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",285.0667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",285.0333,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",285.8667,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",286.8,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",280.6333,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",280.4,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",281.5,274.7333
+"IGScottReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",281.6667,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",262.0667,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",261.2333,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",262.1,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",262.2667,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",247.0333,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",247.0667,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",247.6333,274.7333
+"IGScottReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",247.3,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",271.4333,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",271.4,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",271.6,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",271.5667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",276.0667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",276.7333,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",276.2667,274.7333
+"IGScottReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",275.7333,274.7333
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",183.2,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",177.7333,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",178.9667,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",180.1667,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",173.0667,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",168.8,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",170.4667,171.8
+"KenoReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",171.5333,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",208.0333,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",205.2333,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",205.3667,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",205.1667,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",193.5667,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",190.3333,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",190.3,171.8
+"KenoReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",189.8333,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",155.4667,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",150.7667,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",152.6333,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",153.3,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",154.5333,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",152.0333,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",153.0333,171.8
+"KenoReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",153.9,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",181.5,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",180.6,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",180.9667,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",181.9667,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",190.6333,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",188.7667,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",189.1333,171.8
+"KenoReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",190.2,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",183,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",177.2333,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",179.6,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",180.4333,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",189.1,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",183.4667,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",185.1667,171.8
+"KenoReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",185.8667,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",163.9667,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",161.0667,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",162.3,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",163.5667,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",162.2667,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",159.2,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",160.4333,171.8
+"KenoReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",161.2,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",202.4,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",202,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",201.4333,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",201.7667,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",200.6333,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",197.7333,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",198.1,171.8
+"KenoReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",198.0333,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",143.6333,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",142.1333,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",144.1667,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",145.5,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",143.4667,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",140.9333,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",143.3,171.8
+"KenoReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",143.9333,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",184.7667,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",183.2333,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",184.3333,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",184.8333,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",184.1,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",182.7333,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",183.9,171.8
+"KenoReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",184,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",176.4,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",174.2667,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",176.8333,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",177.4667,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",169.8333,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",167.2,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",169,171.8
+"KenoReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",170.4667,171.8
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",231.6,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",231.9667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",231.8667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",231.7667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",233.6333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",233.6667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",233.6,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",233.6,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",199.3,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",199.6667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",199.4333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",199.3333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",205.8333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",206.3667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",206.3667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",206.3667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",244.2,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",244.0667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",244.3667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",244.4667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",241.9667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",242.2667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",242.3,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",242.5,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",211.4,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",211.4333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",211.4,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",211.5667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",214.6,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",214.5667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",214.4333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",214.3333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",221.0667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",221.1,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",221.0667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",221,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",221.8667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",222.4333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",222.3333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",222.2667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",243.7333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",243.4667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",243.7,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",244.1,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",237.4333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",238.1,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",237.9,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",237.7,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",207.1667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",207.2,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",207.3,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",207.4,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",206.2,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",206.2,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",206.2667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",206.3333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",249.4,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",249.5333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",250.0333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",250.2667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",246.3667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",246.1667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",247.2,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",247.5667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",221.7,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",221.6667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",221.9667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",221.9333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",220.2333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",220,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",220.8333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",220.6667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",223.8333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",223.9,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",224,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",224,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",220.3667,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",220.3333,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",220.9,213.9333
+"SalmonTrinityReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",221.0667,213.9333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",257.0667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",257.3,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",257.3333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",257.3667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",255.3,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",255.4667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",255.8667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",255.8333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",231.2333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",231.8333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",231.6667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",231.7333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",233.1333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",233.6667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",233.5333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",233.7333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",260.7,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",260.5333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",260.8333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",261.0667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",260.5333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",260.2333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",260.7667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",261.2667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",235.8,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",236.0333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",235.9667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",235.8333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",236.6333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",237.3333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",236.9333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",236.7,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",248.7333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",248.9667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",248.7333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",249,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",249.6667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",249.8667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",250.0333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",250.1333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",262.3667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",262.3333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",262.4333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",262.6,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",255.5,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",255.2,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",255.8,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",255.9333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",229.4667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",230.2667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",230.1667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",230.1333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",230.4667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",231.1,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",231.0667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",230.9333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",261.8333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",261.5667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",262.6667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",263.9333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",258,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",257.7667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",259.0333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",259.1,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",241,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",241.4333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",241.3667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",241.2,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",232.5333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",232.2667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",233.3,249.2333
+"ScottSalmonReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",233.2667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",243.5,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",243.6667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",243.3333,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",243.4,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",242.5667,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",243.3,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",243.7,249.2333
+"ScottSalmonReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",243.3667,249.2333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP3","Add 30KAF",261.4333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP3","Baseline",261.8,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 30%",261.6667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP3","Reduce ET 50%",261.5333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP5","Add 30KAF",262.7333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP5","Baseline",262.9,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 30%",262.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2030,"CMIP5","Reduce ET 50%",262.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP3","Add 30KAF",232.8333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP3","Baseline",232.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 30%",232.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP3","Reduce ET 50%",232.9,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP5","Add 30KAF",236.5333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP5","Baseline",236.8,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 30%",236.7667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2030,"CMIP5","Reduce ET 50%",236.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP3","Add 30KAF",272.3,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP3","Baseline",272.5333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 30%",272.4333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP3","Reduce ET 50%",272.2333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP5","Add 30KAF",273.7,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP5","Baseline",273.9667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 30%",273.7333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2030,"CMIP5","Reduce ET 50%",273.7333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP3","Add 30KAF",241,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP3","Baseline",241.0333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 30%",240.9667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP3","Reduce ET 50%",240.9,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP5","Add 30KAF",241.5667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP5","Baseline",241.6667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 30%",241.5667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2030,"CMIP5","Reduce ET 50%",241.4667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP3","Add 30KAF",254.3333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP3","Baseline",254.6,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 30%",254.4667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP3","Reduce ET 50%",254.3667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP5","Add 30KAF",255.8,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP5","Baseline",255.8,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 30%",255.7667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2030,"CMIP5","Reduce ET 50%",255.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP3","Add 30KAF",272.5,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP3","Baseline",272.4667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 30%",272.5,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP3","Reduce ET 50%",272.4,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP5","Add 30KAF",265.5333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP5","Baseline",265.7667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 30%",265.6333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WD",2070,"CMIP5","Reduce ET 50%",265.5333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP3","Add 30KAF",235,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP3","Baseline",235.2,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 30%",235.1667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP3","Reduce ET 50%",235.2,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP5","Add 30KAF",233.9333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP5","Baseline",234.3,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 30%",234.2,252.9333
+"TrinityOceanReach Mean Ann Boating Days","WW",2070,"CMIP5","Reduce ET 50%",234.1333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP3","Add 30KAF",281.4667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP3","Baseline",281.5667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 30%",281.4667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP3","Reduce ET 50%",281.4,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP5","Add 30KAF",279.1333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP5","Baseline",279.5,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 30%",279.2667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HD",2070,"CMIP5","Reduce ET 50%",279.3,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP3","Add 30KAF",251.5667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP3","Baseline",251.9,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 30%",251.6,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP3","Reduce ET 50%",251.4,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP5","Add 30KAF",246.6667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP5","Baseline",246.7667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 30%",246.8667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","HW",2070,"CMIP5","Reduce ET 50%",246.9667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP3","Add 30KAF",252.4333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP3","Baseline",252.7,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 30%",252.6333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP3","Reduce ET 50%",252.5,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP5","Add 30KAF",251.2,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP5","Baseline",251.7333,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 30%",251.2667,252.9333
+"TrinityOceanReach Mean Ann Boating Days","CT",2070,"CMIP5","Reduce ET 50%",251.1333,252.9333

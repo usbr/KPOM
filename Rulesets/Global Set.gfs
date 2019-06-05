@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 7.4.2 Patch
-# Created 16:38 March 26, 2019
+# RiverWare_Ruleset 7.4.1 Patch
+# Created 12:30 April 24, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -10,7 +10,7 @@ IS_GLOBAL   TRUE;
 NOTES "";
 BEGIN
 
-  UTILITY_GROUP "Utility Group";
+  UTILITY_GROUP "Datetime Functions";
   DESCRIPTION   "";
   ACTIVE        TRUE;
   NOTES          "";
@@ -44,8 +44,8 @@ BEGIN
 
     END;
 
-    FUNCTION       "Deterministic Forecast End Date" (  )
-    RETURN_TYPE    DATETIME;
+    FUNCTION       "NovThruFeb" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
     ACTIVE         TRUE;
@@ -54,12 +54,17 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard Controls.Deterministic Forecast End" [] );
+      IF ( date < @"24:00:00 March 1, Current Year" OR date > @"24:00:00 October 31, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
 
     END;
 
-    FUNCTION       "Accretions End Date" (  )
-    RETURN_TYPE    DATETIME;
+    FUNCTION       "Before Operations Period" (  )
+    RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
     ACTIVE         TRUE;
@@ -68,7 +73,142 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard Controls.Accretions End" [] );
+      IF ( @"t" < "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END;
+
+  END;
+
+  UTILITY_GROUP "Operation Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "LRDC to North Canal" ( DATETIME Day )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( $ "North Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
+ THEN
+  IF ( $ "North Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] )
+  THEN
+   $ "Lost River To Klamath River.Inflow2" [Day]
+  ELSE
+   $ "North Canal.Diversion Request" [Day]
+  ENDIF
+ ELSE
+  0.00000000 "cfs"
+ ENDIF;
+
+    END;
+
+    FUNCTION       "LRDC to Ady Canal" ( DATETIME Day )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( $ "Ady Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
+ THEN
+  IF ( $ "Ady Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day ) )
+  THEN
+   $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day )
+  ELSE
+   $ "Ady Canal.Diversion Request" [Day]
+  ENDIF
+ ELSE
+  0.00000000 "cfs"
+ ENDIF;
+
+    END;
+
+    FUNCTION       "Calc Flood Release" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC Scenario = IF ( $ "UKL.Flood Scenario" [] < 3.00000000 )
+ THEN
+  1.00000000
+ ELSE
+  2.00000000
+ ENDIF DO
+  WITH NUMERIC RampdownDays = IF ( $ "UKL.Pool Elevation" ["OffsetDate"( date, - 1.00000000, "1 days" )] <= $ "UKL.Flood Elevation Table" ["OffsetDate"( date, - 1.00000000, "1 days" ), Scenario] )
+  THEN
+   0.00000000
+  ELSE
+   $ "UKL.RampdownPeriod" []
+  ENDIF
+  ELSEIF_COND ( $ "UKL.Pool Elevation" ["OffsetDate"( date, - 1.00000000, "1 days" )] <= $ "UKL.Flood Elev Correction" ["OffsetDate"( date, - 1.00000000, "1 days" )] )
+  ELSEIF_CLAUSE ( $ "UKL.RampdownDays" [date] - 1.00000000 )
+  END_ELSEIF DO
+   WITH NUMERIC IncrementalChange = IF ( RampdownDays > 0.00000000 )
+   THEN
+    ( $ "UKL.Flood Elevation Table" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays, "1 days" ), Scenario] - $ "UKL.Pool Elevation" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays - $ "UKL.RampdownPeriod" [], "1 days" )] ) / $ "UKL.RampdownPeriod" []
+   ELSE
+    0.00000000 "ft"
+   ENDIF DO
+    WITH NUMERIC FloodElevCorrection = IF ( RampdownDays > 0.00000000 )
+    THEN
+     $ "UKL.Pool Elevation" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays - $ "UKL.RampdownPeriod" [], "1 days" )] + IncrementalChange * ( $ "UKL.RampdownPeriod" [] + 1.00000000 - RampdownDays )
+    ELSE
+     $ "UKL.Flood Elevation Table" [date, Scenario]
+    ENDIF DO
+     "Max"( 0.00000000 "cfs", "Min"( $ "UKL.Max Outflow" [date], "VolumeToFlow"( $ "UKL.Storage" ["OffsetDate"( date, - 1.00000000, "1 days" )] - "ElevationToStorage"( % "UKL", FloodElevCorrection ), @"t" ) + $ "UKL.Inflow" [date] - "Historic Ag Demands"( date ) - $ "UKL.Flood Override Correction" [date] ) )
+    ENDWITH
+   ENDWITH
+  ENDWITH
+ ENDWITH;
+
+    END;
+
+    FUNCTION       "Historic Ag Demands" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC AgConsiderations = $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Ady Canal Remain.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) DO
+  WITH NUMERIC SetDemand = IF ( "NovThruFeb"( date ) )
+  THEN
+   $ "A Canal.Diversion Request" [date]
+  ELSE
+   AgConsiderations
+  ENDIF
+  ELSEIF_COND ( AgConsiderations < 0.00000000 "cfs" )
+  ELSEIF_CLAUSE ( 0.00000000 "cfs" )
+  END_ELSEIF
+  ELSEIF_COND ( AgConsiderations < $ "A Canal.Diversion Request" [date] )
+  ELSEIF_CLAUSE ( $ "A Canal.Diversion Request" [date] )
+  END_ELSEIF DO
+   SetDemand
+  ENDWITH
+ ENDWITH;
 
     END;
 
