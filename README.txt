@@ -185,8 +185,8 @@ Ady Canal Remain.Diversion Request (cfs)
 IGD.Outflow (cfs)
 Keno to Boyle Gain.Local Inflow (cfs)			- IGD Calculator 'USBR Daily' Sheet 'Keno to IGD Accretions (BOR est.)' Column -> calculated using an initilization rule from USGS IGD - USGS Keno flows*
 Keno.Outflow (cfs)								- USGS Gauge (11509500) - imported through Pisces DMI
-F and FF Pump.Outflow (cfs)						- Klamath Hydromet (FPPO) - imported through Pisces DMI
 Ady Canal.Diversion Request (cfs)				- USGS Gauge (11509200) - imported through Pisces DMI -> don't quite match Ady Canal values in IGD Calculator -> what data procesing happens??
+F and FF Pump.Outflow (cfs)						- Klamath Hydromet (FPPO) - imported through Pisces DMI
 North Canal.Diversion Request (cfs)				- USGS Gauge (11509105) - imported through Pisces DMI -> don't quite match North Canal values in IGD Calculator -> what data procesing happens??
 Lake Ewuana Gain.Local Inflow (cfs)				-
 Miller Hill Pump.Diversion Request (cfs)		-
@@ -320,8 +320,24 @@ Best practices for creating a timeseries of lookup values
 	Date (MM-DD)	Year1		Year2		Year3		...
 	
 	
-Also a similar Time aggregate slot that has 
+Also a similar Time aggregate slot that can aggregate all the slots in a aggregate series slot (e.g. statistics about all traces of an ensemble forecast)
 
+##-----------------------------
+Misc
 Adding a basemap
 
 Editing run script to set correct Start Date
+
+Tracking data quality
+	Importing data flags from Pisces?
+		not sure if this is doable, or we want to
+		tracking provisional data vs accepted data (e.g. USGS records)
+		
+##-----------------------------
+Add'l Hydromet Notes
+LRSC not fully calibrated (Lost River downstream of Clear Lake)
+	undercutting not fully represented by Q
+Gerber 
+	No automated measurement downstream
+	Gate equation w/ gate opening entered into daily operations spreadsheet
+	Discussions about setting up a measurement site downstream (requires control structure)
