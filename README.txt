@@ -341,3 +341,77 @@ Gerber
 	No automated measurement downstream
 	Gate equation w/ gate opening entered into daily operations spreadsheet
 	Discussions about setting up a measurement site downstream (requires control structure)
+
+#-------------------------------------------------------------------------------------------------------
+2019-06-07
+Revisit DMIs
+Updated model and repo so posted model has all DMIs
+
+Mapping IGD Calc DMI to new DMIs
+
+Import Basin Inputs DMI
+
+IGD Calculator Values
+	UKL Pool Elevation							Start Timestep - 1 Timesteps		Final Observation Date()
+	Ag Sheet Pacifcorp Accretions				Start Timestep - 1 Timesteps		Finish Timestep + 7 Timesteps
+	Williamson River Inflow	CNRFC Short Term	Start Timestep - 1 Timesteps		Finish Timestep
+	UKL. Misc Flows								Start Timestep - 1 Timesteps		Finish Timestep
+	Local Inflows						
+		Keno to Boyle							Start Timestep - 1 Timesteps		Final Observation Date()
+		Lake Ewuana								Start Timestep - 1 Timesteps		Final Observation Date()
+	Diversion Request
+		Ady Canal Remain						Start Timestep - 1 Timesteps		Final Observation Date()
+		Station 48								Start Timestep - 1 Timesteps		Final Observation Date()
+		North Canal								Start Timestep - 1 Timesteps		Final Observation Date()
+		A Canal									Start Timestep - 1 Timesteps		Final Observation Date()
+		Miller Hill Pump						Start Timestep - 1 Timesteps		Final Observation Date()
+		Ady Canal								Start Timestep - 1 Timesteps		Final Observation Date()
+	Outflows
+		F and FF Pump							Start Timestep - 1 Timesteps		Final Observation Date()
+		Keno Outflow							Start Timestep - 1 Timesteps		Final Observation Date()
+		IGD Outflow								Start Timestep - 1 Timesteps		Final Observation Date()
+	Inflows
+		Lost River Diversion Channel			Start Timestep - 1 Timesteps		Final Observation Date()
+		Williamson River Inflow					Start Timestep - 1 Timesteps		Final Observation Date()
+		UKL Inflow								Start Timestep - 1 Timesteps		Final Observation Date()
+		
+##-----------------------------
+REMAP Import Basin Imports Slots to new DMIs / Init Rules
+UKL Pool Elevation
+	Use Import Observations KBAO DMI
+	DMI in Klamath Falls, Rattlesnake Point, and Rocky Point values
+	Init rule to calc average w/ smoothing -> find approach used by KBAO
+		Set UKL.Pool Elevation slot
+
+Ag Sheet Pacifcorp Accretion
+	Use Import Observations PacifiCorp DMI
+	Init rule to set slot from DMI import slot
+		Accretions Keno to IGD Accretion PacifCorp -> AgSheet.Pacifcorp Accretions
+
+Williamson River Inflow	CNRFC Short Term
+	Use Import Forecasts CNRFC Deterministic DMI
+	Init rule to set slot from DMI import slot
+		11502500 Williamson River nr Chiloquin.InptFcst Gage Inflow -> Williamson River Inflow.CNRFC Short Term
+
+		UKL. Misc Flows	
+	Read in with scratch DMI for now
+	Where do these values come from? How are they calculated?
+
+Keno to Boyle Local Inflow
+	Calculate in RW using gage data in Init rule
+		Keno to Boyle Gain.Local Inflow (Reach)
+
+Lake Ewuana	Local Inflow
+	Calculate in RW using gage data in Init rule
+		Lake Ewuana Gain.Local Inflow (Reach)
+		
+Ady Canal Remain Diversion Request
+	Is this a calc value? How is it calculated?
+
+Station 48	Diversion Request
+	Use Import Observations KBAO DMI
+	
+North Canal Diversion Request
+
+
+	
