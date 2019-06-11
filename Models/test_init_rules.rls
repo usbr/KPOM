@@ -1,0 +1,76 @@
+# RiverWare_Ruleset 7.5
+# Created 09:52 June 11, 2019
+# 
+RULESET
+NAME "Initialization Rules Set";
+AGENDA_ORDER ASCENDING;
+DESCRIPTION "";
+PRECISION   2;
+NOTES "";
+BEGIN
+
+  POLICY_GROUP   "TESTING";
+  DESCRIPTION    "";
+  ACTIVE         TRUE;
+  NOTES          "";
+  BEGIN
+
+    RULE                 "Season Assignments";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    SET_VALUE_FLAG       64;
+    NOTES                "";
+    BEGIN
+
+      $ "Dashboard Controls.Forecast Season" [] := "Forecast Season"( "Operation Start Date"(  ) );
+
+      $ "Dashboard Controls.Run Season" [] := "Run Season"( "Operation Start Date"(  ) );
+
+    END
+    UUID "{e526b877-1fe5-4f63-a77e-a55af06a6a23}";;
+
+    RULE                 "Start Timestep Assignment";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    SET_VALUE_FLAG       64;
+    NOTES                "";
+    BEGIN
+
+      $ "Dashboard Controls.Start Timestep" [] := "Start Timestep"( "Operation Start Date"(  ) );
+
+    END
+    UUID "{e2b5cdec-0f04-48c2-8a91-ed3a077db129}";;
+
+    RULE                 "End Timestep Assignment";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    SET_VALUE_FLAG       64;
+    NOTES                "";
+    BEGIN
+
+      $ "Dashboard Controls.End Timestep" [] := "End Timestep"( "Operation Start Date"(  ) );
+
+    END
+    UUID "{5ade986f-6454-426f-b9f0-348d5e2ae2ae}";;
+
+    RULE                 "Current Timestep Assignment";
+    DESCRIPTION          "";
+    ACTIVE               TRUE;
+    RULE_EXEC_CONSTRAINT TRUE;
+    SET_VALUE_FLAG       64;
+    NOTES                "";
+    BEGIN
+
+      $ "Dashboard Controls.Current Timestep" [] := "DateToNumber"( @"t" );
+
+    END
+    UUID "{5d7dbad6-335a-4f6e-854e-90816ab8ef84}";;
+
+  END
+  UUID "{7abfbc45-8749-4494-bf2a-25623b5f7f8b}";;
+
+END
+UUID "{10fad0a4-daba-4d85-84b8-51cb333a7922}";

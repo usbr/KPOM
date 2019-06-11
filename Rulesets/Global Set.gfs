@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 7.4.1 Patch
-# Created 12:30 April 24, 2019
+# RiverWare_Ruleset 7.5
+# Created 17:12 June 11, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -16,7 +16,7 @@ BEGIN
   NOTES          "";
   BEGIN
 
-    FUNCTION       "Final Observation Date" (  )
+    FUNCTION       "Observations End Timestep" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -26,11 +26,112 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) - 1.00000000 "day";
+      "OffsetDate"( "Operation Start Timestep"(  ), - 1.00000000, "1 Days" );
 
-    END;
+    END
+    UUID "{75796d8d-6137-46b1-a660-ed9aa6c9fe2b}";;
 
-    FUNCTION       "Operation Start Date" (  )
+    FUNCTION       "Long Forecast End Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Long Forecast End Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : 30 September Current Year + 1<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 30 November Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 28/29 February Current Year + 1";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
+ THEN
+  "OffsetDate"( @"24:00:00 September 30, Current Year", 1.00000000, "1 Years" )
+ ELSE
+  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
+  THEN
+   @"24:00:00 October 1, 1900"
+  ELSE
+   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
+   THEN
+    @"24:00:00 November 30, Current Year"
+   ELSE
+    "OffsetDate"( "OffsetDate"( @"24:00:00 March 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" )
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{1f530d9b-b2cf-4d5d-8c4f-e6b7818b0038}";;
+
+    FUNCTION       "Long Forecast Start Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Long Forecast Start Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : Operations Start Timestep + 6 Days<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 1 October Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 1 October Current Year";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
+ THEN
+  "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" )
+ ELSE
+  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
+  THEN
+   @"24:00:00 October 1, 1900"
+  ELSE
+   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
+   THEN
+    @"24:00:00 October 1, Current Year"
+   ELSE
+    @"24:00:00 October 1, Current Year"
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{f6a26cbc-6853-4489-9063-1b5bbddefd1d}";;
+
+    FUNCTION       "NRCS WSF End Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the NRCS WSF End Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>	NRCS WSF End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 2 (NRCS) & 3 (Combined)<br>Run Season : 2 (Pre Irrigation)<br>	NRCS WSF End Timestep : 30 September Current Year";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
+ THEN
+  @"24:00:00 October 1, 1900"
+ ELSE
+  @"24:00:00 September 30, Current Year"
+ ENDIF;
+
+    END
+    UUID "{75bba4b7-41d6-4d8e-a15c-ea1d76b43fc2}";;
+
+    FUNCTION       "NRCS WSF Start Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the NRCS WSF Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>	NRCS WSF Start Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 2 (NRCS) & 3 (Combined)<br>Run Season : 2 (Pre Irrigation)<br>	NRCS WSF Start Timestep : Operations Start Timestep + 6 Days";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( date ) == 1.00000000 )
+ THEN
+  @"24:00:00 October 1, 1900"
+ ELSE
+  "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" )
+ ENDIF;
+
+    END
+    UUID "{782caf4c-43b1-44f8-b83f-20516f6d37a4}";;
+
+    FUNCTION       "Accretions End Timestep" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -40,9 +141,40 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard Controls.Operation Start" [] );
+      "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" );
 
-    END;
+    END
+    UUID "{7f9966d4-60be-4edb-874b-0a542e1a9d58}";;
+
+    FUNCTION       "Deterministic Forecast End Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( "Operation Start Timestep"(  ), 5.00000000, "1 Days" );
+
+    END
+    UUID "{58a1d538-0ccb-46ac-a493-f77317559eac}";;
+
+    FUNCTION       "Operation Start Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard Controls.Operation Start Timestep" [] );
+
+    END
+    UUID "{6ea0d410-15f5-49cb-8ad5-3211a2116591}";;
 
     FUNCTION       "NovThruFeb" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
@@ -61,7 +193,8 @@ BEGIN
   FALSE
  ENDIF;
 
-    END;
+    END
+    UUID "{3c38a9bb-e62c-4564-a0f8-2b567128257b}";;
 
     FUNCTION       "Before Operations Period" (  )
     RETURN_TYPE    BOOLEAN;
@@ -73,16 +206,149 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( @"t" < "NumberToDate"( $ "Dashboard Controls.Operation Start" [] ) )
+      IF ( @"t" < "NumberToDate"( $ "Dashboard Controls.Operation Start Timestep" [] ) )
  THEN
   TRUE
  ELSE
   FALSE
  ENDIF;
 
-    END;
+    END
+    UUID "{053650cf-d1a9-4209-a07e-64f9b39c7a48}";;
 
-  END;
+    FUNCTION       "Run Season" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Evaluates Run Start Timestep to determine 'Run Season' which selects appropriate length of run<br>1 : Fall/Winter : Oct-Dec<br>2 : Pre Irrigation : Jan-Feb<br>3 : Irrigation Season : Mar-Jul<br>4 : Post Irrigation and Planning : Aug-Sep";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "< was used instead of <= to handle the Feb 28/29 discrepency at the end of Feb, and used for the rest of the If statements for consistency";
+    BEGIN
+
+      IF ( date >= @"24:00:00 October 1, Current Year" AND date < "OffsetDate"( "OffsetDate"( @"24:00:00 January 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" ) )
+ THEN
+  1.00000000
+ ELSE
+  IF ( date >= @"24:00:00 January 1, Current Year" AND date < @"24:00:00 March 1, Current Year" )
+  THEN
+   2.00000000
+  ELSE
+   IF ( date >= @"24:00:00 March 1, Current Year" AND date < @"24:00:00 August 1, Current Year" )
+   THEN
+    3.00000000
+   ELSE
+    4.00000000
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{c23214b9-5ebc-4120-b65e-b1ddb935b90e}";;
+
+      BREAKPOINT BEFORE_EXEC TRUE;
+    FUNCTION       "Forecast Season" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Evaluates Run Start Timestep to determine 'Forecast Season' which selects appropriate forecast information to use given the time of year - <br><br>1 : Analog : Oct-Dec<br>2 : NRCS : Jan-Feb<br>3 : Combined : Mar-Sep<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "< was used to handle the Feb 28/29 discrepency at the end of Feb, and used for the rest of the If statements for consistency";
+    BEGIN
+
+      IF ( date >= @"24:00:00 October 1, Current Year" AND date < "OffsetDate"( "OffsetDate"( @"24:00:00 January 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" ) )
+ THEN
+  1.00000000
+ ELSE
+  IF ( date >= @"24:00:00 January 1, Current Year" AND date < @"24:00:00 March 1, Current Year" )
+  THEN
+   2.00000000
+  ELSE
+   3.00000000
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{1f2ac403-2540-4a13-9351-93e0e7e175fb}";;
+
+    FUNCTION       "Start Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Run Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Start Timestep : 1 March Current Year<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Start Timestep : 1 March Current Year - 1<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Start Timestep : 30 September Current Year - 1<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Start Timestep : 1 March Current Year";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "Currently using DateToNumber and NUMERIC Return Type to use function in Initilization Rules. Remove DateToNumeric function and set Return Type to DATETIME if this can be passed through";
+    BEGIN
+
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
+ THEN
+  @"24:00:00 March 1, Current Year"
+ ELSE
+  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
+  THEN
+   "OffsetDate"( @"24:00:00 March 1, Current Year", - 1.00000000, "1 Days" )
+  ELSE
+   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
+   THEN
+    @"24:00:00 September 30, Current Year - 1"
+   ELSE
+    @"24:00:00 March 1, Current Year"
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{aeb7b241-e92f-4bd6-87b5-f5cb2e640a67}";;
+
+    FUNCTION       "End Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Run Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	End Timestep : 30 September Current Year + 1<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	End Timestep : 30 September Current Year<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	End Timestep : 30 November Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Start Timestep : 28/29 February Current Year + 1";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "Assignment 4 uses 1 March Current Year + 1 minus 1 day to represent 28/29 February Current Year + 1";
+    BEGIN
+
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
+ THEN
+  "OffsetDate"( @"24:00:00 September 30, Current Year", 1.00000000, "1 Years" )
+ ELSE
+  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
+  THEN
+   @"24:00:00 September 30, Current Year"
+  ELSE
+   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
+   THEN
+    @"24:00:00 November 30, Current Year"
+   ELSE
+    "OffsetDate"( "OffsetDate"( @"24:00:00 March 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" )
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{14bddbe6-74e9-422d-a072-998297e63ce9}";;
+
+    FUNCTION       "End Timestep Testing" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Run Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	End Timestep : 30 September Current Year + 1<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	End Timestep : 30 September Current Year<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	End Timestep : 30 November Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Start Timestep : 28/29 February Current Year + 1";
+    ACTIVE         FALSE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "Assignment 4 uses 1 March Current Year + 1 minus 1 day to represent 28/29 February Current Year + 1";
+    BEGIN
+
+      "OffsetDate"( "Start Timestep"( "Operation Start Timestep"(  ) ), 364.00000000, "1 Days" );
+
+    END
+    UUID "{cae9e650-213a-4133-9283-115147bdf762}";;
+
+  END
+  UUID "{2fe383b6-af12-434a-9a08-fadd522b205a}";;
 
   UTILITY_GROUP "Operation Functions";
   DESCRIPTION   "";
@@ -112,7 +378,8 @@ BEGIN
   0.00000000 "cfs"
  ENDIF;
 
-    END;
+    END
+    UUID "{40f43264-7ddd-4fe6-84ac-acfdf1e11def}";;
 
     FUNCTION       "LRDC to Ady Canal" ( DATETIME Day )
     RETURN_TYPE    NUMERIC;
@@ -136,7 +403,8 @@ BEGIN
   0.00000000 "cfs"
  ENDIF;
 
-    END;
+    END
+    UUID "{99b1ce60-e2cc-4d34-a787-caffef71aadf}";;
 
     FUNCTION       "Calc Flood Release" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
@@ -181,7 +449,8 @@ BEGIN
   ENDWITH
  ENDWITH;
 
-    END;
+    END
+    UUID "{f5a4e885-56bc-4d17-99ba-bc449fe0c48c}";;
 
     FUNCTION       "Historic Ag Demands" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
@@ -210,8 +479,11 @@ BEGIN
   ENDWITH
  ENDWITH;
 
-    END;
+    END
+    UUID "{4db39b2e-70d6-4a82-8b0b-e8ba6ebc487f}";;
 
-  END;
+  END
+  UUID "{636257ff-86b9-4660-a3d7-52ddf5415586}";;
 
 END
+UUID "{5f654484-5bfe-4ec2-8c16-68051d3b0324}";
