@@ -1,11 +1,11 @@
 # RiverWare_Ruleset 7.5
-# Created 17:08 June 11, 2019
+# Created 13:37 June 20, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
 AGENDA_ORDER ASCENDING;
 DESCRIPTION "";
-PRECISION   8;
+PRECISION   2;
 IS_GLOBAL   TRUE;
 NOTES "";
 BEGIN
@@ -16,8 +16,8 @@ BEGIN
   NOTES          "";
   BEGIN
 
-    FUNCTION       "Observations End Timestep" (  )
-    RETURN_TYPE    DATETIME;
+    FUNCTION       "AprilThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
     ACTIVE         TRUE;
@@ -26,113 +26,13 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "OffsetDate"( "Operation Start Timestep"(  ), - 1.00000000, "1 Days" );
+      @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 August 1, Current Year";
 
     END
-    UUID "{75796d8d-6137-46b1-a660-ed9aa6c9fe2b}";;
+    UUID "{be66c884-ad93-49cb-ab13-f118d6136bf0}";;
 
-    FUNCTION       "Long Forecast End Timestep" (  )
-    RETURN_TYPE    DATETIME;
-    SCALE_UNITS    "";
-    DESCRIPTION    "Determines the Long Forecast End Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : 30 September Current Year + 1<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 30 November Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 28/29 February Current Year + 1";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
- THEN
-  "OffsetDate"( @"24:00:00 September 30, Current Year", 1.00000000, "1 Years" )
- ELSE
-  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
-  THEN
-   @"24:00:00 October 1, 1900"
-  ELSE
-   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
-   THEN
-    @"24:00:00 November 30, Current Year"
-   ELSE
-    "OffsetDate"( "OffsetDate"( @"24:00:00 March 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" )
-   ENDIF
-  ENDIF
- ENDIF;
-
-    END
-    UUID "{1f530d9b-b2cf-4d5d-8c4f-e6b7818b0038}";;
-
-    FUNCTION       "Long Forecast Start Timestep" (  )
-    RETURN_TYPE    DATETIME;
-    SCALE_UNITS    "";
-    DESCRIPTION    "Determines the Long Forecast Start Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : Operations Start Timestep + 6 Days<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 1 October Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 1 October Current Year";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
- THEN
-  "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" )
- ELSE
-  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
-  THEN
-   @"24:00:00 October 1, 1900"
-  ELSE
-   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
-   THEN
-    @"24:00:00 October 1, Current Year"
-   ELSE
-    @"24:00:00 October 1, Current Year"
-   ENDIF
-  ENDIF
- ENDIF;
-
-    END
-    UUID "{f6a26cbc-6853-4489-9063-1b5bbddefd1d}";;
-
-    FUNCTION       "NRCS WSF End Timestep" (  )
-    RETURN_TYPE    DATETIME;
-    SCALE_UNITS    "";
-    DESCRIPTION    "Determines the NRCS WSF End Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>	NRCS WSF End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 2 (NRCS) & 3 (Combined)<br>Run Season : 2 (Pre Irrigation)<br>	NRCS WSF End Timestep : 30 September Current Year";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
- THEN
-  @"24:00:00 October 1, 1900"
- ELSE
-  @"24:00:00 September 30, Current Year"
- ENDIF;
-
-    END
-    UUID "{75bba4b7-41d6-4d8e-a15c-ea1d76b43fc2}";;
-
-    FUNCTION       "NRCS WSF Start Timestep" ( DATETIME date )
-    RETURN_TYPE    DATETIME;
-    SCALE_UNITS    "";
-    DESCRIPTION    "Determines the NRCS WSF Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>	NRCS WSF Start Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 2 (NRCS) & 3 (Combined)<br>Run Season : 2 (Pre Irrigation)<br>	NRCS WSF Start Timestep : Operations Start Timestep + 6 Days";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( "Forecast Season"( date ) == 1.00000000 )
- THEN
-  @"24:00:00 October 1, 1900"
- ELSE
-  "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" )
- ENDIF;
-
-    END
-    UUID "{782caf4c-43b1-44f8-b83f-20516f6d37a4}";;
-
-    FUNCTION       "Accretions End Timestep" (  )
-    RETURN_TYPE    DATETIME;
+    FUNCTION       "AprilThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
     ACTIVE         TRUE;
@@ -141,13 +41,13 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" );
+      @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 July 1, Current Year";
 
     END
-    UUID "{7f9966d4-60be-4edb-874b-0a542e1a9d58}";;
+    UUID "{0235a62e-b645-4b46-9c59-470cb30809ff}";;
 
-    FUNCTION       "Deterministic Forecast End Timestep" (  )
-    RETURN_TYPE    DATETIME;
+    FUNCTION       "AprilThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
     ACTIVE         TRUE;
@@ -156,13 +56,13 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "OffsetDate"( "Operation Start Timestep"(  ), 5.00000000, "1 Days" );
+      @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 November 1, Current Year";
 
     END
-    UUID "{58a1d538-0ccb-46ac-a493-f77317559eac}";;
+    UUID "{58e540f9-8e34-46a1-ae22-7e7b333a844d}";;
 
-    FUNCTION       "Operation Start Timestep" (  )
-    RETURN_TYPE    DATETIME;
+    FUNCTION       "AugustThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
     ACTIVE         TRUE;
@@ -171,10 +71,430 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard Controls.Operation Start Timestep" [] );
+      @"t" > @"24:00:00 July 31, Current Year";
 
     END
-    UUID "{6ea0d410-15f5-49cb-8ad5-3211a2116591}";;
+    UUID "{da7afe47-2576-4779-bede-e59d3e3ce89b}";;
+
+    FUNCTION       "AugustThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 July 31, Current Year" AND @"t" < @"24:00:00 December 1, Current Year";
+
+    END
+    UUID "{30db77b5-c5ba-459e-8489-9e6d9da4c4e1}";;
+
+    FUNCTION       "AugustThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 July 31, Current Year" AND @"t" < @"24:00:00 November 1, Current Year";
+
+    END
+    UUID "{48d0ce8d-7826-49ec-9f4d-94b5ef378580}";;
+
+    FUNCTION       "BeforeJune" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date < @"24:00:00 June 1, Current Year";
+
+    END
+    UUID "{fa6acc55-efcb-40fd-b3b2-dfa1d5d99282}";;
+
+    FUNCTION       "BeforeJuly" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date < @"24:00:00 July 1, Current Year";
+
+    END
+    UUID "{522440d3-e76a-4c0c-94eb-338742a207bd}";;
+
+    FUNCTION       "DecemberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year";
+
+    END
+    UUID "{0002c5d5-752e-4b8c-9f75-f31fdd7facbb}";;
+
+    FUNCTION       "DecemberThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 July 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year";
+
+    END
+    UUID "{6dcfacf4-38d1-4c66-8bc8-b1b10b3d450c}";;
+
+    FUNCTION       "DecemberThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 August 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year";
+
+    END
+    UUID "{23e3a137-24ba-480a-a901-2fb85db7a048}";;
+
+    FUNCTION       "DecemberThruMay" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 June 1, Current Year" OR @"t" > @"24:00:00 November 30, Current Year";
+
+    END
+    UUID "{6421f95e-c10e-4529-ae9e-df3aa4a6ea7c}";;
+
+    FUNCTION       "JanuaryThruApril" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" <= @"24:00:00 April 30, Current Year";
+
+    END
+    UUID "{beb83a02-2335-4edc-bfce-8c599f59b911}";;
+
+    FUNCTION       "JanuaryThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" <= @"24:00:00 February Max DayOfMonth, Current Year";
+
+    END
+    UUID "{aa005e94-f146-4122-ac4f-c39cecf87920}";;
+
+    FUNCTION       "JanuaryThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" <= @"24:00:00 July 31, Current Year";
+
+    END
+    UUID "{12c35081-b78c-4b4c-8175-7d07f24be407}";;
+
+    FUNCTION       "JanuaryThruMarch" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" <= @"24:00:00 March 31, Current Year";
+
+    END
+    UUID "{4b3d82dd-9d92-4701-a283-33ef27974b65}";;
+
+    FUNCTION       "JulyThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 June 30, Current Year";
+
+    END
+    UUID "{6453038e-d1c6-46ce-8c47-953e2f667f0b}";;
+
+    FUNCTION       "JulyThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 June 30, Current Year" AND @"t" < @"24:00:00 November 1, Current Year";
+
+    END
+    UUID "{061ba4ee-8059-4491-9ecf-239b74f11573}";;
+
+    FUNCTION       "JulyThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 June 30, Current Year" AND @"t" < @"24:00:00 December 1, Current Year";
+
+    END
+    UUID "{25c13e71-5c8b-4d63-a46e-cca0355516ec}";;
+
+    FUNCTION       "JulyThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 June 30, Current Year" AND @"t" < @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{d428ab59-2110-4639-b056-5ca066ad9f7a}";;
+
+    FUNCTION       "JuneThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 May 31, Current Year" AND @"t" < @"24:00:00 December 1, Current Year";
+
+    END
+    UUID "{a680fb38-e125-444d-94b2-ad2b297ff34c}";;
+
+    FUNCTION       "JuneThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 May 31, Current Year" AND @"t" < @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{8aaa1bb4-b8bc-475c-b7d1-b4352f0da48c}";;
+
+    FUNCTION       "MarchThruApril" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 May 1, Current Year";
+
+    END
+    UUID "{6089a6d7-bc25-4921-be0e-409e4976015e}";;
+
+    FUNCTION       "MarchThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 July 1, Current Year";
+
+    END
+    UUID "{fb6cf8b3-5a5d-467d-a7a0-a8cbffbb4132}";;
+
+    FUNCTION       "MarchThruJuly" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 August 1, Current Year";
+
+    END
+    UUID "{746fb09b-002d-406e-a93e-27d39b8fe136}";;
+
+    FUNCTION       "MarchThruMay" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 June 1, Current Year";
+
+    END
+    UUID "{1c2ad662-73b2-484f-a170-f05a4810a4e1}";;
+
+    FUNCTION       "MarchThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 December 1, Current Year";
+
+    END
+    UUID "{a286b59e-82dd-4bf3-96ca-1e32381a8f4f}";;
+
+    FUNCTION       "MarchThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 February Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{ef6c6dbe-4b67-4b21-9d1b-ce951d859121}";;
+
+    FUNCTION       "MayThruAugust" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 April 30, Current Year" AND @"t" < @"24:00:00 September 1, Current Year";
+
+    END
+    UUID "{5528303b-b70b-4c50-a128-596206e05192}";;
+
+    FUNCTION       "MayThruSeptember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 April 30, Current Year" AND @"t" < @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{9b71e959-871e-4811-845a-4c0bf940aad6}";;
+
+    FUNCTION       "NovemberThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 October 31, Current Year";
+
+    END
+    UUID "{c094c806-e6f7-490f-b1dc-64a216c9c870}";;
+
+    FUNCTION       "NovemberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 October 31, Current Year";
+
+    END
+    UUID "{39f481c2-26ab-47f3-bb11-d021d7750610}";;
 
     FUNCTION       "NovThruFeb" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
@@ -186,15 +506,175 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( date < @"24:00:00 March 1, Current Year" OR date > @"24:00:00 October 31, Current Year" )
- THEN
-  TRUE
- ELSE
-  FALSE
- ENDIF;
+      date < @"24:00:00 March 1, Current Year" OR date > @"24:00:00 October 31, Current Year";
 
     END
-    UUID "{3c38a9bb-e62c-4564-a0f8-2b567128257b}";;
+    UUID "{6333883c-7f7c-49c3-b414-8a8b10e0488c}";;
+
+    FUNCTION       "NovemberThruMarch" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 April 1, Current Year" OR @"t" > @"24:00:00 October 31, Current Year";
+
+    END
+    UUID "{1eb6d42f-6c13-4585-8a5a-326e97c498ae}";;
+
+    FUNCTION       "OctoberThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 September 30, Current Year";
+
+    END
+    UUID "{39418046-9a5f-4fb1-81a2-5a4e77854b25}";;
+
+    FUNCTION       "OctoberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year";
+
+    END
+    UUID "{70136de1-d28a-4dc9-810a-7380b0a8b134}";;
+
+    FUNCTION       "OctoberThruJune" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 July 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year";
+
+    END
+    UUID "{8175d0e1-10b8-4f75-bd5b-841fc78995db}";;
+
+    FUNCTION       "OctoberThruMarch" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 April 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year";
+
+    END
+    UUID "{51129e7b-15fa-4c36-abe8-84cc42928e47}";;
+
+    FUNCTION       "OctoberThruNovember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 September Max DayOfMonth, Current Year" AND @"t" < @"24:00:00 December 1, Current Year";
+
+    END
+    UUID "{a9ec446c-1646-41fd-8bae-62ec8f235d13}";;
+
+    FUNCTION       "SeptemberThruApril" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 May 1, Current Year" OR @"t" > @"24:00:00 August 31, Current Year";
+
+    END
+    UUID "{88627098-e341-4063-8e7a-7bc4a8417822}";;
+
+    FUNCTION       "SeptemberThruFebruary" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 August 31, Current Year";
+
+    END
+    UUID "{3ccca8e8-1cf3-48b3-9ee7-55f1dce1c1db}";;
+
+    FUNCTION       "Accretions End Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( date, 6.00000000, "1 Days" );
+
+    END
+    UUID "{dde6375e-de82-43a4-9c1c-b122ee0b723a}";;
+
+    FUNCTION       "Augment Period" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.OctNov Augment End" [] ), @"t" ) AND @"t + 7" >= "WinterOps Start"(  );
+
+    END
+    UUID "{81e2cab4-67d9-4cfd-81d9-e4e3c9fe8e5e}";;
+
+    FUNCTION       "BeforeAdjStart" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Fill Adjust Start" [] ), @"t" ) AND @"t + 7" >= "WinterOps Start"(  );
+
+    END
+    UUID "{638d9510-acc6-49e6-bfe0-5b5d04cf1a9b}";;
 
     FUNCTION       "Before Operations Period" (  )
     RETURN_TYPE    BOOLEAN;
@@ -206,7 +686,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( @"t" < "NumberToDate"( $ "Dashboard Controls.Operation Start Timestep" [] ) )
+      IF ( @"t" < "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) )
  THEN
   TRUE
  ELSE
@@ -214,93 +694,102 @@ BEGIN
  ENDIF;
 
     END
-    UUID "{053650cf-d1a9-4209-a07e-64f9b39c7a48}";;
+    UUID "{660cf5d6-d957-4b6d-b67a-0e6afbd75311}";;
 
-    FUNCTION       "Run Season" ( DATETIME date )
-    RETURN_TYPE    NUMERIC;
-    SCALE_UNITS    "";
-    DESCRIPTION    "Evaluates Run Start Timestep to determine 'Run Season' which selects appropriate length of run<br>1 : Fall/Winter : Oct-Dec<br>2 : Pre Irrigation : Jan-Feb<br>3 : Irrigation Season : Mar-Jul<br>4 : Post Irrigation and Planning : Aug-Sep";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "< was used instead of <= to handle the Feb 28/29 discrepency at the end of Feb, and used for the rest of the If statements for consistency";
-    BEGIN
-
-      IF ( date >= @"24:00:00 October 1, Current Year" AND date < "OffsetDate"( "OffsetDate"( @"24:00:00 January 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" ) )
- THEN
-  1.00000000
- ELSE
-  IF ( date >= @"24:00:00 January 1, Current Year" AND date < @"24:00:00 March 1, Current Year" )
-  THEN
-   2.00000000
-  ELSE
-   IF ( date >= @"24:00:00 March 1, Current Year" AND date < @"24:00:00 August 1, Current Year" )
-   THEN
-    3.00000000
-   ELSE
-    4.00000000
-   ENDIF
-  ENDIF
- ENDIF;
-
-    END
-    UUID "{c23214b9-5ebc-4120-b65e-b1ddb935b90e}";;
-
-      BREAKPOINT BEFORE_EXEC TRUE;
-    FUNCTION       "Forecast Season" ( DATETIME date )
-    RETURN_TYPE    NUMERIC;
-    SCALE_UNITS    "";
-    DESCRIPTION    "Evaluates Run Start Timestep to determine 'Forecast Season' which selects appropriate forecast information to use given the time of year - <br><br>1 : Analog : Oct-Dec<br>2 : NRCS : Jan-Feb<br>3 : Combined : Mar-Sep<br>";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "< was used to handle the Feb 28/29 discrepency at the end of Feb, and used for the rest of the If statements for consistency";
-    BEGIN
-
-      IF ( date >= @"24:00:00 October 1, Current Year" AND date < "OffsetDate"( "OffsetDate"( @"24:00:00 January 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" ) )
- THEN
-  1.00000000
- ELSE
-  IF ( date >= @"24:00:00 January 1, Current Year" AND date < @"24:00:00 March 1, Current Year" )
-  THEN
-   2.00000000
-  ELSE
-   3.00000000
-  ENDIF
- ENDIF;
-
-    END
-    UUID "{1f2ac403-2540-4a13-9351-93e0e7e175fb}";;
-
-    FUNCTION       "Start Timestep" (  )
+    FUNCTION       "BeginOfMonthDate" ( DATETIME dateTime )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
-    DESCRIPTION    "Determines the Run Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Start Timestep : 1 March Current Year<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Start Timestep : 1 March Current Year - 1<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Start Timestep : 30 September Current Year - 1<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Start Timestep : 1 March Current Year";
+    DESCRIPTION    "Returns beginning of month date given a date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "PreviousDate"( dateTime, @"Min DayOfMonth" );
+
+    END
+    UUID "{ba0a7776-6c3e-4b59-a579-fc35a775944c}";;
+
+    FUNCTION       "BeginOfYearDate" ( DATETIME dateTime )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Returns beginning of month date given a date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "PreviousDate"( dateTime, @"Min DayOfYear" );
+
+    END
+    UUID "{5109b76c-c386-453e-b2b9-b90275ae61de}";;
+
+    FUNCTION       "BumpDays" ( DATETIME Date, NUMERIC Time )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
-    NOTES          "Currently using DateToNumber and NUMERIC Return Type to use function in Initilization Rules. Remove DateToNumeric function and set Return Type to DATETIME if this can be passed through";
+    NOTES          "";
     BEGIN
 
-      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
+      "OffsetDate"( Date, Time, "1 Days" );
+
+    END
+    UUID "{afaf4d62-d3f9-4fba-839d-b159f0bf00fa}";;
+
+    FUNCTION       "DateIsBetween" ( DATETIME startDate, DATETIME endDate, DATETIME testDate )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( testDate >= startDate AND testDate <= endDate )
  THEN
-  @"24:00:00 March 1, Current Year"
+  TRUE
  ELSE
-  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
-  THEN
-   "OffsetDate"( @"24:00:00 March 1, Current Year", - 1.00000000, "1 Days" )
-  ELSE
-   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
-   THEN
-    @"24:00:00 September 30, Current Year - 1"
-   ELSE
-    @"24:00:00 March 1, Current Year"
-   ENDIF
-  ENDIF
+  FALSE
  ENDIF;
 
     END
-    UUID "{aeb7b241-e92f-4bd6-87b5-f5cb2e640a67}";;
+    UUID "{1ac3b73d-5a44-40ef-a7ed-19d207c0719f}";;
+
+    FUNCTION       "Deterministic Forecast End Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( date, 5.00000000, "1 Days" );
+
+    END
+    UUID "{c3212bfd-f819-4546-be2f-4a1bd30403e2}";;
+
+    FUNCTION       "Dilution End" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.Dilution End" [] ), @"t" );
+
+    END
+    UUID "{8d2476a0-1e1d-4d73-bcfb-9144a5900dfa}";;
 
     FUNCTION       "End Timestep" (  )
     RETURN_TYPE    DATETIME;
@@ -330,7 +819,7 @@ BEGIN
  ENDIF;
 
     END
-    UUID "{14bddbe6-74e9-422d-a072-998297e63ce9}";;
+    UUID "{37c5e91a-47c3-458b-84fe-4b4a8e4371b6}";;
 
     FUNCTION       "End Timestep Testing" (  )
     RETURN_TYPE    DATETIME;
@@ -345,66 +834,1151 @@ BEGIN
       "OffsetDate"( "Start Timestep"( "Operation Start Timestep"(  ) ), 364.00000000, "1 Days" );
 
     END
-    UUID "{cae9e650-213a-4133-9283-115147bdf762}";;
+    UUID "{3c064e27-5f37-40b3-a0c2-ef6f34db0873}";;
+
+    FUNCTION       "EndOfMonthDate" ( DATETIME dateTime )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Returns end of month date given date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "NextDate"( dateTime, @"Max DayOfMonth" );
+
+    END
+    UUID "{c9d14566-86c2-4821-b671-07fe9c48d0e3}";;
+
+    FUNCTION       "EndOfYearDate" ( DATETIME dateTime )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "NextDate"( dateTime, @"Max DayOfYear" );
+
+    END
+    UUID "{f07de7c1-2608-47d3-9180-db2e84dd0aac}";;
+
+    FUNCTION       "Final Observation Date" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) - 1.00000000 "day";
+
+    END
+    UUID "{e03a1369-2abc-4a1e-bc1e-2b0aa841dcea}";;
+
+    FUNCTION       "FirstDayOfMonth" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" == @"Min DayOfMonth";
+
+    END
+    UUID "{1c005fec-670e-4f41-8b7f-8d92159cd1c0}";;
+
+    FUNCTION       "Forecast Season" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Evaluates Run Start Timestep to determine 'Forecast Season' which selects appropriate forecast information to use given the time of year - <br><br>1 : Analog : Oct-Dec<br>2 : NRCS : Jan-Feb<br>3 : Combined : Mar-Sep<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "< was used to handle the Feb 28/29 discrepency at the end of Feb, and used for the rest of the If statements for consistency";
+    BEGIN
+
+      IF ( date >= @"24:00:00 October 1, Current Year" AND date < "OffsetDate"( "OffsetDate"( @"24:00:00 January 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" ) )
+ THEN
+  1.00000000
+ ELSE
+  IF ( date >= @"24:00:00 January 1, Current Year" AND date < @"24:00:00 March 1, Current Year" )
+  THEN
+   2.00000000
+  ELSE
+   3.00000000
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{75046f0f-b710-4198-a878-6ab7b5ec1a28}";;
+
+    FUNCTION       "GetUnitlessDaysInMonth" ( DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    " NONE ";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetDaysInMonth"( datetime ) / 1.00000000 "day";
+
+    END
+    UUID "{4783853b-3597-4ea5-91f0-f227a9224727}";;
+
+    FUNCTION       "GetNumberOfPeriods" ( NUMERIC timeStep, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Div"( 86400.00000000 "sec" * ( "GetJulianDate"( endDate ) - "GetJulianDate"( startDate ) ), 1.00000000 "sec", timeStep, 1.00000000 "sec" ) + 1.00000000;
+
+    END
+    UUID "{7bfd7be5-2faf-4c38-ba04-197002f6b645}";;
+
+    FUNCTION       "LastDayofYear" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( @"Max DayOfYear", @"t" );
+
+    END
+    UUID "{cb343ec4-87df-4b02-883a-76bb20fe5ee2}";;
+
+    FUNCTION       "Irrigation Season" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" >= @"24:00:00 March 1, Current Year" AND @"t" <= @"24:00:00 September 30, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END
+    UUID "{2180ace3-8a6d-42ad-af64-54dbb408343d}";;
+
+    FUNCTION       "Long Forecast End Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Long Forecast End Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : 30 September Current Year + 1<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 30 November Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 28/29 February Current Year + 1";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( date ) == 1.00000000 AND "Run Season"( date ) == 1.00000000 )
+ THEN
+  "OffsetDate"( @"24:00:00 September 30, Current Year", 1.00000000, "1 Years" )
+ ELSE
+  IF ( "Forecast Season"( date ) == 2.00000000 AND "Run Season"( date ) == 2.00000000 )
+  THEN
+   @"24:00:00 October 1, 1900"
+  ELSE
+   IF ( "Forecast Season"( date ) == 3.00000000 AND "Run Season"( date ) == 3.00000000 )
+   THEN
+    @"24:00:00 November 30, Current Year"
+   ELSE
+    "OffsetDate"( "OffsetDate"( @"24:00:00 March 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" )
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{efe56699-116a-40c9-a195-a2060430af4c}";;
+
+    FUNCTION       "Long Forecast Start Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Long Forecast Start Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : Operations Start Timestep + 6 Days<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 1 October Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 1 October Current Year";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( date ) == 1.00000000 AND "Run Season"( date ) == 1.00000000 )
+ THEN
+  "OffsetDate"( date, 6.00000000, "1 Days" )
+ ELSE
+  IF ( "Forecast Season"( date ) == 2.00000000 AND "Run Season"( date ) == 2.00000000 )
+  THEN
+   @"24:00:00 October 1, 1900"
+  ELSE
+   IF ( "Forecast Season"( date ) == 3.00000000 AND "Run Season"( date ) == 3.00000000 )
+   THEN
+    @"24:00:00 October 1, Current Year"
+   ELSE
+    @"24:00:00 October 1, Current Year"
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{a518899c-2056-4c4b-af29-0b56a0bf2b87}";;
+
+    FUNCTION       "NRCS Forecast Season" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" >= @"24:00:00 January 1, Current Year" AND @"t" <= @"24:00:00 June 15, Current Year" )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END
+    UUID "{d461faa2-68ce-40d3-b1d4-b88880d063e2}";;
+
+    FUNCTION       "NRCS WSF End Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the NRCS WSF End Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>	NRCS WSF End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 2 (NRCS) & 3 (Combined)<br>Run Season : 2 (Pre Irrigation)<br>	NRCS WSF End Timestep : 30 September Current Year";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( date ) == 1.00000000 )
+ THEN
+  @"24:00:00 October 1, 1900"
+ ELSE
+  @"24:00:00 September 30, Current Year"
+ ENDIF;
+
+    END
+    UUID "{43a56eed-cecf-48b3-af1d-c4e2a0af8f66}";;
+
+    FUNCTION       "NRCS WSF Start Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the NRCS WSF Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>	NRCS WSF Start Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 2 (NRCS) & 3 (Combined)<br>Run Season : 2 (Pre Irrigation)<br>	NRCS WSF Start Timestep : Operations Start Timestep + 6 Days";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Forecast Season"( date ) == 1.00000000 )
+ THEN
+  @"24:00:00 October 1, 1900"
+ ELSE
+  "OffsetDate"( date, 6.00000000, "1 Days" )
+ ENDIF;
+
+    END
+    UUID "{f6c18436-3e8f-494b-bef1-5cb319fd9bb5}";;
+
+    FUNCTION       "Observations End Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( "Operation Start Timestep"(  ), - 1.00000000, "1 Days" );
+
+    END
+    UUID "{98898a5a-f18d-43f9-a5fc-295cf950cffd}";;
+
+    FUNCTION       "OffsetFromOpStart" ( NUMERIC OffsetPeriod )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ), OffsetPeriod, "1 days" );
+
+    END
+    UUID "{475c4405-716d-4268-9eb7-89d83c8f3ad2}";;
+
+    FUNCTION       "Operations Period" ( DATETIME day )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) <= day;
+
+    END
+    UUID "{6c59b35b-f6d0-4f66-8319-13c2fa5898fc}";;
+
+    FUNCTION       "Operation Start Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] );
+
+    END
+    UUID "{f9749813-fd8b-492e-b26a-573d0720d66d}";;
+
+    FUNCTION       "OpStartOffset" ( NUMERIC days )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Operation Start Timestep"(  ) + days * 1.00000000 "day";
+
+    END
+    UUID "{c216f9bd-4fa7-4456-b931-ddede5c4b567}";;
+
+    FUNCTION       "PrevWinterOps Start" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), @"24:00:00 April 1, Previous Year" );
+
+    END
+    UUID "{5d16fadb-ecc6-4a0c-b8b0-b951b7981e6f}";;
+
+    FUNCTION       "Run Season" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Evaluates Run Start Timestep to determine 'Run Season' which selects appropriate length of run<br>1 : Fall/Winter : Oct-Dec<br>2 : Pre Irrigation : Jan-Feb<br>3 : Irrigation Season : Mar-Jul<br>4 : Post Irrigation and Planning : Aug-Sep";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "< was used instead of <= to handle the Feb 28/29 discrepency at the end of Feb, and used for the rest of the If statements for consistency";
+    BEGIN
+
+      IF ( date >= @"24:00:00 October 1, Current Year" AND date < "OffsetDate"( "OffsetDate"( @"24:00:00 January 1, Current Year", 1.00000000, "1 Years" ), - 1.00000000, "1 Days" ) )
+ THEN
+  1.00000000
+ ELSE
+  IF ( date >= @"24:00:00 January 1, Current Year" AND date < @"24:00:00 March 1, Current Year" )
+  THEN
+   2.00000000
+  ELSE
+   IF ( date >= @"24:00:00 March 1, Current Year" AND date < @"24:00:00 August 1, Current Year" )
+   THEN
+    3.00000000
+   ELSE
+    4.00000000
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{4e0282ae-5549-498e-86d4-bef93aad195e}";;
+
+    FUNCTION       "Start Timestep" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Determines the Run Start Timestep given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Start Timestep : 1 March Current Year<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Start Timestep : 1 March Current Year - 1<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Start Timestep : 30 September Current Year - 1<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Start Timestep : 1 March Current Year";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "Currently using DateToNumber and NUMERIC Return Type to use function in Initilization Rules. Remove DateToNumeric function and set Return Type to DATETIME if this can be passed through";
+    BEGIN
+
+      IF ( "Forecast Season"( date ) == 1.00000000 AND "Run Season"( date ) == 1.00000000 )
+ THEN
+  @"24:00:00 March 1, Current Year"
+ ELSE
+  IF ( "Forecast Season"( date ) == 2.00000000 AND "Run Season"( date ) == 2.00000000 )
+  THEN
+   "OffsetDate"( @"24:00:00 March 1, Current Year", - 1.00000000, "1 Days" )
+  ELSE
+   IF ( "Forecast Season"( date ) == 3.00000000 AND "Run Season"( date ) == 3.00000000 )
+   THEN
+    @"24:00:00 September 30, Current Year - 1"
+   ELSE
+    @"24:00:00 March 1, Current Year"
+   ENDIF
+  ENDIF
+ ENDIF;
+
+    END
+    UUID "{84fba8b1-78df-44ed-9280-6398146c3b3d}";;
+
+    FUNCTION       "SummerOps" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" >= @"24:00:00 March 1, Current Year" AND @"t" < @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{e788f9c9-29da-4ee9-8c7b-1651c4c82ff6}";;
+
+    FUNCTION       "SummerOps Start" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "NumberToDate"( $ "Dashboard.SummerOps Start" [] ), @"t" );
+
+    END
+    UUID "{8bfe8fc8-c0ab-4cec-9976-17722c5c02c9}";;
+
+    FUNCTION       "Summer Fall Transition" ( DATETIME day )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      day >= @"24:00:00 September 24, Current Year" AND day < @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{24de481b-a900-4335-bfca-f21fd182c20a}";;
+
+    FUNCTION       "SurfacetoDilution Switch" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "NumberToDate"( $ "Dilution and Flushing.Surface to Dilution Switch" [] ), @"t" );
+
+    END
+    UUID "{f83f3d7d-2c0a-4871-a7de-06f2b1bd18be}";;
+
+    FUNCTION       "ToDays" ( NUMERIC Period )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      Period * 1.00000000 "day";
+
+    END
+    UUID "{4b150d3d-b593-4544-bc8d-91b13e819d4b}";;
+
+    FUNCTION       "UKLtoIGDLagAhead" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( @"t", $ "Dashboard.Downstream Lag" [], "1 days" );
+
+    END
+    UUID "{cdbce9ca-df6a-4d4a-a285-b8236fec2a2d}";;
+
+    FUNCTION       "UKLtoIGDLagAhead-1" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( @"t - 1", $ "Dashboard.Downstream Lag" [], "1 days" );
+
+    END
+    UUID "{a9bc7231-54eb-4723-a5aa-37aa15589371}";;
+
+    FUNCTION       "UKLtoIGDLagPrevious" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( @"t", - ( $ "Dashboard.Downstream Lag" [] ), "1 days" );
+
+    END
+    UUID "{83e24623-d538-409b-a66e-a534a3e12220}";;
+
+    FUNCTION       "UKLtoIGDLagPrevious+1" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( @"t + 1", - ( $ "Dashboard.Downstream Lag" [] ), "1 days" );
+
+    END
+    UUID "{3633c55b-48a9-46a4-a3af-0d9042878fa5}";;
+
+    FUNCTION       "UKLtoIGDPrevious-1" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "OffsetDate"( @"t - 1", - ( $ "Dashboard.Downstream Lag" [] ), "1 days" );
+
+    END
+    UUID "{1c0c7207-6449-4e71-84ec-a64e02270cc0}";;
+
+    FUNCTION       "WinterOps" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" < @"24:00:00 March 1, Current Year" OR @"t" >= @"24:00:00 October 1, Current Year";
+
+    END
+    UUID "{5998cf7a-203d-4996-b271-40f9c8b53160}";;
+
+    FUNCTION       "WinterOps Start" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), @"t" );
+
+    END
+    UUID "{6dc5564b-fe2b-40bf-ac9e-7b773313d9d4}";;
+
+    FUNCTION       "Winter Spring Transition" ( DATETIME day )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      day >= @"24:00:00 February 22, Current Year" AND day < @"24:00:00 March 1, Current Year";
+
+    END
+    UUID "{90102e5a-642b-4614-af1c-829ea9b46b11}";;
+
+    FUNCTION       "Winter Spring Transition Start" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterSpring Transition Start" [] ), @"t" );
+
+    END
+    UUID "{96d421d2-9567-4675-a820-658eb8edbb9e}";;
 
   END
-  UUID "{2fe383b6-af12-434a-9a08-fadd522b205a}";;
+  UUID "{b65779eb-7b5c-4346-9536-8923e8a9ad6e}";;
+
+  UTILITY_GROUP "Model Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "AccretionTableColumnIndex" ( STRING NetOrAdj )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH DATETIME Month = IF ( "Summer Fall Transition"( @"t" ) )
+ THEN
+  "WinterOps Start"(  )
+ ELSE
+  @"t"
+ ENDIF DO
+  "GetColumnIndex"( $ "Agricultural Deliveries.Net Accrete Adj Table", "GetMonthAsString"( Month ) CONCAT NetOrAdj )
+ ENDWITH;
+
+    END
+    UUID "{2b32ea71-75b1-4320-890e-998fa1a9f37f}";;
+
+    FUNCTION       "AvailableClearLakeWater" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cms";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "NovemberThruMarch"(  ) )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "VolumeToFlow"( "Max"( $ "Clear.Storage" [@"t - 1"] - "ElevationToStorage"( % "Clear", $ "Clear.Reservoir Allocations" ["Normal Minimum", "Clear Lake"] ), 0.00000000 "m3" ), @"t" )
+ ENDIF;
+
+    END
+    UUID "{2d28afc7-8548-461d-8f8d-028c98229cd3}";;
+
+    FUNCTION       "AvailableGerberReservoirWater" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cms";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "NovemberThruMarch"(  ) )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "VolumeToFlow"( "Max"( "PreviousStorage"( % "Gerber" ) - "ElevationToStorage"( % "Gerber", $ "Gerber.Reservoir Allocations" ["Normal Minimum", "Gerber Reservoir"] ), 0.00000000 "m3" ), @"t" )
+ ENDIF;
+
+    END
+    UUID "{eef6811c-c4c7-4571-abc0-262d9fb53a15}";;
+
+    FUNCTION       "AvailableLostRiverStorageWater" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "AvailableGerberReservoirWater"(  ) + "AvailableClearLakeWater"(  );
+
+    END
+    UUID "{c7f57923-488b-4328-bf53-b6ed551b0ab9}";;
+
+    FUNCTION       "ClearLakeIrrigationRelease" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AvailableLostRiverStorageWater"(  ) > 0.00000000 "cms" )
+ THEN
+  "Min"( "AvailableClearLakeWater"(  ) / "AvailableLostRiverStorageWater"(  ) * "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ), "GetMaxOutflowGivenInflow"( % "Clear", $ "Clear.Inflow" [], @"t" ) )
+ ELSE
+  0.00000000 "cms"
+ ENDIF;
+
+    END
+    UUID "{a3a0e8e9-94b6-42bf-9e9f-dfd356ca86ba}";;
+
+    FUNCTION       "ComputeAvgSeepageOverPeriod" ( SLOT SpgRate, STRING column, NUMERIC startingArea, NUMERIC endingArea, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      0.50000000 * ( startingArea + endingArea ) * SpgRate [date, column];
+
+    END
+    UUID "{912d2f11-5ec6-471f-945f-69a837086dcc}";;
+
+    FUNCTION       "EstimateSeepage" ( SLOT seepageRate, STRING column, NUMERIC meanArea, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "Estimates furture reservoir evaporation form startDate (usually current time step)<br>thru endDate.  Additional argument of meanArea is estimated average surface<br>area during interval.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( seepageRate [date, column] * meanArea, date )
+ ENDFOR;
+
+    END
+    UUID "{df372c9e-cff3-4654-b29b-2a3b39a9c227}";;
+
+    FUNCTION       "ObsUKLtoIGD" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC LRDCdeficit = $ "Lost River Diversion Channel.Inflow" [] - $ "Station 48.Diversion Request" [] - $ "Miller Hill Pump.Diversion Request" [] - $ "Ady Canal Split.Outflow" [] - $ "North Canal.Diversion Request" [] DO
+  IF ( LRDCdeficit > 0.00000000 "cfs" )
+  THEN
+   $ "Link River.Inflow" []
+  ELSE
+   $ "Link River.Inflow" [] + LRDCdeficit
+  ENDIF
+ ENDWITH;
+
+    END
+    UUID "{28e92908-0353-4dfc-87d2-574e43eaf3c1}";;
+
+    FUNCTION       "IGDwithoutDilution" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "SummerOps"(  ) )
+ THEN
+  $ "IGD.Final Est Outflow" []
+ ELSE
+  $ "IGD.Actual Rampdown Flow" []
+ ENDIF;
+
+    END
+    UUID "{9d723837-c3ae-41a5-8d0c-38a5aa2d1c1e}";;
+
+    FUNCTION       "TransitionNetAccrete" ( DATETIME day )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC LRDC = IF ( "Operations Period"( @"t" ) )
+ THEN
+  $ "Lost River Diversion Channel.Inflow" [day]
+ ELSE
+  $ "Lost River To Klamath River.Inflow2" [day]
+ ENDIF DO
+  LRDC + $ "F and FF Pump.Outflow" [day] + $ "Lake Ewuana Gain.Local Inflow" [day] - $ "Lost River Diversion Channel.To Ady" [day] - $ "Lost River Diversion Channel.To North" [day] + $ "Agricultural Deliveries.Pacificorp Accretions" ["OffsetDate"( day, 7.00000000, "1 days" )]
+ ENDWITH;
+
+    END
+    UUID "{2de9ea50-cb59-402a-b429-ef4256944898}";;
+
+    FUNCTION       "AssignSeasonType" (  )
+    RETURN_TYPE    STRING;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "OctoberThruFebruary"(  ) )
+ THEN
+  "FW"
+ ELSE
+  "SS"
+ ENDIF;
+
+    END
+    UUID "{335fd277-67b1-4f52-9444-f46f6ed4e46f}";;
+
+    FUNCTION       "IGmaxBoundonUKL" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC IGmax = WITH NUMERIC Initial = "SwitchValLateSummerLagged"( 1000.00000000 "cfs", 1050.00000000 "cfs", 1100.00000000 "cfs" ) DO
+  WITH NUMERIC Factor = "SwitchValLateSummerLagged"( 0.00084100, 0.00033520, 0.00042050 ) DO
+   IF ( $ "Dashboard.EWA" [] < 320001.00000000 "acre-ft" )
+   THEN
+    Initial
+   ELSE
+    Initial + "VolumeToFlow"( $ "Dashboard.EWA" [] - 320001.00000000 "acre-ft", @"t" ) * Factor
+   ENDIF
+   ELSEIF_COND ( $ "Dashboard.EWA" [] > 1499999.00000000 "acre-ft" )
+   ELSEIF_CLAUSE ( "SwitchValLateSummerLagged"( 1500.00000000 "cfs", 1250.00000000 "cfs", 1350.00000000 "cfs" ) )
+   END_ELSEIF
+  ENDWITH
+ ENDWITH DO
+  WITH NUMERIC LRDC = IF ( "Operations Period"( @"t" ) )
+  THEN
+   $ "Lost River Diversion Channel.Inflow" []
+  ELSE
+   $ "Lost River To Klamath River.Inflow2" []
+  ENDIF DO
+   IGmax - $ "Agricultural Deliveries.Pacificorp Accretions" [@"t + 7"] - $ "F and FF Pump.Outflow" [] - $ "Lake Ewuana Gain.Local Inflow" [] - LRDC + $ "Lost River Diversion Channel.To North" [] + $ "Lost River Diversion Channel.To Ady" []
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{87129881-d218-495c-bc0d-7e89412f014d}";;
+
+    FUNCTION       "GerberIrrigationRelease" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AvailableLostRiverStorageWater"(  ) > 0.00000000 "cms" )
+ THEN
+  "Min"( "Min"( "AvailableGerberReservoirWater"(  ), "Max"( "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ) - "Min"( $ "Clear.Outflow" [], "ClearLakeIrrigationRelease"(  ) ), 0.00000000 "cms" ) ), "GetMaxOutflowGivenInflow"( % "Gerber", $ "Gerber.Inflow" [], @"t" ) )
+ ELSE
+  0.00000000 "cms"
+ ENDIF;
+
+    END
+    UUID "{3805cfc8-7f16-468f-aea0-fc9b6f28e20f}";;
+
+    FUNCTION       "SwitchValLateSummerLagged" ( NUMERIC Prior, NUMERIC Mid, NUMERIC Post )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 July 25, Current Year" )
+ THEN
+  Prior
+ ELSE
+  Post
+ ENDIF
+ ELSEIF_COND ( @"t" < @"24:00:00 August 25, Current Year" )
+ ELSEIF_CLAUSE ( Mid )
+ END_ELSEIF;
+
+    END
+    UUID "{4acec8b7-e96e-4cb6-9ce5-429f5873587c}";;
+
+    FUNCTION       "WillProportionTableColumnIndex" ( STRING FlowOrFactor )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH DATETIME Month = IF ( "Summer Fall Transition"( @"t" ) )
+ THEN
+  "WinterOps Start"(  )
+ ELSE
+  @"t"
+ ENDIF DO
+  "GetColumnIndex"( $ "Williamson River Inflow.Williamson Proportion Table", "GetMonthAsString"( Month ) CONCAT FlowOrFactor )
+ ENDWITH;
+
+    END
+    UUID "{5d20be68-e0c9-415c-8c46-df04da81c64f}";;
+
+  END
+  UUID "{9e6cb338-0dc7-445c-a144-ebff154ce65e}";;
+
+  UTILITY_GROUP "Generic Functions";
+  DESCRIPTION   "Functions that support generic rule set.";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "ExpandbyAvg" ( NUMERIC PeriodLengthMinusOne, LIST ListToExpand, NUMERIC AvgOverMiinusOne )
+    RETURN_TYPE    LIST;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( NUMERIC i IN "GetNumbers"( 0.00000000, PeriodLengthMinusOne, 1.00000000 ) ) WITH LIST result = ListToExpand DO
+  WITH NUMERIC NewVal = FOR ( NUMERIC j IN "GetNumbers"( i, i + AvgOverMiinusOne, 1.00000000 ) ) STAT_AVE
+   GET @INDEX 0.00000000 FROM GET @INDEX j FROM result
+  ENDFOR DO
+   WITH DATETIME NewTS = ( GET @INDEX 1.00000000 FROM GET @INDEX ( LENGTH result ) - 1.00000000 FROM result ) + 1.00000000 "day" DO
+    APPEND { NewVal , NewTS } ONTO result
+   ENDWITH
+  ENDWITH
+ ENDFOR;
+
+    END
+    UUID "{b82ee83b-4f16-46b4-ab91-da862fefee10}";;
+
+    FUNCTION       "GetMeanArea" ( OBJECT reservoir, NUMERIC startStorage, NUMERIC endStorage )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 [acre]";
+    DESCRIPTION    "Computes mean surface area for 2 storage values.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      ( "StorageToArea"( reservoir, startStorage ) + "StorageToArea"( reservoir, endStorage ) ) * 0.50000000;
+
+    END
+    UUID "{069c4697-f8a3-495d-92f5-77b9fb8b4086}";;
+
+    FUNCTION       "PreviousStorage" ( OBJECT reservoir )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Returns previous storage of reservoir.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      reservoir & "Storage" [@"t - 1"];
+
+    END
+    UUID "{5ede9618-53be-4764-9c64-ed95712da640}";;
+
+    FUNCTION       "UnregSpillwayCapacityCheck" ( OBJECT reservoir, NUMERIC request )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  cfs";
+    DESCRIPTION    "Checks a tenative outflow against outlet works and spillway capacities. <br>Also determines if we have to spill thru unregulated spillway.<br>Assumes that monthly spill calc is used for monthly time steps.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "Min"( "GetMaxOutflowGivenInflow"( reservoir, reservoir & "Inflow" [], @"t" ), WITH NUMERIC release = "Min"( request, "GetMaxReleaseGivenInflow"( reservoir, reservoir & "Inflow" [], @"t" ) COMMENTED_BY "GetMaxReleaseGivenInflow is only Turbine or Outlet Works" ) DO
+  release + "GetMinSpillGivenInflowRelease"( reservoir, reservoir & "Inflow" [], release, @"t" )
+ ENDWITH );
+
+    END
+    UUID "{1bf58728-ba10-4c02-8cbd-94c34e44a7ab}";;
+
+  END
+  UUID "{1c234415-2192-4bca-a3d2-79eb9c3ce34a}";;
+
+  UTILITY_GROUP "HypSimFunctions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "CreateListOfProjectedInAndOut" ( DATETIME endDate )
+    RETURN_TYPE    LIST;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN @"t" TO endDate ) WITH LIST result = {  } DO
+  APPEND { $ "UKL.Outflow" , $ "UKL.Outflow" [@"t - 1"] , date } ONTO result
+ ENDFOR SET_UNION FOR ( DATETIME date IN @"t" TO endDate ) WITH LIST result = {  } DO
+  APPEND { $ "UKL.Diversion" , $ "UKL.Diversion" [@"t - 1"] , date } ONTO result
+ ENDFOR;
+
+    END
+    UUID "{af2104b1-2af0-46a6-8726-030bc5c9835d}";;
+
+    FUNCTION       "ListOfProjectedPE" ( DATETIME endDate )
+    RETURN_TYPE    LIST;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN @"t" TO endDate ) WITH LIST result = {  } DO
+  APPEND { $ "UKL.Pool Elevation" , date } ONTO result
+ ENDFOR;
+
+    END
+    UUID "{2cae2d99-5671-47d4-a6be-1f687e78757f}";;
+
+  END
+  UUID "{1c2a7f2c-8a27-4156-aff5-91a36c9257a1}";;
+
+  UTILITY_GROUP "AggDisagg Averaging Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "AverageDailyFlowForVolume" ( NUMERIC volume, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[cfs]";
+    DESCRIPTION    "Computes average daily flow given a volume and period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "VolumeToFlow"( volume * 1.00000000 "day" / ( "GetJulianDate"( endDate ) * 1.00000000 "day" - "GetJulianDate"( startDate ) * 1.00000000 "day" + 1.00000000 "day" ), @"t" );
+
+    END
+    UUID "{2438fce9-c48e-4ed5-ac5a-1bd19198b598}";;
+
+    FUNCTION       "SumFlowValueToVolume" ( DATETIME startDate, DATETIME endDate, NUMERIC valueToSum )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "Sum specified flow value to a volume for specified time period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME dateTime IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( valueToSum, dateTime )
+ ENDFOR;
+
+    END
+    UUID "{69129b32-7325-4a28-9433-de8316424ec2}";;
+
+    FUNCTION       "SumPeriodicFlowToVolume" ( SLOT slot, DATETIME startDate, DATETIME endDate, STRING column )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Sums a periodic slot flow to a volume for specified time period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( slot [date, column], date )
+ ENDFOR;
+
+    END
+    UUID "{dd68bd8f-eba0-4d97-9b5b-9d1f759d3ddc}";;
+
+  END
+  UUID "{a608d456-ef12-4b7b-b6f1-8120d4291c98}";;
 
   UTILITY_GROUP "Operation Functions";
   DESCRIPTION   "";
   ACTIVE        TRUE;
   NOTES          "";
   BEGIN
-
-    FUNCTION       "LRDC to North Canal" ( DATETIME Day )
-    RETURN_TYPE    NUMERIC;
-    SCALE_UNITS    "";
-    DESCRIPTION    "";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( $ "North Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
- THEN
-  IF ( $ "North Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] )
-  THEN
-   $ "Lost River To Klamath River.Inflow2" [Day]
-  ELSE
-   $ "North Canal.Diversion Request" [Day]
-  ENDIF
- ELSE
-  0.00000000 "cfs"
- ENDIF;
-
-    END
-    UUID "{40f43264-7ddd-4fe6-84ac-acfdf1e11def}";;
-
-    FUNCTION       "LRDC to Ady Canal" ( DATETIME Day )
-    RETURN_TYPE    NUMERIC;
-    SCALE_UNITS    "";
-    DESCRIPTION    "";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( $ "Ady Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
- THEN
-  IF ( $ "Ady Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day ) )
-  THEN
-   $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day )
-  ELSE
-   $ "Ady Canal.Diversion Request" [Day]
-  ENDIF
- ELSE
-  0.00000000 "cfs"
- ENDIF;
-
-    END
-    UUID "{99b1ce60-e2cc-4d34-a787-caffef71aadf}";;
 
     FUNCTION       "Calc Flood Release" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
@@ -426,20 +2000,20 @@ BEGIN
   THEN
    0.00000000
   ELSE
-   $ "UKL.RampdownPeriod" []
+   $ "UKL.Rampdown Period" []
   ENDIF
   ELSEIF_COND ( $ "UKL.Pool Elevation" ["OffsetDate"( date, - 1.00000000, "1 days" )] <= $ "UKL.Flood Elev Correction" ["OffsetDate"( date, - 1.00000000, "1 days" )] )
-  ELSEIF_CLAUSE ( $ "UKL.RampdownDays" [date] - 1.00000000 )
+  ELSEIF_CLAUSE ( $ "UKL.Rampdown Days" [date] - 1.00000000 )
   END_ELSEIF DO
    WITH NUMERIC IncrementalChange = IF ( RampdownDays > 0.00000000 )
    THEN
-    ( $ "UKL.Flood Elevation Table" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays, "1 days" ), Scenario] - $ "UKL.Pool Elevation" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays - $ "UKL.RampdownPeriod" [], "1 days" )] ) / $ "UKL.RampdownPeriod" []
+    ( $ "UKL.Flood Elevation Table" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays, "1 days" ), Scenario] - $ "UKL.Pool Elevation" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays - $ "UKL.Rampdown Period" [], "1 days" )] ) / $ "UKL.Rampdown Period" []
    ELSE
     0.00000000 "ft"
    ENDIF DO
     WITH NUMERIC FloodElevCorrection = IF ( RampdownDays > 0.00000000 )
     THEN
-     $ "UKL.Pool Elevation" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays - $ "UKL.RampdownPeriod" [], "1 days" )] + IncrementalChange * ( $ "UKL.RampdownPeriod" [] + 1.00000000 - RampdownDays )
+     $ "UKL.Pool Elevation" ["OffsetDate"( "OffsetDate"( date, - 1.00000000, "1 days" ), RampdownDays - $ "UKL.Rampdown Period" [], "1 days" )] + IncrementalChange * ( $ "UKL.Rampdown Period" [] + 1.00000000 - RampdownDays )
     ELSE
      $ "UKL.Flood Elevation Table" [date, Scenario]
     ENDIF DO
@@ -450,7 +2024,193 @@ BEGIN
  ENDWITH;
 
     END
-    UUID "{f5a4e885-56bc-4d17-99ba-bc449fe0c48c}";;
+    UUID "{d6652311-b871-46de-b44e-36524b023321}";;
+
+    FUNCTION       "ComputeAvailableSpace" ( OBJECT reservoir, STRING column, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, $ "ReservoirOperations.Target Elevation" [datetime, column] ) - reservoir & "Storage" [@"t - 1"];
+
+    END
+    UUID "{572bc8a2-12aa-4029-b583-c924a3a56b0c}";;
+
+    FUNCTION       "DailyFloodControlStorage" ( OBJECT reservoir, STRING column, DATETIME endDate, NUMERIC maxRelease, NUMERIC forecastVolume )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes maximum storage that we can be at today given a forecast thru endDate<br>and the maximum daily release (maxRelease).";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC maxEOPContent = "DailyMaximumStorage"( reservoir, endDate ) DO
+  WITH NUMERIC maxPeriodRelease = "SumFlowValueToVolume"( "DateMin"( @"t + 1", endDate ), endDate, maxRelease ) DO
+   "Max"( "DailyMinimumStorage"( reservoir, @"t" ), "Min"( maxEOPContent - forecastVolume + maxPeriodRelease, "DailyMaximumStorage"( reservoir, @"t" ) ) )
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{0232638b-eba4-4a99-a40f-b3cbbfd901ef}";;
+
+    FUNCTION       "DailyFloodControlRelease" ( OBJECT reservoir, STRING column, DATETIME endDate, NUMERIC maxRelease, NUMERIC forecastVolume )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[cfs]";
+    DESCRIPTION    "Computes flood control release for a daily time step as function of today's maximum storage<br>and today's flood control storage.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC fcStorage = "DailyFloodControlStorage"( reservoir, column, endDate, maxRelease, forecastVolume ) DO
+  WITH NUMERIC fcRelease = "Max"( 0.00000000 "cms", "SolveOutflow"( reservoir, reservoir & "Inflow" [], fcStorage, reservoir & "Storage" [@"t - 1"], @"t" ) ) DO
+   IF ( fcRelease > maxRelease )
+   THEN
+    WITH NUMERIC maxRelStorage = "Max"( 0.00000000 "m3", "SolveStorage"( reservoir, reservoir & "Inflow" [], maxRelease, reservoir & "Storage" [@"t - 1"], @"t" ) ) DO
+     WITH NUMERIC maxStorage = "ElevationToStorage"( reservoir, $ "Clear.Max Elevation" [@"t", "MaxElevation"] ) DO
+      IF ( maxRelStorage > maxStorage )
+      THEN
+       "Max"( 0.00000000 "cms", "SolveOutflow"( reservoir, reservoir & "Inflow" [], maxStorage, reservoir & "Storage" [@"t - 1"], @"t" ) )
+      ELSE
+       maxRelease
+      ENDIF
+     ENDWITH
+    ENDWITH
+   ELSE
+    fcRelease
+   ENDIF
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{7fde9720-356e-4e8b-bf83-495b03c7a56e}";;
+
+    FUNCTION       "DailyMaximumStorage" ( OBJECT reservoir, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes daily maximum storage as a function of daily maximum elevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, reservoir & "Max Elevation" [datetime, "MaxElevation"] );
+
+    END
+    UUID "{656001fb-1f77-4c27-a427-e824c216aa38}";;
+
+    FUNCTION       "DailyMaximumStorageRelease" ( OBJECT reservoir, DATETIME datetime, NUMERIC prevStorage, NUMERIC inflow )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( datetime < @"Start Timestep" )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "Max"( "SolveOutflow"( reservoir, inflow, "DailyMaximumStorage"( reservoir, datetime ), prevStorage, datetime ), 0.00000000 "cms" )
+ ENDIF;
+
+    END
+    UUID "{31926b21-72fc-4fe5-b151-b80dae86e6f5}";;
+
+    FUNCTION       "DailyMinimumStorage" ( OBJECT reservoir, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes daily minimum storage as a function of daily minimum elevation";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, reservoir & "Min Elevation" [datetime, "MinElevation"] );
+
+    END
+    UUID "{b6437688-2b55-496b-a2b3-c04916c171da}";;
+
+    FUNCTION       "DailyMinimumStorageRelease" ( OBJECT reservoir, DATETIME datetime, NUMERIC prevStorage, NUMERIC inflow )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      IF ( datetime < @"Start Timestep" )
+ THEN
+  0.00000000 "cms"
+ ELSE
+  "Max"( "SolveOutflow"( reservoir, inflow, "DailyMinimumStorage"( reservoir, datetime ), prevStorage, datetime ), 0.00000000 "cms" )
+ ENDIF;
+
+    END
+    UUID "{8fc56b9e-8bc5-42cf-96eb-87c364af51bd}";;
+
+    FUNCTION       "DailyTargetStorage" ( OBJECT reservoir, STRING column, DATETIME datetime )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes daily target storage as a function of daily target elevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( reservoir, $ "ReservoirOperations.Target Elevation" [datetime, column] );
+
+    END
+    UUID "{9483ce71-cc67-4108-a4bd-ac8936f5ba13}";;
+
+    FUNCTION       "EstimateEvaporation" ( OBJECT reservoir, NUMERIC meanArea, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "Estimates furture reservoir evaporation form startDate (usually current time step)<br>thru endDate.  Additional argument of meanArea is estimated average surface<br>area during interval.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME date IN startDate TO endDate ) WITH NUMERIC result = 0.00000000 "m3" DO
+  result + "FlowToVolume"( ( reservoir & "Evaporation Rate" [date] - reservoir & "Precipitation Rate" [date] ) * meanArea, date )
+ ENDFOR;
+
+    END
+    UUID "{0f15ec38-a373-4890-998f-75879269c2fc}";;
+
+    FUNCTION       "EstimatedInflowForecast" ( SLOT forecastSlot, DATETIME startDate, DATETIME endDate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1  acre-feet ";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC inflowNoError = "SumFlowsToVolume"( forecastSlot, startDate, endDate ) DO
+  inflowNoError
+ ENDWITH;
+
+    END
+    UUID "{299935e4-eb9b-4772-9326-98b719366cb9}";;
 
     FUNCTION       "Historic Ag Demands" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
@@ -480,10 +2240,159 @@ BEGIN
  ENDWITH;
 
     END
-    UUID "{4db39b2e-70d6-4a82-8b0b-e8ba6ebc487f}";;
+    UUID "{8a552c9b-f46f-4df3-8ee1-be011c8261bc}";;
+
+    FUNCTION       "LRDC to Ady Canal" ( DATETIME Day )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( $ "Ady Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
+ THEN
+  IF ( $ "Ady Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day ) )
+  THEN
+   $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day )
+  ELSE
+   $ "Ady Canal.Diversion Request" [Day]
+  ENDIF
+ ELSE
+  0.00000000 "cfs"
+ ENDIF;
+
+    END
+    UUID "{293c0d40-8542-4784-bf8e-7dd79f3526f8}";;
+
+    FUNCTION       "LRDC to North Canal" ( DATETIME Day )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( $ "North Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
+ THEN
+  IF ( $ "North Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] )
+  THEN
+   $ "Lost River To Klamath River.Inflow2" [Day]
+  ELSE
+   $ "North Canal.Diversion Request" [Day]
+  ENDIF
+ ELSE
+  0.00000000 "cfs"
+ ENDIF;
+
+    END
+    UUID "{5288d206-33d2-4e86-a9a3-91a19988ec80}";;
+
+    FUNCTION       "MaxMinElevationCheck" ( OBJECT reservoir, STRING column, NUMERIC request )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "1 cfs";
+    DESCRIPTION    "Checks for maximum and minimum elevation constraints expressed in table <br>ReservoirData.Min Elevation and ReservoirData.Max Elevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( "DailyMaximumStorageRelease"( reservoir, @"t", reservoir & "Storage" [@"t - 1"], reservoir & "Inflow" [] ), "Min"( "DailyMinimumStorageRelease"( reservoir, @"t", reservoir & "Storage" [@"t - 1"], reservoir & "Inflow" [] ), request ) );
+
+    END
+    UUID "{3c20682f-01e7-4766-ba19-0eb58fd114ca}";;
+
+    FUNCTION       "SurplusVolumeBySlotWithLosses" ( OBJECT reservoir, STRING column, SLOT inflow, NUMERIC anticipatedLoss, DATETIME startDate, DATETIME endDate, SLOT ResAvgRelease )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[acre-feet]";
+    DESCRIPTION    "Computes surplus volume from inflows less depletions stored in specified slot.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( 0.00000000 "m3", "SumFlowsToVolume"( inflow, startDate, endDate ) - ( "ComputeAvailableSpace"( reservoir, column, endDate ) + ( "SumPeriodicFlowToVolume"( ResAvgRelease, @"t", endDate, column ) + ( "EstimateEvaporation"( reservoir, "GetMeanArea"( reservoir, "PreviousStorage"( reservoir ), "DailyTargetStorage"( reservoir, column, endDate ) ), startDate, endDate ) + anticipatedLoss ) ) ) );
+
+    END
+    UUID "{ebcf91d0-60a8-4f75-8dab-18870961766c}";;
+
+    FUNCTION       "Reservoir Outflow at Drawdown to Rule Curve" ( OBJECT reservoir )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Calculates the outflow to drawdown the reservoir to the rule curve storage in one timestep.  The argument is the reservoir object.<br>";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( "SolveOutflow"( reservoir, reservoir & "Inflow" [], $ "Clear.Target Elevation" [@"t - 1", "TargetElevation"], reservoir & "Storage" [@"t - 1"], @"t" ), 0.00000000 "cfs" );
+
+    END
+    UUID "{31f95a16-0bf4-48dd-9a48-1cf4768233e5}";;
 
   END
-  UUID "{636257ff-86b9-4660-a3d7-52ddf5415586}";;
+  UUID "{20d08e87-d494-44a4-8e36-2165a69add8f}";;
+
+  UTILITY_GROUP "Remaining Init Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "DailyFractionDisaggregation" ( DATETIME dailyDateTime, DATETIME monthlyDateTime, SLOT dailyFractionSlot, SLOT monthlySlot )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "[cfs]";
+    DESCRIPTION    "Computes daily values as a fraction of monthly values.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      dailyFractionSlot [dailyDateTime] * ( monthlySlot [monthlyDateTime] * ( "GetDaysInMonth"( monthlyDateTime ) / 1.00000000 "day" ) );
+
+    END
+    UUID "{4d3a8c9f-87bb-489c-bb96-34b56e6bb434}";;
+
+    FUNCTION       "DepletionRequestWithHeadgateIncLoss" ( NUMERIC cropDepletion, NUMERIC efficiency, NUMERIC incLossRate )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    " 1 cfs";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      cropDepletion / ( 1.00000000 - incLossRate / efficiency );
+
+    END
+    UUID "{ffdf9672-ec9a-4f6d-8439-1db04e2e5270}";;
+
+    FUNCTION       "DetFcstEnd" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Deterministic Forecast End" [] );
+
+    END
+    UUID "{6c9d7f86-a861-4e37-8341-79805136288d}";;
+
+  END
+  UUID "{ada91b29-818c-47fa-a501-67fc21654674}";;
 
 END
-UUID "{5f654484-5bfe-4ec2-8c16-68051d3b0324}";
+UUID "{49c0e0e9-7f4f-46e6-9fb7-0b3f4b3f72ab}";
