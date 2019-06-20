@@ -1,7 +1,7 @@
-# SCT File Created 5/28/2019 2:58 PM
+# SCT File Created 6/19/2019 1:45 PM
 #  as K:/Models/Mitch/KlamathOpsModel/SCTs/KlamathOpsOverview.sct
 # Generated using RiverWare Version <RiverWare_Model 7.4.1 Patch>
-# Generated from Model File <KlamathOps.mdl.gz>
+# Generated from Model File <KlamathOps_MM.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
@@ -24,15 +24,15 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            851
-  WINDOW_HEIGHT           633
+  WINDOW_WIDTH            857
+  WINDOW_HEIGHT           575
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
   SLOT_LABEL_COL_WIDTH    COLFIT_METHOD_ALL 229
   SLOT_UNITS_COL_WIDTH    COLFIT_METHOD_ALL 54
   AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
-  NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_ALL 69
+  NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_ALL 57
 
   SLOT_LABEL_SHEET_COL_WIDTH  "Winter Calculator" COLFIT_METHOD_ALL 207
   SLOT_UNITS_SHEET_COL_WIDTH  "Winter Calculator" COLFIT_METHOD_ALL 54
@@ -176,7 +176,7 @@ SLOT_REF  3
 SLOT_REF  4
   SLOT_LABEL        "Ag Sheet.Net Accrete"
   SLOT_MULTILINE    "Ag Sheet<br>.Net Accrete"
-  RW_SLOT_NAME      "Ag Sheet.Net Accrete"
+  RW_SLOT_NAME      "Agricultural Deliveries.Net Accrete"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -186,7 +186,7 @@ SLOT_REF  4
 SLOT_REF  5
   SLOT_LABEL        "Ag Sheet.Accrete Adj Factor"
   SLOT_MULTILINE    "Ag Sheet<br>.Accrete Adj Factor"
-  RW_SLOT_NAME      "Ag Sheet.Accrete Adj Factor"
+  RW_SLOT_NAME      "Agricultural Deliveries.Accrete Adj Factor"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -209,7 +209,7 @@ SLOT_REF  7
 SLOT_REF  8
   SLOT_LABEL        "UKL.CumInflow"
   SLOT_MULTILINE    "UKL<br>.CumInflow"
-  RW_SLOT_NAME      "UKL.CumInflow"
+  RW_SLOT_NAME      "UKL.Cum Inflow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -219,7 +219,7 @@ SLOT_REF  8
 SLOT_REF  9
   SLOT_LABEL        "UKL.CumInfIndex"
   SLOT_MULTILINE    "UKL<br>.CumInfIndex"
-  RW_SLOT_NAME      "UKL.CumInfIndex"
+  RW_SLOT_NAME      "UKL.Cum Inf Index"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -388,7 +388,7 @@ SLOT_DIV  27
 SLOT_REF  28
   SLOT_LABEL        "IGD.NoRampdownFlow"
   SLOT_MULTILINE    "IGD<br>.NoRampdownFlow"
-  RW_SLOT_NAME      "IGD.NoRampdownFlow"
+  RW_SLOT_NAME      "IGD.No Rampdown Flow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -398,7 +398,7 @@ SLOT_REF  28
 SLOT_REF  29
   SLOT_LABEL        "IGD.ScheduledRampdownFlow"
   SLOT_MULTILINE    "IGD<br>.ScheduledRampdownFlow"
-  RW_SLOT_NAME      "IGD.ScheduledRampdownFlow"
+  RW_SLOT_NAME      "IGD.Scheduled Rampdown Flow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -408,7 +408,7 @@ SLOT_REF  29
 SLOT_REF  30
   SLOT_LABEL        "IGD.ActualRampdownFlow"
   SLOT_MULTILINE    "IGD<br>.ActualRampdownFlow"
-  RW_SLOT_NAME      "IGD.ActualRampdownFlow"
+  RW_SLOT_NAME      "IGD.Actual Rampdown Flow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -464,7 +464,7 @@ SLOT_DIV  36
 SLOT_REF  37
   SLOT_LABEL        "Dashboard Controls.EWA"
   SLOT_MULTILINE    "Dashboard Controls<br>.EWA"
-  RW_SLOT_NAME      "Dashboard Controls.EWA"
+  RW_SLOT_NAME      "Dashboard.EWA"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -474,7 +474,7 @@ SLOT_REF  37
 SLOT_REF  38
   SLOT_LABEL        "Dashboard Controls.EWA Reserve"
   SLOT_MULTILINE    "Dashboard Controls<br>.EWA Reserve"
-  RW_SLOT_NAME      "Dashboard Controls.EWA Reserve"
+  RW_SLOT_NAME      "Dashboard.EWA Reserve"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -484,7 +484,7 @@ SLOT_REF  38
 SLOT_REF  39
   SLOT_LABEL        "Dashboard Controls.EWA Used"
   SLOT_MULTILINE    "Dashboard Controls<br>.EWA Used"
-  RW_SLOT_NAME      "Dashboard Controls.EWA Used"
+  RW_SLOT_NAME      "Dashboard.EWA Used"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -497,7 +497,7 @@ SLOT_DIV  40
 SLOT_REF  41
   SLOT_LABEL        "Williamson River Inflow.50Vol"
   SLOT_MULTILINE    "Williamson River Inflow<br>.50Vol"
-  RW_SLOT_NAME      "Williamson River Inflow.50Vol"
+  RW_SLOT_NAME      "Williamson River Inflow.50 Vol"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -653,7 +653,7 @@ SLOT_DIV  57
 SLOT_REF  58
   SLOT_LABEL        "Ag Sheet.Net Accrete"
   SLOT_MULTILINE    "Ag Sheet<br>.Net Accrete"
-  RW_SLOT_NAME      "Ag Sheet.Net Accrete"
+  RW_SLOT_NAME      "Agricultural Deliveries.Net Accrete"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -693,7 +693,7 @@ SLOT_REF  61
 SLOT_REF  62
   SLOT_LABEL        "Ag Sheet.Pacificorp Accretions"
   SLOT_MULTILINE    "Ag Sheet<br>.Pacificorp Accretions"
-  RW_SLOT_NAME      "Ag Sheet.Pacificorp Accretions"
+  RW_SLOT_NAME      "Agricultural Deliveries.Pacificorp Accretions"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -746,7 +746,7 @@ SLOT_DIV  67
 SLOT_REF  68
   SLOT_LABEL        "Dashboard Controls.EWA Remain"
   SLOT_MULTILINE    "Dashboard Controls<br>.EWA Remain"
-  RW_SLOT_NAME      "Dashboard Controls.EWA Remain"
+  RW_SLOT_NAME      "Dashboard.EWA Remain"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -756,7 +756,7 @@ SLOT_REF  68
 SLOT_REF  69
   SLOT_LABEL        "Dashboard Controls.EWA Remain JS"
   SLOT_MULTILINE    "Dashboard Controls<br>.EWA Remain JS"
-  RW_SLOT_NAME      "Dashboard Controls.EWA Remain JS"
+  RW_SLOT_NAME      "Dashboard.EWA Remain JS"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -779,7 +779,7 @@ SLOT_DIV  71
 SLOT_REF  72
   SLOT_LABEL        "IGD.SummerRampdownFlow"
   SLOT_MULTILINE    "IGD<br>.SummerRampdownFlow"
-  RW_SLOT_NAME      "IGD.SummerRampdownFlow"
+  RW_SLOT_NAME      "IGD.Summer Rampdown Flow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -970,7 +970,7 @@ SLOT_REF  95
 SLOT_REF  96
   SLOT_LABEL        "IGD.with Accrete"
   SLOT_MULTILINE    "IGD<br>.with Accrete"
-  RW_SLOT_NAME      "IGD.with Accrete"
+  RW_SLOT_NAME      "IGD.with Accretion"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False

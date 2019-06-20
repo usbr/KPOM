@@ -6,16 +6,16 @@ library(ggplot2)
 
 #Load in the data from the excel sheet
 #Model Outputs
-Model = read.xlsx("C:/Users/Mitchell Frischmeyer/Downloads/Model Testing Sheets/Model Testing Sheets/Testing Output.xlsx", 
+Model = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/Testing Output.xlsx", sep = ""), 
                   sheet=1, colNames=TRUE, cols=2:18, na.strings = "NaN")
 #IGD Calculator Outputs
-IGD = read.xlsx("C:/Users/Mitchell Frischmeyer/Downloads/Model Testing Sheets/Model Testing Sheets/IGD Linked Worksheet.xlsx", 
+IGD = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/IGD Linked Worksheet.xlsx", sep = ""), 
                 sheet=1, colNames=TRUE, cols=2:18)
 
 #List general characteristics of the data
 NumData = length(Model[,1])
 Dates = seq(as.Date("2018-02-22"), as.Date("2019-09-30"), by="days")
-StartDate = as.Date("2019-01-05")
+StartDate = as.Date("2018-12-01")
 
 #Vector of plot names
 Names = c("Surface or Deep Flushing", "Net Accrete", "A Canal Diversion", "Ady Canal Diversion", "F and FF Pump Outflow",
@@ -46,10 +46,10 @@ diffdf = add_column(diffdf, 1, .after = 18) #Initial framework for Start Date Id
 
 #Set val to 1 or 0 based on if date is after Start Date
 for (i in 1:NumData){
-  diffdf[i,19] = ifelse(diffdf[i,1]<StartDate, 0, 1)
+  diffdf[i,19] = ifelse(diffdf[i,1]<StartDate, 1, 2)
 }
 
-obsdays = length(which(diffdf[,19]==0))
+obsdays = length(which(diffdf[,19]==1))
 
 #Create a for loop to plot the difference between the Model and IGD Calc.
 suppressWarnings(
@@ -65,3 +65,24 @@ for (i in 2:18){
   dayofmax = diffdf[which.max(abs(diffdf[,i])),1]
   print(paste("The maximum difference is", maxdiff, "and it occurs on", dayofmax, sep = " "))
 })
+
+
+#New Plot Design
+suppressWarnings(
+  for (i in 2:18){
+    z <- ggplot() + geom_point(data = diffdf[1:obsdays,], aes(x = Dates, y = diffdf[1:obsdays,i], color = "a"), 
+                               fill = "orange", shape = 23) +
+      geom_point(data = diffdf[obsdays:NumData,], aes(x = Dates, y = diffdf[obsdays:NumData,i], color = "b"),
+                 fill = "light Blue", shape = 21) +
+      scale_color_manual(name = "Data Type", values = c("a" = "orangered2", "b" = "royalblue"),
+                         labels = c("Observed", "Projected")) +
+      ggtitle("Model/Calc Difference") +
+      ylab(paste(Names[(i-1)],"(", Units[(i-1)], ")", sep = " ")) +
+      ylim((min(diffdf[,i])-0.01), (max(diffdf[,i])+0.01))
+    print(z)
+    maxdiff = max(abs(diffdf[,i]), na.rm = TRUE)
+    dayofmax = diffdf[which.max(abs(diffdf[,i])),1]
+    print(paste("The maximum difference is", maxdiff, "and it occurs on", dayofmax, sep = " "))
+  })
+
+

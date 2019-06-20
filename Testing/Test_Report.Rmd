@@ -1,0 +1,92 @@
+---
+title: "Testing Report"
+author: "Mitchell Frischmeyer"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Model Start Date: 10/01/2018
+
+## Modeling Klamath Operations
+
+This document is meant to demonstrate and visualize the difference between the RiverWare Model and IGD Calculator. Certain key variables present within both tools were chosen for comparison due to the amount of other variable calculations dependent upon them. Thus, these variables have the greatest probability of being the source of error within the RiverWare Model. Shown below are plots of the variable difference between the two tools as well as an indicator of when the maximum deviation occurs.
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+#Code for testing the Klamath Model vs the IGD Calc
+#Load the Libraries
+library(openxlsx)
+library(tibble)
+library(ggplot2)
+
+#Load in the data from the excel sheet
+#Model Outputs
+Model = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/Testing Output.xlsx", sep = ""), 
+                  sheet=1, colNames=TRUE, cols=2:18, na.strings = "NaN")
+#IGD Calculator Outputs
+IGD = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/IGD Linked Worksheet.xlsx", sep = ""), 
+                sheet=1, colNames=TRUE, cols=2:18)
+
+#List general characteristics of the data
+NumData = length(Model[,1])
+Dates = seq(as.Date("2018-02-22"), as.Date("2019-09-30"), by="days")
+StartDate = as.Date("2018-10-01")
+
+#Vector of plot names
+Names = c("Surface or Deep Flushing", "Net Accrete", "A Canal Diversion", "Ady Canal Diversion", "F and FF Pump Outflow",
+          "Miller Hill Pump Diversion", "North Canal Diversion", "Station 48 Diversion", "EWA Remain", "EWA Used",
+          "Link Fall Winter Target", "UKL Ag Demand", "Flood Release", "UKL for IGD", "UKL for River", "UKL Outflow",
+          "UKL Pool Elevation")
+
+#Vector of unit corresponding to the columns
+Units = c("acre-feet", "cfs", "cfs", "cfs", "cfs", "cfs", "cfs", "cfs", "acre-feet", "acre-feet", "cfs", "cfs", "cfs",
+          "cfs", "cfs", "cfs", "feet")
+
+#Find the differences between the columns
+#initialize data frames for the statistics
+mtrx = matrix(0, ncol = 17, nrow = NumData)
+diffdf = data.frame(mtrx)
+
+#Create a for loop to run through the columns
+#This will fill the dataframe with the difference between the two methods
+for (i in 1:17){
+  for (j in 1:NumData){
+    diffdf[j,i] = as.numeric(Model[j,i]) - IGD[j,i]
+  }
+}
+
+#Add a column to the difference dataframe
+diffdf = add_column(diffdf, Dates, .before = 1) #Dates
+diffdf = add_column(diffdf, 1, .after = 18) #Initial framework for Start Date Identification
+
+#Set val to 1 or 0 based on if date is after Start Date
+for (i in 1:NumData){
+  diffdf[i,19] = ifelse(diffdf[i,1]<StartDate, 0, 1)
+}
+
+obsdays = length(which(diffdf[,19]==0))
+
+```
+
+## Plots
+```{r echo = FALSE}
+#Create a for loop to plot the difference between the Model and IGD Calc.
+suppressWarnings(
+  for (i in 2:18){
+    z <- ggplot() + geom_point(data = diffdf[1:obsdays,], aes(x = Dates, y = diffdf[1:obsdays,i], color = "a"), 
+                               fill = "orange", shape = 23) +
+      geom_point(data = diffdf[obsdays:NumData,], aes(x = Dates, y = diffdf[obsdays:NumData,i], color = "b"),
+                 fill = "light Blue", shape = 21) +
+      scale_color_manual(name = "Data Type", values = c("a" = "orangered2", "b" = "royalblue"),
+                         labels = c("Observed", "Projected")) +
+      ggtitle("Model/Calc Difference") +
+      ylab(paste(Names[(i-1)],"(", Units[(i-1)], ")", sep = " ")) +
+      ylim((min(diffdf[,i])-0.01), (max(diffdf[,i])+0.01))
+    print(z)
+    maxdiff = max(abs(diffdf[,i]), na.rm = TRUE)
+    dayofmax = diffdf[which.max(abs(diffdf[,i])),1]
+    print(paste("The maximum difference is", maxdiff, "and it occurs on", dayofmax, sep = " "))
+})
+```
