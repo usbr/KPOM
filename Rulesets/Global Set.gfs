@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 7.5
-# Created 13:43 June 20, 2019
+# Created 16:58 June 21, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -2336,6 +2336,26 @@ BEGIN
 
     END
     UUID "{31f95a16-0bf4-48dd-9a48-1cf4768233e5}";;
+
+    FUNCTION       "WhichOpYear" ( DATETIME date, NUMERIC lag )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) )
+ THEN
+  "CompletePartialDate"( @"Max DayOfYear", date )
+ ELSE
+  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" )
+ ENDIF;
+
+    END
+    UUID "{32513668-c990-4c12-9e82-0922ad6a9929}";;
 
   END
   UUID "{20d08e87-d494-44a4-8e36-2165a69add8f}";;
