@@ -8,7 +8,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#### Model Start Date: 10/01/2018
+#### Model Start Date: 03/01/2019
 
 ## Modeling Klamath Operations
 
@@ -32,7 +32,7 @@ IGD = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/IGD Linked Worksheet
 #List general characteristics of the data
 NumData = length(Model[,1])
 Dates = seq(as.Date("2018-02-22"), as.Date("2019-09-30"), by="days")
-StartDate = as.Date("2018-10-01")
+StartDate = as.Date("2019-03-01")
 
 #Vector of plot names
 Names = c("Surface or Deep Flushing", "Net Accrete", "A Canal Diversion", "Ady Canal Diversion", "F and FF Pump Outflow",
