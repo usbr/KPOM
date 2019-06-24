@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 7.5
-# Created 16:58 June 21, 2019
+# Created 12:44 June 24, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -631,7 +631,7 @@ BEGIN
     END
     UUID "{3ccca8e8-1cf3-48b3-9ee7-55f1dce1c1db}";;
 
-    FUNCTION       "Accretions End Timestep" ( DATETIME date )
+    FUNCTION       "Accretions End Timestep" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -641,7 +641,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "OffsetDate"( date, 6.00000000, "1 Days" );
+      "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" );
 
     END
     UUID "{dde6375e-de82-43a4-9c1c-b122ee0b723a}";;
@@ -761,7 +761,7 @@ BEGIN
     END
     UUID "{1ac3b73d-5a44-40ef-a7ed-19d207c0719f}";;
 
-    FUNCTION       "Deterministic Forecast End Timestep" ( DATETIME date )
+    FUNCTION       "Deterministic Forecast End Timestep" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -771,7 +771,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "OffsetDate"( date, 5.00000000, "1 Days" );
+      "OffsetDate"( "Operation Start Timestep"(  ), 5.00000000, "1 Days" );
 
     END
     UUID "{c3212bfd-f819-4546-be2f-4a1bd30403e2}";;
@@ -986,7 +986,7 @@ BEGIN
     END
     UUID "{2180ace3-8a6d-42ad-af64-54dbb408343d}";;
 
-    FUNCTION       "Long Forecast End Timestep" ( DATETIME date )
+    FUNCTION       "Long Forecast End Timestep" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "Determines the Long Forecast End Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : 30 September Current Year + 1<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 30 November Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 28/29 February Current Year + 1";
@@ -996,15 +996,15 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( "Forecast Season"( date ) == 1.00000000 AND "Run Season"( date ) == 1.00000000 )
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
  THEN
   "OffsetDate"( @"24:00:00 September 30, Current Year", 1.00000000, "1 Years" )
  ELSE
-  IF ( "Forecast Season"( date ) == 2.00000000 AND "Run Season"( date ) == 2.00000000 )
+  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
   THEN
    @"24:00:00 October 1, 1900"
   ELSE
-   IF ( "Forecast Season"( date ) == 3.00000000 AND "Run Season"( date ) == 3.00000000 )
+   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
    THEN
     @"24:00:00 November 30, Current Year"
    ELSE
@@ -1016,7 +1016,7 @@ BEGIN
     END
     UUID "{efe56699-116a-40c9-a195-a2060430af4c}";;
 
-    FUNCTION       "Long Forecast Start Timestep" ( DATETIME date )
+    FUNCTION       "Long Forecast Start Timestep" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "Determines the Long Forecast Start Timestep (analog or HEFS) given the 'Forecast Season' and 'Run Season'<br><br>Forecast Season : 1 (Analog) <br>Run Season : 1 (Fall/Winter)<br>	Long Forecast End Timestep : Operations Start Timestep + 6 Days<br><br>Forecast Season : 2 (NRCS) <br>Run Season : 2 (Pre Irrigation)<br>	Long Forecast End Timestep : NA (set to 1 October 1900 as a placeholder)<br><br>Forecast Season : 3 (Combined) <br>Run Season : 3 (Irrigation)<br>	Long Forecast End Timestep : 1 October Current Year<br><br>Forecast Season : 3 (Analog) <br>Run Season : 4 (Post Irrigation and Planning)<br>	Long Forecast End Timestep : 1 October Current Year";
@@ -1026,15 +1026,15 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( "Forecast Season"( date ) == 1.00000000 AND "Run Season"( date ) == 1.00000000 )
+      IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 1.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 1.00000000 )
  THEN
-  "OffsetDate"( date, 6.00000000, "1 Days" )
+  "OffsetDate"( "Operation Start Timestep"(  ), 6.00000000, "1 Days" )
  ELSE
-  IF ( "Forecast Season"( date ) == 2.00000000 AND "Run Season"( date ) == 2.00000000 )
+  IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 2.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 2.00000000 )
   THEN
    @"24:00:00 October 1, 1900"
   ELSE
-   IF ( "Forecast Season"( date ) == 3.00000000 AND "Run Season"( date ) == 3.00000000 )
+   IF ( "Forecast Season"( "Operation Start Timestep"(  ) ) == 3.00000000 AND "Run Season"( "Operation Start Timestep"(  ) ) == 3.00000000 )
    THEN
     @"24:00:00 October 1, Current Year"
    ELSE
