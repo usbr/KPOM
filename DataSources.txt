@@ -1,0 +1,29 @@
+UKL.Misc Flows -> Misc_In_Out.Total Misc Flows, AF (in IGD Calculator)
+	Calculated as sum of - 
+		Water to Refuge (use neg #'s for deliveries) in AF	
+		Surface and/or Deep Flushing Flow	
+		Dilution Flow AF	
+		Short Duration Dilution		
+		Projected or Actual Dilution	
+		Regulatory Call	
+		Barnes/ Agency Pumping	
+		Wood River Wetland	
+		Yurok Boat Dance	
+		LKNWR Flows (return +, delivery -)	
+		Ground Water Pumping	
+		Area K AF	
+		PC refill reservoir AF
+		
+Agricultural Deliveries.Pacificorp Borrow (acre-ft) -> LKNWR_PC_Borrow.PC Borrow (AF)
+	Hand entered -> need to identify source
+
+Ady Canal Remain.Diversion Request -> USBR Daily.Ady to Refuge CFS
+	Hand entered -> need to identify source
+
+A Canal.Diversion Request -> USBR Daily.A Canal CFS
+	Hydromet ACHO A Canal Headworks
+
+Refuge.Discharge To Drain -> LKNWR_PC_Borrow.Refuge Discharge to Drain (cfs)
+	Hand entered -> need to identify source
+
+
