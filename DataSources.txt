@@ -26,4 +26,21 @@ A Canal.Diversion Request -> USBR Daily.A Canal CFS
 Refuge.Discharge To Drain -> LKNWR_PC_Borrow.Refuge Discharge to Drain (cfs)
 	Hand entered -> need to identify source
 
+Keno to Boyle Gain.Local Inflow -> Keno to IGD Accretions CFS (BOR est.)
+	Hand entered -> need to identify source
+	
+Lake Ewuana Gain.Local Inflow -> USBR Daily.Keno Net Accretions
+	Calculated as -
+	=-(H1347+N1347+Y1347-R1347-O1347-S1347-T1347-I1347)
+	LINK RIVER + Keno Power Canal CFS +
+	LRDC CFS +
+	From F/FF CFS -
+	MH Pump-Spill CFS -
+	Station 48 CFS -
+	Ady Canal CFS - 
+	North Canal CFS - 
+	Keno Releases CFS
 
+F and FF Pump.InptObs Outflow -> USGS 11509340 KLAMATH STRAITS DRAIN NEAR WORDEN, OR -> USBR Daily.From F/FF CFS	
+
+L	
