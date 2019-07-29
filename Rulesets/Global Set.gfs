@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 7.5
-# Created 13:14 June 25, 2019
+# Created 15:57 July 17, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -31,7 +31,7 @@ BEGIN
     END
     UUID "{be66c884-ad93-49cb-ab13-f118d6136bf0}";;
 
-    FUNCTION       "AprilThruJune" (  )
+    FUNCTION       "AprilThruJune" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -41,7 +41,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      @"t" > @"24:00:00 March 31, Current Year" AND @"t" < @"24:00:00 July 1, Current Year";
+      date > @"24:00:00 March 31, Current Year" AND date < @"24:00:00 July 1, Current Year";
 
     END
     UUID "{0235a62e-b645-4b46-9c59-470cb30809ff}";;
@@ -836,7 +836,7 @@ BEGIN
     END
     UUID "{c9d14566-86c2-4821-b671-07fe9c48d0e3}";;
 
-    FUNCTION       "EndOfYearDate" ( DATETIME dateTime )
+    FUNCTION       "EndOfNextYearDate" (  )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -846,7 +846,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NextDate"( dateTime, @"Max DayOfYear" );
+      @"24:00:00 Max DayOfYear, Next Year";
 
     END
     UUID "{f07de7c1-2608-47d3-9180-db2e84dd0aac}";;
@@ -1647,7 +1647,7 @@ BEGIN
  ELSE
   $ "Lost River To Klamath River.Inflow2" [day]
  ENDIF DO
-  LRDC + $ "F and FF Pump.Outflow" [day] + $ "Lake Ewuana Gain.Local Inflow" [day] - $ "Lost River Diversion Channel.To Ady" [day] - $ "Lost River Diversion Channel.To North" [day] + $ "Agricultural Deliveries.Pacificorp Accretions" ["OffsetDate"( day, 7.00000000, "1 days" )]
+  LRDC + $ "F and FF Pump.For River" [day] + $ "Lake Ewuana Gain.Local Inflow" [day] - $ "Lost River Diversion Channel.To Ady" [day] - $ "Lost River Diversion Channel.To North" [day] + $ "Agricultural Deliveries.Pacificorp Accretions" ["OffsetDate"( day, 7.00000000, "1 days" )]
  ENDWITH;
 
     END
@@ -1702,7 +1702,7 @@ BEGIN
   ELSE
    $ "Lost River To Klamath River.Inflow2" []
   ENDIF DO
-   IGmax - $ "Agricultural Deliveries.Pacificorp Accretions" [@"t + 7"] - $ "F and FF Pump.Outflow" [] - $ "Lake Ewuana Gain.Local Inflow" [] - LRDC + $ "Lost River Diversion Channel.To North" [] + $ "Lost River Diversion Channel.To Ady" []
+   IGmax - $ "Agricultural Deliveries.Pacificorp Accretions" [@"t + 7"] - $ "F and FF Pump.For River" [] - $ "Lake Ewuana Gain.Local Inflow" [] - LRDC + $ "Lost River Diversion Channel.To North" [] + $ "Lost River Diversion Channel.To Ady" []
   ENDWITH
  ENDWITH;
 
@@ -2208,18 +2208,12 @@ BEGIN
     BEGIN
 
       WITH NUMERIC AgConsiderations = $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Ady Canal Remain.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) DO
-  WITH NUMERIC SetDemand = IF ( "NovThruFeb"( date ) )
+  WITH NUMERIC SetDemand = IF ( AgConsiderations < $ "A Canal.Diversion" [] )
   THEN
-   $ "A Canal.Diversion Request" [date]
+   $ "A Canal.Diversion" []
   ELSE
    AgConsiderations
-  ENDIF
-  ELSEIF_COND ( AgConsiderations < 0.00000000 "cfs" )
-  ELSEIF_CLAUSE ( 0.00000000 "cfs" )
-  END_ELSEIF
-  ELSEIF_COND ( AgConsiderations < $ "A Canal.Diversion Request" [date] )
-  ELSEIF_CLAUSE ( $ "A Canal.Diversion Request" [date] )
-  END_ELSEIF DO
+  ENDIF DO
    SetDemand
   ENDWITH
  ENDWITH;
