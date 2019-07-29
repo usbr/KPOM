@@ -8,7 +8,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#### Model Start Date: 03/01/2019
+#### Model Start Date: 01/05/2019 ~ 2017 Data
 
 ## Modeling Klamath Operations
 
@@ -26,13 +26,13 @@ library(ggplot2)
 Model = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/Testing Output.xlsx", sep = ""), 
                   sheet=1, colNames=TRUE, cols=2:18, na.strings = "NaN")
 #IGD Calculator Outputs
-IGD = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/IGD Linked Worksheet.xlsx", sep = ""), 
+IGD = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/DMI Sheet/IGD Linked Worksheet 2017 Testing.xlsx", sep = ""), 
                 sheet=1, colNames=TRUE, cols=2:18)
 
 #List general characteristics of the data
 NumData = length(Model[,1])
 Dates = seq(as.Date("2018-02-22"), as.Date("2019-09-30"), by="days")
-StartDate = as.Date("2019-03-01")
+StartDate = as.Date("2019-01-05")
 
 #Vector of plot names
 Names = c("Surface or Deep Flushing", "Net Accrete", "A Canal Diversion", "Ady Canal Diversion", "F and FF Pump Outflow",
@@ -76,14 +76,16 @@ obsdays = length(which(diffdf[,19]==0))
 suppressWarnings(
   for (i in 2:18){
     z <- ggplot() + geom_point(data = diffdf[1:obsdays,], aes(x = Dates, y = diffdf[1:obsdays,i], color = "a"), 
-                               fill = "orange", shape = 23) +
+                               shape = 18) +
       geom_point(data = diffdf[obsdays:NumData,], aes(x = Dates, y = diffdf[obsdays:NumData,i], color = "b"),
-                 fill = "light Blue", shape = 21) +
-      scale_color_manual(name = "Data Type", values = c("a" = "orangered2", "b" = "royalblue"),
+                 shape = 20) +
+      scale_color_manual(name = "", values = c("a" = "orangered2", "b" = "royalblue3"),
                          labels = c("Observed", "Projected")) +
-      ggtitle("Model/Calc Difference") +
-      ylab(paste(Names[(i-1)],"(", Units[(i-1)], ")", sep = " ")) +
-      ylim((min(diffdf[,i])-0.01), (max(diffdf[,i])+0.01))
+      ylab(paste(Names[(i-1)],"Difference","(", Units[(i-1)], ")", sep = " ")) +
+      ylim((min(diffdf[,i])-0.01), (max(diffdf[,i])+0.01)) +
+      xlab("") +
+      theme_minimal() +
+      theme(legend.position = "none", axis.text = element_text(size = 15), axis.title=element_text(size = 15))
     print(z)
     maxdiff = max(abs(diffdf[,i]), na.rm = TRUE)
     dayofmax = diffdf[which.max(abs(diffdf[,i])),1]
