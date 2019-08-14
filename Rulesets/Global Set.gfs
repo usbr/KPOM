@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 7.5
-# Created 15:57 July 17, 2019
+# Created 13:58 August 14, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -541,7 +541,7 @@ BEGIN
     END
     UUID "{39418046-9a5f-4fb1-81a2-5a4e77854b25}";;
 
-    FUNCTION       "OctoberThruFebruary" (  )
+    FUNCTION       "OctoberThruFebruary" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "";
@@ -551,7 +551,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      @"t" < @"24:00:00 March 1, Current Year" OR @"t" > @"24:00:00 September 30, Current Year";
+      date < @"24:00:00 March 1, Current Year" OR date > @"24:00:00 September 30, Current Year";
 
     END
     UUID "{70136de1-d28a-4dc9-810a-7380b0a8b134}";;
@@ -1463,7 +1463,7 @@ BEGIN
     FUNCTION       "AccretionTableColumnIndex" ( STRING NetOrAdj )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to table reference an accretion adjustment factor based on the net accretion for the given timestep.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1475,7 +1475,7 @@ BEGIN
   "WinterOps Start"(  )
  ELSE
   @"t"
- ENDIF DO
+ ENDIF COMMENTED_BY "There is no column for the month of September. Thus, for the summer fall transition period the <br>timestep is referenced to October <br>" DO
   "GetColumnIndex"( $ "Agricultural Deliveries.Net Accrete Adj Table", "GetMonthAsString"( Month ) CONCAT NetOrAdj )
  ENDWITH;
 
@@ -1485,7 +1485,7 @@ BEGIN
     FUNCTION       "AvailableClearLakeWater" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "1 cms";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to calculate the available release from Clear Lake based on its storage.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1496,7 +1496,7 @@ BEGIN
  THEN
   0.00000000 "cms"
  ELSE
-  "VolumeToFlow"( "Max"( $ "Clear.Storage" [@"t - 1"] - "ElevationToStorage"( % "Clear", $ "Clear.Reservoir Allocations" ["Normal Minimum", "Clear Lake"] ), 0.00000000 "m3" ), @"t" )
+  "VolumeToFlow"( "Max"( ( $ "Clear.Storage" [@"t - 1"] - "ElevationToStorage"( % "Clear", $ "Clear.Reservoir Allocations" ["Normal Minimum", "Clear Lake"] ) ) COMMENTED_BY "Difference between the previous timestep's volume and the <br>normal minimum volume at Clear Lake  <br>", 0.00000000 "m3" ), @"t" )
  ENDIF;
 
     END
@@ -1505,7 +1505,7 @@ BEGIN
     FUNCTION       "AvailableGerberReservoirWater" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "1 cms";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to calculate the available release from Gerber Reservoir based on its storage.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1516,7 +1516,7 @@ BEGIN
  THEN
   0.00000000 "cms"
  ELSE
-  "VolumeToFlow"( "Max"( "PreviousStorage"( % "Gerber" ) - "ElevationToStorage"( % "Gerber", $ "Gerber.Reservoir Allocations" ["Normal Minimum", "Gerber Reservoir"] ), 0.00000000 "m3" ), @"t" )
+  "VolumeToFlow"( "Max"( ( "PreviousStorage"( % "Gerber" ) - "ElevationToStorage"( % "Gerber", $ "Gerber.Reservoir Allocations" ["Normal Minimum", "Gerber Reservoir"] ) ) COMMENTED_BY "Difference between the previous timestep's volume and the <br>normal minimum volume at Gerber Reservoir   <br>", 0.00000000 "m3" ), @"t" )
  ENDIF;
 
     END
@@ -1525,7 +1525,7 @@ BEGIN
     FUNCTION       "AvailableLostRiverStorageWater" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "1 cfs";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to sum the available releases from Gerber and Clear that can be sent into the Lost River System. ";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1540,7 +1540,7 @@ BEGIN
     FUNCTION       "ClearLakeIrrigationRelease" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "1 cfs";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to determine the release from Clear Lake made for irrigation requests.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1549,7 +1549,7 @@ BEGIN
 
       IF ( "AvailableLostRiverStorageWater"(  ) > 0.00000000 "cms" )
  THEN
-  "Min"( "AvailableClearLakeWater"(  ) / "AvailableLostRiverStorageWater"(  ) * "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ), "GetMaxOutflowGivenInflow"( % "Clear", $ "Clear.Inflow" [], @"t" ) )
+  "Min"( ( "AvailableClearLakeWater"(  ) / "AvailableLostRiverStorageWater"(  ) ) COMMENTED_BY "Determine what percent of the Lost River available flow is from Clear Lake <br>" * "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ) COMMENTED_BY "Determine how much of the diversion request can be supplied by the Lost River local inflow <br>", "GetMaxOutflowGivenInflow"( % "Clear", $ "Clear.Inflow" [], @"t" ) COMMENTED_BY "Limit the release from Clear Lake by its max allowable outflow based <br>on the inflow for the timestep <br>" )
  ELSE
   0.00000000 "cms"
  ENDIF;
@@ -1592,7 +1592,7 @@ BEGIN
     FUNCTION       "ObsUKLtoIGD" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to calculate how much water released from UKL made it to IGD. ";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1605,8 +1605,8 @@ BEGIN
    $ "Link River.Inflow" []
   ELSE
    $ "Link River.Inflow" [] + LRDCdeficit
-  ENDIF
- ENDWITH;
+  ENDIF COMMENTED_BY "If there is a deficit of flow in the LRDC, an equivalent portion of the UKL release is used to supply <br>the demand. Thus, the flow headed to IGD from UKL decreases by the same amount <br>"
+ ENDWITH COMMENTED_BY "Determine if the LRDC can supply the downstream diversion requests in the basin <br>";
 
     END
     UUID "{28e92908-0353-4dfc-87d2-574e43eaf3c1}";;
@@ -1614,7 +1614,7 @@ BEGIN
     FUNCTION       "IGDwithoutDilution" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to determine the IGD release without dilution. Since this release differs from spring-summer to fall-winter operations period, this function assigns the correct slot for the rule to pull. ";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1634,40 +1634,33 @@ BEGIN
     FUNCTION       "TransitionNetAccrete" ( DATETIME day )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to calculate the net accretion using the fall-winter operations equation during the transition periods. Since there is overlap between the operation periods, the net accretion variable has two seperate values for a period of time. A slot cannot be set with two seperate values, thus the spring-summer was set as the dominating equation during these periods. Tol provide the fall-winter calculated value over this period, this dedicated function is used. ";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC LRDC = IF ( "Operations Period"( @"t" ) )
- THEN
-  $ "Lost River Diversion Channel.Inflow" [day]
- ELSE
-  $ "Lost River To Klamath River.Inflow2" [day]
- ENDIF DO
-  LRDC + $ "F and FF Pump.For River" [day] + $ "Lake Ewuana Gain.Local Inflow" [day] - $ "Lost River Diversion Channel.To Ady" [day] - $ "Lost River Diversion Channel.To North" [day] + $ "Agricultural Deliveries.Pacificorp Accretions" ["OffsetDate"( day, 7.00000000, "1 days" )]
- ENDWITH;
+      ( $ "Lost River To Klamath River.Inflow2" [day] + $ "F and FF Pump.For River" [day] + $ "Lake Ewuana Gain.Local Inflow" [day] - $ "Lost River Diversion Channel.To Ady" [day] - $ "Lost River Diversion Channel.To North" [day] + $ "Agricultural Deliveries.Pacificorp Accretions" ["OffsetDate"( day, 7.00000000, "1 days" )] ) COMMENTED_BY "Sum the individual accretions minus their uses to calculate the net accretion in the basin    <br>";
 
     END
     UUID "{2de9ea50-cb59-402a-b429-ef4256944898}";;
 
-    FUNCTION       "AssignSeasonType" (  )
+    FUNCTION       "AssignSeasonType" ( DATETIME date )
     RETURN_TYPE    STRING;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to select the column header based on the operation period the timestep falls within.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
     NOTES          "";
     BEGIN
 
-      IF ( "OctoberThruFebruary"(  ) )
+      IF ( "OctoberThruFebruary"( date ) )
  THEN
-  "FW"
+  "FW" COMMENTED_BY "Fall-Winter <br>"
  ELSE
-  "SS"
+  "SS" COMMENTED_BY "Spring Summer <br>"
  ENDIF;
 
     END
@@ -1676,7 +1669,7 @@ BEGIN
     FUNCTION       "IGmaxBoundonUKL" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to calculate the max release at IGD based on the release from UKL and the accretions throughout the basin. ";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1695,15 +1688,8 @@ BEGIN
    ELSEIF_CLAUSE ( "SwitchValLateSummerLagged"( 1500.00000000 "cfs", 1250.00000000 "cfs", 1350.00000000 "cfs" ) )
    END_ELSEIF
   ENDWITH
- ENDWITH DO
-  WITH NUMERIC LRDC = IF ( "Operations Period"( @"t" ) )
-  THEN
-   $ "Lost River Diversion Channel.Inflow" []
-  ELSE
-   $ "Lost River To Klamath River.Inflow2" []
-  ENDIF DO
-   IGmax - $ "Agricultural Deliveries.Pacificorp Accretions" [@"t + 7"] - $ "F and FF Pump.For River" [] - $ "Lake Ewuana Gain.Local Inflow" [] - LRDC + $ "Lost River Diversion Channel.To North" [] + $ "Lost River Diversion Channel.To Ady" []
-  ENDWITH
+ ENDWITH COMMENTED_BY "Based on the timestep and EWA volume, determine the maximum allowable flow from IGD  <br>" DO
+  ( IGmax - $ "Agricultural Deliveries.Pacificorp Accretions" [@"t + 7"] - $ "F and FF Pump.For River" [] - $ "Lake Ewuana Gain.Local Inflow" [] - $ "Lost River To Klamath River.Inflow2" [] + $ "Lost River Diversion Channel.To North" [] + $ "Lost River Diversion Channel.To Ady" [] ) COMMENTED_BY "Take the difference between the calculated max release at IGD and<br>the accretion flows through the basin <br>"
  ENDWITH;
 
     END
@@ -1712,7 +1698,7 @@ BEGIN
     FUNCTION       "GerberIrrigationRelease" (  )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "1 cfs";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to determine the release from Gerber Reservoir made for irrigation requests. Clear Lake is the first supply source, if excess water is required it comes from Gerber.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1721,7 +1707,7 @@ BEGIN
 
       IF ( "AvailableLostRiverStorageWater"(  ) > 0.00000000 "cms" )
  THEN
-  "Min"( "Min"( "AvailableGerberReservoirWater"(  ), "Max"( "Max"( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )], 0.00000000 "cms" ) - "Min"( $ "Clear.Outflow" [], "ClearLakeIrrigationRelease"(  ) ), 0.00000000 "cms" ) ), "GetMaxOutflowGivenInflow"( % "Gerber", $ "Gerber.Inflow" [], @"t" ) )
+  "Min"( "Min"( "AvailableGerberReservoirWater"(  ) COMMENTED_BY "Limit the release from Gerber Reservoir by its available outflow <br>", "Max"( "Max"( ( $ "Lost River Irrigation Depletions.Diversion Requested" ["DateMin"( @"t + 1", @"Finish Timestep" )] - $ "Lost River Gains.Local Inflow" ["DateMin"( @"t + 1", @"Finish Timestep" )] ) COMMENTED_BY "Determine how much of the diversion request can be supplied by the Lost River local inflow <br>", 0.00000000 "cms" ) - "Min"( $ "Clear.Outflow" [], "ClearLakeIrrigationRelease"(  ) ) COMMENTED_BY "Determine how much of the diversion request can be supplied by the <br>Clear Lake release <br>", 0.00000000 "cms" ) ), "GetMaxOutflowGivenInflow"( % "Gerber", $ "Gerber.Inflow" [], @"t" ) COMMENTED_BY "Limit the release from Gerber Reservoir by its max allowable outflow based <br>on the inflow for the timestep  <br>" )
  ELSE
   0.00000000 "cms"
  ENDIF;
@@ -1732,7 +1718,7 @@ BEGIN
     FUNCTION       "SwitchValLateSummerLagged" ( NUMERIC Prior, NUMERIC Mid, NUMERIC Post )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to assign a reference string based on what portion of the summer the timestep falls within.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1755,7 +1741,7 @@ BEGIN
     FUNCTION       "WillProportionTableColumnIndex" ( STRING FlowOrFactor )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to table reference a proportion factor based on the Williamson River inflow for the given timestep.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
@@ -1767,7 +1753,7 @@ BEGIN
   "WinterOps Start"(  )
  ELSE
   @"t"
- ENDIF DO
+ ENDIF COMMENTED_BY "There is no column for the month of September. Thus, for the summer fall transition period the <br>timestep is referenced to October <br>" DO
   "GetColumnIndex"( $ "Williamson River Inflow.Williamson Proportion Table", "GetMonthAsString"( Month ) CONCAT FlowOrFactor )
  ENDWITH;
 
@@ -2200,20 +2186,20 @@ BEGIN
     FUNCTION       "Historic Ag Demands" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This rule's purpose is to determine the amount of water being released from UKL for agricultural purposes during the observed period. ";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC AgConsiderations = $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Ady Canal Remain.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) DO
+      WITH NUMERIC AgConsiderations = ( $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Ady Canal Remain.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) ) COMMENTED_BY "Sum all the possible agricultural diversion requests that require water from UKL, accounting for <br>excess water supplied by the LRDC <br>" DO
   WITH NUMERIC SetDemand = IF ( AgConsiderations < $ "A Canal.Diversion" [] )
   THEN
    $ "A Canal.Diversion" []
   ELSE
    AgConsiderations
-  ENDIF DO
+  ENDIF COMMENTED_BY "Check whether the sum of requests were greater than the A Canal request. The sum will be <br>under when there is an excess of supply at LRDC, in which case the smallest amount of water <br>sent from UKL for agricultural demands will be the A Canal request <br>" DO
    SetDemand
   ENDWITH
  ENDWITH;
@@ -2231,13 +2217,13 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( $ "Ady Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
+      IF ( ( $ "Ady Canal.Diversion Request" [Day] > 0.00000000 "cfs" ) COMMENTED_BY "Check if there is a diversion request from Ady Canal on the timestep  <br>" )
  THEN
-  IF ( $ "Ady Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day ) )
+  IF ( ( $ "Ady Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day ) ) COMMENTED_BY "Check if there is enough water exiting LRDC to supply the Ady Canal diversion request after the <br>North Canal has fullfilled its diversion request <br>" )
   THEN
-   $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day )
+   ( $ "Lost River To Klamath River.Inflow2" [Day] - "LRDC to North Canal"( Day ) ) COMMENTED_BY "When the request is greater, Ady Canal uses the remaining available flow <br>"
   ELSE
-   $ "Ady Canal.Diversion Request" [Day]
+   $ "Ady Canal.Diversion Request" [Day] COMMENTED_BY "When the request is less, the Ady Canal only diverts the requested flow and the remaining flow is <br>used downstream   <br>"
   ENDIF
  ELSE
   0.00000000 "cfs"
@@ -2249,20 +2235,20 @@ BEGIN
     FUNCTION       "LRDC to North Canal" ( DATETIME Day )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to determine the portion of excess flow exiting the LRDC is diverted by the Ady Canal. North Canal has first access to this water as it precedes Ady Canal in the run of the river.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
     NOTES          "";
     BEGIN
 
-      IF ( $ "North Canal.Diversion Request" [Day] > 0.00000000 "cfs" )
+      IF ( ( $ "North Canal.Diversion Request" [Day] > 0.00000000 "cfs" ) COMMENTED_BY "Check if there is a diversion request from North Canal on the timestep <br>" )
  THEN
-  IF ( $ "North Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] )
+  IF ( ( $ "North Canal.Diversion Request" [Day] > $ "Lost River To Klamath River.Inflow2" [Day] ) COMMENTED_BY "Check if there is enough water exiting LRDC to supply the North Canal diversion request <br>" )
   THEN
-   $ "Lost River To Klamath River.Inflow2" [Day]
+   $ "Lost River To Klamath River.Inflow2" [Day] COMMENTED_BY "When the request is greater, North Canal uses what flow is available <br>"
   ELSE
-   $ "North Canal.Diversion Request" [Day]
+   $ "North Canal.Diversion Request" [Day] COMMENTED_BY "When the request is less, the North Canal only diverts the requested flow and the remaining flow <br>is used downstream  <br>"
   ENDIF
  ELSE
   0.00000000 "cfs"
@@ -2319,18 +2305,18 @@ BEGIN
     FUNCTION       "WhichOpYear" ( DATETIME date, NUMERIC lag )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
-    DESCRIPTION    "";
+    DESCRIPTION    "This function's purpose is to determine which water year the timestep falls within.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
     NOTES          "";
     BEGIN
 
-      IF ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) )
+      IF ( ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) ) COMMENTED_BY "Check if the timestep falls before the beginning of the fall winter operations period. If so the <br>water year matches the timestep's year <br>" )
  THEN
   "CompletePartialDate"( @"Max DayOfYear", date )
  ELSE
-  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" )
+  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" ) COMMENTED_BY "If after, the water year is one year after the timestep's year <br>"
  ENDIF;
 
     END
