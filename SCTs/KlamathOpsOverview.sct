@@ -1,7 +1,7 @@
-# SCT File Created 6/19/2019 1:45 PM
+# SCT File Created 9/26/2019 1:09 PM
 #  as K:/Models/Mitch/KlamathOpsModel/SCTs/KlamathOpsOverview.sct
-# Generated using RiverWare Version <RiverWare_Model 7.4.1 Patch>
-# Generated from Model File <KlamathOps_MM.mdl>
+# Generated using RiverWare Version <RiverWare_Model 7.5>
+# Generated from Model File <KlamathOps.mdl.gz>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            857
-  WINDOW_HEIGHT           575
+  WINDOW_WIDTH            817
+  WINDOW_HEIGHT           445
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -34,14 +34,10 @@ SCT_PROPERTIES
   AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
   NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_ALL 57
 
-  SLOT_LABEL_SHEET_COL_WIDTH  "Winter Calculator" COLFIT_METHOD_ALL 207
-  SLOT_UNITS_SHEET_COL_WIDTH  "Winter Calculator" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Summer Calculator" COLFIT_METHOD_ALL 229
-  SLOT_UNITS_SHEET_COL_WIDTH  "Summer Calculator" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Ag Sheet" COLFIT_METHOD_ALL 132
-  SLOT_UNITS_SHEET_COL_WIDTH  "Ag Sheet" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Dilution & Flushing" COLFIT_METHOD_ALL 193
-  SLOT_UNITS_SHEET_COL_WIDTH  "Dilution & Flushing" COLFIT_METHOD_ALL 54
+  SLOT_LABEL_SHEET_COL_WIDTH  "Winter Ops" COLFIT_METHOD_ALL 207
+  SLOT_UNITS_SHEET_COL_WIDTH  "Winter Ops" COLFIT_METHOD_ALL 54
+  SLOT_LABEL_SHEET_COL_WIDTH  "Summer Ops" COLFIT_METHOD_ALL 229
+  SLOT_UNITS_SHEET_COL_WIDTH  "Summer Ops" COLFIT_METHOD_ALL 54
   SLOT_LABEL_SHEET_COL_WIDTH  "UKL Overview" COLFIT_METHOD_ALL 133
   SLOT_UNITS_SHEET_COL_WIDTH  "UKL Overview" COLFIT_METHOD_ALL 54
 
@@ -148,7 +144,7 @@ SCT_PROPERTIES
   FULL_PRECISION_EDITING  True
 
 TAB_DIV   0
-  SLOT_LABEL        "Winter Calculator"
+  SLOT_LABEL        "Winter Ops"
 
 SLOT_DIV  1
   SLOT_LABEL        ""
@@ -456,7 +452,7 @@ SLOT_REF  34
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 TAB_DIV   35
-  SLOT_LABEL        "Summer Calculator"
+  SLOT_LABEL        "Summer Ops"
 
 SLOT_DIV  36
   SLOT_LABEL        ""
@@ -827,7 +823,7 @@ SLOT_REF  76
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 TAB_DIV   77
-  SLOT_LABEL        "Ag Sheet"
+  SLOT_LABEL        "Agricultural Ops"
 
 SLOT_DIV  78
   SLOT_LABEL        "Area 1"
@@ -942,7 +938,7 @@ SLOT_REF  91
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 TAB_DIV   92
-  SLOT_LABEL        "Dilution & Flushing"
+  SLOT_LABEL        "Dilution and Flushing"
 
 SLOT_DIV  93
   SLOT_LABEL        ""
