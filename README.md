@@ -1,5 +1,5 @@
 # KlamathOpsModel
-This repository contains the Klamath RiverWare Operations Model (KROM). The repository is structured as follows - 
+This repository contains the Klamath RiverWare Operations Model (KROM), a daily timestep water management model. The repository is structured as follows - 
 * *Database* - model input data
 * *Documentation* - model documentation
 * *Models* - model files
