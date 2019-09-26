@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 7.5
-# Created 13:58 August 14, 2019
+# Created 13:09 September 26, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -1451,6 +1451,26 @@ BEGIN
     END
     UUID "{96d421d2-9567-4675-a820-658eb8edbb9e}";;
 
+    FUNCTION       "WhichOpYear" ( DATETIME date, NUMERIC lag )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function's purpose is to determine which water year the timestep falls within.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) ) COMMENTED_BY "Check if the timestep falls before the beginning of the fall winter operations period. If so the <br>water year matches the timestep's year <br>" )
+ THEN
+  "CompletePartialDate"( @"Max DayOfYear", date )
+ ELSE
+  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" ) COMMENTED_BY "If after, the water year is one year after the timestep's year <br>"
+ ENDIF;
+
+    END
+    UUID "{32513668-c990-4c12-9e82-0922ad6a9929}";;
+
   END
   UUID "{b65779eb-7b5c-4346-9536-8923e8a9ad6e}";;
 
@@ -2193,7 +2213,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC AgConsiderations = ( $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Ady Canal Remain.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) ) COMMENTED_BY "Sum all the possible agricultural diversion requests that require water from UKL, accounting for <br>excess water supplied by the LRDC <br>" DO
+      WITH NUMERIC AgConsiderations = ( $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Refuge.Diversion Requested" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) ) COMMENTED_BY "Sum all the possible agricultural diversion requests that require water from UKL, accounting for <br>excess water supplied by the LRDC <br>" DO
   WITH NUMERIC SetDemand = IF ( AgConsiderations < $ "A Canal.Diversion" [] )
   THEN
    $ "A Canal.Diversion" []
@@ -2301,26 +2321,6 @@ BEGIN
 
     END
     UUID "{31f95a16-0bf4-48dd-9a48-1cf4768233e5}";;
-
-    FUNCTION       "WhichOpYear" ( DATETIME date, NUMERIC lag )
-    RETURN_TYPE    DATETIME;
-    SCALE_UNITS    "";
-    DESCRIPTION    "This function's purpose is to determine which water year the timestep falls within.";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) ) COMMENTED_BY "Check if the timestep falls before the beginning of the fall winter operations period. If so the <br>water year matches the timestep's year <br>" )
- THEN
-  "CompletePartialDate"( @"Max DayOfYear", date )
- ELSE
-  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" ) COMMENTED_BY "If after, the water year is one year after the timestep's year <br>"
- ENDIF;
-
-    END
-    UUID "{32513668-c990-4c12-9e82-0922ad6a9929}";;
 
   END
   UUID "{20d08e87-d494-44a4-8e36-2165a69add8f}";;
