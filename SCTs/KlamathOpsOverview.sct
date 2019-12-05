@@ -1,6 +1,6 @@
-# SCT File Created 9/26/2019 1:09 PM
-#  as K:/Models/Mitch/KlamathOpsModel/SCTs/KlamathOpsOverview.sct
-# Generated using RiverWare Version <RiverWare_Model 7.5>
+# SCT File Created 11/12/2019 4:32 PM
+#  as X:/2019.11.Worksession/KROM/SCTs/KlamathOpsOverview.sct
+# Generated using RiverWare Version <RiverWare_Model 7.5.4 Patch>
 # Generated from Model File <KlamathOps.mdl.gz>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            817
-  WINDOW_HEIGHT           445
+  WINDOW_WIDTH            1402
+  WINDOW_HEIGHT           741
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -34,9 +34,9 @@ SCT_PROPERTIES
   AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
   NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_ALL 57
 
-  SLOT_LABEL_SHEET_COL_WIDTH  "Winter Ops" COLFIT_METHOD_ALL 207
+  SLOT_LABEL_SHEET_COL_WIDTH  "Winter Ops" COLFIT_METHOD_ALL 269
   SLOT_UNITS_SHEET_COL_WIDTH  "Winter Ops" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Summer Ops" COLFIT_METHOD_ALL 229
+  SLOT_LABEL_SHEET_COL_WIDTH  "Summer Ops" COLFIT_METHOD_ALL 291
   SLOT_UNITS_SHEET_COL_WIDTH  "Summer Ops" COLFIT_METHOD_ALL 54
   SLOT_LABEL_SHEET_COL_WIDTH  "UKL Overview" COLFIT_METHOD_ALL 133
   SLOT_UNITS_SHEET_COL_WIDTH  "UKL Overview" COLFIT_METHOD_ALL 54
@@ -160,9 +160,9 @@ SLOT_REF  2
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  3
-  SLOT_LABEL        "Williamson River Inflow.Proportion Factor"
-  SLOT_MULTILINE    "Williamson River Inflow<br>.Proportion Factor"
-  RW_SLOT_NAME      "Williamson River Inflow.Proportion Factor"
+  SLOT_LABEL        "Williamson River blw Sprague Inflow.Proportion Factor"
+  SLOT_MULTILINE    "Williamson River blw Sprague Inflow<br>.Proportion Factor"
+  RW_SLOT_NAME      "Williamson River blw Sprague Inflow.Proportion Factor"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -491,9 +491,9 @@ SLOT_DIV  40
   SLOT_LABEL        ""
 
 SLOT_REF  41
-  SLOT_LABEL        "Williamson River Inflow.50Vol"
-  SLOT_MULTILINE    "Williamson River Inflow<br>.50Vol"
-  RW_SLOT_NAME      "Williamson River Inflow.50 Vol"
+  SLOT_LABEL        "Williamson River blw Sprague Inflow.50 Vol"
+  SLOT_MULTILINE    "Williamson River blw Sprague Inflow<br>.50 Vol"
+  RW_SLOT_NAME      "Williamson River blw Sprague Inflow.50 Vol"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -511,9 +511,9 @@ SLOT_REF  42
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  43
-  SLOT_LABEL        "Williamson River Inflow.Summer Cum Inflow"
-  SLOT_MULTILINE    "Williamson River Inflow<br>.Summer Cum Inflow"
-  RW_SLOT_NAME      "Williamson River Inflow.Summer Cum Inflow"
+  SLOT_LABEL        "Williamson River blw Sprague Inflow.Summer Cum Inflow"
+  SLOT_MULTILINE    "Williamson River blw Sprague Inflow<br>.Summer Cum Inflow"
+  RW_SLOT_NAME      "Williamson River blw Sprague Inflow.Summer Cum Inflow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -521,9 +521,9 @@ SLOT_REF  43
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  44
-  SLOT_LABEL        "Williamson River Inflow.Cumulative Proportion"
-  SLOT_MULTILINE    "Williamson River Inflow<br>.Cumulative Proportion"
-  RW_SLOT_NAME      "Williamson River Inflow.Cumulative Proportion"
+  SLOT_LABEL        "Williamson River blw Sprague Inflow.Cumulative Proportion"
+  SLOT_MULTILINE    "Williamson River blw Sprague Inflow<br>.Cumulative Proportion"
+  RW_SLOT_NAME      "Williamson River blw Sprague Inflow.Cumulative Proportion"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False

@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 7.5
-# Created 11:42 October 18, 2019
+# RiverWare_Ruleset 7.5.5 Patch
+# Created 10:23 November 12, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -1839,7 +1839,7 @@ BEGIN
  ELSE
   @"t"
  ENDIF COMMENTED_BY "There is no column for the month of September. Thus, for the summer fall transition period the <br>timestep is referenced to October <br>" DO
-  "GetColumnIndex"( $ "Williamson River Inflow.Williamson Proportion Table", "GetMonthAsString"( Month ) CONCAT FlowOrFactor )
+  "GetColumnIndex"( $ "Williamson River blw Sprague Inflow.Williamson Proportion Table", "GetMonthAsString"( Month ) CONCAT FlowOrFactor )
  ENDWITH;
 
     END
@@ -2436,7 +2436,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard.Deterministic Forecast End" [] );
+      "NumberToDate"( $ "Dashboard.Deterministic Forecast End Timestep" [] );
 
     END
     UUID "{6c9d7f86-a861-4e37-8341-79805136288d}";;
