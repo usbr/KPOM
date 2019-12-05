@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 7.5
-# Created 13:58 August 14, 2019
+# RiverWare_Ruleset 7.5.5 Patch
+# Created 10:23 November 12, 2019
 # 
 RULESET
 NAME "Global Klamath Operation Functions";
@@ -451,6 +451,21 @@ BEGIN
     END
     UUID "{5528303b-b70b-4c50-a128-596206e05192}";;
 
+    FUNCTION       "MayThruDecember" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 April 30, Current Year" AND @"t" < @"24:00:00 December 31, Current Year";
+
+    END
+    UUID "{f5dfa37a-492f-4666-905b-053b371fc5e3}";;
+
     FUNCTION       "MayThruSeptember" (  )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
@@ -740,6 +755,26 @@ BEGIN
 
     END
     UUID "{afaf4d62-d3f9-4fba-839d-b159f0bf00fa}";;
+
+    FUNCTION       "CalculationMonth" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "GetMonth"( @"t" ) IN { 3.00000000 , 4.00000000 , 5.00000000 , 6.00000000 } )
+ THEN
+  TRUE
+ ELSE
+  FALSE
+ ENDIF;
+
+    END
+    UUID "{452db3c3-b817-430c-af8c-511acefb0790}";;
 
     FUNCTION       "DateIsBetween" ( DATETIME startDate, DATETIME endDate, DATETIME testDate )
     RETURN_TYPE    BOOLEAN;
@@ -1451,6 +1486,26 @@ BEGIN
     END
     UUID "{96d421d2-9567-4675-a820-658eb8edbb9e}";;
 
+    FUNCTION       "WhichOpYear" ( DATETIME date, NUMERIC lag )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function's purpose is to determine which water year the timestep falls within.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) ) COMMENTED_BY "Check if the timestep falls before the beginning of the fall winter operations period. If so the <br>water year matches the timestep's year <br>" )
+ THEN
+  "CompletePartialDate"( @"Max DayOfYear", date )
+ ELSE
+  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" ) COMMENTED_BY "If after, the water year is one year after the timestep's year <br>"
+ ENDIF;
+
+    END
+    UUID "{32513668-c990-4c12-9e82-0922ad6a9929}";;
+
   END
   UUID "{b65779eb-7b5c-4346-9536-8923e8a9ad6e}";;
 
@@ -1571,6 +1626,36 @@ BEGIN
 
     END
     UUID "{912d2f11-5ec6-471f-945f-69a837086dcc}";;
+
+    FUNCTION       "ComputeMarThruSepInflow" ( SLOT Forecast, SLOT Inflow )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( @"t" < @"24:00:00 April 1, Current Year" )
+ THEN
+  Forecast ["LastDayofYear"(  ), "MarSep"]
+ ELSE
+  WITH STRING Col = IF ( @"t" < @"24:00:00 May 1, Current Year" )
+  THEN
+   "AprSep"
+  ELSE
+   "JunSep"
+  ENDIF
+  ELSEIF_COND ( @"t" < @"24:00:00 June 1, Current Year" )
+  ELSEIF_CLAUSE ( "MaySep" )
+  END_ELSEIF DO
+   "SumFlowsToVolume"( Inflow, @"24:00:00 March 1, Current Year", @"t - 1" ) + Forecast ["LastDayofYear"(  ), Col]
+  ENDWITH
+ ENDIF;
+
+    END
+    UUID "{2dd25709-b595-472b-8a77-e632f795858f}";;
 
     FUNCTION       "EstimateSeepage" ( SLOT seepageRate, STRING column, NUMERIC meanArea, DATETIME startDate, DATETIME endDate )
     RETURN_TYPE    NUMERIC;
@@ -1754,7 +1839,7 @@ BEGIN
  ELSE
   @"t"
  ENDIF COMMENTED_BY "There is no column for the month of September. Thus, for the summer fall transition period the <br>timestep is referenced to October <br>" DO
-  "GetColumnIndex"( $ "Williamson River Inflow.Williamson Proportion Table", "GetMonthAsString"( Month ) CONCAT FlowOrFactor )
+  "GetColumnIndex"( $ "Williamson River blw Sprague Inflow.Williamson Proportion Table", "GetMonthAsString"( Month ) CONCAT FlowOrFactor )
  ENDWITH;
 
     END
@@ -2193,7 +2278,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC AgConsiderations = ( $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Ady Canal Remain.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) ) COMMENTED_BY "Sum all the possible agricultural diversion requests that require water from UKL, accounting for <br>excess water supplied by the LRDC <br>" DO
+      WITH NUMERIC AgConsiderations = ( $ "A Canal.Diversion Request" [date] + $ "North Canal.Diversion Request" [date] + $ "Ady Canal.Diversion Request" [date] - $ "Refuge.Diversion Requested" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] - $ "Station 48.Diversion Request" [date] - $ "Miller Hill Pump.Diversion Request" [date] ) ) COMMENTED_BY "Sum all the possible agricultural diversion requests that require water from UKL, accounting for <br>excess water supplied by the LRDC <br>" DO
   WITH NUMERIC SetDemand = IF ( AgConsiderations < $ "A Canal.Diversion" [] )
   THEN
    $ "A Canal.Diversion" []
@@ -2302,26 +2387,6 @@ BEGIN
     END
     UUID "{31f95a16-0bf4-48dd-9a48-1cf4768233e5}";;
 
-    FUNCTION       "WhichOpYear" ( DATETIME date, NUMERIC lag )
-    RETURN_TYPE    DATETIME;
-    SCALE_UNITS    "";
-    DESCRIPTION    "This function's purpose is to determine which water year the timestep falls within.";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      IF ( ( date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.WinterOps Start" [] ), date ) + "ToDays"( lag ) ) COMMENTED_BY "Check if the timestep falls before the beginning of the fall winter operations period. If so the <br>water year matches the timestep's year <br>" )
- THEN
-  "CompletePartialDate"( @"Max DayOfYear", date )
- ELSE
-  "CompletePartialDate"( @"Max DayOfYear", date + 1.00000000 "year" ) COMMENTED_BY "If after, the water year is one year after the timestep's year <br>"
- ENDIF;
-
-    END
-    UUID "{32513668-c990-4c12-9e82-0922ad6a9929}";;
-
   END
   UUID "{20d08e87-d494-44a4-8e36-2165a69add8f}";;
 
@@ -2371,7 +2436,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "NumberToDate"( $ "Dashboard.Deterministic Forecast End" [] );
+      "NumberToDate"( $ "Dashboard.Deterministic Forecast End Timestep" [] );
 
     END
     UUID "{6c9d7f86-a861-4e37-8341-79805136288d}";;
