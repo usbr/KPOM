@@ -1,0 +1,1994 @@
+# RiverWare_Ruleset 8.0.5
+# Created 22:26 June 29, 2020
+# 
+RULESET
+NAME "Klamath 2019PA Global Functions";
+AGENDA_ORDER ASCENDING;
+DESCRIPTION "";
+PRECISION   2;
+IS_GLOBAL   TRUE;
+NOTES "";
+BEGIN
+
+  UTILITY_GROUP "Datetime Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "AfterApril" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep is after April, then this function solves as TRUE. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonth"( date ) > 4.00000000;
+
+    END
+    UUID "{2e1a13fc-a204-4094-9fd3-d685a1e61bf1}";;
+
+    FUNCTION       "AprilThruJune" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of April thru June, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "April" OR "GetMonthAsString"( date ) == "May" OR "GetMonthAsString"( date ) == "June";
+
+    END
+    UUID "{0235a62e-b645-4b46-9c59-470cb30809ff}";;
+
+    FUNCTION       "AugustThruOctober" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of August thru October, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      @"t" > @"24:00:00 July 31, Current Year" AND @"t" < @"24:00:00 November 1, Current Year";
+
+    END
+    UUID "{48d0ce8d-7826-49ec-9f4d-94b5ef378580}";;
+
+    FUNCTION       "DecemberThruFebruary" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of December thru February, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "December" OR "GetMonthAsString"( date ) == "January" OR "GetMonthAsString"( date ) == "February";
+
+    END
+    UUID "{0002c5d5-752e-4b8c-9f75-f31fdd7facbb}";;
+
+    FUNCTION       "JulyThruSeptember" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of July thru September, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "July" OR "GetMonthAsString"( date ) == "August" OR "GetMonthAsString"( date ) == "September";
+
+    END
+    UUID "{d428ab59-2110-4639-b056-5ca066ad9f7a}";;
+
+    FUNCTION       "MarchThruNovember" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of March thru November, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonth"( date ) > 2.00000000 AND "GetMonth"( date ) < 12.00000000;
+
+    END
+    UUID "{a286b59e-82dd-4bf3-96ca-1e32381a8f4f}";;
+
+    FUNCTION       "MarchThruSeptember" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of March thru September, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonth"( date ) > 2.00000000 AND "GetMonth"( date ) < 10.00000000;
+
+    END
+    UUID "{ef6c6dbe-4b67-4b21-9d1b-ce951d859121}";;
+
+    FUNCTION       "NovemberThruFebruary" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of November thru February, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "November" OR "GetMonthAsString"( date ) == "December" OR "GetMonthAsString"( date ) == "January" OR "GetMonthAsString"( date ) == "February";
+
+    END
+    UUID "{39f481c2-26ab-47f3-bb11-d021d7750610}";;
+
+    FUNCTION       "October" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep is in October, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "October";
+
+    END
+    UUID "{fe27d37b-64b7-4121-aac0-790d18780dc0}";;
+
+    FUNCTION       "OctoberThruDecember" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of October thru December, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonth"( date ) > 9.00000000;
+
+    END
+    UUID "{39418046-9a5f-4fb1-81a2-5a4e77854b25}";;
+
+    FUNCTION       "OctoberThruFebruary" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of October thru February, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "October" OR "GetMonthAsString"( date ) == "November" OR "GetMonthAsString"( date ) == "December" OR "GetMonthAsString"( date ) == "January" OR "GetMonthAsString"( date ) == "February";
+
+    END
+    UUID "{70136de1-d28a-4dc9-810a-7380b0a8b134}";;
+
+    FUNCTION       "OctoberThruNovember" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the timestep falls in the months of October thru November, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "October" OR "GetMonthAsString"( date ) == "November";
+
+    END
+    UUID "{a9ec446c-1646-41fd-8bae-62ec8f235d13}";;
+
+    FUNCTION       "BeginOfMonthDate" ( DATETIME dateTime )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns beginning of month date given a timestep.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG TRUE;
+    NOTES          "";
+    BEGIN
+
+      "PreviousDate"( dateTime, @"Min DayOfMonth" );
+
+    END
+    UUID "{ba0a7776-6c3e-4b59-a579-fc35a775944c}";;
+
+    FUNCTION       "Contract Year Day" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns the day number of the Contract Year. The first day is on March 1.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( ( date >= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spring Operation Dates" ["Start", "Date"] ), date ) ) COMMENTED_BY "The first day of the contract year is March 1, the count starts on that day at 1. <br>" )
+ THEN
+  "GetDayOfYear"( date ) - "GetDayOfYear"( "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spring Operation Dates" ["Start", "Date"] ), date ) ) + 1.00000000 "day"
+ ELSE
+  "GetDayOfYear"( date ) + $ "Constants.Contract Year Addition" []
+ ENDIF;
+
+    END
+    UUID "{92bfaf29-045c-42d7-a49f-5db30a4d4b5a}";;
+
+    FUNCTION       "End of Observed Period" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function return the date that fall 1 day prior to the Operation Start Date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) - 1.00000000 "day";
+
+    END
+    UUID "{e03a1369-2abc-4a1e-bc1e-2b0aa841dcea}";;
+
+    FUNCTION       "Fall/Winter Ops" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is before March or after September, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonth"( date ) < 3.00000000 OR "GetMonth"( date ) > 9.00000000;
+
+    END
+    UUID "{5998cf7a-203d-4996-b271-40f9c8b53160}";;
+
+    FUNCTION       "IGD Reference Date" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns the date that computations for hydrology downstream of the lag use.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date - ( $ "Keno to IGD Routing.LagTime" [0.00000000, 0.00000000] + 1.00000000 "day" ) ) )
+ THEN
+  date - $ "Keno to IGD Routing.LagTime" [0.00000000, 0.00000000]
+ ELSE
+  date - ( $ "Keno to IGD Routing.LagTime" [0.00000000, 0.00000000] + 1.00000000 "day" )
+ ENDIF COMMENTED_BY "In the operations period, the accretion that counts toward IGD is from the length of the lag <br>period ago. Otherwise, it is from the length of the lag period plus one day ago. <br>";
+
+    END
+    UUID "{2142dba4-8e36-42e5-9f1e-1b899df41072}";;
+
+    FUNCTION       "Is First Day of Month" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is the first of the month, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date == "BeginOfMonthDate"( date );
+
+    END
+    UUID "{51e5fa19-677d-47cf-ace2-823185cd2ab4}";;
+
+    FUNCTION       "Monthly Reference" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns end of month date given a timestep.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NextDate"( date, @"Max DayOfMonth" );
+
+    END
+    UUID "{5a63ae1a-f9f9-4279-a8e0-c874754b99b2}";;
+
+    FUNCTION       "Observed Period" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is before the Operation Start Date, then this function solves as TRUE. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) > date;
+
+    END
+    UUID "{f1a9294e-16b5-466a-b55c-1c201b9a5ac8}";;
+
+    FUNCTION       "Operations Period" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is on or after the Operation Start Date, then this function solves as TRUE. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) <= date;
+
+    END
+    UUID "{6c59b35b-f6d0-4f66-8319-13c2fa5898fc}";;
+
+    FUNCTION       "Operation Start Timestep" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns the Operation Start Date.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] );
+
+    END
+    UUID "{f9749813-fd8b-492e-b26a-573d0720d66d}";;
+
+    FUNCTION       "OpStartOffset" ( NUMERIC days )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns the Operation Start Date offset by an input amount of days. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Operation Start Timestep"(  ) + days;
+
+    END
+    UUID "{c216f9bd-4fa7-4456-b931-ddede5c4b567}";;
+
+    FUNCTION       "Project Period" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is between the start and end date of the Project Supply distribution period, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date >= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Project Start Timestep" [] ), date ) AND date <= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Project End Timestep" [] ), date );
+
+    END
+    UUID "{ce261339-1414-481d-b96d-2c1893421e6c}";;
+
+    FUNCTION       "UKL to IGD Lag" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function lags the timestep behind by the lag time between the head- and tail- waters in the workspace. It is applied to reference upstream hydrology (past the lag) that computes the release at IGD. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date - $ "Keno to IGD Routing.LagTime" [0.00000000, 0.00000000];
+
+    END
+    UUID "{062f4542-9c6e-41d5-a7b4-a953bf5d5ae8}";;
+
+    FUNCTION       "WaterYear Day" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns the day number of the WaterYear. The first day is on October 1.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( date > "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Last Day of Summer" [] ), date ) AND date <= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Last Day of Year" [] ), date ) )
+ THEN
+  "GetDayOfYear"( date ) - "GetDayOfYear"( "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Last Day of Summer" [] ), date ) )
+ ELSE
+  "GetDayOfYear"( date ) + $ "Constants.WaterYear Addition" []
+ ENDIF;
+
+    END
+    UUID "{95731385-da2a-4fbe-8fda-a9ba215a5e7b}";;
+
+  END
+  UUID "{b65779eb-7b5c-4346-9536-8923e8a9ad6e}";;
+
+  UTILITY_GROUP "Agricultural Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Ag Demand Except A Canal" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the total agricultural demand in the basin, excluding A Canal.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC Spill = IF ( "Operations Period"( date ) )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "Miller Hill Pump.Spill" [date]
+ ENDIF COMMENTED_BY "The spill is not forecasted, thus only consider it during the observed period. <br>" DO
+  $ "Ady Canal.Diversion Request" [date] - $ "Ady to Refuge.Diversion Request" [date] + ( $ "Miller Hill Pump.Diversion Request" [date] - Spill ) + $ "North Canal.Diversion Request" [date] + $ "Station 48.Diversion Request" [date]
+ ENDWITH;
+
+    END
+    UUID "{7058f1e0-d4a2-4b17-8499-05b349950317}";;
+
+    FUNCTION       "Ag Diversion from UKL" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the water diverted from UKL, which supplies the A Canal.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "A Canal.Diversion Request" [date];
+
+    END
+    UUID "{d49c470b-869a-4da7-91f6-d73b96dfe1bc}";;
+
+    FUNCTION       "Ag Release from UKL" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the release from Upper Klamath Lake that supplies downstream agricultural diversions.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Total Ag from UKL"( date ) - "Ag Diversion from UKL"( date );
+
+    END
+    UUID "{eee71648-8504-4d39-be43-c73304b50984}";;
+
+    FUNCTION       "Demand from Offset" ( OBJECT DiversionObject, NUMERIC CanalDiversion, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the canal's diversion request that is supplied by offset flows.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( DiversionObject == % "A Canal" )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  CanalDiversion / "Ag Demand Except A Canal"( date ) * "Total Ag Offset"( date )
+ ENDIF COMMENTED_BY "Only the diversions below Upper Klamath Lake can supplied by offset flows, which come from <br>LRDC and F/FF Pump.  <br>";
+
+    END
+    UUID "{dcdfe0a4-8758-41e2-a17a-d947866458a9}";;
+
+    FUNCTION       "Demand from UKL" ( OBJECT DiversionObject, NUMERIC CanalDiversion, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the canal's diversion request that is supplied by the agricultural release from Upper Klamath Lake.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( IsNaN $ "UKL.Ag Override" [date] )
+ THEN
+  ( CanalDiversion - "Demand from Offset"( DiversionObject, CanalDiversion, date ) ) * "UKL Agricultural Adj"( date )
+ ELSE
+  ( ( CanalDiversion - "Demand from Offset"( DiversionObject, CanalDiversion, date ) ) / ( "Ag Demand Except A Canal"( date ) + $ "A Canal.Diversion Request" [date] - "Total Ag Offset"( date ) ) * $ "UKL.Ag Override" [date] ) COMMENTED_BY "If the override can't supply the diversions not met by the offset, proportionally distribute the <br>override release between the canals.  <br>"
+ ENDIF
+ ELSEIF_COND ( ( $ "UKL.Ag Override" [date] >= "Uncontrolled Ag Diversion"( date, % "A Canal" ) AND $ "UKL.Ag Override" [date] - "Uncontrolled Ag Diversion"( date, % "A Canal" ) + "Total Ag Offset"( date ) >= "Ag Demand Except A Canal"( date ) ) COMMENTED_BY "If the override can supply all the diversions not met by the offset, don't limit the request by the <br>adjustment factor <br>" )
+ ELSEIF_CLAUSE ( CanalDiversion - "Demand from Offset"( DiversionObject, CanalDiversion, date ) )
+ END_ELSEIF COMMENTED_BY "If there's no override, multiply the diversion not supplied by the offset by the UKL agricultural <br>adjustment factor <br>";
+
+    END
+    UUID "{62c85ca0-e3b4-4311-8424-972af4518279}";;
+
+    FUNCTION       "Measured Ag from UKL" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the measured agricultural demands supplied from Upper Klamath Lake that utilize water in the Project Supply account.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC NonOffsetDemand = IF ( "MarchThruSeptember"( date ) )
+ THEN
+  "Max"( "Ag Demand Except A Canal"( date ) - ( $ "Lost River Diversion Channel.Inflow" [date] + $ "F and FF Pump.Inflow" [date] ), 0.00000000 "cfs" )
+ ELSE
+  0.00000000 "cfs"
+ ENDIF
+ ELSEIF_COND ( "October"( date ) )
+ ELSEIF_CLAUSE ( "Max"( "Ag Demand Except A Canal"( date ) - $ "Lost River Diversion Channel.Inflow" [date], 0.00000000 "cfs" ) )
+ END_ELSEIF
+ ELSEIF_COND ( "Project Period"( date ) )
+ ELSEIF_CLAUSE ( "Max"( $ "Miller Hill Pump.Diversion Request" [date] - $ "Miller Hill Pump.Spill" [date] + $ "Station 48.Diversion Request" [date] - $ "Lost River Diversion Channel.Inflow" [date], 0.00000000 "cfs" ) )
+ END_ELSEIF COMMENTED_BY "In March through September, all downstream ags diversions can be offset by the accretions from <br>the F/FF Pump and LRDC. In October, all downstream ag diversions can be offset by the <br>accretions from LRDC. From Nov 1 thru Nov 15, only the Station 48 and Miller Hill Pump diversion <br>can be offset by the accretions from LRDC. <br>" DO
+  IF ( "Project Period"( date ) )
+  THEN
+   $ "A Canal.Diversion Request" [@"t"] + NonOffsetDemand
+  ELSE
+   0.00000000 "cfs"
+  ENDIF
+ ENDWITH;
+
+    END
+    UUID "{93c4fa8c-0902-4fd4-ab8f-745002fbdaab}";;
+
+    FUNCTION       "Offset" ( DATETIME date, OBJECT obj )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the individual agricultural offset from LRDC or F/FF Pump.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH BOOLEAN IsInPeriod = IF ( obj == % "F and FF Pump" )
+ THEN
+  "MarchThruSeptember"( date )
+ ELSE
+  "MarchThruNovember"( date )
+ ENDIF COMMENTED_BY "The F/FF Pump only counts offset of agricultural demands in March thru <br>Septemeber and LRDC in March thru November.  <br>" DO
+  IF ( IsInPeriod AND "Operations Period"( date ) )
+  THEN
+   obj & "Ag Offset" [date]
+  ELSE
+   0.00000000 "cfs"
+  ENDIF
+  ELSEIF_COND ( IsInPeriod )
+  ELSEIF_CLAUSE ( obj & "Inflow" [date] )
+  END_ELSEIF COMMENTED_BY "For the forecast period, the offset differs from the accretion. Thus, use the <br>Ag Offset slot during this period. <br>"
+ ENDWITH;
+
+    END
+    UUID "{6728239e-1f9d-46c0-93e9-e86370b7b9a9}";;
+
+    FUNCTION       "Return Flow Fraction" ( DATETIME date, OBJECT Object )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes return flow fractions that split the return flow burden between Area 2's water users as equally as possible. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH OBJECT Object2 = IF ( Object == % "KDD" )
+ THEN
+  % "Refuge"
+ ELSE
+  % "KDD"
+ ENDIF COMMENTED_BY "For algebra later in the function, make variable for the other water user <br>" DO
+  IF ( ( $ "F and FF Pump.Inflow" [date] > Object & "Diversion Requested" [date] + Object2 & "Diversion Requested" [date] ) COMMENTED_BY "If the inflow at F/FF Pump is greater than KDD's and Refuge's total combined diversion request, <br>set the return flow equal to their diversion request and have the local inflow at Klamath Straits <br>Drain make up for the difference. <br>" )
+  THEN
+   1.00000000
+  ELSE
+   WITH NUMERIC HalfFF = $ "F and FF Pump.Inflow" [date] / 2.00000000 DO
+    IF ( ( HalfFF < Object & "Diversion Requested" [date] AND HalfFF < Object2 & "Diversion Requested" [date] ) COMMENTED_BY "If both water user's diversion request are greater than half the F/FF Pump inflow, set each's <br>return flow fraction to a quantity that both supply an equal flow. <br>" )
+    THEN
+     HalfFF / Object & "Diversion Requested" [date]
+    ELSE
+     IF ( HalfFF >= Object & "Diversion Requested" [date] )
+     THEN
+      1.00000000
+     ELSE
+      ( HalfFF + ( HalfFF - Object2 & "Diversion Requested" [date] ) ) / Object & "Diversion Requested" [date]
+     ENDIF COMMENTED_BY "If one water user can't supply half the F/FF Pump Inflow, set its fraction to 1 and have the other <br>water user supply the difference. <br>"
+    ENDIF
+   ENDWITH
+  ENDIF
+ ENDWITH;
+
+    END
+    UUID "{da5a6818-6e19-4423-841c-6cb33dfd33ac}";;
+
+    FUNCTION       "TID Pumping" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the Refuge's diversion that is supplied by Tule Irrigation District.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( IsNaN $ "Refuge Supply.Local Inflow" [date] )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "Refuge Supply.Local Inflow" [date]
+ ENDIF COMMENTED_BY "The pumping from Tule Irrigation District is represented as the Local Inflow on the Refuge Supply <br>reach. It is designed to be an input from the operator, thus dates not input are NaN's. Check for <br>input, assign it if present. <br>";
+
+    END
+    UUID "{bf2ce9ac-f717-48a6-ba7c-604a975f9254}";;
+
+    FUNCTION       "Total Ag from UKL" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes total agricultural demand that UKL supplies. In the observed period, this computation includes the refuge demands as well.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  IF ( IsNaN $ "UKL.Ag Override" [date] )
+  THEN
+   "Ag Demand Except A Canal"( date ) - "Total Ag Offset"( date ) + "Ag Diversion from UKL"( date )
+  ELSE
+   $ "UKL.Ag Override" [date]
+  ENDIF
+ ELSE
+  "Ag Demand Except A Canal"( date ) + "Ag Diversion from UKL"( date ) + $ "Ady to Refuge.Diversion Request" [date] - "Obs Accrete Offset"( date )
+ ENDIF;
+
+    END
+    UUID "{3ee9d900-fd27-4c40-9d62-4ea81b5e8d67}";;
+
+    FUNCTION       "Total Ag Offset" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the agricultural demand downstream of A Canal that is offset by F/FF Pump's and LRDC's accretion.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Ag Demand Except A Canal"( date ) - ( "Offset"( date, % "Lost River Diversion Channel" ) + "Offset"( date, % "F and FF Pump" ) ) > 0.00000000 "cfs" )
+ THEN
+  "Offset"( date, % "Lost River Diversion Channel" ) + "Offset"( date, % "F and FF Pump" )
+ ELSE
+  "Ag Demand Except A Canal"( date )
+ ENDIF COMMENTED_BY "The F/FF Pump and LRDC accretion can only offset agricultural demands up to total demand <br>below A Canal. <br>";
+
+    END
+    UUID "{45b4460a-bac0-4a17-86c8-a24c9078b20f}";;
+
+    FUNCTION       "UKL Agricultural Adj" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the adjustment to the release from Upper Klamath Lake for agricultural objectives. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Short", "Adj Date"] ) )
+ THEN
+  $ "Dashboard.Agricultural Adj" ["Short", "Adj Factor"]
+ ELSE
+  1.00000000
+ ENDIF
+ ELSEIF_COND ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Medium", "Adj Date"] ) )
+ ELSEIF_CLAUSE ( $ "Dashboard.Agricultural Adj" ["Medium", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Long", "Adj Date"] ) )
+ ELSEIF_CLAUSE ( $ "Dashboard.Agricultural Adj" ["Long", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Long 1", "Adj Date"] ) )
+ ELSEIF_CLAUSE ( $ "Dashboard.Agricultural Adj" ["Long 1", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Long 2", "Adj Date"] ) )
+ ELSEIF_CLAUSE ( $ "Dashboard.Agricultural Adj" ["Long 2", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Long 3", "Adj Date"] ) )
+ ELSEIF_CLAUSE ( $ "Dashboard.Agricultural Adj" ["Long 3", "Adj Factor"] )
+ END_ELSEIF COMMENTED_BY "Pick an adjustment factor based on which date the timestep is after or before.  <br>";
+
+    END
+    UUID "{e3af1a9e-8b3b-481b-b1f5-c4034624161b}";;
+
+    FUNCTION       "Uncontrolled Ag Diversion" ( DATETIME date, OBJECT DiversionObject )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the uncontrolled diversion request for each of the canal's agricultural demands.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "VolumeToFlow"( DiversionObject & "Distribution Percent" [date] / 100.00000000 * "Seasonal Supply"( date, DiversionObject ) * "Seasonal Adj"( DiversionObject, date ), date );
+
+    END
+    UUID "{2696992e-0f19-4780-be56-3032ca2857af}";;
+
+  END
+  UUID "{fff65861-7dd9-4544-9f11-7d5b09ddd021}";;
+
+  UTILITY_GROUP "Hydrological Forecast Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Accretion Adj Factor" ( DATETIME date, OBJECT object )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the adjustment factor for the basin's accretion forecasts.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( date < "OpStartOffset"( object & "Accretion Adj" ["Short", "Adj Days"] ) )
+ THEN
+  object & "Accretion Adj" ["Short", "Adj Factor"]
+ ELSE
+  1.00000000
+ ENDIF
+ ELSEIF_COND ( date < "OpStartOffset"( object & "Accretion Adj" ["Long", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( object & "Accretion Adj" ["Long", "Adj Factor"] )
+ END_ELSEIF COMMENTED_BY "Select the adjustment factor based on how far the timestep is past the operation start date. <br>There are two options, the short and the long variant. Otherwise, set the value to one. <br>";
+
+    END
+    UUID "{bbf64654-0aa7-4e2a-bad4-34fd116f33f4}";;
+
+    FUNCTION       "Accretion Exceedance %" ( DATETIME date, OBJECT object )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the exceedance percent that is used to reference historical accretions for the accretion forecast logic. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( date < "OpStartOffset"( object & "Accretion Adj" ["Short", "Adj Days"] ) )
+ THEN
+  object & "Exceedance Percent" ["Short", "Exceed %"] * 100.00000000
+ ELSE
+  object & "Exceedance Percent" ["Default", "Exceed %"] * 100.00000000
+ ENDIF
+ ELSEIF_COND ( date < "OpStartOffset"( object & "Accretion Adj" ["Long", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( object & "Exceedance Percent" ["Long", "Exceed %"] * 100.00000000 )
+ END_ELSEIF COMMENTED_BY "Select the exceedance percent based on how far the timestep is past the operation start date. <br>There are three options, the short, long, or default variant. <br>";
+
+    END
+    UUID "{5d1ed20e-5610-4b9e-81a0-d3f270702a3a}";;
+
+    FUNCTION       "Inflow Adj Factor" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the adjustment factor for the inflow forecasts at Upper Klamath Lake. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( date < "OpStartOffset"( $ "UKL.Inflow Adj" ["Short", "Adj Days"] ) )
+ THEN
+  $ "UKL.Inflow Adj" ["Short", "Adj Factor"]
+ ELSE
+  1.00000000
+ ENDIF
+ ELSEIF_COND ( date < "OpStartOffset"( $ "UKL.Inflow Adj" ["Medium Short", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( $ "UKL.Inflow Adj" ["Medium Short", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date < "OpStartOffset"( $ "UKL.Inflow Adj" ["Medium", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( $ "UKL.Inflow Adj" ["Medium", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date < "OpStartOffset"( $ "UKL.Inflow Adj" ["Medium Long", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( $ "UKL.Inflow Adj" ["Medium Long", "Adj Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( date < "OpStartOffset"( $ "UKL.Inflow Adj" ["Long", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( $ "UKL.Inflow Adj" ["Long", "Adj Factor"] )
+ END_ELSEIF COMMENTED_BY "Pick an adjustment factor based on how far the timestep is past the operation start date. <br>";
+
+    END
+    UUID "{70901206-da92-4576-9d2d-aa782ad02002}";;
+
+  END
+  UUID "{82fd193d-2bf3-4e35-8067-2fb0f478345e}";;
+
+  UTILITY_GROUP "Demand Forecast Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Seasonal Adj" ( OBJECT object, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the seasonal adjustment factor for diversion or offset forecasts.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( object == % "Ady Canal" OR object == % "North Canal" )
+ THEN
+  IF ( "NovemberThruFebruary"( date ) )
+  THEN
+   object & "Seasonal Supply and Adj" ["FW", "Adj Factor"]
+  ELSE
+   object & "Seasonal Supply and Adj" ["SS", "Adj Factor"]
+  ENDIF
+ ELSE
+  object & "Seasonal Supply and Adj" ["Season", "Adj Factor"]
+ ENDIF COMMENTED_BY "Ady and North Canal's seasonal adjustment varies by season, the other demand objects do not. <br>Thus, select the appropiate seasonal adjustment based on the object and timestep.  <br>";
+
+    END
+    UUID "{74f17c1a-b6b8-4aa9-89aa-29481cc3e34e}";;
+
+    FUNCTION       "Seasonal Supply" ( DATETIME date, OBJECT object )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the seasonal supply for diversion or offset forecasts.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( object == % "Ady Canal" OR object == % "North Canal" )
+ THEN
+  WITH BOOLEAN IsInPeriod = IF ( object == % "Ady Canal" )
+  THEN
+   "OctoberThruFebruary"( date )
+  ELSE
+   "NovemberThruFebruary"( date )
+  ENDIF DO
+   IF ( IsInPeriod )
+   THEN
+    object & "Seasonal Supply and Adj" ["FW", "Supply"]
+   ELSE
+    object & "Seasonal Supply and Adj" ["SS", "Supply"]
+   ENDIF
+  ENDWITH
+ ELSE
+  object & "Seasonal Supply and Adj" ["Season", "Supply"]
+ ENDIF COMMENTED_BY "Ady and North Canal's seasonal supply varies by season, the other demand objects do not. <br>Thus, select the appropiate seasonal supply based on object and timestep.  <br>";
+
+    END
+    UUID "{6095e747-1982-4208-9f4d-f12954c6b28c}";;
+
+  END
+  UUID "{18303066-5211-4325-901f-fe605e464886}";;
+
+  UTILITY_GROUP "Account Supply Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Adjusted NRCS Forecast" ( NUMERIC row )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the adjusted March to September NRCS Inflow Forecast.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      ( "March to Month Inflow Volume"( "NumberToDate"( $ "Dashboard.NRCS Forecast Table" [row, "Iron Gate Target Date"] ) ) + $ "Dashboard.NRCS Forecast Table" [row, "NRCS Inflow Forecast"] * $ "Dashboard.NRCS Forecast Table" [row, "Forecast Adj"] ) COMMENTED_BY "If the date the forecast is made takes place after March, it sums the observed inflow up to that <br>date's month and adds it to the adjusted forecast volume.   <br>";
+
+    END
+    UUID "{27592672-f758-475f-b043-d0cf12d9c971}";;
+
+    FUNCTION       "April Project Supply Lock In" ( NUMERIC ReferenceRow )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the lock-in for the Project Supply that is based on the last volume set in April.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH LIST AprilDates = MAPLIST ( NUMERIC row IN "GetNumbers"( 0.00000000, "NumRows"( $ "Dashboard.NRCS Forecast Table" ) - 1.00000000, 1.00000000 ) COMMENTED_BY "Index the number of rows in the table. Start at zero and subtract the total by 1 since RiverWare <br>uses zero as the first index #. <br>" ) DO
+  IF ( ( "GetMonthAsString"( "NumberToDate"( $ "Dashboard.NRCS Forecast Table" [row, "Iron Gate Target Date"] ) ) == "April" ) COMMENTED_BY "Is the date in April <br>" )
+  THEN
+   $ "Dashboard.NRCS Forecast Table" [row, "Iron Gate Target Date"]
+  ELSE
+   0.00000000
+  ENDIF
+ ENDMAPLIST DO
+  WITH LIST AprilSupply = MAPLIST ( NUMERIC row IN "GetNumbers"( 0.00000000, "NumRows"( $ "Dashboard.NRCS Forecast Table" ) - 1.00000000, 1.00000000 ) COMMENTED_BY "Index the number of rows in the table. Start at zero and subtract the total by 1 since RiverWare <br>uses zero as the first index #. <br>" ) DO
+   IF ( ( "GetMonthAsString"( "NumberToDate"( $ "Dashboard.NRCS Forecast Table" [row, "Iron Gate Target Date"] ) ) == "April" ) COMMENTED_BY "Is the date in April <br>" )
+   THEN
+    ( $ "UKL.Supply" [row, "Supply"] - ( $ "Dashboard.EWA" [row, "Account Volume"] + $ "Dashboard.Supply Considerations" [row, "Ungauged Diversions"] + $ "Dashboard.Supply Considerations" [row, "Project Supply Reduction"] ) ) COMMENTED_BY "Project Supply Formula <br>"
+   ELSE
+    0.00000000 "acre-feet"
+   ENDIF
+  ENDMAPLIST DO
+   IF ( $ "Dashboard.NRCS Forecast Table" [ReferenceRow, "Iron Gate Target Date"] >= "MaxItem"( AprilDates ) AND $ "Dashboard.Supply Considerations" [ReferenceRow, "April Lock Switch"] == 1.00000000 )
+   THEN
+    GET @INDEX FIND "MaxItem"( AprilDates ) WITHIN AprilDates FROM AprilSupply
+   ELSE
+    0.00000000 "acre-feet"
+   ENDIF
+   ELSEIF_COND ( $ "Dashboard.NRCS Forecast Table" [ReferenceRow, "Iron Gate Target Date"] >= "MaxItem"( AprilDates ) AND $ "Dashboard.Supply Considerations" [ReferenceRow, "April Lock Switch"] == 0.00000000 )
+   ELSEIF_CLAUSE ( $ "Dashboard.Supply Considerations" [ReferenceRow, "April Lock Limit"] )
+   END_ELSEIF COMMENTED_BY "If the date is equal to or past the last April date that has an NRCS Inflow Forecast, use the index <br>of the last April date to reference the associated Project Supply. Otherwise, return 0 acre-feet. <br>"
+  ENDWITH COMMENTED_BY "Make a list of all the Project Supply Volumes that are calculated in April. If the supply is not <br>calculated in April, assign it a value of zero in the list.  <br>"
+ ENDWITH COMMENTED_BY "Make a list of all the April dates that there is a NRCS Inflow Forecast on. If the date is not in <br>April, assign it a value of zero in the list.  <br>";
+
+    END
+    UUID "{95148a41-6fd5-4b69-a165-25ffbcf27bf3}";;
+
+    FUNCTION       "End of Season Target Storage" ( NUMERIC row )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the target storage at Upper Klamath Lake for the end of the Spring/Summer season.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "ElevationToStorage"( % "UKL", "Min"( $ "Constants.Target Storage" ["Upper", "Bound"], "Max"( $ "Constants.Target Storage" ["Lower", "Bound"], $ "Constants.Target Storage" ["Lower", "Bound"] + "Normalize NRCS Forecast"( row ) * $ "Constants.Target Storage" ["Multiplier", "Bound"] ) ) ) COMMENTED_BY "Bound between 4138.7 ft and 4139.5, then convert the elevation to a volume. <br>";
+
+    END
+    UUID "{b0cba9cc-b6c0-4595-a46c-4aa164811307}";;
+
+    FUNCTION       "ExpandbyAvg" ( NUMERIC PeriodLengthMinusOne, LIST ListToExpand, NUMERIC AvgOverMiinusOne, OBJECT ExpandObj, STRING ExpandSlot )
+    RETURN_TYPE    LIST;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function expands the list of accretions by taking the average of the last x values. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( NUMERIC i IN "GetNumbers"( 0.00000000, PeriodLengthMinusOne / 1.00000000 "day", 1.00000000 ) ) WITH LIST result = ListToExpand DO
+  WITH NUMERIC NewVal = FOR ( NUMERIC j IN "GetNumbers"( i, i + AvgOverMiinusOne / 1.00000000 "day", 1.00000000 ) ) STAT_AVE
+   GET @INDEX 0.00000000 FROM GET @INDEX j FROM result
+  ENDFOR DO
+   WITH DATETIME NewTS = ( GET @INDEX 1.00000000 FROM GET @INDEX ( LENGTH result ) - 1.00000000 FROM result ) + 1.00000000 "day" DO
+    IF ( IsNaN ExpandObj & ExpandSlot [NewTS] )
+    THEN
+     APPEND { NewVal , NewTS } ONTO result
+    ELSE
+     APPEND { ExpandObj & ExpandSlot [NewTS] , NewTS } ONTO result
+    ENDIF
+   ENDWITH
+  ENDWITH
+ ENDFOR;
+
+    END
+    UUID "{b82ee83b-4f16-46b4-ab91-da862fefee10}";;
+
+    FUNCTION       "March to Month Inflow Volume" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the cumulative inflow volume at Upper Klamath Lake from March to the current/specified month. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "CompletePartialDate"( @"March 1", date ) == "BeginOfMonthDate"( date ) )
+ THEN
+  0.00000000 "acre-feet"
+ ELSE
+  "FlowToVolume"( FOR ( DATETIME day IN "GetDates"( "CompletePartialDate"( @"March 1", date ), "BeginOfMonthDate"( date ) - 1.00000000 "day", "1 Days" ) ) STAT_SUM
+   $ "UKL.Inflow" [day]
+  ENDFOR, @"t" )
+ ENDIF COMMENTED_BY "Compute the cumulative inflow from March thru the day prior to the first of the month that the <br>date is on. Convert that flow to a volume.  <br>";
+
+    END
+    UUID "{a3dd53df-d04b-40cc-9966-56fd12fb70d0}";;
+
+    FUNCTION       "Normalize NRCS Forecast" ( NUMERIC row )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function normalizes the NRCS Inflow Forecast.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      ( ( $ "Dashboard.NRCS Forecast Table" [row, "Adj NRCS Inflow Forecast"] - $ "Constants.Normalize NRCS Forecast" ["Lower", "Bound"] ) / ( $ "Constants.Normalize NRCS Forecast" ["Upper", "Bound"] - $ "Constants.Normalize NRCS Forecast" ["Lower", "Bound"] ) ) COMMENTED_BY "Normalize the NRCS Inflow Forecast, lower bound is 160 KAF and upper bound is 1316.258 KAF. <br>";
+
+    END
+    UUID "{7fcb76e4-0962-442a-887b-dcdf662bfa8d}";;
+
+    FUNCTION       "Supply Second Order Eq" ( NUMERIC row )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the output of the second order equation that is a component in the EWA computation. Its only input is the UKL Supply.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      ( $ "Constants.Second Order Eq" ["Constant", "C1"] / 1.00000000 "KAF" * $ "UKL.Supply" [row, "Supply"] ^ 2.00000000 + $ "Constants.Second Order Eq" ["Constant", "C2"] * $ "UKL.Supply" [row, "Supply"] + $ "Constants.Second Order Eq" ["Constant", "C3"] ) COMMENTED_BY "Simple second order equation that uses the UKL Supply as the input <br>";
+
+    END
+    UUID "{6136fbeb-360a-4525-b964-25624ee1460a}";;
+
+  END
+  UUID "{52a3b435-5c9e-4d5a-9021-94094c9873c9}";;
+
+  UTILITY_GROUP "UKL Inflow Processing";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "60-Day Average Inflow" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the average of the UKL inflow over the past 60 days.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      FOR ( DATETIME days IN "GetDates"( date - 60.00000000 "day", date - 1.00000000 "day", "1 Days" ) ) STAT_AVE
+  $ "UKL.Inflow" [days]
+ ENDFOR;
+
+    END
+    UUID "{6c3effda-be03-4272-8cf3-b2b9de92a1d7}";;
+
+    FUNCTION       "Combined Smoothed Inflow" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the smoothed inflow at Upper Klamath Lake. It is combined since the value during the observation period is just the measured inflow. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  $ "UKL.Inflow" [date]
+ ELSE
+  $ "UKL.Smoothed Inflow" [date]
+ ENDIF;
+
+    END
+    UUID "{dbde741b-9302-4d08-abc9-d8cb18a49789}";;
+
+    FUNCTION       "Normalized 60-Day Average Inflow" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the normalized 60-Day Average Inflow at Upper Klamath Lake.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      ( "FlowToVolume"( "60-Day Average Inflow"( date ), date ) - $ "UKL.Inflow Limits Table" [date, "Minimum"] ) / ( $ "UKL.Inflow Limits Table" [date, "Maximum"] - $ "UKL.Inflow Limits Table" [date, "Minimum"] );
+
+    END
+    UUID "{4603f34e-8eeb-46a6-91f5-94c8ac33ef11}";;
+
+  END
+  UUID "{1c2ed94e-6f03-4e39-8427-4b5ef44eed17}";;
+
+  UTILITY_GROUP "Environmental Release";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Accretion to IGD" ( DATETIME date, OBJECT obj )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the F/FF Pump's or LRDC's accretion that reaches the Iron Gate Dam Reservoir.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "test at beginning of month, around operation start timestep";
+    BEGIN
+
+      WITH BOOLEAN IsInPeriod = IF ( obj == % "F and FF Pump" )
+ THEN
+  "MarchThruSeptember"( date )
+ ELSE
+  "MarchThruNovember"( date )
+ ENDIF COMMENTED_BY "The F/FF Pump only counts its contribution to IGD in March thru Septemeber and LRDC in March <br>thru November. <br>" DO
+  WITH NUMERIC Accrete = obj & "Inflow" ["IGD Reference Date"( date )] DO
+   IF ( IsInPeriod )
+   THEN
+    Accrete * obj & "Contribution Percent" [date, "Contribution %"]
+   ELSE
+    Accrete
+   ENDIF COMMENTED_BY "Adjust the accretion if it is in the period defined above. <br>"
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{403d15b8-0dcc-4232-8a30-e2bad0142f1e}";;
+
+    FUNCTION       "Days to Fill" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the number of days left in the winter season to fill the Upper Klamath Lake to its target elevation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "Constants.Days to Fill" ["Constant", "C1"] - "WaterYear Day"( date - 1.00000000 "day" ) + $ "Constants.Days to Fill" ["Constant", "C2"];
+
+    END
+    UUID "{622a61e8-245c-4dc8-9f4c-e69224cefcd1}";;
+
+    FUNCTION       "Environmental Accretion" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the total accretion that is available for environmental objectives at Iron Gate Dam.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Spawn Release Switch"( date ) )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] + "Accretion to IGD"( date, % "Lost River Diversion Channel" ) + "Accretion to IGD"( date, % "F and FF Pump" )
+ ENDIF
+ ELSEIF_COND ( "Fill Release Switch"( date ) )
+ ELSEIF_CLAUSE ( $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Lost River Diversion Channel.Inflow" ["IGD Reference Date"( date )] + $ "F and FF Pump.Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] )
+ END_ELSEIF
+ ELSEIF_COND ( "Spring Release Switch"( date ) )
+ ELSEIF_CLAUSE ( $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] )
+ END_ELSEIF COMMENTED_BY "The Keno to IGD Gain is referenced from the current date since it is below the lag reach. <br>";
+
+    END
+    UUID "{9fd2f715-cdf3-40e7-a722-48bc924c20ee}";;
+
+    FUNCTION       "Environmental Release Upper Bound" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Based on the EWA, this function computes the maximum release limit that is set at Iron Gate Dam for July thru September.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "The PA Calc uses the most recent EWA for the whole period, rather than what would have actual been available during a timestep. This will cause errors when testing.";
+    BEGIN
+
+      IF ( "Summer Release Switch"( @"t" ) )
+ THEN
+  WITH NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) DO
+   WITH STRING Month = "GetMonthAsString"( date ) DO
+    IF ( EWA < $ "IGD.Max Release Table" [Month, "LB_EWA"] )
+    THEN
+     $ "IGD.Max Release Table" [Month, "LB"]
+    ELSE
+     ( $ "IGD.Max Release Table" [Month, "LB"] + ( $ "IGD.Max Release Table" [Month, "UB"] - $ "IGD.Max Release Table" [Month, "LB"] ) * ( ( EWA - $ "IGD.Max Release Table" [Month, "LB_EWA"] ) / ( $ "IGD.Max Release Table" [Month, "UB_EWA"] - $ "IGD.Max Release Table" [Month, "LB_EWA"] ) ) ) COMMENTED_BY "Interpolation Formula for the release for when the EWA is between the upper and lower bound <br>"
+    ENDIF
+    ELSEIF_COND ( EWA > $ "IGD.Max Release Table" [Month, "UB_EWA"] )
+    ELSEIF_CLAUSE ( $ "IGD.Max Release Table" [Month, "UB"] )
+    END_ELSEIF
+   ENDWITH
+  ENDWITH
+ ELSE
+  $ "IGD.Max Release Table" ["Other", "UB"] COMMENTED_BY "Very large arbitrary value since this does not limit the release in months other than July thru <br>September. <br>"
+ ENDIF;
+
+    END
+    UUID "{30a9ae91-2d22-47f9-9716-ca80b8cd49f1}";;
+
+    FUNCTION       "EWA Remain Jul-Sep" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the EWA Remain that is available to distribute for a given month from July thru September.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "GetMonthAsString"( date ) == "July" )
+ THEN
+  $ "Constants.EWA Remain Jul Sep" ["July", "Factor"] * $ "Dashboard.EWA Remain" [date]
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF
+ ELSEIF_COND ( "GetMonthAsString"( date ) == "August" )
+ ELSEIF_CLAUSE ( $ "Constants.EWA Remain Jul Sep" ["August", "Factor"] * $ "Dashboard.EWA Remain" [date] )
+ END_ELSEIF
+ ELSEIF_COND ( "GetMonthAsString"( date ) == "September" )
+ ELSEIF_CLAUSE ( $ "Dashboard.EWA Remain" [date] )
+ END_ELSEIF;
+
+    END
+    UUID "{765c37de-5ada-4b61-9d49-71f951b29491}";;
+
+    FUNCTION       "EWA Remain Min" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the minimum volume of EWA that can be left for distribution from July thru Septemeber. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) DO
+  EWA * "EWA Remain Min Fraction"( date )
+ ENDWITH;
+
+    END
+    UUID "{31bd5c9c-4f0b-4467-8b77-a0fd8e0efe88}";;
+
+    FUNCTION       "EWA Remain Min Fraction" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the fraction that determines the minimum potion of the EWA that is reserved for July thru September releases.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "GetMonthAsString"( date ) == "July" )
+ THEN
+  $ "Constants.EWA Remain Factors" ["July", "Factor"]
+ ELSE
+  0.00000000
+ ENDIF
+ ELSEIF_COND ( "GetMonthAsString"( date ) == "August" )
+ ELSEIF_CLAUSE ( $ "Constants.EWA Remain Factors" ["August", "Factor"] )
+ END_ELSEIF
+ ELSEIF_COND ( "GetMonthAsString"( date ) == "September" )
+ ELSEIF_CLAUSE ( $ "Constants.EWA Remain Factors" ["September", "Factor"] )
+ END_ELSEIF;
+
+    END
+    UUID "{53038db4-d25b-4896-9dcf-0cf934363cdd}";;
+
+    FUNCTION       "F/FF to River" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the F/FF Pump accretion that goes to environmental objectives.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  "Accretion to IGD"( date, % "F and FF Pump" )
+ ELSE
+  "Min"( $ "F and FF Pump.Inflow" [date], $ "Lost River Diversion Channel.Inflow" [date] + $ "F and FF Pump.Inflow" [date] - "Obs Accrete Offset"( date ) ) COMMENTED_BY "Contribution can only be as large as the accretion at F/FF Pump. Otherwise, it is the difference <br>between the two accretions and the water they use to offset agricultural demands. <br>"
+ ENDIF;
+
+    END
+    UUID "{7adc25a3-0e22-4eae-8618-84cb57e0f146}";;
+
+    FUNCTION       "Fill Release Switch" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is on or between November 16 and the last day of February, this function solves as TRUE. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date >= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Fill Operation Dates" ["Start", "Date"] ), date ) OR date < "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Fill Operation Dates" ["End", "Date"] ), date );
+
+    END
+    UUID "{2394532b-897a-48db-a840-c57562049f17}";;
+
+    FUNCTION       "Forecast Error" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the difference between the two most recent month's Adjusted NRCS Inflow Forecasts.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AprilThruJune"( date ) )
+ THEN
+  "March 50 Volume"( date - "GetDayOfMonth"( date ) - 5.00000000 "day" ) COMMENTED_BY "Five days before the first of the month minus the current value <br>" - "March 50 Volume"( date )
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF;
+
+    END
+    UUID "{d1e106ae-b893-4858-846f-5cf1d23923a8}";;
+
+    FUNCTION       "IGD Spawn Release Increase" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the flow increment that the spawn release increases by.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Spawn Release Increase Switch"( date ) )
+ THEN
+  $ "Constants.Spawn Increase" [] * "Normalized 60-Day Average Inflow"( date )
+ ELSE
+  0.00000000 "cfs"
+ ENDIF;
+
+    END
+    UUID "{422a8179-495a-4f6e-8729-7bfa5e1b80ec}";;
+
+    FUNCTION       "LRDC to River" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the LRDC accretion that goes to environmental objectives.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  "Accretion to IGD"( date, % "Lost River Diversion Channel" )
+ ELSE
+  "Min"( $ "Lost River Diversion Channel.Inflow" [date], $ "Lost River Diversion Channel.Inflow" [date] + $ "F and FF Pump.Inflow" [date] - "Obs Accrete Offset"( date ) - "F/FF to River"( date ) ) COMMENTED_BY "Contribution can only be as large as the LRDC accretion. Otherwise, it is the <br>difference between the two accretions and the water they use to offset <br>agricultural demands.  <br>"
+ ENDIF;
+
+    END
+    UUID "{650680e3-a0b2-4046-ba3d-5f203be8227d}";;
+
+    FUNCTION       "March 50 Second Order Eq" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the output of the second order equation that serves as a component of the Percent of March 50 Volume computation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC UKLsupply = ( "TableLookup"( $ "UKL.Supply", 0.00000000, 1.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) / 1.00000000 "KAF" ) COMMENTED_BY "Make the UKL Supply unitless <br>" DO
+  $ "Constants.Mar50 Second Order Eq" ["Constant", "C1"] * UKLsupply ^ 2.00000000 - $ "Constants.Mar50 Second Order Eq" ["Constant", "C2"] * UKLsupply + $ "Constants.Mar50 Second Order Eq" ["Constant", "C3"]
+ ENDWITH;
+
+    END
+    UUID "{2b6858b3-af6e-423f-befa-9c38d6cbd5b2}";;
+
+    FUNCTION       "March 50 Volume" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function references the most recent Adjusted NRCS Inflow Forecast.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Spring Release Switch"( date ) )
+ THEN
+  "TableLookup"( $ "Dashboard.NRCS Forecast Table", 0.00000000, 4.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) COMMENTED_BY "Look up the Adjusted NRCS Inflow Forecast for the nearest date, rounding down. <br>"
+ ELSE
+  0.00000000 "acre-ft"
+ ENDIF;
+
+    END
+    UUID "{e45fd86c-b53a-427c-a849-0fae052c1c30}";;
+
+    FUNCTION       "Needed Fill Rate" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the flow that must be witheld from the daily release at Upper Klamath Lake so that it reaches it target elevation before the start of the spring season. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      ( $ "Constants.Needed Fill Rate" [] - $ "UKL.Storage" [date - 1.00000000 "day"] + $ "UKL.Credit" [date - $ "Keno to IGD Routing.LagTime" [0.00000000, 0.00000000]] ) / "Max"( 1.00000000 "day", "Days to Fill"( date ) );
+
+    END
+    UUID "{6ece73e8-57f9-43af-9183-98884834e9b4}";;
+
+    FUNCTION       "Obs Accrete Offset" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the observed agricultural demand offset by F/FF Pump and LRDC's accretion.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "OctoberThruDecember"( date ) )
+ THEN
+  "Min"( "Offset"( date, % "Lost River Diversion Channel" ), $ "Station 48.Diversion Request" [date] + $ "Miller Hill Pump.Diversion Request" [date] )
+ ELSE
+  "Total Ag Offset"( date )
+ ENDIF COMMENTED_BY "In October thru December, the F/FF Pump and LRDC accretion can only offset up to the <br>diversions at Station 48 and Miller Hill Pump. Otherwise, it can also offset diversions at North and <br>Ady Canal. <br>";
+
+    END
+    UUID "{b999d399-b154-4b55-b97a-34129d0db109}";;
+
+    FUNCTION       "Obs Link Release to River" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the release from Upper Klamath Lake that is for environmental objectives during the observed period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "UKL.Outflow" [date] - "Total Ag from UKL"( date ) + $ "A Canal.Diversion Request" [date];
+
+    END
+    UUID "{b6cdc323-e7f2-4984-b5e2-ba8f57893a7b}";;
+
+    FUNCTION       "Percent of March 50 Volume" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the percent of the March 50 Volume that enters UKL on a given timestep.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( 0.00000000, "FlowToVolume"( "Combined Smoothed Inflow"( date - 4.00000000 "day" ), date ) / "Max"( 1.00000000 "acre-ft", "March 50 Volume"( date ) + "Forecast Error"( date ) ) ) * ( 1.00000000 - "March 50 Second Order Eq"( date ) );
+
+    END
+    UUID "{3e45c197-3ac3-49b2-a613-c80704c2ff45}";;
+
+    FUNCTION       "Spawn Release Increase Switch" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date equals one of the days the spawn release is supposed to increase, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date == "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spawn Increase Dates" ["First", "Increase Date"] ), date ) OR date == "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spawn Increase Dates" ["Second", "Increase Date"] ), date ) OR date == "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spawn Increase Dates" ["Third", "Increase Date"] ), date ) OR date == "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spawn Increase Dates" ["Fourth", "Increase Date"] ), date );
+
+    END
+    UUID "{fc7968de-c1e4-4319-adc3-d22d7c0d9648}";;
+
+    FUNCTION       "Spawn Release Switch" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is on or between October 1 and November 15, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date >= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spawn Operation Dates" ["Start", "Date"] ), date ) AND date <= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spawn Operation Dates" ["End", "Date"] ), date );
+
+    END
+    UUID "{66e6ee57-eb52-4746-a58b-fd4dc50a2274}";;
+
+    FUNCTION       "Spring Release Switch" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is on or between March 1 and June 30, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date >= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spring Operation Dates" ["Start", "Date"] ), date ) AND date <= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Spring Operation Dates" ["End", "Date"] ), date );
+
+    END
+    UUID "{003e000b-7601-43d3-a5bb-73fa9b3b4c04}";;
+
+    FUNCTION       "Summer Release Switch" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "If the date is on or between July 1 and September 30, this function solves as TRUE.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      date >= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Summer Operation Dates" ["Start", "Date"] ), date ) AND date <= "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Summer Operation Dates" ["End", "Date"] ), date );
+
+    END
+    UUID "{e48984d2-9fc5-4c71-adcc-51e67820f1f7}";;
+
+    FUNCTION       "UKL Release to River" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the release from Upper Klamath Lake that is sent for environmental objectives.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "Check for errors when the flood release persists for multiple days.";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  WITH NUMERIC Accretion = $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] + "Accretion to IGD"( date, % "Lost River Diversion Channel" ) + "Accretion to IGD"( date, % "F and FF Pump" ) DO
+   WITH NUMERIC PacifiCorpPayback = "VolumeToFlow"( $ "Dashboard.PacifiCorp Payback" [date] - $ "Dashboard.PacifiCorp Borrow" [date], date ) DO
+    "Max"( $ "IGD.Outflow" [date] - Accretion + PacifiCorpPayback, $ "UKL.Min Release Table" ["UKL to IGD Lag"( date ), "Minimum Release"] )
+   ENDWITH
+  ENDWITH
+ ELSE
+  "Obs Link Release to River"( date )
+ ENDIF;
+
+    END
+    UUID "{808d7f85-a1fe-487e-b27d-49404da6aacc}";;
+
+    FUNCTION       "Yesterday's Project Credit Accretion" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the flow the UKL Credit accrued on the previous day.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Fall/Winter Ops"( date ) )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  "Max"( 0.00000000 "cfs", "F/FF to River"( date - 1.00000000 "day" ) + "LRDC to River"( date - 1.00000000 "day" ) - "IGD for Flooding"( date - 1.00000000 "day" ) )
+ ENDIF COMMENTED_BY "If F/FF Pump and LRDC send enough water for environmental objectives, and it is not all used by <br>the flood release at IGD, the UKL Credit account can accumulate some volume. <br>";
+
+    END
+    UUID "{3ed4854b-398c-4a63-a412-13a293f3cf77}";;
+
+    FUNCTION       "Yesterday's Project Credit Spill" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the flow the UKL Credit distributed on the previous day.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Min"( "UKL for Flooding"( date - 1.00000000 "day" ), "VolumeToFlow"( $ "UKL.Credit" [date - 1.00000000 "day"], date - 1.00000000 "day" ) );
+
+    END
+    UUID "{5dc7a92a-b91c-4771-b6b6-b117a0b5f6f7}";;
+
+  END
+  UUID "{5cbd75e7-f932-479b-b890-76da71e84962}";;
+
+  UTILITY_GROUP "Central Tendency Controlled Release";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Area 2 Diversion Control" ( DATETIME date, STRING object )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the maximum diversion that each of Area 2's Water Users can request. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC AgRatio = "Max"( $ "UKL.Storage Diff Ratio 5 Day" [date], $ "Constants.Area 2 Diversion Control" [] ) COMMENTED_BY "Lower bound of the ratio for Agriculture is capped at a set value. <br>" DO
+  WITH NUMERIC MaxRate = IF ( object == "Refuge" )
+  THEN
+   $ "Dashboard.Area 2 Max Diversion Rate" ["Refuge", "Rate"]
+  ELSE
+   $ "Dashboard.Area 2 Max Diversion Rate" ["KDD", "Rate"]
+  ENDIF COMMENTED_BY "The maximum diversion rates are dependent upon the water user, which are the KDD and <br>Refuge. <br>" DO
+   MaxRate + AgRatio * MaxRate
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{e1d1363d-e74b-4d76-8d2d-52fac32bdba9}";;
+
+    FUNCTION       "Central Tendency Storage" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the Upper Klamath Lake's central tendency storage. The value partially depends on the 60-day normalized average inflow to adapt the storage to year's conditions.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC NormFactor = $ "Dashboard.Central Tendency Parameters" ["adj_slope", "Parameter"] * "Normalized 60-Day Average Inflow"( date ) + $ "Dashboard.Central Tendency Parameters" ["adj_intercept", "Parameter"] DO
+  WITH NUMERIC CentralElevation = "Min"( "StorageToElevation"( % "UKL", "UKL Flood Storage Level"( date - 1.00000000 "day" ) ) COMMENTED_BY "ensure the central tendency does not exceed flood levels <br>", "Max"( "Trajectory Elevation"( date, "Low" ), "Min"( "Trajectory Elevation"( date, "High" ), "Trajectory Elevation"( date, "Central" ) + NormFactor ) ) COMMENTED_BY "Ensure the ratio falls between the upper and lower bounds. <br>" ) DO
+   "ElevationToStorage"( % "UKL", CentralElevation )
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{421dc675-cfa8-4965-ad34-985498490d3e}";;
+
+    FUNCTION       "Controlled Ag Demand" ( OBJECT DivObj, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the central tendency controlled agricultural diversion for canals in Area 2. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( DivObj == % "Ady Canal" )
+ THEN
+  "Min"( "Area 2 Diversion Control"( date, "KDD" ) / $ "Constants.Central Div Control" ["Ady", "Denominator"], "Uncontrolled Ag Diversion"( date, % "Ady Canal" ) )
+ ELSE
+  0.00000000 "cfs"
+ ENDIF
+ ELSEIF_COND ( DivObj == % "North Canal" )
+ ELSEIF_CLAUSE ( "Area 2 Diversion Control"( date, "KDD" ) / $ "Constants.Central Div Control" ["North", "Denominator"] )
+ END_ELSEIF COMMENTED_BY "Ady and North Canal supply agricultural demands. <br>";
+
+    END
+    UUID "{bc195211-15a5-4db8-a9f9-5b0d2e8a329a}";;
+
+    FUNCTION       "Controlled Refuge Demand" ( OBJECT DivObj, DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the central tendency controlled refuge diversion for canals in Area 2. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( DivObj == % "North Canal" OR "OctoberThruNovember"( date ) )
+ THEN
+  0.00000000 "cfs"
+ ELSE
+  "Min"( "Area 2 Diversion Control"( date, "Refuge" ), $ "Constants.Daily Refuge Allocation" [] )
+ ENDIF COMMENTED_BY "Ady Canal and Ady to Refuge facilitate the supply for the Refuge demands.  <br>";
+
+    END
+    UUID "{e02747a5-b0a9-4cd9-8b2d-437d9c9e7586}";;
+
+    FUNCTION       "Five Day Period" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Assigns the five day period, which determines the storage difference ratio that controls the releases. There are 73 such periods.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Min"( $ "Constants.Five Day Period" ["Days", "Max"], "RoundToFactor"( ( "Contract Year Day"( date ) - $ "Constants.Five Day Period" ["Days", "Subtract"] ) / $ "Constants.Five Day Period" ["Days", "Denominator"], 1.00000000 "day" ) + 1.00000000 "day" );
+
+    END
+    UUID "{1b98fe56-6c07-4760-bb3b-e06fabb3df54}";;
+
+    FUNCTION       "Storage Diff PreAdj" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "The raw difference between Upper Klamath Lake's current and central tendency storage. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "UKL.Storage" [date - 1.00000000 "day"] - $ "UKL.Credit" [date] + $ "Dashboard.PacifiCorp Balance" [date - 1.00000000 "day"] - "Central Tendency Storage"( date );
+
+    END
+    UUID "{727f744b-c300-4db8-be2d-8861d0ec851f}";;
+
+    FUNCTION       "Storage Diff Ratio" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "The difference ratio between the central tendancy's and yesterday's storage at Upper Klamath Lake. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "Max"( $ "Constants.Diff Ratio Lower" [date], "Min"( $ "Constants.Diff Ratio Upper" [date], "Storage Diff PreAdj"( date ) / "Trajectory Adjust"( date ) ) ) COMMENTED_BY "Ensure the ratio falls between the upper and lower bounds. <br>";
+
+    END
+    UUID "{0a5efe3f-7396-4149-ada0-00fc18e2f8b2}";;
+
+    FUNCTION       "Trajectory Elevation" ( DATETIME date, STRING column )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the trajectory elevation for Upper Klamath Lake. It returns the timestep's high, low, or central tendancy elevation depending on the column used as the input. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "UKL.Trajectory Table" ["WaterYear Day"( date ) / 1.00000000 "day" - 1.00000000, column];
+
+    END
+    UUID "{f5b1a885-c745-4eae-8280-32627fffb08b}";;
+
+    FUNCTION       "Trajectory Adjust" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the adjustment to the raw Storage Difference Ratio. It is applied in the denominator of that equation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "UKL.Trajectory Adjust Table" ["WaterYear Day"( date ) / 1.00000000 "day" - 1.00000000, "Adjust Width"];
+
+    END
+    UUID "{b7c5f9e8-134b-4eef-b540-efa72830e025}";;
+
+  END
+  UUID "{53f2a482-4680-4f79-b44d-531f587b20f5}";;
+
+  UTILITY_GROUP "Ramping and Minimums Release";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "IGD Ramping Basis" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the base flow used in the rampdown rate and release computation.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date - 1.00000000 "day" ) )
+ THEN
+  $ "IGD.Outflow" [date - 1.00000000 "day"] - "IGD for Flooding"( date - 1.00000000 "day" )
+ ELSE
+  $ "IGD.Outflow" [date - 1.00000000 "day"]
+ ENDIF COMMENTED_BY "Do not consider the IGD release for flooding when computing rampdown after the operation start <br>date. <br>";
+
+    END
+    UUID "{5f54edc3-55c5-4db8-bda2-97e6c1206a2a}";;
+
+    FUNCTION       "IGD Ramping Rate" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the rate that the release is allowed to decrease from the previous day's release. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "IGD Ramping Basis"( date ) < $ "IGD.Ramping Rates" ["Tier 1", "Release"] )
+ THEN
+  $ "IGD.Ramping Rates" ["Tier 1", "Rate"]
+ ELSE
+  "Min"( $ "IGD.Ramping Rates" ["Max", "Rate"], "IGD Ramping Basis"( date ) - $ "IGD.Ramping Rates" ["Tier 6", "Rate"] )
+ ENDIF
+ ELSEIF_COND ( "IGD Ramping Basis"( date ) < $ "IGD.Ramping Rates" ["Tier 2", "Release"] )
+ ELSEIF_CLAUSE ( $ "IGD.Ramping Rates" ["Tier 2", "Rate"] )
+ END_ELSEIF
+ ELSEIF_COND ( "IGD Ramping Basis"( date ) < $ "IGD.Ramping Rates" ["Tier 3", "Release"] )
+ ELSEIF_CLAUSE ( $ "IGD.Ramping Rates" ["Tier 3", "Rate"] )
+ END_ELSEIF
+ ELSEIF_COND ( "IGD Ramping Basis"( date ) < $ "IGD.Ramping Rates" ["Tier 4", "Release"] )
+ ELSEIF_CLAUSE ( "IGD Ramping Basis"( date ) - $ "IGD.Ramping Rates" ["Tier 4", "Rate"] )
+ END_ELSEIF
+ ELSEIF_COND ( "IGD Ramping Basis"( date ) < $ "IGD.Ramping Rates" ["Tier 5", "Release"] )
+ ELSEIF_CLAUSE ( $ "IGD.Ramping Rates" ["Tier 5", "Rate"] )
+ END_ELSEIF COMMENTED_BY "The ramping rate depends on which tier of thresholds the previous days release was above. <br>";
+
+    END
+    UUID "{9f6c7f19-366b-4fe4-b9b7-862d4f4f2f6c}";;
+
+    FUNCTION       "IGD Ramping Release" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the release from Iron Gate Dam that meets ramping requirements based on the previous day's release. ";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "IGD Ramping Basis"( date ) - "IGD Ramping Rate"( date );
+
+    END
+    UUID "{2f94d2f8-36c1-491d-a5e6-a6689c11568c}";;
+
+  END
+  UUID "{72e83213-2d5c-4be6-83d1-002c2321693f}";;
+
+  UTILITY_GROUP "Flood Release";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "Flood Curve Offset" ( DATETIME date )
+    RETURN_TYPE    STRING;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function returns the type of flood curve to use for flood control operations.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AfterApril"( date ) )
+ THEN
+  "TextSlotNumericToString"( $ "Constants.Flood Curve Offset" ["Default", "Scenario"] )
+ ELSE
+  "TextSlotNumericToString"( $ "Dashboard.Climate" [date, "Scenario"] )
+ ENDIF COMMENTED_BY "The flood curve can vary from January thru April, afterwards it is locked in to the default <br>";
+
+    END
+    UUID "{f7abc6e7-87cf-42bc-9775-5801e2b74a98}";;
+
+    FUNCTION       "IGD for Flooding" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the release from Iron Gate Dam that is sent for flood control.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  "Max"( 0.00000000 "cfs", $ "IGD.Scheduled Release" [date] - $ "IGD.Outflow" [date] )
+ ELSE
+  "Max"( 0.00000000 "cfs", $ "IGD.Scheduled Release" [date] - $ "IGD.Outflow" [date] )
+ ENDIF
+ ELSEIF_COND ( ( IsNaN $ "IGD.Flood Accounting Switch" [date] ) COMMENTED_BY "In the observed period, a release for flood control is only tracked/considered when the operator <br>turn the accounting switch on. <br>" )
+ ELSEIF_CLAUSE ( 0.00000000 "cfs" )
+ END_ELSEIF;
+
+    END
+    UUID "{206c0c12-bc1e-4ffe-b11e-2871542f00ca}";;
+
+    FUNCTION       "Stand Alone Flood Release" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the total release from Upper Klamath Lake when using flood control operations.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      WITH NUMERIC MaxRelease = "TableLookup"( $ "UKL.Max Release", 0.00000000, 1.00000000, $ "UKL.Pool Elevation" [date - 1.00000000 "day"], date, TRUE, 0.00010000 "ft" ) DO
+  WITH NUMERIC StorageDiff = "VolumeToFlow"( $ "UKL.Storage" [date - 1.00000000 "day"] - "UKL Flood Storage Level"( date ), date ) DO
+   "Max"( 0.00000000 "cfs", "Min"( MaxRelease, StorageDiff + $ "UKL.Inflow" [date] - ( "Total Ag from UKL"( date ) + $ "Ady to Refuge.Diversion Request" [date] ) ) )
+  ENDWITH
+ ENDWITH;
+
+    END
+    UUID "{73afa2f5-0e99-49a8-8283-d07f76e73ffa}";;
+
+    FUNCTION       "UKL Flood Storage Level" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the storage level that if exceeded, flood control operations start.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "AfterApril"( date ) )
+ THEN
+  "ElevationToStorage"( % "UKL", $ "UKL.Flood Elevation Table" [date, "Flood Curve Offset"( date )] )
+ ELSE
+  "ElevationToStorage"( % "UKL", "Max"( $ "UKL.Flood Elevation Table" [date, "Flood Curve Offset"( date )], $ "UKL.Flood Elevation Table" ["BeginOfMonthDate"( date ), "Flood Curve Offset"( date )] ) ) COMMENTED_BY "Using the max of the first of the month or the date creates a higher flood level, which allows <br>more storage to accrue before agricultural diversion start increasing  <br>"
+ ENDIF;
+
+    END
+    UUID "{def412e8-6bd5-4f2a-98a9-23b63af0be02}";;
+
+    FUNCTION       "UKL for Flooding" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the release from Upper Klamath Lake that is sent for flood control.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "Operations Period"( date ) )
+ THEN
+  "Max"( 0.00000000 "cfs", "Stand Alone Flood Release"( date ) - "UKL Release to River"( date ) )
+ ELSE
+  "Max"( 0.00000000 "cfs", "Min"( $ "IGD.Outflow" [date] - $ "IGD.Scheduled Release" [date], "UKL Release to River"( date ) - $ "UKL.Min Release Table" [date, "Minimum Release"] ) )
+ ENDIF
+ ELSEIF_COND ( ( IsNaN $ "UKL.Flood Accounting Switch" [date] ) COMMENTED_BY "In the observed period, a release for flood control is only tracked/considered when the operator <br>turn the accounting switch on. <br>" )
+ ELSEIF_CLAUSE ( 0.00000000 "cfs" )
+ END_ELSEIF;
+
+    END
+    UUID "{f95c4e1d-0fd6-4927-9799-887a0eb7d067}";;
+
+    FUNCTION       "UKL River and Flood Release" ( DATETIME date )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "This function computes the portion of the release from Upper Klamath Lake for environmental and flooding objectives.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "UKL Release to River"( date ) + "UKL for Flooding"( date );
+
+    END
+    UUID "{8e05902e-4577-459d-ae76-9949b134ea29}";;
+
+  END
+  UUID "{b64e2c40-b37d-4739-a706-b7803c5a370c}";;
+
+END
+UUID "{49c0e0e9-7f4f-46e6-9fb7-0b3f4b3f72ab}";
