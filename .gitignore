@@ -9,10 +9,11 @@ Database/CNRFC_HEFS_Archive.xlsx
 Database/CNRFC_HEFS Archive.xlsx
 Testing/Testing_Report.html
 Testing/Testing_Report.html
-Rulesets/Klamath_OP.rls.gz
 Rulesets/Klamath_OP.rls.bak.gz
 Rulesets/functions.bak
 Models/KlamathOps_DB.mdl.gz
 Models/KlamathOps_TEST.mdl.gz
 ~$Data Comparison.xlsx
 DMI Sheet/~$Import IGD flow calc_20181017_Rev54.xlsm
+*.bak
+*.bak.gz
