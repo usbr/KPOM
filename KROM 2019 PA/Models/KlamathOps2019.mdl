@@ -1,5 +1,5 @@
 # RiverWare_Model 8.0.5
-# Created 11:17 July 1, 2020
+# Created 23:26 July 7, 2020
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 # 
 # The catalog command is parsed by the RiverSMART
@@ -146,7 +146,7 @@ ModelAccountCount  0
 ModelSupplyCount   0
 ModelExchangeCount 0
 DST 0
-$ws.Model.FileInfo saveInfo 1 {mifr1172} {07-01-2020 11:17:05} {RiverWare 8.0.5} 
+$ws.Model.FileInfo saveInfo 1 {mifr1172} {07-07-2020 23:26:57} {RiverWare 8.0.5} 
 $ws.Model.FileInfo comment {}
 $ws.Model.RunHistoryParam MaxModelRunHistoryRecs 1
 $ws.Model.RunHistoryRecord 1 0 {RiverWare 7.2.4} {dbroman} \
@@ -177,7 +177,7 @@ InitCanvasType SIMULATION
 InitCanvasSpec SIMULATION {\
 <InitialViewSpec LocType="LocType_CenterNamedObj" CanvId="SIMULATION">\
  <Zoom factor="0.7"/>\
- <CenterPos y="1072.857142857143" x="4354.285714285714"/>\
+ <CenterPos y="1071.428571428572" x="4352.857142857143"/>\
  <RefObj name="UKL"/>\
  <WorkspaceInitDateTime ena="0" symbolicDT=""/>\
 </InitialViewSpec>}
@@ -9117,7 +9117,7 @@ set s "$o.Distribution Percent"
 "$o" hids {Gravity Head Flow Table}
 set obj {A Canal}
 set o "$ws.A Canal"
-$ws SimObj $obj {DiversionObject} 4480 2623 {} 7041 7060 3821 5414
+$ws SimObj $obj {DiversionObject} 4479 2625 {} 7041 7060 3821 5414
 "$o" geospatialCoords 0 0 3821 5414
 "$o" UUID {1d2cd236-47db-4a94-8529-6661082b5e15}
 "$o" objAttributes {<SimObjAttributes simObjName="A Canal"/> \
@@ -19952,16 +19952,16 @@ RootSel_End \\
 </Item>\
 
 }
-$ws.outputDeviceMgr addModelReport {Sample Output Report}
+$ws.outputDeviceMgr addModelReport {Daily Numbers Update}
 # Model Report output device configuration
-$ws.modelReportDevice {Sample Output Report} {
+$ws.modelReportDevice {Daily Numbers Update} {
 <Item>\
   <ItemType>Report</ItemType>\
   <ID>915251402448</ID>\
   <Parent_ID>0</Parent_ID>\
   <Setting>\
     <Property><Name>Identifier</Name><Value>Report Name</Value></Property>\
-    <Property><Name>Value</Name><Value>Sample Output Report</Value></Property>\
+    <Property><Name>Value</Name><Value>Daily Numbers Update</Value></Property>\
     <Property><Name>Type</Name><Value>SingleLineText</Value></Property>\
     <Property><Name>DefaultValue</Name><Value></Value></Property>\
   </Setting>\
@@ -19977,7 +19977,7 @@ $ws.modelReportDevice {Sample Output Report} {
   </Setting>\
   <Setting>\
     <Property><Name>Identifier</Name><Value>Report Title</Value></Property>\
-    <Property><Name>Value</Name><Value>Klamath Sample Output Report</Value></Property>\
+    <Property><Name>Value</Name><Value>USBR Daily Numbers Update</Value></Property>\
     <Property><Name>Type</Name><Value>SingleLineText</Value></Property>\
     <Property><Name>DefaultValue</Name><Value></Value></Property>\
   </Setting>\
@@ -20055,7 +20055,7 @@ $ws.modelReportDevice {Sample Output Report} {
   </Setting>\
   <Setting>\
     <Property><Name>Identifier</Name><Value>Report IncludeDateInName</Value></Property>\
-    <Property><Name>Value</Name><Value>No</Value></Property>\
+    <Property><Name>Value</Name><Value>Yes</Value></Property>\
     <Property><Name>Type</Name><Value>Boolean</Value></Property>\
     <Property><Name>DefaultValue</Name><Value>False</Value></Property>\
     <Property><Name>TrueString</Name><Value>Yes</Value></Property>\
@@ -20729,6 +20729,178 @@ $ws.modelReportDevice {Sample Output Report} {
       <Property><Name>NameListType</Name><Value>ListType_SlotName</Value></Property>\
       <Property><Name>NameListSimObjClass</Name><Value></Value></Property>\
       <Property><Name>NameListSlotTypesMask</Name><Value>0</Value></Property>\
+    </Setting>\
+  </Item>\
+  <Item>\
+    <ItemType>SlotTable</ItemType>\
+    <ID>915692474960</ID>\
+    <Parent_ID>915251402448</Parent_ID>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
+      <Property>\
+        <Name>Value</Name>\
+        <Value>RootSelection Version1 \\
+RootSel_Name       "Slot Table: Slot selection" \\
+RootSel_UserLabel  "" \\
+RootSel_UseUserLabel        false \\
+RootSel_RootType   ROOT_SUBCLASS_SLOT \\
+RoolSel_AllowSlots_Physical RoolSel_AllowSlots_Account RoolSel_AllowSlots_Supply RoolSel_AllowSlots_Exchange RoolSel_AllowSlots_ExchangeSply RoolSel_AllowSlots_Payback RoolSel_AllowSlots_PaybackSply  \\
+RootSel_SelMode    SELMODE_SLOT_PHYSICAL \\
+RootSel_UseSlotSet false \\
+RootSel_SlotSetID  "{00000000-0000-0000-0000-000000000000}" \\
+RootSel_SubBasin_WildAllowed    true \\
+RootSel_SubBasin_Wildcarded     false \\
+RootFilter FILTER_SIMOBJ_NAME_WILDCARD ROOT_SUBCLASS_SIMOBJ \\
+RootFilter FILTER_SIMOBJ_HAS_ACCOUNT ROOT_SUBCLASS_SIMOBJ \\
+RootFilter FILTER_SIMOBJ_IN_SUBBASIN ROOT_SUBCLASS_SIMOBJ \\
+RootFilter FILTER_SIMOBJ_IN_CLUSTER ROOT_SUBCLASS_SIMOBJ \\
+RootFilter FILTER_SIMOBJ_HAS_ATTRIB_VALUE ROOT_SUBCLASS_SIMOBJ \\
+RootSel_SimObj_WildAllowed      true \\
+RootSel_SimObj_Wildcarded       false \\
+RootSel_SimObj_ExclAggObjElems  false \\
+RootFilter FILTER_EXCHANGE_NAME_WILDCARD ROOT_SUBCLASS_EXCHANGE \\
+RootSel_Exch_WildAllowed        true \\
+RootSel_Exch_Wildcarded         false \\
+RootFilter FILTER_ACCOUNT_NAME_WILDCARD ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_ACCOUNT_WATER_TYPE ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_ACCOUNT_WATER_OWNER ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_ACCOUNT_JUNIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_ACCOUNT_SENIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \\
+RootSel_Acct_WildAllowed        true \\
+RootSel_Acct_Wildcarded         false \\
+RootSel_InclStorageAccts        true \\
+RootSel_InclDiversionAccts      true \\
+RootSel_InclInstreamFlowAccts   true \\
+RootSel_InclPassThroughAccts    true \\
+RootFilter FILTER_PAYBACK_NAME_WILDCARD ROOT_SUBCLASS_PAYBACK \\
+RootSel_Pback_WildAllowed       true \\
+RootSel_Pback_Wildcarded        false \\
+RootFilter FILTER_SUPPLY_NAME_WILDCARD ROOT_SUBCLASS_SUPPLY \\
+RootFilter FILTER_SUPPLY_RELEASE_TYPE ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_SUPPLY_DESTINATION ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_SUPPLY_ROLE ROOT_SUBCLASS_ACCOUNT \\
+RootFilter FILTER_SUPPLY_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SUPPLY_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \\
+RootSel_Supply_WildAllowed      true \\
+RootSel_Supply_Wildcarded       false \\
+RootSel_Supply_ShowFromAccts    true \\
+RootSel_Supply_ShowToAccts      false \\
+RootSel_ShowSupplies_InOut      true \\
+RootSel_ShowSupplies_DivRet     true \\
+RootSel_ShowSupplies_Trans      true \\
+RootFilter FILTER_SLOT_NAME_WILDCARD ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_COL_LABEL_WILDCARD ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_UNIT_TYPE ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_TYPE ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_HAS_RPL_EXPR ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_TIMESTEP ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_ATTRIB ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_USES_OPT_LIMITS ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_IS_CUSTOM ROOT_SUBCLASS_SLOT \\
+RootFilter FILTER_SLOT_SET ROOT_SUBCLASS_SLOT \\
+RootSel_Slot_WildAllowed        true \\
+RootSel_Slot_Wildcarded         false \\
+RootSel_SlotTypeBits_InclMask   0 \\
+RootSel_SlotTypeBits_ExclMask   0 \\
+RootSel_AllowAggSeriesCols      false \\
+RootSel_AllowTableSeriesCols    false \\
+RootSel_AllowAggTableCols       false \\
+RootSel_ShowAggSeriesCols       false \\
+RootSel_ShowTableSeriesCols     false \\
+RootSel_ShowAggTableCols        false \\
+RootSel_RequiresSlotColRefs     false \\
+RootSel_SimObjClass "Confluence" \\
+RootSel_SimObjClass "DiversionObject" \\
+RootSel_SimObjClass "InlinePump" \\
+RootSel_SimObjClass "Reach" \\
+RootSel_SimObjClass "Reservoir" \\
+RootSel_SimObjClass "StorageReservoir" \\
+RootSel_SimObj "Lost River To Klamath River" \\
+RootSel_SimObj "A Canal" \\
+RootSel_SimObj "Miller Hill Pump" \\
+RootSel_SimObj "North Canal" \\
+RootSel_SimObj "Station 48" \\
+RootSel_SimObj "F and FF Pump" \\
+RootSel_SimObj "Ady Split" \\
+RootSel_SimObj "Lost River Diversion Channel" \\
+RootSel_SimObj "Wilson Dam" \\
+RootSel_SimObj "IGD" \\
+RootSel_SimObj "Keno" \\
+RootSel_SimObj "UKL" \\
+RootSel_Slot "A Canal.Diversion" \\
+RootSel_Slot "Ady Split.Diversion" \\
+RootSel_Slot "F and FF Pump.Inflow" \\
+RootSel_Slot "IGD.Outflow" \\
+RootSel_Slot "Keno.Outflow" \\
+RootSel_Slot "Lost River Diversion Channel.Inflow" \\
+RootSel_Slot "Lost River To Klamath River.Inflow2" \\
+RootSel_Slot "Miller Hill Pump.Diversion" \\
+RootSel_Slot "North Canal.Diversion" \\
+RootSel_Slot "Station 48.Diversion" \\
+RootSel_Slot "UKL.Keno Power Canal Outflow" \\
+RootSel_Slot "UKL.Outflow" \\
+RootSel_Slot "UKL.Pool Elevation" \\
+RootSel_Slot "UKL.Storage" \\
+RootSel_Slot "Wilson Dam.Outflow" \\
+RootSel_End \\
+</Value>\
+      </Property>\
+      <Property><Name>Type</Name><Value>Selection</Value></Property>\
+    </Setting>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>SlotTable Title</Value></Property>\
+      <Property><Name>Value</Name><Value>Basin Hydrology</Value></Property>\
+      <Property><Name>Type</Name><Value>SingleLineText</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value></Value></Property>\
+    </Setting>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>SlotTable ShowObjName</Value></Property>\
+      <Property><Name>Value</Name><Value>Yes</Value></Property>\
+      <Property><Name>Type</Name><Value>Boolean</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value>False</Value></Property>\
+      <Property><Name>TrueString</Name><Value>Yes</Value></Property>\
+      <Property><Name>FalseString</Name><Value>No</Value></Property>\
+    </Setting>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>SlotTable ShowAccountName</Value></Property>\
+      <Property><Name>Value</Name><Value>No</Value></Property>\
+      <Property><Name>Type</Name><Value>Boolean</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value>False</Value></Property>\
+      <Property><Name>TrueString</Name><Value>Yes</Value></Property>\
+      <Property><Name>FalseString</Name><Value>No</Value></Property>\
+    </Setting>\
+  </Item>\
+  <Item>\
+    <ItemType>TabSerSlotRep</ItemType>\
+    <ID>915871434672</ID>\
+    <Parent_ID>915251402448</Parent_ID>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>Tabular Series Slot Report DeviceName</Value></Property>\
+      <Property><Name>Value</Name><Value>USBR Weekly Hydrology Report</Value></Property>\
+      <Property><Name>Type</Name><Value>TabSerSlotRepName</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value></Value></Property>\
+    </Setting>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>Tabular Series Slot Report Format</Value></Property>\
+      <Property><Name>Value</Name><Value>HTML</Value></Property>\
+      <Property><Name>Type</Name><Value>Boolean</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value>True</Value></Property>\
+      <Property><Name>TrueString</Name><Value>HTML</Value></Property>\
+      <Property><Name>FalseString</Name><Value>Text</Value></Property>\
+    </Setting>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>TabSerSlotRepDateTimeStart</Value></Property>\
+      <Property><Name>Value</Name><Value>Jan 26, 2020</Value></Property>\
+      <Property><Name>Type</Name><Value>RplDateTime</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value></Value></Property>\
+    </Setting>\
+    <Setting>\
+      <Property><Name>Identifier</Name><Value>TabSerSlotRepDateTimeEnd</Value></Property>\
+      <Property><Name>Value</Name><Value>Operation Start Timestep()</Value></Property>\
+      <Property><Name>Type</Name><Value>RplDateTime</Value></Property>\
+      <Property><Name>DefaultValue</Name><Value></Value></Property>\
     </Setting>\
   </Item>\
 </Item>\
@@ -21527,6 +21699,60 @@ set curve "$plot.Measured Ag Demand"
 "$curve" lineInfo {Solid} 2 4278190080
 "$curve" symbolInfo {None} 0 4278190080
 "$curve" slots 0 {} {UKL.Measured Ag Demand} -1 0 -1 0
+$ws.outputDeviceMgr addGreenBook {USBR Weekly Hydrology Report}
+# GreenBook Report Configuration Record
+$ws.gBookRep {USBR Weekly Hydrology Report} description {}
+$ws.gBookRep {USBR Weekly Hydrology Report} tableTitle {}
+$ws.gBookRep {USBR Weekly Hydrology Report} tableSubTitle {}
+$ws.gBookRep {USBR Weekly Hydrology Report} showDescInReport {0}
+$ws.gBookRep {USBR Weekly Hydrology Report} showTitlesWhere {i}
+$ws.gBookRep {USBR Weekly Hydrology Report} limitTimesteps {0}
+$ws.gBookRep {USBR Weekly Hydrology Report} startTimeSecs {6934636800}
+$ws.gBookRep {USBR Weekly Hydrology Report} endTimeSecs {6979219200}
+$ws.gBookRep {USBR Weekly Hydrology Report} showNotesGroups {0}
+$ws.gBookRep {USBR Weekly Hydrology Report} showNotesWhere {p}
+$ws.gBookRep {USBR Weekly Hydrology Report} omitSlots {0}
+$ws.gBookRep {USBR Weekly Hydrology Report} omitSlotsWhich {n}
+$ws.gBookRep {USBR Weekly Hydrology Report} showNanOpt {nan}
+$ws.gBookRep {USBR Weekly Hydrology Report} showZerosAsBlank {0}
+$ws.gBookRep {USBR Weekly Hydrology Report} showUnitsInColHeader {1}
+$ws.gBookRep {USBR Weekly Hydrology Report} colLabsType {s}
+$ws.gBookRep {USBR Weekly Hydrology Report} wrapColLabsSpaces {0}
+$ws.gBookRep {USBR Weekly Hydrology Report} wrapColLabsPunct {1}
+$ws.gBookRep {USBR Weekly Hydrology Report} aggMethod {n}
+$ws.gBookRep {USBR Weekly Hydrology Report} aggFixedSteps {7}
+$ws.gBookRep {USBR Weekly Hydrology Report} pageBreakAfterSumRow {1}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {A Canal.Diversion} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Ady Canal.Diversion} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Ady to Refuge.Diversion} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {F and FF Pump.Inflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {IGD.Outflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Keno.Outflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Lost River Diversion Channel.Inflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Lost River To Klamath River.Inflow2} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Miller Hill Pump.Diversion} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {North Canal.Diversion} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Station 48.Diversion} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {UKL.Keno Power Canal Outflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {UKL.Outflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {UKL.Pool Elevation} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {UKL.Storage} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} slot {Wilson Dam.Outflow} -1 {} {sum-0 ave-0 min-0 max-0 sta-0 end-0}
+$ws.gBookRep {USBR Weekly Hydrology Report} outputType {t}
+$ws.gBookRep {USBR Weekly Hydrology Report} textPath {}
+$ws.gBookRep {USBR Weekly Hydrology Report} htmlPath {}
+$ws.gBookRep {USBR Weekly Hydrology Report} cssStyle_title {font-size: 140%; font-family: Verdana, Arial, Helvetica, sans-serif;}
+$ws.gBookRep {USBR Weekly Hydrology Report} cssStyle_subtitles {font-family: Verdana, Arial, Helvetica, sans-serif;}
+$ws.gBookRep {USBR Weekly Hydrology Report} cssStyle_colHeaders {font-weight: bold;}
+$ws.gBookRep {USBR Weekly Hydrology Report} cssStyle_rowHeaders {text-align: right; font-size: smaller; font-family: &quot;Courier New&quot;, Courier, mono;}
+$ws.gBookRep {USBR Weekly Hydrology Report} cssStyle_tableCells {font-size: smaller; font-family: &quot;Courier New&quot;, Courier, mono;}
+$ws.gBookRep {USBR Weekly Hydrology Report} cssStyle_footnotes {color: #0000CC; font-size: smaller; font-family: &quot;Courier New&quot;, Courier, mono;}
+$ws.gBookRep {USBR Weekly Hydrology Report} bgColorStr_colHeader {FFFFCC}
+$ws.gBookRep {USBR Weekly Hydrology Report} bgColorStr_rowHeader {FFFFFF}
+$ws.gBookRep {USBR Weekly Hydrology Report} bgColorStr_slotData {FFFFFF}
+$ws.gBookRep {USBR Weekly Hydrology Report} bgColorStr_notes {E8E8E8}
+$ws.gBookRep {USBR Weekly Hydrology Report} bgColorStr_summary {FFFFCC}
+
 $ws collectRBSRunAnalysisInfo 1
 $ws collectRPLPerformanceInfo 1
 $ws RPLNumericComparisonTolerance 0.0001
@@ -24845,7 +25071,7 @@ $ws.rwScriptMgr rwScript {\
 <rwScript>\
   <Name>Prepare for Operations Testing</Name>\
   <Description></Description>\
-  <EditActionPanelHeight>253</EditActionPanelHeight>\
+  <EditActionPanelHeight>239</EditActionPanelHeight>\
   <Action>\
     <ActionType>ClearDMIValues</ActionType>\
     <Setting>\
@@ -25729,7 +25955,7 @@ RootSel_End \\
       <Property><Name>Identifier</Name><Value>OpenGlobalFunctionsSetSetName</Value></Property>\
       <Property>\
         <Name>Value</Name>\
-        <Value>$KLAMATH_OPS/KROM 2019 PA/Function Sets/Klamath 2019PA Func Editing.gfs</Value>\
+        <Value>$KLAMATH_OPS/KROM 2019 PA/Function Sets/Klamath 2019PA Func.gfs</Value>\
       </Property>\
       <Property><Name>Type</Name><Value>FileName</Value></Property>\
       <Property><Name>DefaultValue</Name><Value></Value></Property>\
@@ -25777,10 +26003,7 @@ RootSel_End \\
     </Setting>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>LoadRulesetSetName</Value></Property>\
-      <Property>\
-        <Name>Value</Name>\
-        <Value>$KLAMATH_OPS/KROM 2019 PA/Rulesets/Klamath 2019PA Editing.rls</Value>\
-      </Property>\
+      <Property><Name>Value</Name><Value>$KLAMATH_OPS/KROM 2019 PA/Rulesets/Klamath 2019PA.rls</Value></Property>\
       <Property><Name>Type</Name><Value>FileName</Value></Property>\
       <Property><Name>DefaultValue</Name><Value></Value></Property>\
     </Setting>\

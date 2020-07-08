@@ -9257,11 +9257,22 @@ AAAASUVORK5CYII="/>
 <div id="RiverWare_Report_Item_0.6_Content" style="display:block;">
 <p><table>
 <thead style="vertical-align:bottom;"><tr><th>Object</th>
-<th style="text-align:right;">Boat Dance Supply<br/>NONE</th>
-<th style="text-align:right;">EWA Min<br/>NONE</th>
-<th style="text-align:right;">Ungauged Diversions<br/>NONE</th></tr>
+<th style="text-align:right;">Boat Dance Supply<br/>acre-feet</th>
+<th style="text-align:right;">EWA Min<br/>acre-feet</th>
+<th style="text-align:right;">Ungauged Diversions<br/>acre-feet</th></tr>
 </thead>
-<tbody></tbody>
+<tbody><tr><td><nobr><img alt="RiverWare SimObj Icon" width="15" height="15" border="0" 
+src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAA7EAAAO
+xAGVKw4bAAAAoklEQVQoFWNkYGDgB2IDICYVXGAB6jBgZmA8IMPETpLmv/8YHECa
+GUAat/PpMxz7/ZGBm5GZIZhdlGHRjxdgw9zYhBju/v3O8OLfL7g4SE0IixgDE8w6
+kIJFP18wrPv1GiwEYoPwS6Cmo38+oojD1DACVdrLM3EcuC1oATOHKJrxLyPE2SDV
+d4A2jzp7NLTRUw4skVwAJXIgB10eL5+FkfkCAOSdxoBTlzz3AAAAAElFTkSuQmCC"/>
+ Dashboard</nobr></td>
+<td style="text-align:right;">7,000.00</td>
+<td style="text-align:right;">320,000.00</td>
+<td style="text-align:right;">7,436.00</td></tr>
+</tbody>
 </table>
 </p>
 </div>
