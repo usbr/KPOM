@@ -1,5 +1,5 @@
 # RiverWare_Model 8.0.5
-# Created 14:22 July 21, 2020
+# Created 14:53 July 21, 2020
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 # 
 # The catalog command is parsed by the RiverSMART
@@ -19,118 +19,118 @@ Catalog {\
    </mrmCfg>\
   </mrmCfgList>\
  </MRMControl>\
- <DmiMgr><datasetList><dataset type="Excel" name="Excel Input Sheet"><workbook>$KLAMATH_OPS/Database/Ingest/flowcalc.xlsx</workbook>\
+ <DmiMgr><datasetList><dataset name="Excel Input Sheet" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/flowcalc.xlsx</workbook>\
     <sheet>Practice Run</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Simulation Outputs"><workbook>K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Testing/KROM Outputs.xlsx</workbook>\
+   <dataset name="Simulation Outputs" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/Testing/KROM Outputs.xlsx</workbook>\
     <sheet>Simulation</sheet>\
    </dataset>\
-   <dataset type="Excel" name="CNRFC HEFS Import KLMO3"><workbook>$KLAMATH_OPSl/Database/Ingest/CNRFC_Import.xlsx</workbook>\
+   <dataset name="CNRFC HEFS Import KLMO3" type="Excel"><workbook>$KLAMATH_OPSl/Database/Ingest/CNRFC_Import.xlsx</workbook>\
     <sheet>Fmt HEFS KLAO3</sheet>\
    </dataset>\
-   <dataset type="Excel" name="CNRFC HEFS WMSO3"><workbook>$KLAMATH_OPS/Database/Ingest/CNRFC_Import.xlsx</workbook>\
+   <dataset name="CNRFC HEFS WMSO3" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/CNRFC_Import.xlsx</workbook>\
     <sheet>Fmt HEFS WMSO3</sheet>\
    </dataset>\
-   <dataset type="Excel" name="River Flows"><workbook>$KRB_DIR/Scenario/simulated/rf.xlsx</workbook>\
+   <dataset name="River Flows" type="Excel"><workbook>$KRB_DIR/Scenario/simulated/rf.xlsx</workbook>\
     <sheet>Run0</sheet>\
    </dataset>\
-   <dataset type="Excel" name="SALMOD Flows"><workbook>$KRB_DIR/Scenario/simulated/sf.xlsx</workbook>\
+   <dataset name="SALMOD Flows" type="Excel"><workbook>$KRB_DIR/Scenario/simulated/sf.xlsx</workbook>\
     <sheet>Run0</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Hydrology"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
+   <dataset name="Hydrology" type="Excel"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
     <sheet>DailyFlows</sheet>\
    </dataset>\
-   <dataset type="Excel" name="EvapPrcp"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
+   <dataset name="EvapPrcp" type="Excel"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
     <sheet>DailyEvapPrcp</sheet>\
    </dataset>\
-   <dataset type="Excel" name="ReferenceDemands"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
+   <dataset name="ReferenceDemands" type="Excel"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
     <sheet>DailyRefDeplReq</sheet>\
    </dataset>\
-   <dataset type="Excel" name="ScenarioDemands"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
+   <dataset name="ScenarioDemands" type="Excel"><workbook>$KRB_DIR/dmi/simulated/KBSModelInputData.xlsx</workbook>\
     <sheet>DailyScenDeplReq</sheet>\
    </dataset>\
-   <dataset type="Excel" name="StandardOutput"><workbook>$KRB_DIR/Scenario/simulated/KBSModelOutputData.xlsx</workbook>\
+   <dataset name="StandardOutput" type="Excel"><workbook>$KRB_DIR/Scenario/simulated/KBSModelOutputData.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="RBM10 Output"><workbook>$KRB_DIR/Scenario/simulated/KBSModelRBM10OutputData.xlsx</workbook>\
+   <dataset name="RBM10 Output" type="Excel"><workbook>$KRB_DIR/Scenario/simulated/KBSModelRBM10OutputData.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="EcologicalResources"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelEcologicalOutputMeasures.xlsx</workbook>\
+   <dataset name="EcologicalResources" type="Excel"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelEcologicalOutputMeasures.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="ElectricalPower"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelElectricalPowerOutputMeasures.xlsx</workbook>\
+   <dataset name="ElectricalPower" type="Excel"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelElectricalPowerOutputMeasures.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="FloodControl"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelFloodControlOutputMeasures.xlsx</workbook>\
+   <dataset name="FloodControl" type="Excel"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelFloodControlOutputMeasures.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="RecreationalResources"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelRecreationalResourcesOutputMeasures.xlsx</workbook>\
+   <dataset name="RecreationalResources" type="Excel"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelRecreationalResourcesOutputMeasures.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="WaterDeliveries"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelWaterDeliveriesOutputMeasures.xlsx</workbook>\
+   <dataset name="WaterDeliveries" type="Excel"><workbook>T:/WaterResources/PlanningOperations/8210_Projects/BasinStudies/KlamathBasin/data/simulated/KBSModelWaterDeliveriesOutputMeasures.xlsx</workbook>\
     <sheet>Daily</sheet>\
    </dataset>\
-   <dataset type="Excel" name="IGD Calculator Values"><workbook>$KLAMATH_OPS/DMI Sheet/flowcalc.xlsx</workbook>\
+   <dataset name="IGD Calculator Values" type="Excel"><workbook>$KLAMATH_OPS/DMI Sheet/flowcalc.xlsx</workbook>\
     <sheet>Practice Run</sheet>\
    </dataset>\
-   <dataset type="Excel" name="NRCS WSF Williamson"><workbook>$KLAMATH_OPS/Database/Ingest/NRCS_WSF_Import.xlsx</workbook>\
+   <dataset name="NRCS WSF Williamson" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/NRCS_WSF_Import.xlsx</workbook>\
     <sheet>TestDate</sheet>\
    </dataset>\
-   <dataset type="Excel" name="NRCS WSF UKL"><workbook>$KLAMATH_OPS/Database/Ingest/NRCS_WSF_Import.xlsx</workbook>\
+   <dataset name="NRCS WSF UKL" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/NRCS_WSF_Import.xlsx</workbook>\
     <sheet>Fmt UKL (11507001)</sheet>\
    </dataset>\
-   <dataset type="Excel" name="CNRFC Deterministic"><workbook>$KLAMATH_OPS/Database/Ingest/CNRFC_Import.xlsx</workbook>\
+   <dataset name="CNRFC Deterministic" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/CNRFC_Import.xlsx</workbook>\
     <sheet>Fmt Deterministic</sheet>\
    </dataset>\
-   <dataset type="Excel" name="PacifiCorp Observations"><workbook>$KLAMATH_OPS/Database/Ingest/PacifiCorp_Observations_Import.xlsx</workbook>\
+   <dataset name="PacifiCorp Observations" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/PacifiCorp_Observations_Import.xlsx</workbook>\
     <sheet>Fmt</sheet>\
    </dataset>\
-   <dataset type="Excel" name="USGS Observations"><workbook>$KLAMATH_OPS/Database/Ingest/USGS_Observations_Import.xlsx</workbook>\
+   <dataset name="USGS Observations" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/USGS_Observations_Import.xlsx</workbook>\
     <sheet>Fmt</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Dataset 1"><workbook>$KLAMATH_OPS/Database/Ingest/CNRFC_Import.xlsx</workbook>\
+   <dataset name="Dataset 1" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/CNRFC_Import.xlsx</workbook>\
     <sheet>Fmt HEFS KLAO3</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Dataset 0"><workbook>C:/Projects/git/KlamathOpsModel/DMI Sheet/TEST_Excel_AggSeries.xlsx</workbook>\
+   <dataset name="Dataset 0" type="Excel"><workbook>C:/Projects/git/KlamathOpsModel/DMI Sheet/TEST_Excel_AggSeries.xlsx</workbook>\
     <sheet>Test</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Williamson at Chiloquin"><workbook>$KLAMATH_OPS/Database/Ingest/Historical_Observations_Import.xlsx</workbook>\
+   <dataset name="Williamson at Chiloquin" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/Historical_Observations_Import.xlsx</workbook>\
     <sheet>Fmt Williamson at Chiloquin</sheet>\
    </dataset>\
-   <dataset type="Excel" name="KBAO Observations"><workbook>$KLAMATH_OPS/Database/Ingest/KBAO_Observations_Import.xlsx</workbook>\
+   <dataset name="KBAO Observations" type="Excel"><workbook>$KLAMATH_OPS/Database/Ingest/KBAO_Observations_Import.xlsx</workbook>\
     <sheet>Fmt</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Op Percentiles"><workbook>K:/Models/Mitch/KlamathOpsModel/Database/Ingest/flowcalc.xlsx</workbook>\
+   <dataset name="Op Percentiles" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/Database/Ingest/flowcalc.xlsx</workbook>\
     <sheet>Op Percentiles</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Hand Inputs"><workbook>K:/Models/Mitch/KlamathOpsModel/Database/Ingest/flowcalc.xlsx</workbook>\
+   <dataset name="Hand Inputs" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/Database/Ingest/flowcalc.xlsx</workbook>\
     <sheet>Hand Inputs</sheet>\
    </dataset>\
-   <dataset type="Excel" name="2017 Inputs"><workbook>K:/Models/Mitch/KlamathOpsModel/DMI Sheet/flowcalc 2017.xlsx</workbook>\
+   <dataset name="2017 Inputs" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/DMI Sheet/flowcalc 2017.xlsx</workbook>\
     <sheet>Practice Run</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Op Percentile 2017"><workbook>K:/Models/Mitch/KlamathOpsModel/DMI Sheet/flowcalc 2017.xlsx</workbook>\
+   <dataset name="Op Percentile 2017" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/DMI Sheet/flowcalc 2017.xlsx</workbook>\
     <sheet>Op Percentiles</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Hand Inputs 2017"><workbook>K:/Models/Mitch/KlamathOpsModel/DMI Sheet/flowcalc 2017.xlsx</workbook>\
+   <dataset name="Hand Inputs 2017" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/DMI Sheet/flowcalc 2017.xlsx</workbook>\
     <sheet>Hand Inputs</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Basin Inputs"><workbook>K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Database/MasterSheet2019PA.xlsx</workbook>\
+   <dataset name="Basin Inputs" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/Database/MasterSheet2019PA.xlsx</workbook>\
     <sheet>Import</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Forecasts"><workbook>K:/Models/Mitch/KlamathOpsModel/ForecastsAGU.xlsx</workbook>\
+   <dataset name="Forecasts" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/ForecastsAGU.xlsx</workbook>\
     <sheet>Run1</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Hydrologic Outputs"><workbook>K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Testing/KROM Outputs.xlsx</workbook>\
+   <dataset name="Hydrologic Outputs" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/Testing/KROM Outputs.xlsx</workbook>\
     <sheet>Hydrology</sheet>\
    </dataset>\
-   <dataset type="Excel" name="Demand Outputs"><workbook>K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Testing/KROM Outputs.xlsx</workbook>\
+   <dataset name="Demand Outputs" type="Excel"><workbook>K:/Models/Mitch/KlamathOpsModel/Testing/KROM Outputs.xlsx</workbook>\
     <sheet>Demands</sheet>\
    </dataset>\
   </datasetList>\
-  <dmiList><dbDmi type="output" datasets="Excel" name="KROM Outputs"><datasets>Simulation Outputs,Hydrologic Outputs,Demand Outputs</datasets>\
+  <dmiList><dbDmi name="KROM Outputs" datasets="Excel" type="output"><datasets>Simulation Outputs,Hydrologic Outputs,Demand Outputs</datasets>\
    </dbDmi>\
-   <dbDmi type="input" datasets="Excel" name="Observed Hydrology"><datasets>Basin Inputs</datasets>\
+   <dbDmi name="Observed Hydrology" datasets="Excel" type="input"><datasets>Basin Inputs</datasets>\
    </dbDmi>\
   </dmiList>\
  </DmiMgr>\
@@ -146,14 +146,14 @@ ModelAccountCount  0
 ModelSupplyCount   0
 ModelExchangeCount 0
 DST 0
-$ws.Model.FileInfo saveInfo 1 {mifr1172} {07-21-2020 14:22:19} {RiverWare 8.0.5} 
+$ws.Model.FileInfo saveInfo 1 {mifr1172} {07-21-2020 14:53:11} {RiverWare 8.0.5} 
 $ws.Model.FileInfo comment {}
 $ws.Model.RunHistoryParam MaxModelRunHistoryRecs 1
 $ws.Model.RunHistoryRecord 1 0 {RiverWare 7.2.4} {dbroman} \
  {Rulebased Simulation} {05-23-2018 08:57:58} {05-23-2018 09:01:58} {Finished}
 $ws.AutoSave 1 0 0 15 {C:/Users/dbroman/AppData/Local/Temp/1/} none
 $ws.StringMgr 1 {\
-<stringMgr name="" size="256">\
+<stringMgr size="256" name="">\
  <string str="Dry" idx="0"></string>\
 </stringMgr>\
 }
@@ -162,7 +162,7 @@ OutputsSavePrecision 12
 FlagEncoding 3
 BaselineModel 0
 ModelLockSet 0
-ObjectListWidth 224
+ObjectListWidth 256
 WsObjListOrderMode SORT_BY_TYPE
 LockedIcons 0
 SelWindowIcon {RwIconAltGreen}
@@ -177,19 +177,19 @@ InitCanvasType SIMULATION
 InitCanvasSpec SIMULATION {\
 <InitialViewSpec CanvId="SIMULATION" LocType="LocType_CenterNamedObj">\
  <Zoom factor="0.7"/>\
- <CenterPos x="4000" y="1054.285714285714"/>\
+ <CenterPos y="1054.285714285714" x="3967.142857142857"/>\
  <RefObj name="UKL"/>\
  <WorkspaceInitDateTime ena="0" symbolicDT=""/>\
 </InitialViewSpec>}
 InitCanvasSpec ACCOUNTING {\
 <InitialViewSpec CanvId="ACCOUNTING" LocType="LocType_CenterAveObj">\
  <Zoom factor="0.7"/>\
- <CenterPos x="6848.571428571428" y="2148.571428571428"/>\
+ <CenterPos y="2148.571428571428" x="6848.571428571428"/>\
 </InitialViewSpec>}
 InitCanvasSpec GEOSPATIAL {\
 <InitialViewSpec CanvId="GEOSPATIAL" LocType="LocType_CenterAveObj">\
  <Zoom factor="0.5"/>\
- <CenterPos x="3472" y="1562"/>\
+ <CenterPos y="1562" x="3472"/>\
 </InitialViewSpec>}
 WaterYearStartMonthIndex 9 YearNamedFromEnd
 SlotGroupsEnabled 1
@@ -316,1564 +316,1564 @@ $unitMgr end
 # Section: Unit Schemes
 "$ws.unitScheme" addUserScheme {<UnitScheme name="Scheme 1">\
  <Rule>\
-  <Key unitType="NONE" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="NONE"/>\
+  <Attribs format="f" prec="2" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Length" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Length" units="feet" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Length"/>\
+  <Attribs format="f" prec="2" units="feet" unitType="Length"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="SqrtLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="SqrtLength" units="m1/2" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="SqrtLength"/>\
+  <Attribs format="f" prec="2" units="m1/2" unitType="SqrtLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Area" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Area" units="acre" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Area"/>\
+  <Attribs format="f" prec="2" units="acre" unitType="Area"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Flow"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FlowSquared" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FlowSquared" units="cms2" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FlowSquared"/>\
+  <Attribs format="f" prec="2" units="cms2" unitType="FlowSquared"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FlowPerSqrtLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FlowPerSqrtLength" units="cms/m1/2" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FlowPerSqrtLength"/>\
+  <Attribs format="f" prec="2" units="cms/m1/2" unitType="FlowPerSqrtLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PerFlow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PerFlow" units="1/cms" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PerFlow"/>\
+  <Attribs format="f" prec="2" units="1/cms" unitType="PerFlow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Power" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Power" units="MW" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Power"/>\
+  <Attribs format="f" prec="2" units="MW" unitType="Power"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PowerPerFlow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PowerPerFlow" units="MW/cms" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PowerPerFlow"/>\
+  <Attribs format="f" prec="2" units="MW/cms" unitType="PowerPerFlow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Energy" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Energy" units="MWH" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Energy"/>\
+  <Attribs format="f" prec="2" units="MWH" unitType="Energy"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Time" units="hour" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Time"/>\
+  <Attribs format="f" prec="2" units="hour" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="TimeSquared" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="TimeSquared" units="hour2" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="TimeSquared"/>\
+  <Attribs format="f" prec="2" units="hour2" unitType="TimeSquared"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Mass" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Mass" units="g" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Mass"/>\
+  <Attribs format="f" prec="2" units="g" unitType="Mass"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Heat" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Heat" units="J" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Heat"/>\
+  <Attribs format="f" prec="2" units="J" unitType="Heat"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="EnergyFlux" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="EnergyFlux" units="J/m2sec" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="EnergyFlux"/>\
+  <Attribs format="f" prec="2" units="J/m2sec" unitType="EnergyFlux"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="MassFlux" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="MassFlux" units="g/m2sec" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="MassFlux"/>\
+  <Attribs format="f" prec="2" units="g/m2sec" unitType="MassFlux"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="VolFlux" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="VolFlux" units="g/m3sec" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="VolFlux"/>\
+  <Attribs format="f" prec="2" units="g/m3sec" unitType="VolFlux"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Concentration" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Concentration" units="g/m3" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Concentration"/>\
+  <Attribs format="f" prec="2" units="g/m3" unitType="Concentration"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="AreaPerTime" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="AreaPerTime" units="m2/s" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="AreaPerTime"/>\
+  <Attribs format="f" prec="2" units="m2/s" unitType="AreaPerTime"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PerTime" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PerTime" units="1/sec" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PerTime"/>\
+  <Attribs format="f" prec="2" units="1/sec" unitType="PerTime"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Temperature" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Temperature" units="C" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Temperature"/>\
+  <Attribs format="f" prec="2" units="C" unitType="Temperature"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="LengthPerTemperature_F" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="LengthPerTemperature_F" units="m/F" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="LengthPerTemperature_F"/>\
+  <Attribs format="f" prec="2" units="m/F" unitType="LengthPerTemperature_F"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="TemperatureInFahren" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="TemperatureInFahren" units="F" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="TemperatureInFahren"/>\
+  <Attribs format="f" prec="2" units="F" unitType="TemperatureInFahren"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="SpecificHeat" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="SpecificHeat" units="J/gC" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="SpecificHeat"/>\
+  <Attribs format="f" prec="2" units="J/gC" unitType="SpecificHeat"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Velocity" units="ft/day" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Velocity"/>\
+  <Attribs format="f" prec="2" units="ft/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="VelocityPerTemperature_F" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="VelocityPerTemperature_F" units="m/s-F" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="VelocityPerTemperature_F"/>\
+  <Attribs format="f" prec="2" units="m/s-F" unitType="VelocityPerTemperature_F"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Density" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Density" units="kg/m3_dens" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Density"/>\
+  <Attribs format="f" prec="2" units="kg/m3_dens" unitType="Density"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PowerCost" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PowerCost" units="$/MWh" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PowerCost"/>\
+  <Attribs format="f" prec="2" units="$/MWh" unitType="PowerCost"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Value" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Value" units="$" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="Value"/>\
+  <Attribs format="f" prec="2" units="$" unitType="Value"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="ValuePerFlow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="ValuePerFlow" units="$/cms" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="ValuePerFlow"/>\
+  <Attribs format="f" prec="2" units="$/cms" unitType="ValuePerFlow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="ValuePerVolume" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="ValuePerVolume" units="$/m3" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="ValuePerVolume"/>\
+  <Attribs format="f" prec="2" units="$/m3" unitType="ValuePerVolume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="LengthPerVolume" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="LengthPerVolume" units="m/m3" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="LengthPerVolume"/>\
+  <Attribs format="f" prec="2" units="m/m3" unitType="LengthPerVolume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="LengthPerFlow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="LengthPerFlow" units="m/cms" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="LengthPerFlow"/>\
+  <Attribs format="f" prec="2" units="m/cms" unitType="LengthPerFlow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PerLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PerLength" units="1/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PerLength"/>\
+  <Attribs format="f" prec="2" units="1/m" unitType="PerLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PerLengthTime" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PerLengthTime" units="1/m-s" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PerLengthTime"/>\
+  <Attribs format="f" prec="2" units="1/m-s" unitType="PerLengthTime"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FlowPerLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FlowPerLength" units="cms/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FlowPerLength"/>\
+  <Attribs format="f" prec="2" units="cms/m" unitType="FlowPerLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="VolumePerFlow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="VolumePerFlow" units="m3/cms" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="VolumePerFlow"/>\
+  <Attribs format="f" prec="2" units="m3/cms" unitType="VolumePerFlow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="energyPerLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="energyPerLength" units="MWH/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="energyPerLength"/>\
+  <Attribs format="f" prec="2" units="MWH/m" unitType="energyPerLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="powerPerLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="powerPerLength" units="MW/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="powerPerLength"/>\
+  <Attribs format="f" prec="2" units="MW/m" unitType="powerPerLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="12"/>\
+  <Key keyType="UnitTypeKey" unitType="Fraction"/>\
+  <Attribs format="f" prec="12" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FractionPerFlow" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FractionPerFlow" units="decimal/cms" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FractionPerFlow"/>\
+  <Attribs format="f" prec="2" units="decimal/cms" unitType="FractionPerFlow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FractionPerLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FractionPerLength" units="decimal/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FractionPerLength"/>\
+  <Attribs format="f" prec="2" units="decimal/m" unitType="FractionPerLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="noDimension" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="noDimension" units="m/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="noDimension"/>\
+  <Attribs format="f" prec="2" units="m/m" unitType="noDimension"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="VolumeSquared" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="VolumeSquared" units="m6" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="VolumeSquared"/>\
+  <Attribs format="f" prec="2" units="m6" unitType="VolumeSquared"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="TimePerLength" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="TimePerLength" units="s/m" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="TimePerLength"/>\
+  <Attribs format="f" prec="2" units="s/m" unitType="TimePerLength"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FlowVolume" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FlowVolume" units="m6/t" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FlowVolume"/>\
+  <Attribs format="f" prec="2" units="m6/t" unitType="FlowVolume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FlowTime" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FlowTime" units="cmshour" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FlowTime"/>\
+  <Attribs format="f" prec="2" units="cmshour" unitType="FlowTime"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="FlowPerTime" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="FlowPerTime" units="cmss" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="FlowPerTime"/>\
+  <Attribs format="f" prec="2" units="cmss" unitType="FlowPerTime"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="String" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="String" units="Text" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="String"/>\
+  <Attribs format="f" prec="2" units="Text" unitType="String"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="VolumePerEnergy" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="VolumePerEnergy" units="m3/MWH" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="VolumePerEnergy"/>\
+  <Attribs format="f" prec="2" units="m3/MWH" unitType="VolumePerEnergy"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="PowerPerTime" keyType="UnitTypeKey"/>\
-  <Attribs format="f" unitType="PowerPerTime" units="MW/s" prec="2"/>\
+  <Key keyType="UnitTypeKey" unitType="PowerPerTime"/>\
+  <Attribs format="f" prec="2" units="MW/s" unitType="PowerPerTime"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Boyle Gage To Copco Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Boyle Gage To Copco Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Boyle Reservoir To Boyle Gage Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Boyle Reservoir To Boyle Gage Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Bypass Capacity Fraction"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Bypass Capacity Fraction" unitType="Fraction"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Copco To Iron Gate Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Copco To Iron Gate Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="Elevation Volume Table"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Elevation Volume Table" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Hoopa To Klamath Distribution"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="SlotNameKey" slot="Hoopa To Klamath Distribution" unitType="Fraction"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Hoopa to Klamath Gains"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Hoopa to Klamath Gains" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Indian Creek Near Happy Camp"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Indian Creek Near Happy Camp" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Inflow Sum"/>\
-  <Attribs format="f" unitType="Flow" units="cms" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Inflow Sum" unitType="Flow"/>\
+  <Attribs format="f" prec="2" units="cms" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="SlotNameKey" slot="Iron Gate Deficit Duration Table"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate Deficit Duration Table" unitType="NONE"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Iron Gate Deficit Duration Table"/>\
-  <Attribs format="f" unitType="Fraction" units="percent" prec="3"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate Deficit Duration Table" unitType="Fraction"/>\
+  <Attribs format="f" prec="3" units="percent" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Iron Gate IFR"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate IFR" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Iron Gate KPSIM IFR"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate KPSIM IFR" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Iron Gate To Seiad Distributions"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate To Seiad Distributions" unitType="Fraction"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Iron Gate Without Dams"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate Without Dams" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Iron Gate to Seiad Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Iron Gate to Seiad Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="IronGateMonthlySpill"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="IronGateMonthlySpill" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Keno KPSIM IFR"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Keno KPSIM IFR" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Keno To Iron Gate Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Keno To Iron Gate Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Keno to Boyle Reservoir Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Keno to Boyle Reservoir Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="KenoMonthlySpill"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="KenoMonthlySpill" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Klamath River Near Keno"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Klamath River Near Keno" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="SlotNameKey" slot="LagTime"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="1"/>\
+  <Key keyType="SlotNameKey" slot="LagTime" unitType="Time"/>\
+  <Attribs format="f" prec="1" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Length" keyType="SlotNameKey" slot="MaxElevation"/>\
-  <Attribs format="f" unitType="Length" units="feet" prec="4"/>\
+  <Key keyType="SlotNameKey" slot="MaxElevation" unitType="Length"/>\
+  <Attribs format="f" prec="4" units="feet" unitType="Length"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="MaximumForecastErrorPercent"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="MaximumForecastErrorPercent" unitType="Fraction"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="MaximumForecastErrorVolume"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="MaximumForecastErrorVolume" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Periodic GainLoss"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="3"/>\
+  <Key keyType="SlotNameKey" slot="Periodic GainLoss" unitType="Flow"/>\
+  <Attribs format="f" prec="3" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Power Plant Cap Fraction"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Power Plant Cap Fraction" unitType="Fraction"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="SlotNameKey" slot="RandomNormalSeed"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="RandomNormalSeed" unitType="NONE"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Regulated Spill Capacity Fraction"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Regulated Spill Capacity Fraction" unitType="Fraction"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Salmon At Somes Bar"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Salmon At Somes Bar" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Scott Near Ft Jones"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Scott Near Ft Jones" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Seiad To Orleans Distribution"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="SlotNameKey" slot="Seiad To Orleans Distribution" unitType="Fraction"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Seiad to Orleans Gain"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Seiad to Orleans Gain" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Shasta Near Yreka"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Shasta Near Yreka" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Sprague Near Chiloquin"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Sprague Near Chiloquin" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="Storage"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Storage" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Trinity At Hoopa"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Trinity At Hoopa" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="UKL Storage"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="UKL Storage" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="Unregulated Spill Capacity Fraction"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Unregulated Spill Capacity Fraction" unitType="Fraction"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Upper Klamath Lake Inflow"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Upper Klamath Lake Inflow" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="Upper Klamath Lake Storage"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="Upper Klamath Lake Storage" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="UpperKlamathLakeForecastCoefficients"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="UpperKlamathLakeForecastCoefficients" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="UpperKlamathLakeForecastCoefficients"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="6"/>\
+  <Key keyType="SlotNameKey" slot="UpperKlamathLakeForecastCoefficients" unitType="Fraction"/>\
+  <Attribs format="f" prec="6" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="SlotNameKey" slot="UpperKlamathLakeForecastError"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="SlotNameKey" slot="UpperKlamathLakeForecastError" unitType="Volume"/>\
+  <Attribs format="f" prec="2" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="SlotNameKey" slot="UpperKlamathLakePercentForecastError"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="6"/>\
+  <Key keyType="SlotNameKey" slot="UpperKlamathLakePercentForecastError" unitType="Fraction"/>\
+  <Attribs format="f" prec="6" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="SlotNameKey" slot="Williamson Near Klamath Agency"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="0"/>\
+  <Key keyType="SlotNameKey" slot="Williamson Near Klamath Agency" unitType="Flow"/>\
+  <Attribs format="f" prec="0" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="A Canal.Dist Pct by Type" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="A Canal.Dist Pct by Type" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Ady Canal.Dist Pct by Type" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="Ady Canal.Dist Pct by Type" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Ag Sheet.Accrete Adj Factor" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Ag Sheet.Accrete Adj Factor" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Ag Sheet.Pacificorp Borrow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-ft" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Ag Sheet.Pacificorp Borrow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Ag Sheet.Sukraw Well Pumping" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-ft" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Ag Sheet.Sukraw Well Pumping" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Clear Lake.Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Clear Lake.Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="Clear Lake.Inflow Sum" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Clear Lake.Inflow Sum" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Clear Lake.Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Clear Lake.Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Clear.Fcst Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Clear.Fcst Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Clear.Seepage Rates" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Clear.Seepage Rates" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Constants.Contract Year Addition" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Contract Year Addition" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Constants.Five Day Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Five Day Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Constants.Needed Fill Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Needed Fill Rate" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Constants.WaterYear Addition" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.WaterYear Addition" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Copco 1 Reservoir.Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Copco 1 Reservoir.Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Copco 1 Reservoir.Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Copco 1 Reservoir.Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.WinterOps Length" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.WinterOps Length" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.2015 LRDC" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.2015 LRDC" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.2016 Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.2016 Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.Ag Delivered" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.Ag Delivered" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.Total Deliveries" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.Total Deliveries" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Gerber Reservoir.Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Gerber Reservoir.Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="Gerber Reservoir.Inflow Sum" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Gerber Reservoir.Inflow Sum" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Gerber Reservoir.Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Gerber Reservoir.Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Gerber.Fcst Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Gerber.Fcst Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Gerber.Seepage Rates" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Gerber.Seepage Rates" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="InitialConditions.ScenarioFlag" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="InitialConditions.ScenarioFlag" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="InterimComputations.Sprague Near Chiloquin" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="InterimComputations.Sprague Near Chiloquin" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="InterimComputations.Upper Klamath Lake Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="InterimComputations.Upper Klamath Lake Inflow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="InterimComputations.Williamson Near Klamath Agency" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="InterimComputations.Williamson Near Klamath Agency" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Iron Gate Reservoir.Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Iron Gate Reservoir.Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="Iron Gate Reservoir.Inflow Sum" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Iron Gate Reservoir.Inflow Sum" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Iron Gate Reservoir.Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Iron Gate Reservoir.Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="JC Boyle Reservoir.Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="JC Boyle Reservoir.Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="JC Boyle Reservoir.Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="JC Boyle Reservoir.Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.A_Canal_Dist" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.A_Canal_Dist" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AdyCanal_Dist" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AdyCanal_Dist" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.EWARemainJulSepFactors" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.EWARemainJulSepFactors" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.LinkDamIFRAccretionAdjustment" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.LinkDamIFRAccretionAdjustment" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.LinkDamIFRWilliamsonProportion" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.LinkDamIFRWilliamsonProportion" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Length" keyType="FullySpecifiedKey" slot="KBPMOperationsData.MinFishElevation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Length" units="feet" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.MinFishElevation" unitType="Length" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="feet" unitType="Length"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="KBPMOperationsData.NorthCanal_Dist" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.NorthCanal_Dist" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Season Adj Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Season Adj Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Short Season Adj Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Short Season Adj Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Sta48_MillerHill_Dist" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Sta48_MillerHill_Dist" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.UKL To Iron Gate Accretion Adjust" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="5"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.UKL To Iron Gate Accretion Adjust" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="5" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjustmentFactors" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjustmentFactors" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.Fraction GW Return Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.Fraction GW Return Flow" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Miller Hill Pump.Dist Pct by Type" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="Miller Hill Pump.Dist Pct by Type" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="MonthlyGains.Link Dam Release" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-feet/month" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="MonthlyGains.Link Dam Release" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-feet/month" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="North Canal.Dist Pct by Type" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="North Canal.Dist Pct by Type" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusted Annual Sprague Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusted Annual Sprague Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusted Annual Total Upstream Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusted Annual Total Upstream Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusted Annual Williamson Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusted Annual Williamson Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusteed Annual Williamson To UKL Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Adjusteed Annual Williamson To UKL Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Sprague Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Sprague Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Total Upstream Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Total Upstream Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Williamson Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Williamson Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Williamson To UKL Flow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Flow" units="acre-ft/year" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Annual Williamson To UKL Flow" unitType="Flow" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="acre-ft/year" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Evaporation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Evaporation" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Precipitation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Precipitation" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Trinity Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Tule Lake Sump" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Tule Lake Sump" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Tule Lake Sump Evaporation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Tule Lake Sump Evaporation" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="OtherDailyInput.Tule Lake Sump Precipitation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="OtherDailyInput.Tule Lake Sump Precipitation" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Apr thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Apr thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Apr thru Sep Inflow_0001" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Apr thru Sep Inflow_0001" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Apr thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Apr thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Apr thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Apr thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Aug thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Aug thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Aug thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Aug thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Aug thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Aug thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.CNRFC 25th Percentile" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.CNRFC 25th Percentile" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.CNRFC 50th Percentile" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.CNRFC 50th Percentile" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.CNRFC 75th Percentile" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.CNRFC 75th Percentile" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Current Ops Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Current Ops Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.EWA Allocation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.EWA Allocation" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.EWA Used by July 1" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.EWA Used by July 1" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.EWA Used by Oct 1" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.EWA Used by Oct 1" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.EWA Used thru Yesterday" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.EWA Used thru Yesterday" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Feb thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Feb thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Feb thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Feb thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jan thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jan thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jan thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jan thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jul thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jul thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jul thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jul thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jul thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jul thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jun thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jun thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jun thru Yest Demand" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jun thru Yest Demand" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Jun thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Jun thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Mar thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Mar thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Mar thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Mar thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Mar thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Mar thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.May thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.May thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.May thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.May thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.May thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.May thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.NRCS 30th Percentile" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.NRCS 30th Percentile" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.NRCS 50th Percentile" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.NRCS 50th Percentile" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.NRCS 70th Percentile" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.NRCS 70th Percentile" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Nov thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Nov thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed April Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed April Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed August Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed August Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed July Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed July Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed June Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed June Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed March Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed March Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed May Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed May Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed November Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed November Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed October Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed October Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Observed September Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Observed September Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Oct thru Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Oct thru Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Oct thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Oct thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Oct thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Oct thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Outputs.Pct EWA Spent by Jul 1" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="percent" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Pct EWA Spent by Jul 1" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="percent" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Outputs.Pct EWA Spent by Oct 1" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="percent" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Pct EWA Spent by Oct 1" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="percent" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Project Supply" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Project Supply" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Project Supply Used thru Yesterday" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Project Supply Used thru Yesterday" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected April Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected April Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected August Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected August Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected July Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected July Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected June Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected June Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected March Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected March Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected May Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected May Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected November Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected November Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected October Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected October Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected October Demands_0001" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected October Demands_0001" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Projected September Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Projected September Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Remaining Project Supply" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Remaining Project Supply" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Sep Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Sep Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Sep thru Yest Demands" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Sep thru Yest Demands" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Sep thru Yest Inflow" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Sep thru Yest Inflow" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp WY Low" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp WY Low" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp on July 15" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp on July 15" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp on May 31" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp on May 31" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp on Sep 30" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Outputs.Vol Above BiOp on Sep 30" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.DeliveryEfficiency" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.DeliveryEfficiency" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="ProjectData.LostRiverSeepageRates" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.LostRiverSeepageRates" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyAccMonthlyDistribution" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyAccMonthlyDistribution" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyDailyDistribution" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyDailyDistribution" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyMonthlyDistribution" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyMonthlyDistribution" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyTemporalDistribution" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.ProjectSupplyTemporalDistribution" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Length" keyType="FullySpecifiedKey" slot="ReservoirData.MaxElevation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Length" units="feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="ReservoirData.MaxElevation" unitType="Length" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="feet" unitType="Length"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ReservoirData.WilliamsonPercentForecastError" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="6"/>\
+  <Key keyType="FullySpecifiedKey" slot="ReservoirData.WilliamsonPercentForecastError" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="6" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ReservoirData.xxxMaximumForecastErrorPercent" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="ReservoirData.xxxMaximumForecastErrorPercent" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="UKL.EWA Remain JulSep Factors" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.EWA Remain JulSep Factors" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="UKL.Fill Rate Diff" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="ft/day" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Fill Rate Diff" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="ft/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="UKL.Inflow Limits Table" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Inflow Limits Table" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Length" keyType="FullySpecifiedKey" slot="UKL.Min Fish Elevation" colIndex="-1"/>\
-  <Attribs format="f" unitType="Length" units="feet" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Min Fish Elevation" unitType="Length" colIndex="-1"/>\
+  <Attribs format="f" prec="3" units="feet" unitType="Length"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="UKL.Projected Inflow and Storage Totals" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Projected Inflow and Storage Totals" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="UKL.Recent Fill Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="ft/day" prec="5"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Recent Fill Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="5" units="ft/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="UKL.Season Adj Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Season Adj Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="UKL.Short Season Adj Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Short Season Adj Period" unitType="Time" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="UKL.Trajectory Adj Table" colIndex="-1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Trajectory Adj Table" unitType="Volume" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="UKLShortTermForecast.Forecast Period" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKLShortTermForecast.Forecast Period" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Upper Klamath Lake.Evaporation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Upper Klamath Lake.Evaporation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="Upper Klamath Lake.Precipitation Rate" colIndex="-1"/>\
-  <Attribs format="f" unitType="Velocity" units="in/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Upper Klamath Lake.Precipitation Rate" unitType="Velocity" colIndex="-1"/>\
+  <Attribs format="f" prec="2" units="in/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Williamson River Inflow.Proportion Factor" colIndex="-1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Williamson River Inflow.Proportion Factor" unitType="NONE" colIndex="-1"/>\
+  <Attribs format="f" prec="4" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Williamson River Inflow.WilliamsonPercentForecastError" colIndex="-1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="6"/>\
+  <Key keyType="FullySpecifiedKey" slot="Williamson River Inflow.WilliamsonPercentForecastError" unitType="Fraction" colIndex="-1"/>\
+  <Attribs format="f" prec="6" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="5"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="3"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="4"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="6"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="4"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="2"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="5"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="3"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="6"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="1"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="0"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="7"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" colIndex="7"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="11502500 Williamson River nr Chiloquin.InptFcst" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Boyle to Gage Routing.LagTime" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="hour" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Boyle to Gage Routing.LagTime" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="hour" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Boyle to Gage Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Boyle to Gage Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Constants.Accretion Forecast" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Accretion Forecast" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Constants.Days to Fill" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Days to Fill" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Constants.Days to Fill" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Days to Fill" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Constants.EWA" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.EWA" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Constants.Second Order Eq" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Constants.Second Order Eq" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Copco to Iron Gate Routing.LagTime" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="hour" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Copco to Iron Gate Routing.LagTime" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="hour" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Copco to Iron Gate Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Copco to Iron Gate Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Agency Lake Pumping Controller" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Agency Lake Pumping Controller" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Copco Withdrawl" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Copco Withdrawl" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard Controls.EWA Reserve Table" colIndex="1"/>\
-  <Attribs scale="1000" format="f" unitType="Volume" units="acre-feet" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.EWA Reserve Table" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" scale="1000" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Iron Gate Withdrawl" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Iron Gate Withdrawl" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.LKNWR Return" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.LKNWR Return" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Pac Payback 1" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Pac Payback 1" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Pac Payback 2" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Pac Payback 2" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Refuge Payback" colIndex="5"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Refuge Payback" unitType="Time" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Dashboard Controls.Regulation Controller" colIndex="4"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard Controls.Regulation Controller" unitType="Time" colIndex="4"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.EOS Target Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.EOS Target Table" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.EWA" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.EWA" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.Pct EWA Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.Pct EWA Table" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.Project Supply" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.Project Supply" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Dashboard.Supply Considerations" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Dashboard.Supply Considerations" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="F and FF Pump.Accretion Adj" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="F and FF Pump.Accretion Adj" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="F and FF Pump.Exceedance and Adj" colIndex="2"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="F and FF Pump.Exceedance and Adj" unitType="Time" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="IGD.Max Release Table" colIndex="4"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="IGD.Max Release Table" unitType="Volume" colIndex="4"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="IGD.Max Release Table" colIndex="3"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="IGD.Max Release Table" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="IGD.Max Release Table" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="IGD.Max Release Table" unitType="Volume" colIndex="3"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Iron Gate to Seiad Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Iron Gate to Seiad Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="0"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Flow" colIndex="4"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="4"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Flow" colIndex="6"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="6"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Flow" colIndex="2"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="8"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Flow" colIndex="8"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="2"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Flow" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Fraction" colIndex="7"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="7"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Fraction" colIndex="9"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="3"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Fraction" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="9"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" colIndex="5"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Accrete_adjust" unitType="Fraction" colIndex="3"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeAllocation" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-ft" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeAllocation" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="acre-ft" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="4"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Volume" colIndex="4"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="6"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Volume" colIndex="6"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="7"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Fraction" colIndex="7"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="5"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Fraction" colIndex="3"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="3"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Fraction" colIndex="5"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.AugNovRefugeProportions" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.DistType_Mar50" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.DistType_Mar50" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="0" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.EOS_target_level" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="acre-ft" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.EOS_target_level" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="acre-ft" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="KBPMOperationsData.EWA_supply_pct" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.EWA_supply_pct" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.EWA_supply_pct" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.EWA_supply_pct" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Fill_rate_adjust" colIndex="0"/>\
-  <Attribs format="f" unitType="Velocity" units="ft/day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Fill_rate_adjust" unitType="Velocity" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="ft/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="KBPMOperationsData.LinkDamIFROptions" colIndex="0"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.LinkDamIFROptions" unitType="NONE" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.Will_prop_FW" colIndex="2"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.Will_prop_FW" unitType="Fraction" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="2"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Flow" colIndex="8"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="8"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Flow" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="0"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Flow" colIndex="2"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="6"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Flow" colIndex="6"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Flow" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="4"/>\
-  <Attribs format="f" unitType="Flow" units="cfs" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Flow" colIndex="4"/>\
+  <Attribs format="f" prec="0" units="cfs" unitType="Flow"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Fraction" colIndex="9"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="5"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Fraction" colIndex="5"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="9"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="7"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Fraction" colIndex="3"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" colIndex="3"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="KBPMOperationsData.WilliamsonIFRAdjFactors" unitType="Fraction" colIndex="7"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno To Boyle Routing.Variable LagTime Table" colIndex="2"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno To Boyle Routing.Variable LagTime Table" unitType="Time" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno To Boyle Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno To Boyle Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno To Iron Gate IFR Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno To Iron Gate IFR Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno To Iron Gate Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno To Iron Gate Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno to Boyle Gain.Accretion Adj" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno to Boyle Gain.Accretion Adj" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno to IGD Gain.Accretion Adj" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno to IGD Gain.Accretion Adj" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Keno to IGD Gain.Exceedance and Adj" colIndex="2"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Keno to IGD Gain.Exceedance and Adj" unitType="Time" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Lake Ewuana Gain.Accretion Adj" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lake Ewuana Gain.Accretion Adj" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Lake Ewuana Gain.Exceedance and Adj" colIndex="2"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lake Ewuana Gain.Exceedance and Adj" unitType="Time" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Lost River Diversion Channel.Accretion Adj" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Diversion Channel.Accretion Adj" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Lost River Diversion Channel.Exceedance and Adj" colIndex="2"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Diversion Channel.Exceedance and Adj" unitType="Time" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.Number of SW GW Coeffs" colIndex="1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.Number of SW GW Coeffs" unitType="NONE" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.Number of SW GW Coeffs" colIndex="0"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.Number of SW GW Coeffs" unitType="NONE" colIndex="1"/>\
+  <Attribs format="f" prec="0" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.SW GW Lag Coeffs" colIndex="1"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="6"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.SW GW Lag Coeffs" unitType="NONE" colIndex="0"/>\
+  <Attribs format="f" prec="6" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="NONE" keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.SW GW Lag Coeffs" colIndex="0"/>\
-  <Attribs format="f" unitType="NONE" units="NONE" prec="6"/>\
+  <Key keyType="FullySpecifiedKey" slot="Lost River Irrigation Depletions.SW GW Lag Coeffs" unitType="NONE" colIndex="1"/>\
+  <Attribs format="f" prec="6" units="NONE" unitType="NONE"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="North Canal.Seasonal Supply and Adj" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="m3" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="North Canal.Seasonal Supply and Adj" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="2" units="m3" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Orleans to Klamath Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Orleans to Klamath Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.DemandDistribution" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.DemandDistribution" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.GroundWaterFractions" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.GroundWaterFractions" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.HeadgateInclLossRate" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.HeadgateInclLossRate" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" unitType="Volume" colIndex="3"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" colIndex="3"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" unitType="Volume" colIndex="4"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" colIndex="4"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" colIndex="5"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Historic Ranked Irrigation Supplies" unitType="Volume" colIndex="5"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.HistoricSupplyAreaDistribution" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.HistoricSupplyAreaDistribution" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.IncidentalLosses" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.IncidentalLosses" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.IrrigationData" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.IrrigationData" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.IrrigationData" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.IrrigationData" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" unitType="Volume" colIndex="4"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" unitType="Volume" colIndex="3"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" colIndex="5"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" colIndex="3"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" colIndex="4"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" unitType="Volume" colIndex="5"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.Ranked UKL Inflow Supplies" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ProjectData.SupplyTemporalDistriibutionType" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="ProjectData.SupplyTemporalDistriibutionType" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Volume" colIndex="6"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="6"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Volume" colIndex="4"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="4"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="3"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Fraction" colIndex="7"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="7"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="5"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Fraction" colIndex="5"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="Refuge.AugNov Refuge Proportions" unitType="Fraction" colIndex="3"/>\
+  <Attribs format="f" prec="4" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="RefugeData.DeliveryFactors" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="RefugeData.DeliveryFactors" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="RefugeData.DeliveryFactors" colIndex="1"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="RefugeData.DeliveryFactors" unitType="Fraction" colIndex="1"/>\
+  <Attribs format="f" prec="3" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ReservoirData.UpperKlamathLakeForecastCoefficients" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ReservoirData.UpperKlamathLakeForecastCoefficients" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="3" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="ReservoirData.UpperKlamathLakeForecastCoefficients" colIndex="3"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="ReservoirData.UpperKlamathLakeForecastCoefficients" unitType="Volume" colIndex="3"/>\
+  <Attribs format="f" prec="3" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="ReservoirData.UpperKlamathLakeForecastCoefficients" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="10"/>\
+  <Key keyType="FullySpecifiedKey" slot="ReservoirData.UpperKlamathLakeForecastCoefficients" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="10" units="decimal" unitType="Fraction"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="Seiad to Orleans Routing.Variable LagTime Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="0"/>\
+  <Key keyType="FullySpecifiedKey" slot="Seiad to Orleans Routing.Variable LagTime Table" unitType="Time" colIndex="0"/>\
+  <Attribs format="f" prec="0" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Velocity" keyType="FullySpecifiedKey" slot="UKL.Fill Rate Adj Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Velocity" units="ft/day" prec="4"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Fill Rate Adj Table" unitType="Velocity" colIndex="0"/>\
+  <Attribs format="f" prec="4" units="ft/day" unitType="Velocity"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="UKL.Formula and Curve Data" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Formula and Curve Data" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Time" keyType="FullySpecifiedKey" slot="UKL.Inflow Adj" colIndex="1"/>\
-  <Attribs format="f" unitType="Time" units="day" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Inflow Adj" unitType="Time" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="day" unitType="Time"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="UKL.Supply" colIndex="1"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Supply" unitType="Volume" colIndex="1"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="UKL.Trajectory Adjust Table" colIndex="0"/>\
-  <Attribs format="f" unitType="Volume" units="KAF" prec="2"/>\
+  <Key keyType="FullySpecifiedKey" slot="UKL.Trajectory Adjust Table" unitType="Volume" colIndex="0"/>\
+  <Attribs format="f" prec="2" units="KAF" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Upper Klamath Lake.UpperKlamathLakeForecastCoefficients" colIndex="2"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="Upper Klamath Lake.UpperKlamathLakeForecastCoefficients" unitType="Volume" colIndex="3"/>\
+  <Attribs format="f" prec="3" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Volume" keyType="FullySpecifiedKey" slot="Upper Klamath Lake.UpperKlamathLakeForecastCoefficients" colIndex="3"/>\
-  <Attribs format="f" unitType="Volume" units="acre-feet" prec="3"/>\
+  <Key keyType="FullySpecifiedKey" slot="Upper Klamath Lake.UpperKlamathLakeForecastCoefficients" unitType="Volume" colIndex="2"/>\
+  <Attribs format="f" prec="3" units="acre-feet" unitType="Volume"/>\
  </Rule>\
  <Rule>\
-  <Key unitType="Fraction" keyType="FullySpecifiedKey" slot="Upper Klamath Lake.UpperKlamathLakeForecastCoefficients" colIndex="0"/>\
-  <Attribs format="f" unitType="Fraction" units="decimal" prec="10"/>\
+  <Key keyType="FullySpecifiedKey" slot="Upper Klamath Lake.UpperKlamathLakeForecastCoefficients" unitType="Fraction" colIndex="0"/>\
+  <Attribs format="f" prec="10" units="decimal" unitType="Fraction"/>\
  </Rule>\
 </UnitScheme>\
 }
@@ -13806,7 +13806,7 @@ $ws SimObj $obj {DataObj} 4986 1730 {Cyan} 5871 6819 2718 6160
 "$o" objAttributes {<SimObjAttributes simObjName="Outputs"/> \
 }
 "$o" objOrd wsList 5068
-"$o" objSlotOrderType ListOrder_DEFAULT 0 Ascend
+"$o" objSlotOrderType ListOrder_COLSORT 0 Ascend
 "$o" {ScalarSlot} {May 31 Elevation}
 set s "$o.May 31 Elevation"
 "$s" order 1 
@@ -15884,7 +15884,7 @@ NOTES "";\
 BEGIN\
 \
 END\
-UUID "{b2210876-7bb7-47a8-b8ac-1a6b17a9e984}";\
+UUID "{df52e2cc-9a21-492f-952d-7864b7e5eea5}";\
 }
 $ws.mrm cfg {EnsembleMRM}
 set cfg "$ws.mrm.EnsembleMRM"
@@ -15989,7 +15989,7 @@ NOTES "";\
 BEGIN\
 \
 END\
-UUID "{13fa3bf3-a74d-4557-9d25-199cfa157022}";\
+UUID "{7f61cc61-7ac2-4b1f-9685-cbbe4b4c3c62}";\
 }
 $resm resmUtilityGroup {  UTILITY_GROUP "AggDisagg Averaging Functions";\
   DESCRIPTION   "";\
@@ -19949,7 +19949,7 @@ $ws.outputDeviceMgr addModelReport {Sample Project Documentation}
 $ws.modelReportDevice {Sample Project Documentation} {
 <Item>\
   <ItemType>Report</ItemType>\
-  <ID>930625207600</ID>\
+  <ID>953973966992</ID>\
   <Parent_ID>0</Parent_ID>\
   <Setting>\
     <Property><Name>Identifier</Name><Value>Report Name</Value></Property>\
@@ -20063,8 +20063,8 @@ $ws.modelReportDevice {Sample Project Documentation} {
   </Setting>\
   <Item>\
     <ItemType>TableOfContents</ItemType>\
-    <ID>930622575280</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953973212240</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>TableOfContents Title</Value></Property>\
       <Property><Name>Value</Name><Value>Contents</Value></Property>\
@@ -20074,13 +20074,13 @@ $ws.modelReportDevice {Sample Project Documentation} {
   </Item>\
   <Item>\
     <ItemType>RunControl</ItemType>\
-    <ID>930622572880</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953973213440</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930622573280</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953973215680</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>UKL</Value></Property>\
@@ -20105,8 +20105,8 @@ $ws.modelReportDevice {Sample Project Documentation} {
     </Setting>\
     <Item>\
       <ItemType>MethodTable</ItemType>\
-      <ID>930622572320</ID>\
-      <Parent_ID>930622573280</Parent_ID>\
+      <ID>953973214960</ID>\
+      <Parent_ID>953973215680</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>MethodTable ObjName</Value></Property>\
         <Property><Name>Value</Name><Value>UKL</Value></Property>\
@@ -20138,8 +20138,8 @@ $ws.modelReportDevice {Sample Project Documentation} {
     </Item>\
     <Item>\
       <ItemType>SlotTable</ItemType>\
-      <ID>930622572800</ID>\
-      <Parent_ID>930622573280</Parent_ID>\
+      <ID>953973215200</ID>\
+      <Parent_ID>953973215680</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
         <Property>\
@@ -20265,8 +20265,8 @@ RootSel_End \\
     </Item>\
     <Item>\
       <ItemType>Slot</ItemType>\
-      <ID>930622571600</ID>\
-      <Parent_ID>930622573280</Parent_ID>\
+      <ID>953973212640</ID>\
+      <Parent_ID>953973215680</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>Slot SlotName</Value></Property>\
         <Property><Name>Value</Name><Value>UKL.Elevation Volume Table</Value></Property>\
@@ -20361,8 +20361,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930622572080</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953973214240</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>Copco 1</Value></Property>\
@@ -20387,8 +20387,8 @@ RootSel_End \\
     </Setting>\
     <Item>\
       <ItemType>MethodTable</ItemType>\
-      <ID>930622580400</ID>\
-      <Parent_ID>930622572080</Parent_ID>\
+      <ID>953973221280</ID>\
+      <Parent_ID>953973214240</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>MethodTable ObjName</Value></Property>\
         <Property><Name>Value</Name><Value>Copco 1</Value></Property>\
@@ -20420,8 +20420,8 @@ RootSel_End \\
     </Item>\
     <Item>\
       <ItemType>SlotTable</ItemType>\
-      <ID>930622579680</ID>\
-      <Parent_ID>930622572080</Parent_ID>\
+      <ID>953973220560</ID>\
+      <Parent_ID>953973214240</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
         <Property>\
@@ -20547,8 +20547,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930622575440</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953970378128</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>IGD</Value></Property>\
@@ -20573,8 +20573,8 @@ RootSel_End \\
     </Setting>\
     <Item>\
       <ItemType>MethodTable</ItemType>\
-      <ID>930622578080</ID>\
-      <Parent_ID>930622575440</Parent_ID>\
+      <ID>953970376288</ID>\
+      <Parent_ID>953970378128</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>MethodTable ObjName</Value></Property>\
         <Property><Name>Value</Name><Value>IGD</Value></Property>\
@@ -20606,8 +20606,8 @@ RootSel_End \\
     </Item>\
     <Item>\
       <ItemType>SlotTable</ItemType>\
-      <ID>930622576800</ID>\
-      <Parent_ID>930622575440</Parent_ID>\
+      <ID>953970379808</ID>\
+      <Parent_ID>953970378128</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
         <Property>\
@@ -20733,8 +20733,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930622578160</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953970376448</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>JC Boyle</Value></Property>\
@@ -20759,8 +20759,8 @@ RootSel_End \\
     </Setting>\
     <Item>\
       <ItemType>MethodTable</ItemType>\
-      <ID>930622583840</ID>\
-      <Parent_ID>930622578160</Parent_ID>\
+      <ID>953970376928</ID>\
+      <Parent_ID>953970376448</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>MethodTable ObjName</Value></Property>\
         <Property><Name>Value</Name><Value>JC Boyle</Value></Property>\
@@ -20792,8 +20792,8 @@ RootSel_End \\
     </Item>\
     <Item>\
       <ItemType>SlotTable</ItemType>\
-      <ID>930622582720</ID>\
-      <Parent_ID>930622578160</Parent_ID>\
+      <ID>953970378208</ID>\
+      <Parent_ID>953970376448</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
         <Property>\
@@ -20919,8 +20919,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930622578960</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953970379088</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>Keno</Value></Property>\
@@ -20945,8 +20945,8 @@ RootSel_End \\
     </Setting>\
     <Item>\
       <ItemType>MethodTable</ItemType>\
-      <ID>930622586800</ID>\
-      <Parent_ID>930622578960</Parent_ID>\
+      <ID>953970383168</ID>\
+      <Parent_ID>953970379088</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>MethodTable ObjName</Value></Property>\
         <Property><Name>Value</Name><Value>Keno</Value></Property>\
@@ -20978,8 +20978,8 @@ RootSel_End \\
     </Item>\
     <Item>\
       <ItemType>SlotTable</ItemType>\
-      <ID>930622585040</ID>\
-      <Parent_ID>930622578960</Parent_ID>\
+      <ID>953970381728</ID>\
+      <Parent_ID>953970379088</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
         <Property>\
@@ -21105,8 +21105,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>RplGroup</ItemType>\
-    <ID>930622574160</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953970380288</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>RplGroup SetName</Value></Property>\
       <Property><Name>Value</Name><Value>Loaded Ruleset</Value></Property>\
@@ -21219,8 +21219,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>RplGroup</ItemType>\
-    <ID>930622582800</ID>\
-    <Parent_ID>930625207600</Parent_ID>\
+    <ID>953970386048</ID>\
+    <Parent_ID>953973966992</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>RplGroup SetName</Value></Property>\
       <Property><Name>Value</Name><Value>Initialization Rules Set</Value></Property>\
@@ -21339,7 +21339,7 @@ $ws.outputDeviceMgr addModelReport {Daily Numbers Update}
 $ws.modelReportDevice {Daily Numbers Update} {
 <Item>\
   <ItemType>Report</ItemType>\
-  <ID>930622677520</ID>\
+  <ID>953970387168</ID>\
   <Parent_ID>0</Parent_ID>\
   <Setting>\
     <Property><Name>Identifier</Name><Value>Report Name</Value></Property>\
@@ -21453,8 +21453,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
   </Setting>\
   <Item>\
     <ItemType>TableOfContents</ItemType>\
-    <ID>930605965056</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973162640</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>TableOfContents Title</Value></Property>\
       <Property><Name>Value</Name><Value>Contents</Value></Property>\
@@ -21464,8 +21464,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930605963616</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973160240</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>UKL</Value></Property>\
@@ -21490,8 +21490,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
     </Setting>\
     <Item>\
       <ItemType>PlotPage</ItemType>\
-      <ID>930605967136</ID>\
-      <Parent_ID>930605963616</Parent_ID>\
+      <ID>953973165040</ID>\
+      <Parent_ID>953973160240</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>PlotPage DeviceName</Value></Property>\
         <Property><Name>Value</Name><Value>UKL Threshold</Value></Property>\
@@ -21535,8 +21535,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
     </Item>\
     <Item>\
       <ItemType>Slot</ItemType>\
-      <ID>930605964176</ID>\
-      <Parent_ID>930605963616</Parent_ID>\
+      <ID>953973164000</ID>\
+      <Parent_ID>953973160240</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>Slot SlotName</Value></Property>\
         <Property><Name>Value</Name><Value>UKL.Inflow</Value></Property>\
@@ -21630,8 +21630,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
     </Item>\
     <Item>\
       <ItemType>Slot</ItemType>\
-      <ID>930605971136</ID>\
-      <Parent_ID>930605963616</Parent_ID>\
+      <ID>953973165120</ID>\
+      <Parent_ID>953973160240</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>Slot SlotName</Value></Property>\
         <Property><Name>Value</Name><Value>UKL.Outflow</Value></Property>\
@@ -21726,8 +21726,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
   </Item>\
   <Item>\
     <ItemType>SimObjSection</ItemType>\
-    <ID>930605967056</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973162880</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SimObjSection ObjName</Value></Property>\
       <Property><Name>Value</Name><Value>IGD</Value></Property>\
@@ -21752,8 +21752,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
     </Setting>\
     <Item>\
       <ItemType>Slot</ItemType>\
-      <ID>930605969856</ID>\
-      <Parent_ID>930605967056</Parent_ID>\
+      <ID>953973162400</ID>\
+      <Parent_ID>953973162880</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>Slot SlotName</Value></Property>\
         <Property><Name>Value</Name><Value>IGD.Inflow</Value></Property>\
@@ -21847,8 +21847,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
     </Item>\
     <Item>\
       <ItemType>Slot</ItemType>\
-      <ID>930605970336</ID>\
-      <Parent_ID>930605967056</Parent_ID>\
+      <ID>953973169680</ID>\
+      <Parent_ID>953973162880</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>Slot SlotName</Value></Property>\
         <Property><Name>Value</Name><Value>IGD.Outflow</Value></Property>\
@@ -21942,8 +21942,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
     </Item>\
     <Item>\
       <ItemType>Slot</ItemType>\
-      <ID>930605968496</ID>\
-      <Parent_ID>930605967056</Parent_ID>\
+      <ID>953973166400</ID>\
+      <Parent_ID>953973162880</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>Slot SlotName</Value></Property>\
         <Property><Name>Value</Name><Value>IGD.Pool Elevation</Value></Property>\
@@ -22038,8 +22038,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
   </Item>\
   <Item>\
     <ItemType>Chart</ItemType>\
-    <ID>930605975536</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973168240</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>Chart DeviceName</Value></Property>\
       <Property><Name>Value</Name><Value>UKL Project Supply Chart</Value></Property>\
@@ -22077,8 +22077,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
   </Item>\
   <Item>\
     <ItemType>ScalarValGrid</ItemType>\
-    <ID>930605977376</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973166640</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>ScalarValGrid Title</Value></Property>\
       <Property><Name>Value</Name><Value>EWA Spent, Observed &amp; Projected</Value></Property>\
@@ -22115,8 +22115,8 @@ $ws.modelReportDevice {Daily Numbers Update} {
   </Item>\
   <Item>\
     <ItemType>SlotTable</ItemType>\
-    <ID>930605977536</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973168800</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>SlotTable Selection</Value></Property>\
       <Property>\
@@ -22273,8 +22273,8 @@ RootSel_End \\
   </Item>\
   <Item>\
     <ItemType>TabSerSlotRep</ItemType>\
-    <ID>930605975296</ID>\
-    <Parent_ID>930622677520</Parent_ID>\
+    <ID>953973166960</ID>\
+    <Parent_ID>953970387168</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>Tabular Series Slot Report DeviceName</Value></Property>\
       <Property><Name>Value</Name><Value>USBR Weekly Hydrology Report</Value></Property>\
@@ -22389,7 +22389,7 @@ $ws.outputDeviceMgr addModelReport {Policy Set Documentation}
 $ws.modelReportDevice {Policy Set Documentation} {
 <Item>\
   <ItemType>Report</ItemType>\
-  <ID>930605959776</ID>\
+  <ID>953973154800</ID>\
   <Parent_ID>0</Parent_ID>\
   <Setting>\
     <Property><Name>Identifier</Name><Value>Report Name</Value></Property>\
@@ -22500,8 +22500,8 @@ $ws.modelReportDevice {Policy Set Documentation} {
   </Setting>\
   <Item>\
     <ItemType>Section</ItemType>\
-    <ID>930622672720</ID>\
-    <Parent_ID>930605959776</Parent_ID>\
+    <ID>953970436768</ID>\
+    <Parent_ID>953973154800</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>Section Title</Value></Property>\
       <Property><Name>Value</Name><Value>Appendix A - Initialization Rules</Value></Property>\
@@ -22510,8 +22510,8 @@ $ws.modelReportDevice {Policy Set Documentation} {
     </Setting>\
     <Item>\
       <ItemType>RplSet</ItemType>\
-      <ID>930622670320</ID>\
-      <Parent_ID>930622672720</Parent_ID>\
+      <ID>953970432848</ID>\
+      <Parent_ID>953970436768</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>RplSet SetName</Value></Property>\
         <Property><Name>Value</Name><Value>Initialization Rules Set</Value></Property>\
@@ -22651,8 +22651,8 @@ $ws.modelReportDevice {Policy Set Documentation} {
   </Item>\
   <Item>\
     <ItemType>Section</ItemType>\
-    <ID>930625208400</ID>\
-    <Parent_ID>930605959776</Parent_ID>\
+    <ID>953970434368</ID>\
+    <Parent_ID>953973154800</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>Section Title</Value></Property>\
       <Property><Name>Value</Name><Value>Appendix B - RBS Rules</Value></Property>\
@@ -22661,8 +22661,8 @@ $ws.modelReportDevice {Policy Set Documentation} {
     </Setting>\
     <Item>\
       <ItemType>RplSet</ItemType>\
-      <ID>930625204160</ID>\
-      <Parent_ID>930625208400</Parent_ID>\
+      <ID>953970434128</ID>\
+      <Parent_ID>953970434368</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>RplSet SetName</Value></Property>\
         <Property><Name>Value</Name><Value>Klamath Operations RBS ruleset</Value></Property>\
@@ -22802,8 +22802,8 @@ $ws.modelReportDevice {Policy Set Documentation} {
   </Item>\
   <Item>\
     <ItemType>Section</ItemType>\
-    <ID>930625205440</ID>\
-    <Parent_ID>930605959776</Parent_ID>\
+    <ID>953970434048</ID>\
+    <Parent_ID>953973154800</Parent_ID>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>Section Title</Value></Property>\
       <Property><Name>Value</Name><Value>Appendix C - Global Functions</Value></Property>\
@@ -22812,8 +22812,8 @@ $ws.modelReportDevice {Policy Set Documentation} {
     </Setting>\
     <Item>\
       <ItemType>RplSet</ItemType>\
-      <ID>930625207280</ID>\
-      <Parent_ID>930625205440</Parent_ID>\
+      <ID>953970441808</ID>\
+      <Parent_ID>953970434048</Parent_ID>\
       <Setting>\
         <Property><Name>Identifier</Name><Value>RplSet SetName</Value></Property>\
         <Property><Name>Value</Name><Value>Global Klamath Operation Functions</Value></Property>\
@@ -42060,7 +42060,7 @@ set dataset "$mgr.Simulation Outputs"
 "$dataset" slotGroups 0
 "$dataset" readTableBx EXPCON
 "$dataset" implToUse libxl
-"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Testing/KROM Outputs.xlsx}
+"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/Testing/KROM Outputs.xlsx}
 "$dataset" mappingType {HEADERS}
 "$dataset" configType {SERIES}
 "$dataset" sameSheet 1 {}
@@ -42711,7 +42711,7 @@ set dataset "$mgr.Basin Inputs"
 "$dataset" slotGroups 0
 "$dataset" readTableBx EXPCON
 "$dataset" implToUse libxl
-"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Database/MasterSheet2019PA.xlsx}
+"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/Database/MasterSheet2019PA.xlsx}
 "$dataset" mappingType {HEADERS}
 "$dataset" configType {SERIES}
 "$dataset" sameSheet 1 {}
@@ -42753,7 +42753,7 @@ set dataset "$mgr.Hydrologic Outputs"
 "$dataset" slotGroups 0
 "$dataset" readTableBx EXPCON
 "$dataset" implToUse libxl
-"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Testing/KROM Outputs.xlsx}
+"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/Testing/KROM Outputs.xlsx}
 "$dataset" mappingType {HEADERS}
 "$dataset" configType {SERIES}
 "$dataset" sameSheet 1 {}
@@ -42774,7 +42774,7 @@ set dataset "$mgr.Demand Outputs"
 "$dataset" slotGroups 0
 "$dataset" readTableBx EXPCON
 "$dataset" implToUse libxl
-"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/Testing/KROM Outputs.xlsx}
+"$dataset" workbook {K:/Models/Mitch/KlamathOpsModel/Testing/KROM Outputs.xlsx}
 "$dataset" mappingType {HEADERS}
 "$dataset" configType {SERIES}
 "$dataset" sameSheet 1 {}
@@ -46294,10 +46294,7 @@ RootSel_End \\
     </Setting>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>OpenGlobalFunctionsSetSetName</Value></Property>\
-      <Property>\
-        <Name>Value</Name>\
-        <Value>$KLAMATH_OPS/KROM 2019 PA/Function Sets/Klamath 2019PA Func.gfs</Value>\
-      </Property>\
+      <Property><Name>Value</Name><Value>$KLAMATH_OPS/Function Sets/Klamath 2019PA Func.gfs</Value></Property>\
       <Property><Name>Type</Name><Value>FileName</Value></Property>\
       <Property><Name>DefaultValue</Name><Value></Value></Property>\
     </Setting>\
@@ -46344,7 +46341,7 @@ RootSel_End \\
     </Setting>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>LoadRulesetSetName</Value></Property>\
-      <Property><Name>Value</Name><Value>$KLAMATH_OPS/KROM 2019 PA/Rulesets/Klamath 2019PA.rls</Value></Property>\
+      <Property><Name>Value</Name><Value>$KLAMATH_OPS/Rulesets/Klamath 2019PA.rls</Value></Property>\
       <Property><Name>Type</Name><Value>FileName</Value></Property>\
       <Property><Name>DefaultValue</Name><Value></Value></Property>\
     </Setting>\
@@ -46391,7 +46388,7 @@ RootSel_End \\
     </Setting>\
     <Setting>\
       <Property><Name>Identifier</Name><Value>OpenSCTFileName</Value></Property>\
-      <Property><Name>Value</Name><Value>$KLAMATH_OPS/KROM 2019 PA/SCT's/KlamathOps2019PA.sct</Value></Property>\
+      <Property><Name>Value</Name><Value>$KLAMATH_OPS/SCTs/KlamathOps2019PA.sct</Value></Property>\
       <Property><Name>Type</Name><Value>FileName</Value></Property>\
       <Property><Name>DefaultValue</Name><Value></Value></Property>\
     </Setting>\
