@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.0.5
-# Created 23:23 July 7, 2020
+# Created 14:17 July 21, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -60,6 +60,21 @@ BEGIN
 
     END
     UUID "{48d0ce8d-7826-49ec-9f4d-94b5ef378580}";;
+
+    FUNCTION       "Compliance Date" ( NUMERIC Date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "Op WaterYear"(  ), "CompletePartialDate"( "NumberToDate"( Date ), @"t" ) );
+
+    END
+    UUID "{c1802daf-f70d-4c2f-895c-17efc7035002}";;
 
     FUNCTION       "DecemberThruFebruary" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
@@ -326,6 +341,21 @@ BEGIN
     END
     UUID "{f1a9294e-16b5-466a-b55c-1c201b9a5ac8}";;
 
+    FUNCTION       "Op WaterYear" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToYear"( "GetYear"( @"Start Timestep" ) + 1.00000000 );
+
+    END
+    UUID "{aca5aa3b-cd74-475a-9942-adf16cea8fcb}";;
+
     FUNCTION       "Operations Period" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
@@ -420,6 +450,21 @@ BEGIN
 
     END
     UUID "{95731385-da2a-4fbe-8fda-a9ba215a5e7b}";;
+
+    FUNCTION       "WY End Date" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( "Op WaterYear"(  ), "CompletePartialDate"( "NumberToDate"( $ "Dashboard.Last Day of Summer" [] ), @"t" ) );
+
+    END
+    UUID "{66f5889e-263a-44fa-9389-144f807a70cd}";;
 
   END
   UUID "{b65779eb-7b5c-4346-9536-8923e8a9ad6e}";;
@@ -768,14 +813,14 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( date < "OpStartOffset"( object & "Accretion Adj" ["Short", "Adj Days"] ) )
+      IF ( date < "OpStartOffset"( object & "Exceedance and Adj" ["Short", "Adj Days"] ) )
  THEN
-  object & "Accretion Adj" ["Short", "Adj Factor"]
+  object & "Exceedance and Adj" ["Short", "Adj Factor"]
  ELSE
   1.00000000
  ENDIF
- ELSEIF_COND ( date < "OpStartOffset"( object & "Accretion Adj" ["Long", "Adj Days"] ) )
- ELSEIF_CLAUSE ( object & "Accretion Adj" ["Long", "Adj Factor"] )
+ ELSEIF_COND ( date < "OpStartOffset"( object & "Exceedance and Adj" ["Long", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( object & "Exceedance and Adj" ["Long", "Adj Factor"] )
  END_ELSEIF COMMENTED_BY "Select the adjustment factor based on how far the timestep is past the operation start date. <br>There are two options, the short and the long variant. Otherwise, set the value to one. <br>";
 
     END
@@ -791,14 +836,14 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( date < "OpStartOffset"( object & "Accretion Adj" ["Short", "Adj Days"] ) )
+      IF ( date < "OpStartOffset"( object & "Exceedance and Adj" ["Short", "Adj Days"] ) )
  THEN
-  object & "Exceedance Percent" ["Short", "Exceed %"] * 100.00000000
+  object & "Exceedance and Adj" ["Short", "Exceed %"] * 100.00000000
  ELSE
-  object & "Exceedance Percent" ["Default", "Exceed %"] * 100.00000000
+  object & "Exceedance and Adj" ["Default", "Exceed %"] * 100.00000000
  ENDIF
- ELSEIF_COND ( date < "OpStartOffset"( object & "Accretion Adj" ["Long", "Adj Days"] ) )
- ELSEIF_CLAUSE ( object & "Exceedance Percent" ["Long", "Exceed %"] * 100.00000000 )
+ ELSEIF_COND ( date < "OpStartOffset"( object & "Exceedance and Adj" ["Long", "Adj Days"] ) )
+ ELSEIF_CLAUSE ( object & "Exceedance and Adj" ["Long", "Exceed %"] * 100.00000000 )
  END_ELSEIF COMMENTED_BY "Select the exceedance percent based on how far the timestep is past the operation start date. <br>There are three options, the short, long, or default variant. <br>";
 
     END
