@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<head>
+<title>USBR Daily Numbers Update</title>
+<style  type="text/css"><!--
+  body {font-family: sans-serif;}
+  h1 { font: bold 130% sans-serif; }
+  h2 { font: 130% sans-serif; }
+  h3 { font: 120% sans-serif; }
+  h4 { font: 110% sans-serif; }
+  h5 { font: italic 100% sans-serif; }
+  h6 { font: italic 100% sans-serif; }
+  .ItemLabel { font: bold 100% sans-serif; }
+  p {margin-left: 1em}
+  .DisplayControl {margin-right: 5px;}
+  .ItemLabel {margin-left: 1em; font-weight: bold;}
+  .ForLayout {border-style: none; border-width: 0px; padding: 0px;}
+  table {border: 2px ridge black;}
+  table {border-collapse: collapse;}
+  td, th {padding: 3px; border: 2px ridge gray;}
+  body {min-width:4in;}
+  ul {margin-left: 0px; padding-left: 20px;}
+@media print
+{
+  body {font-family: serif;}
+  h1 { font: bold 130% serif; }
+  h2 { font: 130% serif; }
+  h3 { font: 120% serif; }
+  h4 { font: 110% serif; }
+  h5 { font: italic 100% serif; }
+  h6 { font: italic 100% serif; }
+  .ItemLabel { font: bold 100% serif; }
+  .DisplayControl {display: none;}
+  .ForLayout {border-style: none; border-width: 0px; padding: 0px;}
+}
+--></style>
+<style type="text/css">
+<!--
+.rwTitle { font-size: 140%; font-family: Verdana, Arial, Helvetica, sans-serif; }
+.rwSubTit { font-family: Verdana, Arial, Helvetica, sans-serif; }
+.rwColHdr { font-weight: bold; }
+.rwRowHdr { text-align: right; font-size: smaller; font-family: "Courier New", Courier, mono; }
+.rwTabCel { font-size: smaller; font-family: "Courier New", Courier, mono; }
+.rwFNotes { color: #0000CC; font-size: smaller; font-family: "Courier New", Courier, mono; }
+-->
+</style>
+<script type="text/javascript" language="JavaScript"><!--
+  function toggleDisplay(bodyDivId, controlId)
+  {
+    if (document.getElementById(bodyDivId).style.display == "none")
+    {
+       document.getElementById(bodyDivId).style.display = "block";
+       document.getElementById(controlId).src = "data:image/png;base64, \
+iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAA7EAAAO \
+xAGVKw4bAAABFElEQVQoFZVTPQ+CMBB9EEeIOEgcdNGwGQd2nTD+D/2VRuOgC4lJ \
+dSe66GBwkEQmHTSvscbiB3gD17t7j3e9tsblerntd3uMJ2OckzPyrN6oo9lqwvd9 \
+lOaLOeJDjEF/ABbyjEJhGEqYGUURgiAoRCSDAsSv1iuYbNWpOHmCWp148kwt+2dQ \
+yuI5A7EU2TRsx8ZoONLyb8qddkcCX1GfiKxr5OSUyP1z8iRwOPSMWVOm1rJtFbDI \
+tWVZ8DwPPAl6xqpGrwasKUvE48P2y3YZ9FlTYl/JJPA8s5am6TMl235NPCs/Fgpv \
+ciD/mNo/ecZ0Nr3xbvOyu1U39z/xMcZ2s4Vbc2HwVQkh5F0t8qqoyBPodXu4A4H6 \
+a9oH/M+iAAAAAElFTkSuQmCC";
+    }
+    else
+    {
+       document.getElementById(bodyDivId).style.display = "none";
+       document.getElementById(controlId).src = "data:image/png;base64, \
+iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAA7EAAAO \
+xAGVKw4bAAABHElEQVQoFYWTsWvCQBTGvwQnrdSskkIxiFNA4h+he/6wgoNdC441 \
+u4IgBYdMWTLXpU52iKXVwQ6W7+COl5KLD468d+/73Xtc7jmX38t1/7HHcrXE+fuM \
+W9b1u+gFPURRhEaWZdi97zAZT+A/+IYtigKe56lY+iyUpqnad2bPs2scx0Zo6BqH \
+hyVJApet6go1+lKKenJuaVcEm/VGRNWuFc7zHNOnKdiizaywBuYvc9i6KMGySrPd \
+hF7sYvG60OeZb4OehKTfue/g+HVEGIYYjoYlHTkF07EZ/3/rrlWZtsLBY4D+oF8J \
+nX5Oal/BOpBKCf7P605cXsot02Kt42HkXD5wDkWdycqHz4N62+QcThWHY/u2reNN \
+jhUJcv0B5ERyI6SZ2wcAAAAASUVORK5CYII=";
+     }
+  }
+ 
+  function displayDiv(bodyDivId)
+  {
+      document.getElementById(bodyDivId).style.display = "block";
+      var parent = document.getElementById(bodyDivId).parentNode
+          if (parent)
+          {
+              displayDiv(parent.id);
+          }
+  }
+//--></script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>USBR Daily Numbers Update</h1>
+<div id="RiverWare_Report_Item_0.1_Content" style="display:block;">
+<table cellpadding="3" cellspacing="0" border="1">
+<tr>
+ <td bgcolor="#00AA7F" class="rwColHdr"><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">UKL<br/>Pool<br/>Elevation<br/>feet<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">UKL<br/>Storage<br/>acre-feet<br/><br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">UKL<br/>Outflow<br/>cfs<br/><br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Keno<br/>Power<br/>Canal<br/>Flow<br/>cfs<br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">A<br/>Canal<br/>Diversion<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Keno<br/>Outflow<br/>cfs<br/><br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Iron<br/>Gate<br/>Outflow<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Wilson<br/>Dam<br/>Outflow<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Station<br/>48<br/>Diversion<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Miller<br/>Hill<br/>Pump<br/>Diversion<br/>cfs<br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">LRDC<br/>Flow<br/>cfs<br/><br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Klamath<br/>to<br/>Lost<br/>Flow<br/>cfs<br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Lost<br/>to<br/>Klamath<br/>Flow<br/>cfs<br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">F<br/>/FF<br/>Pump<br/>Accretion<br/>cfs<br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">North<br/>Canal<br/>Diversion<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Ady<br/>Canal<br/>Diversion<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Ady<br/>to<br/>Refuge<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">North<br/>+Ady<br/>Total<br/>cfs<br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Net<br/>Area2<br/>to<br/>Klamath<br/>cfs<br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">PacifiCorp<br/>Accretion<br/>cfs<br/><br/><br/><br/><br/></td>
+ <td align="right" bgcolor="#00AA7F" class="rwColHdr">Project<br/>Net<br/>Change<br/>in<br/>Flow<br/>to<br/>Klamath<br/>cfs</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-15-2020</td>
+ <td align="right" class="rwTabCel">4,140.34</td>
+ <td align="right" class="rwTabCel">301,887.72</td>
+ <td align="right" class="rwTabCel">901.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">305.51</td>
+ <td align="right" class="rwTabCel">601.00</td>
+ <td align="right" class="rwTabCel">895.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">100.00</td>
+ <td align="right" class="rwTabCel">65.00</td>
+ <td align="right" class="rwTabCel">8.42</td>
+ <td align="right" class="rwTabCel">156.58</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">53.50</td>
+ <td align="right" class="rwTabCel">76.40</td>
+ <td align="right" class="rwTabCel">5.27</td>
+ <td align="right" class="rwTabCel">129.90</td>
+ <td align="right" class="rwTabCel">-129.90</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-278.82</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-16-2020</td>
+ <td align="right" class="rwTabCel">4,140.31</td>
+ <td align="right" class="rwTabCel">299,538.72</td>
+ <td align="right" class="rwTabCel">946.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">307.66</td>
+ <td align="right" class="rwTabCel">645.00</td>
+ <td align="right" class="rwTabCel">900.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">100.00</td>
+ <td align="right" class="rwTabCel">65.00</td>
+ <td align="right" class="rwTabCel">8.47</td>
+ <td align="right" class="rwTabCel">156.53</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">54.90</td>
+ <td align="right" class="rwTabCel">135.00</td>
+ <td align="right" class="rwTabCel">19.90</td>
+ <td align="right" class="rwTabCel">189.90</td>
+ <td align="right" class="rwTabCel">-189.90</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-338.77</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-17-2020</td>
+ <td align="right" class="rwTabCel">4,140.27</td>
+ <td align="right" class="rwTabCel">296,406.73</td>
+ <td align="right" class="rwTabCel">1,090.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">307.24</td>
+ <td align="right" class="rwTabCel">660.00</td>
+ <td align="right" class="rwTabCel">902.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">107.00</td>
+ <td align="right" class="rwTabCel">63.00</td>
+ <td align="right" class="rwTabCel">8.13</td>
+ <td align="right" class="rwTabCel">161.87</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">9.21</td>
+ <td align="right" class="rwTabCel">50.40</td>
+ <td align="right" class="rwTabCel">159.00</td>
+ <td align="right" class="rwTabCel">26.20</td>
+ <td align="right" class="rwTabCel">209.40</td>
+ <td align="right" class="rwTabCel">-200.19</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-354.40</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-18-2020</td>
+ <td align="right" class="rwTabCel">4,140.24</td>
+ <td align="right" class="rwTabCel">294,071.96</td>
+ <td align="right" class="rwTabCel">1,120.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">310.19</td>
+ <td align="right" class="rwTabCel">661.00</td>
+ <td align="right" class="rwTabCel">898.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">125.00</td>
+ <td align="right" class="rwTabCel">62.00</td>
+ <td align="right" class="rwTabCel">7.23</td>
+ <td align="right" class="rwTabCel">179.77</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">41.90</td>
+ <td align="right" class="rwTabCel">152.00</td>
+ <td align="right" class="rwTabCel">28.70</td>
+ <td align="right" class="rwTabCel">193.90</td>
+ <td align="right" class="rwTabCel">-193.90</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-366.01</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-19-2020</td>
+ <td align="right" class="rwTabCel">4,140.22</td>
+ <td align="right" class="rwTabCel">292,520.18</td>
+ <td align="right" class="rwTabCel">967.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">309.63</td>
+ <td align="right" class="rwTabCel">661.00</td>
+ <td align="right" class="rwTabCel">898.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">125.00</td>
+ <td align="right" class="rwTabCel">54.00</td>
+ <td align="right" class="rwTabCel">5.02</td>
+ <td align="right" class="rwTabCel">173.98</td>
+ <td align="right" class="rwTabCel">-0.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">39.10</td>
+ <td align="right" class="rwTabCel">146.00</td>
+ <td align="right" class="rwTabCel">28.30</td>
+ <td align="right" class="rwTabCel">185.10</td>
+ <td align="right" class="rwTabCel">-185.10</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-351.42</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-20-2020</td>
+ <td align="right" class="rwTabCel">4,140.19</td>
+ <td align="right" class="rwTabCel">290,192.52</td>
+ <td align="right" class="rwTabCel">940.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">304.58</td>
+ <td align="right" class="rwTabCel">658.00</td>
+ <td align="right" class="rwTabCel">897.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">113.00</td>
+ <td align="right" class="rwTabCel">50.00</td>
+ <td align="right" class="rwTabCel">5.24</td>
+ <td align="right" class="rwTabCel">157.76</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">18.60</td>
+ <td align="right" class="rwTabCel">128.00</td>
+ <td align="right" class="rwTabCel">29.80</td>
+ <td align="right" class="rwTabCel">146.60</td>
+ <td align="right" class="rwTabCel">-146.60</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-296.70</td>
+</tr>
+
+<tr>
+ <td bgcolor="#F4F4F4" class="rwRowHdr">07-21-2020</td>
+ <td align="right" class="rwTabCel">4,140.16</td>
+ <td align="right" class="rwTabCel">287,864.86</td>
+ <td align="right" class="rwTabCel">960.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">302.05</td>
+ <td align="right" class="rwTabCel">657.00</td>
+ <td align="right" class="rwTabCel">898.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">118.00</td>
+ <td align="right" class="rwTabCel">54.00</td>
+ <td align="right" class="rwTabCel">3.78</td>
+ <td align="right" class="rwTabCel">168.22</td>
+ <td align="right" class="rwTabCel">-0.00</td>
+ <td align="right" class="rwTabCel">0.00</td>
+ <td align="right" class="rwTabCel">10.70</td>
+ <td align="right" class="rwTabCel">111.00</td>
+ <td align="right" class="rwTabCel">32.20</td>
+ <td align="right" class="rwTabCel">121.70</td>
+ <td align="right" class="rwTabCel">-121.70</td>
+ <td align="right" class="rwTabCel">260.00</td>
+ <td align="right" class="rwTabCel">-289.92</td>
+</tr>
+
+</table>
+</div>

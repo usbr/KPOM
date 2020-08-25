@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 8.0.5
-# Created 14:52 July 21, 2020
+# RiverWare_Ruleset 8.1.1
+# Created 11:17 August 25, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Ruleset";
@@ -73,8 +73,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
-    BREAKPOINT AFTER_EXEC TRUE;
       WITH_STATEMENT (NUMERIC FloorRelease = IF ( IsNaN $ "Dashboard.Flex Release" [] )
  THEN
   "MaxItem"( { $ "IGD.Min Release Table" [@"t", "Min_1"] + $ "Dashboard.May June Augment" [] , $ "IGD.Target Release" [] + $ "Dashboard.May June Augment" [] , "IGD Ramping Release"( @"t" ) } )
@@ -82,7 +80,7 @@ BEGIN
   $ "Dashboard.Flex Release" []
  ENDIF COMMENTED_BY "Select the floor release. The Flex Release is an override and will be chosen if set.   <br>") DO
           DESCRIPTION          "To allow the rule to set the Iron Gate Scheduled Release, the Outflow cannot be set in the <br>observed period since it is already input.  <br>";
-      IF_STATEMENT ($ "IGD.Outflow" [] < FloorRelease AND "Operations Period"( @"t" )) THEN
+      IF_STATEMENT ($ "IGD.Outflow" [] < FloorRelease OR "IsInput"( $ "Dashboard.Flex Release", @"t" ) AND "Operations Period"( @"t" )) THEN
             $ "IGD.Outflow" [] := FloorRelease;
 
       END_IF_STATEMENT;
@@ -247,10 +245,8 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
-    BREAKPOINT AFTER_EXEC TRUE;
       IF_STATEMENT ("UKL Release to River"( @"t" ) > 0.00000000 "cfs") THEN
-            $ "UKL.Outflow" [] := "UKL Release to River"( @"t" ) + "Ag Release from UKL"( @"t" ) + $ "Ady to Refuge.Diversion Request" [];
+            $ "UKL.Outflow" [] := "Min"( "UKL Release to River"( @"t" ) + "Ag Release from UKL"( @"t" ) + $ "Ady to Refuge.Diversion Request" [], "GetMaxOutflowGivenStorage"( % "UKL", $ "UKL.Storage" [@"t - 1"], @"t" ) );
 
       END_IF_STATEMENT;
 
@@ -307,7 +303,7 @@ BEGIN
     BEGIN
 
       IF_STATEMENT ("Spring Release Switch"( @"t" )) THEN
-            WITH_STATEMENT (NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( @"t" ), @"t", FALSE, 1.00000000 )) DO
+            WITH_STATEMENT (NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( @"t" + 1.00000000 "hr" ), @"t", FALSE, 1.00000000 )) DO
             $ "UKL.Spring Release" [] := "Max"( 0.00000000 "cfs", ( "VolumeToFlow"( EWA - $ "Constants.Spring Release" [] - $ "Dashboard.Boat Dance Supply" [], @"t" ) - $ "UKL.Release Difference" [] ) * "Percent of March 50 Volume"( @"t" ) );
 
       END_WITH_STATEMENT;
@@ -327,8 +323,6 @@ BEGIN
     NOTES                "";
     BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
-    BREAKPOINT AFTER_EXEC TRUE;
       IF_STATEMENT ("Fill Release Switch"( @"t" )) THEN
             $ "UKL.Fill Release" [] := "Max"( 0.00000000 "cfs", $ "UKL.Smoothed Inflow" [] - "Needed Fill Rate"( @"t" ) * $ "Constants.Fill Release" [] );
 
@@ -368,7 +362,7 @@ BEGIN
     BEGIN
 
       IF_STATEMENT ("MarchThruSeptember"( @"t" )) THEN
-            WITH_STATEMENT (NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( @"t" ), @"t", FALSE, 1.00000000 )) DO
+            WITH_STATEMENT (NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( "DateMax"( "Operation Start Timestep"(  ) + 1.00000000 "hr", "Start of Spring"( @"t" ) ) ), @"t", FALSE, 1.00000000 )) DO
             WITH_STATEMENT (NUMERIC Augment = IF ( "JulyThruSeptember"( @"t" ) )
  THEN
   "TableLookup"( $ "Dashboard.Supply Considerations", 0.00000000, 2.00000000, "DateToNumber"( @"t" ), @"t", FALSE, 1.00000000 )
