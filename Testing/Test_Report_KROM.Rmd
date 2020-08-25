@@ -18,7 +18,7 @@ options(warn=-1)
 ```
 
 ## Modeling Klamath Operations
-#### Model Start Date: 2/01/2020
+#### Model Start Date:7/22/2020
 
 This document is meant to demonstrate and visualize the difference between the Klamath Operations RiverWare Model and PA Calculator. Certain key variables present within both tools were chosen for comparison due to the amount of other variable calculations dependent upon them. Thus, these variables have the greatest probability of being the source of error within the RiverWare Model. Shown below are plots of the variable difference between the two tools as well as an indicator of when the maximum deviation occurs.
 
@@ -36,28 +36,28 @@ library(ggplot2)
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 #Load in the data from the excel sheet
 #KROM Outputs
-Model_Sim = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/KROM 2019 PA/Testing/KROM Outputs.xlsx", sep = ""), 
+Model_Sim = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/Testing/KROM Outputs.xlsx", sep = ""), 
                   sheet=3, colNames=TRUE, cols=2:10, na.strings = "NaN")
-Model_Dem = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/KROM 2019 PA/Testing/KROM Outputs.xlsx", sep = ""), 
+Model_Dem = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/Testing/KROM Outputs.xlsx", sep = ""), 
                   sheet=1, colNames=TRUE, cols=2:9, na.strings = "NaN")
-Model_Hyd = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/KROM 2019 PA/Testing/KROM Outputs.xlsx", sep = ""), 
+Model_Hyd = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/Testing/KROM Outputs.xlsx", sep = ""), 
                   sheet=2, colNames=TRUE, cols=2:6, na.strings = "NaN")
 
 #PA Calculator Outputs
-PA_Sim = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/KROM 2019 PA/Testing/PA_Calculator_Rev27 Mitch Version.xlsx",
-                                sep = ""), sheet=2, colNames=TRUE, cols=2:10)
-PA_Dem = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/KROM 2019 PA/Testing/PA_Calculator_Rev27 Mitch Version.xlsx",
-                                sep = ""), sheet=3, colNames=TRUE, cols=2:9)
-PA_Hyd = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/KROM 2019 PA/Testing/PA_Calculator_Rev27 Mitch Version.xlsx",
-                                sep = ""), sheet=4, colNames=TRUE, cols=2:6)
+PA_Sim = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/Testing/PA_Calc_Outputs.xlsx",
+                                sep = ""), sheet=1, colNames=TRUE, cols=2:10)
+PA_Dem = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/Testing/PA_Calc_Outputs.xlsx",
+                                sep = ""), sheet=2, colNames=TRUE, cols=2:9)
+PA_Hyd = read.xlsx(paste(Sys.getenv("KLAMATH_OPS"),"/Testing/PA_Calc_Outputs.xlsx",
+                                sep = ""), sheet=3, colNames=TRUE, cols=2:6)
 ```
 
 #Create Variables for Data Processing and Visualization 
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 #List general characteristics of the data
-NumData = length(Model_Sim[,1])
-Dates = seq(as.Date("2019-10-1"), as.Date("2021-02-28"), by="days")
-StartDate = as.Date("2020-02-01")
+NumData = length(Model_Sim[,1])-1
+Dates = seq(as.Date("2019-10-1"), as.Date("2021-02-27"), by="days")
+StartDate = as.Date("2020-07-22")
 
 #Vector of plot names
 Sim_Names = c("EWA Remain", "EWA Used thru Yesterday", "UKL Outflow", "UKL Release Difference",

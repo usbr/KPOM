@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 8.0.5
-# Created 14:53 July 21, 2020
+# RiverWare_Ruleset 8.1.1
+# Created 11:13 August 25, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -71,7 +71,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "CompletePartialDate"( "Op WaterYear"(  ), "CompletePartialDate"( "NumberToDate"( Date ), @"t" ) );
+      "CompletePartialDate"( "Op WaterYear"(  ), "CompletePartialDate"( "NumberToDate"( Date ), @"Finish Timestep" ) );
 
     END
     UUID "{c1802daf-f70d-4c2f-895c-17efc7035002}";;
@@ -311,6 +311,21 @@ BEGIN
     END
     UUID "{51e5fa19-677d-47cf-ace2-823185cd2ab4}";;
 
+    FUNCTION       "November" ( DATETIME date )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetMonthAsString"( date ) == "November";
+
+    END
+    UUID "{9a67332f-82f8-4b26-a687-63b5a661cd39}";;
+
     FUNCTION       "Monthly Reference" ( DATETIME date )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
@@ -416,6 +431,21 @@ BEGIN
     END
     UUID "{ce261339-1414-481d-b96d-2c1893421e6c}";;
 
+    FUNCTION       "Start of Spring" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "CompletePartialDate"( @"March 1", date );
+
+    END
+    UUID "{7f890bcf-4b10-4f26-9fa3-fc8804b1c8c4}";;
+
     FUNCTION       "UKL to IGD Lag" ( DATETIME date )
     RETURN_TYPE    DATETIME;
     SCALE_UNITS    "";
@@ -430,6 +460,26 @@ BEGIN
 
     END
     UUID "{062f4542-9c6e-41d5-a7b4-a953bf5d5ae8}";;
+
+    FUNCTION       "WaterYear" ( DATETIME date )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "OctoberThruDecember"( date ) )
+ THEN
+  "NumberToYear"( "GetYear"( date ) + 1.00000000 )
+ ELSE
+  "NumberToYear"( "GetYear"( date ) )
+ ENDIF;
+
+    END
+    UUID "{710f68dd-3c4f-4f65-a004-d4dadfd6e224}";;
 
     FUNCTION       "WaterYear Day" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
@@ -450,6 +500,21 @@ BEGIN
 
     END
     UUID "{95731385-da2a-4fbe-8fda-a9ba215a5e7b}";;
+
+    FUNCTION       "Week Before Obs End" (  )
+    RETURN_TYPE    DATETIME;
+    SCALE_UNITS    "";
+    DESCRIPTION    "Returns the date that is a week prior to the end of the observed period.";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "NumberToDate"( $ "Dashboard.Operation Start Timestep" [] ) - 7.00000000 "day";
+
+    END
+    UUID "{4ec39e48-2712-4927-bcec-add4f6c7d5f9}";;
 
     FUNCTION       "WY End Date" (  )
     RETURN_TYPE    DATETIME;
@@ -587,18 +652,20 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC NonOffsetDemand = IF ( "MarchThruSeptember"( date ) )
- THEN
-  "Max"( "Ag Demand Except A Canal"( date ) - ( $ "Lost River Diversion Channel.Inflow" [date] + $ "F and FF Pump.Inflow" [date] ), 0.00000000 "cfs" )
- ELSE
-  0.00000000 "cfs"
- ENDIF
- ELSEIF_COND ( "October"( date ) )
- ELSEIF_CLAUSE ( "Max"( "Ag Demand Except A Canal"( date ) - $ "Lost River Diversion Channel.Inflow" [date], 0.00000000 "cfs" ) )
- END_ELSEIF
- ELSEIF_COND ( "Project Period"( date ) )
- ELSEIF_CLAUSE ( "Max"( $ "Miller Hill Pump.Diversion Request" [date] - $ "Miller Hill Pump.Spill" [date] + $ "Station 48.Diversion Request" [date] - $ "Lost River Diversion Channel.Inflow" [date], 0.00000000 "cfs" ) )
- END_ELSEIF COMMENTED_BY "In March through September, all downstream ags diversions can be offset by the accretions from <br>the F/FF Pump and LRDC. In October, all downstream ag diversions can be offset by the <br>accretions from LRDC. From Nov 1 thru Nov 15, only the Station 48 and Miller Hill Pump diversion <br>can be offset by the accretions from LRDC. <br>" DO
+      WITH NUMERIC NonOffsetDemand = WITH NUMERIC SukrawWell = "VolumeToFlow"( $ "Dashboard.Sukraw Well" [date], date ) DO
+  IF ( "MarchThruSeptember"( date ) )
+  THEN
+   "Max"( "Ag Demand Except A Canal"( date ) - ( $ "Lost River Diversion Channel.Inflow" [date] + SukrawWell + $ "F and FF Pump.Inflow" [date] ), 0.00000000 "cfs" )
+  ELSE
+   0.00000000 "cfs"
+  ENDIF
+  ELSEIF_COND ( "October"( date ) )
+  ELSEIF_CLAUSE ( "Max"( "Ag Demand Except A Canal"( date ) - ( $ "Lost River Diversion Channel.Inflow" [date] + SukrawWell ), 0.00000000 "cfs" ) )
+  END_ELSEIF
+  ELSEIF_COND ( "Project Period"( date ) )
+  ELSEIF_CLAUSE ( "Max"( $ "Miller Hill Pump.Diversion Request" [date] - $ "Miller Hill Pump.Spill" [date] + $ "Station 48.Diversion Request" [date] - ( $ "Lost River Diversion Channel.Inflow" [date] + SukrawWell ), 0.00000000 "cfs" ) )
+  END_ELSEIF
+ ENDWITH COMMENTED_BY "In March through September, all downstream ags diversions can be offset by the accretions from <br>the F/FF Pump and LRDC as well as the Sukraw Well pumping. In October, all downstream ag <br>diversions can be offset by the accretions from LRDC and pumping from Sukraw Well. From Nov 1 <br>thru Nov 15, only the Station 48 and Miller Hill Pump diversion can be offset by the accretions <br>from LRDC and pumping from Sukraw Well. <br>" DO
   IF ( "Project Period"( date ) )
   THEN
    $ "A Canal.Diversion Request" [@"t"] + NonOffsetDemand
@@ -626,15 +693,22 @@ BEGIN
  ELSE
   "MarchThruNovember"( date )
  ENDIF COMMENTED_BY "The F/FF Pump only counts offset of agricultural demands in March thru <br>Septemeber and LRDC in March thru November.  <br>" DO
-  IF ( IsInPeriod AND "Operations Period"( date ) )
+  WITH NUMERIC SukrawOffset = IF ( obj == % "F and FF Pump" OR IsNaN $ "Dashboard.Sukraw Well" [date] )
   THEN
-   obj & "Ag Offset" [date]
-  ELSE
    0.00000000 "cfs"
-  ENDIF
-  ELSEIF_COND ( IsInPeriod )
-  ELSEIF_CLAUSE ( obj & "Inflow" [date] )
-  END_ELSEIF COMMENTED_BY "For the forecast period, the offset differs from the accretion. Thus, use the <br>Ag Offset slot during this period. <br>"
+  ELSE
+   "VolumeToFlow"( $ "Dashboard.Sukraw Well" [date], date )
+  ENDIF COMMENTED_BY "The Sukraw Well pumping adds to the LRDC offset in the observed period, but not to the F/FF <br>Pump.  <br>" DO
+   IF ( IsInPeriod AND "Operations Period"( date ) )
+   THEN
+    obj & "Ag Offset" [date] + SukrawOffset
+   ELSE
+    0.00000000 "cfs"
+   ENDIF
+   ELSEIF_COND ( IsInPeriod )
+   ELSEIF_CLAUSE ( obj & "Inflow" [date] + SukrawOffset )
+   END_ELSEIF COMMENTED_BY "For the forecast period, the offset differs from the accretion. Thus, use the <br>Ag Offset slot during this period. <br>"
+  ENDWITH
  ENDWITH;
 
     END
@@ -734,11 +808,11 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( "Ag Demand Except A Canal"( date ) - ( "Offset"( date, % "Lost River Diversion Channel" ) + "Offset"( date, % "F and FF Pump" ) ) > 0.00000000 "cfs" )
+      IF ( "Ag Demand Except A Canal"( date ) + $ "Ady to Refuge.Diversion Request" [date] - ( "Offset"( date, % "Lost River Diversion Channel" ) + "Offset"( date, % "F and FF Pump" ) ) > 0.00000000 "cfs" )
  THEN
   "Offset"( date, % "Lost River Diversion Channel" ) + "Offset"( date, % "F and FF Pump" )
  ELSE
-  "Ag Demand Except A Canal"( date )
+  "Ag Demand Except A Canal"( date ) + $ "Ady to Refuge.Diversion Request" [date]
  ENDIF COMMENTED_BY "The F/FF Pump and LRDC accretion can only offset agricultural demands up to total demand <br>below A Canal. <br>";
 
     END
@@ -758,7 +832,7 @@ BEGIN
  THEN
   $ "Dashboard.Agricultural Adj" ["Short", "Adj Factor"]
  ELSE
-  1.00000000
+  $ "Dashboard.Default Agricultural Adj" []
  ENDIF
  ELSEIF_COND ( date <= "NumberToDate"( $ "Dashboard.Agricultural Adj" ["Medium", "Adj Date"] ) )
  ELSEIF_CLAUSE ( $ "Dashboard.Agricultural Adj" ["Medium", "Adj Factor"] )
@@ -1153,6 +1227,7 @@ BEGIN
     END
     UUID "{dbde741b-9302-4d08-abc9-d8cb18a49789}";;
 
+    BREAKPOINT AFTER_EXEC TRUE;
     FUNCTION       "Normalized 60-Day Average Inflow" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
@@ -1259,7 +1334,7 @@ BEGIN
 
       IF ( "Summer Release Switch"( @"t" ) )
  THEN
-  WITH NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) DO
+  WITH NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( @"Finish Timestep" ), date, FALSE, 1.00000000 ) DO
    WITH STRING Month = "GetMonthAsString"( date ) DO
     IF ( EWA < $ "IGD.Max Release Table" [Month, "LB_EWA"] )
     THEN
@@ -1315,7 +1390,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) DO
+      WITH NUMERIC EWA = "TableLookup"( $ "Dashboard.EWA", 0.00000000, 1.00000000, "DateToNumber"( "DateMax"( "Operation Start Timestep"(  ) + 1.00000000 "hr", "Start of Spring"( @"t" ) ) ), date, FALSE, 1.00000000 ) DO
   EWA * "EWA Remain Min Fraction"( date )
  ENDWITH;
 
@@ -1362,7 +1437,9 @@ BEGIN
  THEN
   "Accretion to IGD"( date, % "F and FF Pump" )
  ELSE
-  "Min"( $ "F and FF Pump.Inflow" [date], $ "Lost River Diversion Channel.Inflow" [date] + $ "F and FF Pump.Inflow" [date] - "Obs Accrete Offset"( date ) ) COMMENTED_BY "Contribution can only be as large as the accretion at F/FF Pump. Otherwise, it is the difference <br>between the two accretions and the water they use to offset agricultural demands. <br>"
+  WITH NUMERIC SukrawWell = "VolumeToFlow"( $ "Dashboard.Sukraw Well" [date], date ) DO
+   "Min"( $ "F and FF Pump.Inflow" [date], $ "Lost River Diversion Channel.Inflow" [date] + SukrawWell + $ "F and FF Pump.Inflow" [date] - "Obs Accrete Offset"( date ) )
+  ENDWITH COMMENTED_BY "Contribution can only be as large as the accretion at F/FF Pump. Otherwise, it is the difference <br>between the two accretions, the Sukraw Well, and the water they use to offset agricultural <br>demands.  <br>"
  ENDIF;
 
     END
@@ -1437,7 +1514,9 @@ BEGIN
  THEN
   "Accretion to IGD"( date, % "Lost River Diversion Channel" )
  ELSE
-  "Min"( $ "Lost River Diversion Channel.Inflow" [date], $ "Lost River Diversion Channel.Inflow" [date] + $ "F and FF Pump.Inflow" [date] - "Obs Accrete Offset"( date ) - "F/FF to River"( date ) ) COMMENTED_BY "Contribution can only be as large as the LRDC accretion. Otherwise, it is the <br>difference between the two accretions and the water they use to offset <br>agricultural demands.  <br>"
+  WITH NUMERIC SukrawWell = "VolumeToFlow"( $ "Dashboard.Sukraw Well" [date], date ) DO
+   "Min"( $ "Lost River Diversion Channel.Inflow" [date] + SukrawWell, $ "Lost River Diversion Channel.Inflow" [date] + SukrawWell + $ "F and FF Pump.Inflow" [date] - "Obs Accrete Offset"( date ) - "F/FF to River"( date ) )
+  ENDWITH COMMENTED_BY "Contribution can only be as large as the sum of the LRDC accretion and Sukraw Well pumping. <br>Otherwise, it is the difference between the two accretions and the water they use to offset <br>agricultural demands.   <br>"
  ENDIF;
 
     END
@@ -1453,7 +1532,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      WITH NUMERIC UKLsupply = ( "TableLookup"( $ "UKL.Supply", 0.00000000, 1.00000000, "DateToNumber"( date ), date, FALSE, 1.00000000 ) / 1.00000000 "KAF" ) COMMENTED_BY "Make the UKL Supply unitless <br>" DO
+      WITH NUMERIC UKLsupply = ( "TableLookup"( $ "UKL.Supply", 0.00000000, 1.00000000, "DateToNumber"( date + 1.00000000 "hr" ), date, FALSE, 1.00000000 ) / 1.00000000 "KAF" ) COMMENTED_BY "Make the UKL Supply unitless <br>" DO
   $ "Constants.Mar50 Second Order Eq" ["Constant", "C1"] * UKLsupply ^ 2.00000000 - $ "Constants.Mar50 Second Order Eq" ["Constant", "C2"] * UKLsupply + $ "Constants.Mar50 Second Order Eq" ["Constant", "C3"]
  ENDWITH;
 
@@ -1697,6 +1776,8 @@ BEGIN
     END
     UUID "{e1d1363d-e74b-4d76-8d2d-52fac32bdba9}";;
 
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
     FUNCTION       "Central Tendency Storage" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
@@ -1708,7 +1789,7 @@ BEGIN
     BEGIN
 
       WITH NUMERIC NormFactor = $ "Dashboard.Central Tendency Parameters" ["adj_slope", "Parameter"] * "Normalized 60-Day Average Inflow"( date ) + $ "Dashboard.Central Tendency Parameters" ["adj_intercept", "Parameter"] DO
-  WITH NUMERIC CentralElevation = "Min"( "StorageToElevation"( % "UKL", "UKL Flood Storage Level"( date - 1.00000000 "day" ) ) COMMENTED_BY "ensure the central tendency does not exceed flood levels <br>", "Max"( "Trajectory Elevation"( date, "Low" ), "Min"( "Trajectory Elevation"( date, "High" ), "Trajectory Elevation"( date, "Central" ) + NormFactor ) ) COMMENTED_BY "Ensure the ratio falls between the upper and lower bounds. <br>" ) DO
+  WITH NUMERIC CentralElevation = "Min"( "StorageToElevation"( % "UKL", "UKL Flood Storage Level"( date - 1.00000000 "day" ) ) COMMENTED_BY "ensure the central tendency does not exceed flood levels <br>", "Max"( "Trajectory Elevation"( date, "Low" ), "Min"( "Trajectory Elevation"( date, "High" ), "RoundToFactor"( "Trajectory Elevation"( date, "Central" ) + NormFactor, 0.01000000 "ft" ) ) ) COMMENTED_BY "Ensure the ratio falls between the upper and lower bounds. <br>" ) DO
    "ElevationToStorage"( % "UKL", CentralElevation )
   ENDWITH
  ENDWITH;
@@ -1774,6 +1855,8 @@ BEGIN
     END
     UUID "{1b98fe56-6c07-4760-bb3b-e06fabb3df54}";;
 
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
     FUNCTION       "Storage Diff PreAdj" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
@@ -1789,6 +1872,8 @@ BEGIN
     END
     UUID "{727f744b-c300-4db8-be2d-8861d0ec851f}";;
 
+      BREAKPOINT BEFORE_EXEC TRUE;
+    BREAKPOINT AFTER_EXEC TRUE;
     FUNCTION       "Storage Diff Ratio" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
@@ -1843,8 +1928,6 @@ BEGIN
   NOTES          "";
   BEGIN
 
-      BREAKPOINT BEFORE_EXEC TRUE;
-    BREAKPOINT AFTER_EXEC TRUE;
     FUNCTION       "IGD Ramping Basis" ( DATETIME date )
     RETURN_TYPE    NUMERIC;
     SCALE_UNITS    "";
@@ -2043,6 +2126,90 @@ BEGIN
 
   END
   UUID "{b64e2c40-b37d-4739-a706-b7803c5a370c}";;
+
+  UTILITY_GROUP "MRM Functions";
+  DESCRIPTION   "";
+  ACTIVE        TRUE;
+  NOTES          "";
+  BEGIN
+
+    FUNCTION       "IsMRM" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "MRM Dashboard.IsMRM" ["GetRunIndex"(  )] == 1.00000000;
+
+    END
+    UUID "{4aab2e2f-9bb4-4a45-986f-ac3140dfcff3}";;
+
+    FUNCTION       "GetZeroBasedRunIndex" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      "GetRunIndex"(  ) - 1.00000000;
+
+    END
+    UUID "{6967ded1-76a4-4e73-9b62-b0758d447a59}";;
+
+    FUNCTION       "IsInflowScenario" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "MRM Dashboard.IsInflowScenario" ["GetRunIndex"(  )] == 1.00000000;
+
+    END
+    UUID "{d9e1ef75-1b54-4b88-a53d-5fd3cbcf98d9}";;
+
+    FUNCTION       "IsNotScenario" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IsNaN $ "MRM Dashboard.IsInflowScenario" ["GetRunIndex"(  )] OR $ "MRM Dashboard.IsInflowScenario" ["GetRunIndex"(  )] != 1.00000000;
+
+    END
+    UUID "{30735797-e41f-498c-ba5d-afe625ca1941}";;
+
+    FUNCTION       "IsNoAgScenario" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      $ "MRM Dashboard.IsNoAgScenario" ["GetRunIndex"(  )] == 1.00000000;
+
+    END
+    UUID "{12d7e626-0b2a-49eb-acdc-f1f9b0f76ee3}";;
+
+  END
+  UUID "{2db2c7a3-5e32-470a-9c27-67a729cc63be}";;
 
 END
 UUID "{49c0e0e9-7f4f-46e6-9fb7-0b3f4b3f72ab}";
