@@ -1,12 +1,12 @@
-# SCT File Created 8/18/2020 4:28 PM
-#  as K:/Models/Mitch/KlamathOpsModel/Models/MRM Configuration Dashboard.sct
+# SCT File Created 8/28/2020 12:47 PM
+#  as K:/Models/Mitch/KlamathOpsModel/SCTs/MRM Config Dashboard.sct
 # Generated using RiverWare Version <RiverWare_Model 8.1.1>
 # Generated from Model File <KlamathOps2019.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           114
+  SLOT_ITEM_CNT           119
   PRESIM_TSTEP_CNT        1
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         True
@@ -26,8 +26,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            716
-  WINDOW_HEIGHT           876
+  WINDOW_WIDTH            1841
+  WINDOW_HEIGHT           873
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -36,20 +36,22 @@ SCT_PROPERTIES
   AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
   NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_ALL 30
 
-  SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 150
-  SLOT_UNITS_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 70
-  SLOT_LABEL_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 126
-  SLOT_UNITS_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 37
-  SLOT_LABEL_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 181
-  SLOT_UNITS_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 37
-  SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Metrics" COLFIT_METHOD_ALL 150
-  SLOT_UNITS_SHEET_COL_WIDTH  "Agricultural Metrics" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Inflow Metrics" COLFIT_METHOD_ALL 135
-  SLOT_UNITS_SHEET_COL_WIDTH  "Inflow Metrics" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Accretion Metrics" COLFIT_METHOD_ALL 134
-  SLOT_UNITS_SHEET_COL_WIDTH  "Accretion Metrics" COLFIT_METHOD_ALL 54
-  SLOT_LABEL_SHEET_COL_WIDTH  "Environmental Metrics" COLFIT_METHOD_ALL 114
-  SLOT_UNITS_SHEET_COL_WIDTH  "Environmental Metrics" COLFIT_METHOD_ALL 54
+  SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 230
+  SLOT_UNITS_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 110
+  SLOT_LABEL_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 191
+  SLOT_UNITS_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 55
+  SLOT_LABEL_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 278
+  SLOT_UNITS_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 55
+  SLOT_LABEL_SHEET_COL_WIDTH  "Historical Hydrology Scenario Settings" COLFIT_METHOD_ALL 291
+  SLOT_UNITS_SHEET_COL_WIDTH  "Historical Hydrology Scenario Settings" COLFIT_METHOD_ALL 55
+  SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Metrics" COLFIT_METHOD_ALL 233
+  SLOT_UNITS_SHEET_COL_WIDTH  "Agricultural Metrics" COLFIT_METHOD_ALL 78
+  SLOT_LABEL_SHEET_COL_WIDTH  "Inflow Metrics" COLFIT_METHOD_ALL 209
+  SLOT_UNITS_SHEET_COL_WIDTH  "Inflow Metrics" COLFIT_METHOD_ALL 78
+  SLOT_LABEL_SHEET_COL_WIDTH  "Accretion Metrics" COLFIT_METHOD_ALL 208
+  SLOT_UNITS_SHEET_COL_WIDTH  "Accretion Metrics" COLFIT_METHOD_ALL 78
+  SLOT_LABEL_SHEET_COL_WIDTH  "Environmental Metrics" COLFIT_METHOD_ALL 176
+  SLOT_UNITS_SHEET_COL_WIDTH  "Environmental Metrics" COLFIT_METHOD_ALL 78
 
   SHOW_SELECTION_STATS    True
   SEL_STAT_MEDIAN_MAXCNT  31
@@ -872,12 +874,41 @@ SLOT_REF  82
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 TAB_DIV   83
-  SLOT_LABEL        "Agricultural Metrics"
+  SLOT_LABEL        "Historical Hydrology Scenario Settings"
 
 SLOT_DIV  84
-  SLOT_LABEL        "Monthly Demands from UKL"
+  SLOT_LABEL        "Inflows"
 
 SLOT_REF  85
+  SLOT_LABEL        "Reference Year"
+  SLOT_MULTILINE    "Reference Year"
+  RW_SLOT_NAME      "MRM Dashboard.Inflow Year to Reference"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  86
+  SLOT_LABEL        "Accretions"
+
+SLOT_REF  87
+  SLOT_LABEL        "Reference Year"
+  SLOT_MULTILINE    "Reference Year"
+  RW_SLOT_NAME      "MRM Dashboard.Accretion Year to Reference"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+TAB_DIV   88
+  SLOT_LABEL        "Agricultural Metrics"
+
+SLOT_DIV  89
+  SLOT_LABEL        "Monthly Demands from UKL"
+
+SLOT_REF  90
   SLOT_LABEL        "March"
   SLOT_MULTILINE    "March Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL"
@@ -887,7 +918,7 @@ SLOT_REF  85
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  86
+SLOT_REF  91
   SLOT_LABEL        "April"
   SLOT_MULTILINE    "April Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.April"
@@ -897,7 +928,7 @@ SLOT_REF  86
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  87
+SLOT_REF  92
   SLOT_LABEL        "May"
   SLOT_MULTILINE    "May Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.May"
@@ -907,7 +938,7 @@ SLOT_REF  87
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  88
+SLOT_REF  93
   SLOT_LABEL        "June"
   SLOT_MULTILINE    "June Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.June"
@@ -917,7 +948,7 @@ SLOT_REF  88
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  89
+SLOT_REF  94
   SLOT_LABEL        "July"
   SLOT_MULTILINE    "July Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.July"
@@ -927,7 +958,7 @@ SLOT_REF  89
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  90
+SLOT_REF  95
   SLOT_LABEL        "August"
   SLOT_MULTILINE    "August Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.August"
@@ -937,7 +968,7 @@ SLOT_REF  90
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  91
+SLOT_REF  96
   SLOT_LABEL        "September"
   SLOT_MULTILINE    "September Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.September"
@@ -947,7 +978,7 @@ SLOT_REF  91
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  92
+SLOT_REF  97
   SLOT_LABEL        "October"
   SLOT_MULTILINE    "October Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.October"
@@ -957,7 +988,7 @@ SLOT_REF  92
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  93
+SLOT_REF  98
   SLOT_LABEL        "November"
   SLOT_MULTILINE    "November Demands from UKL"
   RW_SLOT_NAME      "MRM Dashboard.Monthly Demands from UKL.November"
@@ -967,10 +998,10 @@ SLOT_REF  93
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  94
+SLOT_DIV  99
   SLOT_LABEL        "Cumulative Demand from UKL"
 
-SLOT_REF  95
+SLOT_REF  100
   SLOT_LABEL        "Project Supply Use"
   SLOT_MULTILINE    "Project Supply Use"
   RW_SLOT_NAME      "MRM Dashboard.Project Supply Use"
@@ -980,13 +1011,13 @@ SLOT_REF  95
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-TAB_DIV   96
+TAB_DIV   101
   SLOT_LABEL        "Inflow Metrics"
 
-SLOT_DIV  97
+SLOT_DIV  102
   SLOT_LABEL        " Cumulative Inflow Volume"
 
-SLOT_REF  98
+SLOT_REF  103
   SLOT_LABEL        "March thru September"
   SLOT_MULTILINE    "March thru September Inflow"
   RW_SLOT_NAME      "MRM Dashboard.Forecast Period UKL Inflow"
@@ -996,7 +1027,7 @@ SLOT_REF  98
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  99
+SLOT_REF  104
   SLOT_LABEL        "April thru September"
   SLOT_MULTILINE    "April thru September Inflow"
   RW_SLOT_NAME      "MRM Dashboard.Forecast Period UKL Inflow.April thru September"
@@ -1006,7 +1037,7 @@ SLOT_REF  99
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  100
+SLOT_REF  105
   SLOT_LABEL        "May thru September"
   SLOT_MULTILINE    "May thru September Inflow"
   RW_SLOT_NAME      "MRM Dashboard.Forecast Period UKL Inflow.May thru September"
@@ -1016,7 +1047,7 @@ SLOT_REF  100
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  101
+SLOT_REF  106
   SLOT_LABEL        "June thru September"
   SLOT_MULTILINE    "June thru September Inflow"
   RW_SLOT_NAME      "MRM Dashboard.Forecast Period UKL Inflow.June thru September"
@@ -1026,10 +1057,10 @@ SLOT_REF  101
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  102
+SLOT_DIV  107
   SLOT_LABEL        "Seasonal Inflow Volume"
 
-SLOT_REF  103
+SLOT_REF  108
   SLOT_LABEL        "Spring/Summer"
   SLOT_MULTILINE    "Cumulative Spring/Summer Inflow"
   RW_SLOT_NAME      "MRM Dashboard.Cumulative SS Inflow"
@@ -1039,13 +1070,13 @@ SLOT_REF  103
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-TAB_DIV   104
+TAB_DIV   109
   SLOT_LABEL        "Accretion Metrics"
 
-SLOT_DIV  105
+SLOT_DIV  110
   SLOT_LABEL        "Spring/Summer Accretions"
 
-SLOT_REF  106
+SLOT_REF  111
   SLOT_LABEL        "F/FF Pump"
   SLOT_MULTILINE    "Cumulative Spring/Summer F/FF Pump Accretion"
   RW_SLOT_NAME      "MRM Dashboard.Cumulative SS Accretion"
@@ -1055,7 +1086,7 @@ SLOT_REF  106
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  107
+SLOT_REF  112
   SLOT_LABEL        "Lake Ewuana"
   SLOT_MULTILINE    "Cumulative Spring/Summer Lake Ewuana Accretion"
   RW_SLOT_NAME      "MRM Dashboard.Cumulative SS Accretion.Lake Ewuana Gain"
@@ -1065,7 +1096,7 @@ SLOT_REF  107
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  108
+SLOT_REF  113
   SLOT_LABEL        "LRDC"
   SLOT_MULTILINE    "Cumulative Spring/Summer LRDC Accretion"
   RW_SLOT_NAME      "MRM Dashboard.Cumulative SS Accretion.Lost River Diversion Channel"
@@ -1075,7 +1106,7 @@ SLOT_REF  108
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  109
+SLOT_REF  114
   SLOT_LABEL        "Keno to IGD"
   SLOT_MULTILINE    "Cumulative Spring/Summer Keno to IGD Accretion"
   RW_SLOT_NAME      "MRM Dashboard.Cumulative SS Accretion.Keno to IGD Gain"
@@ -1085,13 +1116,13 @@ SLOT_REF  109
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-TAB_DIV   110
+TAB_DIV   115
   SLOT_LABEL        "Environmental Metrics"
 
-SLOT_DIV  111
+SLOT_DIV  116
   SLOT_LABEL        "EWA Spent by"
 
-SLOT_REF  112
+SLOT_REF  117
   SLOT_LABEL        "July 1"
   SLOT_MULTILINE    "EWA Spent by July 1"
   RW_SLOT_NAME      "MRM Dashboard.EWA Spent By"
@@ -1101,7 +1132,7 @@ SLOT_REF  112
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  113
+SLOT_REF  118
   SLOT_LABEL        "October 1"
   SLOT_MULTILINE    "EWA Spent by October 1"
   RW_SLOT_NAME      "MRM Dashboard.EWA Spent By.Oct 1"
