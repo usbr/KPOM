@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 23:16 August 26, 2020
+# Created 15:39 September 9, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Ruleset";
@@ -18,12 +18,12 @@ BEGIN
     RULE                 "Set IGD Flood Release";
     DESCRIPTION          "This rule sets the release from Iron Gate Dam that satifies flood control objectives.";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT TRUE;
+    RULE_EXEC_CONSTRAINT @"t" >= "Operation Start Timestep"(  );
   NAMES_COLOR  "#0000ff";
     NOTES                "";
     BEGIN
 
-      WITH_STATEMENT (NUMERIC Accretion = $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( @"t" )] + $ "Keno to IGD Gain.Local Inflow" [@"t"] + "Accretion to IGD"( @"t", % "Lost River Diversion Channel" ) + "Accretion to IGD"( @"t", % "F and FF Pump" )) DO
+      WITH_STATEMENT (NUMERIC Accretion = $ "Lake Ewauna Gain.Local Inflow" ["IGD Reference Date"( @"t" )] + $ "Keno to IGD Gain.Local Inflow" [@"t"] + "Accretion to IGD"( @"t", % "Lost River Diversion Channel" ) + "Accretion to IGD"( @"t", % "F and FF Pump" )) DO
             WITH_STATEMENT (NUMERIC PacifiCorpPayback = "VolumeToFlow"( $ "Dashboard.PacifiCorp Payback" [@"t"] - $ "Dashboard.PacifiCorp Borrow" [@"t"], @"t" )) DO
             WITH_STATEMENT (NUMERIC FloodRelease = "UKL River and Flood Release"( @"t" ) - PacifiCorpPayback + Accretion) DO
             IF_STATEMENT ($ "IGD.Outflow" [] < FloodRelease) THEN
@@ -256,7 +256,7 @@ BEGIN
     RULE                 "Set Environmental IGD Release";
     DESCRIPTION          "This rule sets the release from Iron Gate Dam that satifies environmental objectives.";
     ACTIVE               TRUE;
-    RULE_EXEC_CONSTRAINT TRUE;
+    RULE_EXEC_CONSTRAINT @"t" >= "Operation Start Timestep"(  );
   NAMES_COLOR  "#0000ff";
     NOTES                "";
     BEGIN
@@ -445,6 +445,7 @@ BEGIN
     NOTES                "";
     BEGIN
 
+    BREAKPOINT AFTER_EXEC TRUE;
       $ "UKL.Credit" [] := IF ( "Fall/Winter Ops"( @"t" ) )
  THEN
   0.00000000 "acre-feet"
