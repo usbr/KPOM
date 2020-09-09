@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 12:47 August 28, 2020
+# Created 15:39 September 9, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -26,7 +26,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonth"( date ) > 4.00000000;
+      date > @"April";
 
     END
     UUID "{2e1a13fc-a204-4094-9fd3-d685a1e61bf1}";;
@@ -41,25 +41,10 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "April" OR "GetMonthAsString"( date ) == "May" OR "GetMonthAsString"( date ) == "June";
+      date == @"April" OR date == @"May" OR date == @"June";
 
     END
     UUID "{0235a62e-b645-4b46-9c59-470cb30809ff}";;
-
-    FUNCTION       "AugustThruOctober" (  )
-    RETURN_TYPE    BOOLEAN;
-    SCALE_UNITS    "";
-    DESCRIPTION    "If the timestep falls in the months of August thru October, this function solves as TRUE.";
-    ACTIVE         TRUE;
-    PRE_EXEC_DIAG  FALSE;
-    POST_EXEC_DIAG FALSE;
-    NOTES          "";
-    BEGIN
-
-      @"t" > @"24:00:00 July 31, Current Year" AND @"t" < @"24:00:00 November 1, Current Year";
-
-    END
-    UUID "{48d0ce8d-7826-49ec-9f4d-94b5ef378580}";;
 
     FUNCTION       "Compliance Date" ( NUMERIC Date )
     RETURN_TYPE    DATETIME;
@@ -86,7 +71,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "December" OR "GetMonthAsString"( date ) == "January" OR "GetMonthAsString"( date ) == "February";
+      date == @"December" OR date == @"January" OR date == @"February";
 
     END
     UUID "{0002c5d5-752e-4b8c-9f75-f31fdd7facbb}";;
@@ -101,7 +86,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "July" OR "GetMonthAsString"( date ) == "August" OR "GetMonthAsString"( date ) == "September";
+      @"July" <= date AND date <= @"September";
 
     END
     UUID "{d428ab59-2110-4639-b056-5ca066ad9f7a}";;
@@ -116,7 +101,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonth"( date ) > 2.00000000 AND "GetMonth"( date ) < 12.00000000;
+      @"March" <= date AND date <= @"November";
 
     END
     UUID "{a286b59e-82dd-4bf3-96ca-1e32381a8f4f}";;
@@ -131,7 +116,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonth"( date ) > 2.00000000 AND "GetMonth"( date ) < 10.00000000;
+      @"March" <= date AND date <= @"September";
 
     END
     UUID "{ef6c6dbe-4b67-4b21-9d1b-ce951d859121}";;
@@ -146,7 +131,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "November" OR "GetMonthAsString"( date ) == "December" OR "GetMonthAsString"( date ) == "January" OR "GetMonthAsString"( date ) == "February";
+      ( @"November" <= date OR date <= @"February" ) COMMENTED_BY "The year starts in January and goes through December.  <br>";
 
     END
     UUID "{39f481c2-26ab-47f3-bb11-d021d7750610}";;
@@ -161,7 +146,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "October";
+      date == @"October";
 
     END
     UUID "{fe27d37b-64b7-4121-aac0-790d18780dc0}";;
@@ -176,7 +161,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonth"( date ) > 9.00000000;
+      @"October" <= date;
 
     END
     UUID "{39418046-9a5f-4fb1-81a2-5a4e77854b25}";;
@@ -191,7 +176,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "October" OR "GetMonthAsString"( date ) == "November" OR "GetMonthAsString"( date ) == "December" OR "GetMonthAsString"( date ) == "January" OR "GetMonthAsString"( date ) == "February";
+      @"October" <= date OR date <= @"February";
 
     END
     UUID "{70136de1-d28a-4dc9-810a-7380b0a8b134}";;
@@ -206,7 +191,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "October" OR "GetMonthAsString"( date ) == "November";
+      date == @"October" OR date == @"November";
 
     END
     UUID "{a9ec446c-1646-41fd-8bae-62ec8f235d13}";;
@@ -264,14 +249,14 @@ BEGIN
     FUNCTION       "Fall/Winter Ops" ( DATETIME date )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
-    DESCRIPTION    "If the date is before March or after September, this function solves as TRUE.";
+    DESCRIPTION    "Any date in October thorugh February.";
     ACTIVE         TRUE;
     PRE_EXEC_DIAG  FALSE;
     POST_EXEC_DIAG FALSE;
     NOTES          "";
     BEGIN
 
-      "GetMonth"( date ) < 3.00000000 OR "GetMonth"( date ) > 9.00000000;
+      "OctoberThruFebruary"( date );
 
     END
     UUID "{5998cf7a-203d-4996-b271-40f9c8b53160}";;
@@ -321,7 +306,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      "GetMonthAsString"( date ) == "November";
+      date == @"November";
 
     END
     UUID "{9a67332f-82f8-4b26-a687-63b5a661cd39}";;
@@ -1309,13 +1294,13 @@ BEGIN
  THEN
   0.00000000 "cfs"
  ELSE
-  $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] + "Accretion to IGD"( date, % "Lost River Diversion Channel" ) + "Accretion to IGD"( date, % "F and FF Pump" )
+  $ "Lake Ewauna Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] + "Accretion to IGD"( date, % "Lost River Diversion Channel" ) + "Accretion to IGD"( date, % "F and FF Pump" )
  ENDIF
  ELSEIF_COND ( "Fill Release Switch"( date ) )
- ELSEIF_CLAUSE ( $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Lost River Diversion Channel.Inflow" ["IGD Reference Date"( date )] + $ "F and FF Pump.Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] )
+ ELSEIF_CLAUSE ( $ "Lake Ewauna Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Lost River Diversion Channel.Inflow" ["IGD Reference Date"( date )] + $ "F and FF Pump.Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] )
  END_ELSEIF
  ELSEIF_COND ( "Spring Release Switch"( date ) )
- ELSEIF_CLAUSE ( $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] )
+ ELSEIF_CLAUSE ( $ "Lake Ewauna Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] )
  END_ELSEIF COMMENTED_BY "The Keno to IGD Gain is referenced from the current date since it is below the lag reach. <br>";
 
     END
@@ -1406,18 +1391,12 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      IF ( "GetMonthAsString"( date ) == "July" )
+      IF ( "JulyThruSeptember"( date ) )
  THEN
-  $ "Constants.EWA Remain Factors" ["July", "Factor"]
+  $ "Constants.EWA Remain Factors" ["GetMonthAsString"( date ), "Factor"]
  ELSE
   0.00000000
- ENDIF
- ELSEIF_COND ( "GetMonthAsString"( date ) == "August" )
- ELSEIF_CLAUSE ( $ "Constants.EWA Remain Factors" ["August", "Factor"] )
- END_ELSEIF
- ELSEIF_COND ( "GetMonthAsString"( date ) == "September" )
- ELSEIF_CLAUSE ( $ "Constants.EWA Remain Factors" ["September", "Factor"] )
- END_ELSEIF;
+ ENDIF;
 
     END
     UUID "{53038db4-d25b-4896-9dcf-0cf934363cdd}";;
@@ -1695,7 +1674,7 @@ BEGIN
 
       IF ( "Operations Period"( date ) )
  THEN
-  WITH NUMERIC Accretion = $ "Lake Ewuana Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] + "Accretion to IGD"( date, % "Lost River Diversion Channel" ) + "Accretion to IGD"( date, % "F and FF Pump" ) DO
+  WITH NUMERIC Accretion = $ "Lake Ewauna Gain.Local Inflow" ["IGD Reference Date"( date )] + $ "Keno to IGD Gain.Local Inflow" [date] + "Accretion to IGD"( date, % "Lost River Diversion Channel" ) + "Accretion to IGD"( date, % "F and FF Pump" ) DO
    WITH NUMERIC PacifiCorpPayback = "VolumeToFlow"( $ "Dashboard.PacifiCorp Payback" [date] - $ "Dashboard.PacifiCorp Borrow" [date], date ) DO
     "Max"( $ "IGD.Outflow" [date] - Accretion + PacifiCorpPayback, $ "UKL.Min Release Table" ["UKL to IGD Lag"( date ), "Minimum Release"] )
    ENDWITH
@@ -2126,7 +2105,7 @@ BEGIN
   NOTES          "";
   BEGIN
 
-    FUNCTION       "IsTrial" (  )
+    FUNCTION       "IsMRMRun_PerformTrials" (  )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "This function returns TRUE if the model is in a Run Setting Trials MRM run. It is used to activate logic specific to the Run Setting Trials MRM runs. ";
@@ -2136,7 +2115,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      ( IsNaN $ "MRM Dashboard.IsTrial" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.IsTrial" ["GetRunIndex"(  )] == 1.00000000;
+      ( IsNaN $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] == 1.00000000;
 
     END
     UUID "{4aab2e2f-9bb4-4a45-986f-ac3140dfcff3}";;
@@ -2156,7 +2135,7 @@ BEGIN
     END
     UUID "{6967ded1-76a4-4e73-9b62-b0758d447a59}";;
 
-    FUNCTION       "IsHistHydroScenario" ( STRING ScenarioType )
+    FUNCTION       "IsMRMRun_WithHistoricalHydrologicScenario" ( STRING ScenarioType )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "This function returns TRUE if the model is in a Run Historical Hydrology Scenarios MRM run, which assigns historical accretions or UKL inflows instead of forecasting those values. It is used to activate logic specific to the Run Historical Hydrolgoy Scenarios MRM runs. ";
@@ -2172,7 +2151,7 @@ BEGIN
  ELSE
   "Accretion Year to Reference"
  ENDIF COMMENTED_BY "The model can run two types of historical hydrology scenarios. The first uses historical UKL <br>inflows; the other uses historical accretions. Thus, this With Statement returns the appropiate <br>reference slot based on the argument. <br>" DO
-  ( IsNaN $ "MRM Dashboard.IsHistHydroScenario" ["GetRunIndex"(  )] ) == FALSE AND ( ( IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] ) == FALSE ) COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return FALSE.   <br>" AND $ "MRM Dashboard.IsHistHydroScenario" ["GetRunIndex"(  )] == 1.00000000
+  ( IsNaN $ "MRM Dashboard.IsMRM_HistoricalHydrologicScenarios" ["GetRunIndex"(  )] ) == FALSE AND ( ( IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] ) == FALSE ) COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return FALSE.   <br>" AND $ "MRM Dashboard.IsMRM_HistoricalHydrologicScenarios" ["GetRunIndex"(  )] == 1.00000000
  ENDWITH;
 
     END
@@ -2194,13 +2173,13 @@ BEGIN
  ELSE
   "Accretion Year to Reference"
  ENDIF COMMENTED_BY "The model can run two types of historical hydrology scenarios. The first uses historical UKL <br>inflows; the other uses historical accretions. Thus, this With Statement returns the appropiate <br>reference slot based on the argument. <br>" DO
-  IsNaN $ "MRM Dashboard.IsHistHydroScenario" ["GetRunIndex"(  )] OR IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return TRUE <br>"
+  IsNaN $ "MRM Dashboard.IsMRM_HistoricalHydrologicScenarios" ["GetRunIndex"(  )] OR IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return TRUE <br>"
  ENDWITH;
 
     END
     UUID "{30735797-e41f-498c-ba5d-afe625ca1941}";;
 
-    FUNCTION       "IsNoAgScenario" (  )
+    FUNCTION       "IsMRMRun_WithNoAgDemand" (  )
     RETURN_TYPE    BOOLEAN;
     SCALE_UNITS    "";
     DESCRIPTION    "This function returns TRUE if the model is in a No Agricultural Deliveries Scenario MRM run. It is used to activate logic specific to the Run Setting Trials MRM runs. ";
@@ -2210,7 +2189,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      ( IsNaN $ "MRM Dashboard.IsNoAgScenario" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.IsNoAgScenario" ["GetRunIndex"(  )] == 1.00000000;
+      ( IsNaN $ "MRM Dashboard.IsMRM_NoAgDemandScenario" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.IsMRM_NoAgDemandScenario" ["GetRunIndex"(  )] == 1.00000000;
 
     END
     UUID "{12d7e626-0b2a-49eb-acdc-f1f9b0f76ee3}";;

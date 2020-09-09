@@ -1,12 +1,12 @@
-# SCT File Created 8/25/2020 11:16 AM
-#  as K:/Models/Mitch/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
+# SCT File Created 9/9/2020 8:55 AM
+#  as C:/Klamath/Models/David/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.1.1>
 # Generated from Model File <KlamathOps2019.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           19
+  SLOT_ITEM_CNT           16
   PRESIM_TSTEP_CNT        1
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -252,22 +252,6 @@ SLOT_REF  15
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 144
-  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
-
-TAB_DIV   16
-  SLOT_LABEL        "Inflow Forecasts"
-
-SLOT_DIV  17
-  SLOT_LABEL        "UKL Inflow Forecasts"
-
-SLOT_REF  18
-  SLOT_LABEL        "UKL.Inflow Exceedance"
-  SLOT_MULTILINE    "UKL<br>.Inflow Exceedance"
-  RW_SLOT_NAME      "UKL.Inflow Exceedance"
-  RW_SLOT_COL_INDEX 0
-  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
-  SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 PANEL_SLOT "UKL.Initial Credit" -1
