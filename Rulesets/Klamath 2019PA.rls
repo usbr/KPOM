@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 13:32 September 10, 2020
+# Created 14:51 September 10, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Ruleset";
@@ -484,7 +484,7 @@ BEGIN
     UUID "{2aa3dbb3-3776-48e5-b898-5d36448ce375}";;
 
     RULE                 "Set Project Supply UKL Release";
-    DESCRIPTION          "This rule sets the release from Upper Klamath Lake that satifies agricultural objectives.";
+    DESCRIPTION          "This rule sets the Outflow from Upper Klamath Lake that satifies agricultural objectives.";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT TRUE;
   NAMES_COLOR  "#0000ff";
@@ -506,7 +506,7 @@ BEGIN
   BEGIN
 
     RULE                 "Compute Smoothed Inflow";
-    DESCRIPTION          "This rule computes the smoothed inflow at Upper Klamath Lake. Since the raw inflow is computed from a mass balance, the values tend to vary greatly across the run period. This equation smooths the inflow so it show a more consistent curve when plotted.";
+    DESCRIPTION          "This rule computes the smoothed inflow at Upper Klamath Lake. Since the raw inflow is computed from a mass balance, the values tend to vary greatly across the run period. This equation smooths the inflow so it shows a more consistent curve when plotted.";
     ACTIVE               TRUE;
     RULE_EXEC_CONSTRAINT TRUE;
     NOTES                "Could this be an expression slot?<br>This will need an initialization rule to set the value on the initial timestep. Could also be an input by the operator.";
