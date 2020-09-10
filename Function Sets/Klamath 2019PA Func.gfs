@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 15:39 September 9, 2020
+# Created 13:32 September 10, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -1051,7 +1051,7 @@ BEGIN
   WITH LIST AprilSupply = MAPLIST ( NUMERIC row IN "GetNumbers"( 0.00000000, "NumRows"( $ "Dashboard.NRCS Forecast Table" ) - 1.00000000, 1.00000000 ) COMMENTED_BY "Index the number of rows in the table. Start at zero and subtract the total by 1 since RiverWare <br>uses zero as the first index #. <br>" ) DO
    IF ( ( "GetMonthAsString"( "NumberToDate"( $ "Dashboard.NRCS Forecast Table" [row, "Iron Gate Target Date"] ) ) == "April" ) COMMENTED_BY "Is the date in April <br>" )
    THEN
-    ( $ "UKL.Supply" [row, "Supply"] - ( $ "Dashboard.EWA" [row, "Account Volume"] + $ "Dashboard.Supply Considerations" [row, "Ungauged Diversions"] + $ "Dashboard.Supply Considerations" [row, "Project Supply Reduction"] ) ) COMMENTED_BY "Project Supply Formula <br>"
+    ( $ "UKL.Supply" [row, "Supply"] - ( $ "Dashboard.EWA" [row, "Account Volume"] + $ "Dashboard.Supply Considerations" [row, "Ungaged Diversions"] + $ "Dashboard.Supply Considerations" [row, "Project Supply Reduction"] ) ) COMMENTED_BY "Project Supply Formula <br>"
    ELSE
     0.00000000 "acre-feet"
    ENDIF
