@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 13:32 September 10, 2020
+# Created 11:15 September 11, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -2115,7 +2115,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      ( IsNaN $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] == 1.00000000;
+      NOT ( IsNaN $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] ) AND $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] == 1.00000000;
 
     END
     UUID "{4aab2e2f-9bb4-4a45-986f-ac3140dfcff3}";;
@@ -2193,6 +2193,41 @@ BEGIN
 
     END
     UUID "{12d7e626-0b2a-49eb-acdc-f1f9b0f76ee3}";;
+
+    FUNCTION       "IsSingleRunAfterMRM" (  )
+    RETURN_TYPE    BOOLEAN;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      NOT ( IsNaN $ "MRM Dashboard.Is Single Run After MRM" [] ) AND $ "MRM Dashboard.Run to Use for Single Run" [] >= 1.00000000;
+
+    END
+    UUID "{ffef4cf8-e84a-4855-abd5-87b01e18b1d2}";;
+
+    FUNCTION       "RunIndexToUse" (  )
+    RETURN_TYPE    NUMERIC;
+    SCALE_UNITS    "";
+    DESCRIPTION    "";
+    ACTIVE         TRUE;
+    PRE_EXEC_DIAG  FALSE;
+    POST_EXEC_DIAG FALSE;
+    NOTES          "";
+    BEGIN
+
+      IF ( "IsSingleRunAfterMRM"(  ) )
+ THEN
+  $ "MRM Dashboard.Run to Use for Single Run" []
+ ELSE
+  "GetRunIndex"(  )
+ ENDIF;
+
+    END
+    UUID "{e237a793-c558-47c9-b64b-95dc3cca082d}";;
 
   END
   UUID "{2db2c7a3-5e32-470a-9c27-67a729cc63be}";;
