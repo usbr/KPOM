@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 08:02 September 14, 2020
+# Created 12:57 September 14, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -2115,7 +2115,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      NOT ( IsNaN $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] ) AND $ "MRM Dashboard.IsMRM_Trials" ["GetRunIndex"(  )] == 1.00000000;
+      NOT ( IsNaN $ "MRM Dashboard.Is MRM_Trials" ["GetRunIndex"(  )] ) AND $ "MRM Dashboard.Is MRM_Trials" ["GetRunIndex"(  )] == 1.00000000;
 
     END
     UUID "{4aab2e2f-9bb4-4a45-986f-ac3140dfcff3}";;
