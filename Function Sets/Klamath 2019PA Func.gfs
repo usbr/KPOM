@@ -1,5 +1,5 @@
 # RiverWare_Ruleset 8.1.1
-# Created 13:44 September 11, 2020
+# Created 08:02 September 14, 2020
 # 
 RULESET
 NAME "Klamath 2019PA Global Functions";
@@ -2151,7 +2151,7 @@ BEGIN
  ELSE
   "Accretion Year to Reference"
  ENDIF COMMENTED_BY "The model can run two types of historical hydrology scenarios. The first uses historical UKL <br>inflows; the other uses historical accretions. Thus, this With Statement returns the appropiate <br>reference slot based on the argument. <br>" DO
-  ( IsNaN $ "MRM Dashboard.IsMRM_HistoricalHydrologicScenarios" ["GetRunIndex"(  )] ) == FALSE AND ( ( IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] ) == FALSE ) COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return FALSE.   <br>" AND $ "MRM Dashboard.IsMRM_HistoricalHydrologicScenarios" ["GetRunIndex"(  )] == 1.00000000
+  ( IsNaN $ "MRM Dashboard.Is MRM_Historical Hydrologic Scenarios" ["GetRunIndex"(  )] ) == FALSE AND ( ( IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] ) == FALSE ) COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return FALSE.   <br>" AND $ "MRM Dashboard.Is MRM_Historical Hydrologic Scenarios" ["GetRunIndex"(  )] == 1.00000000
  ENDWITH;
 
     END
@@ -2173,7 +2173,7 @@ BEGIN
  ELSE
   "Accretion Year to Reference"
  ENDIF COMMENTED_BY "The model can run two types of historical hydrology scenarios. The first uses historical UKL <br>inflows; the other uses historical accretions. Thus, this With Statement returns the appropiate <br>reference slot based on the argument. <br>" DO
-  IsNaN $ "MRM Dashboard.IsMRM_HistoricalHydrologicScenarios" ["GetRunIndex"(  )] OR IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return TRUE <br>"
+  IsNaN $ "MRM Dashboard.Is MRM_Historical Hydrologic Scenarios" ["GetRunIndex"(  )] OR IsNaN % "MRM Dashboard" & ScenarioRefSlot ["GetRunIndex"(  )] COMMENTED_BY "If the operator does not set a reference year for accretions or UKL inflow, the MRM does not <br>perform that type of scenario. Thus, the IF statement will return TRUE <br>"
  ENDWITH;
 
     END
@@ -2189,7 +2189,7 @@ BEGIN
     NOTES          "";
     BEGIN
 
-      ( IsNaN $ "MRM Dashboard.IsMRM_NoAgDemandScenario" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.IsMRM_NoAgDemandScenario" ["GetRunIndex"(  )] == 1.00000000;
+      ( IsNaN $ "MRM Dashboard.Is MRM_No Ag Demand Scenario" ["GetRunIndex"(  )] ) == FALSE AND $ "MRM Dashboard.Is MRM_No Ag Demand Scenario" ["GetRunIndex"(  )] == 1.00000000;
 
     END
     UUID "{12d7e626-0b2a-49eb-acdc-f1f9b0f76ee3}";;
