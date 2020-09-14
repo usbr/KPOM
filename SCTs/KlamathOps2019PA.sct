@@ -1,4 +1,4 @@
-# SCT File Created 9/10/2020 1:32 PM
+# SCT File Created 9/14/2020 11:40 AM
 #  as C:/Klamath/Models/David/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.1.1>
 # Generated from Model File <KlamathOps2019.mdl>
@@ -481,11 +481,11 @@ SLOT_REF  40
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 144
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
+PANEL_SLOT "Dashboard.Operation Start Timestep" -1
 PANEL_SLOT "UKL.Initial Credit" -1
 PANEL_SLOT "UKL.Initial Difference Ratio" -1
 PANEL_SLOT "F and FF Pump.Average Switch" -1
 PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
-PANEL_SLOT "Lake Ewuana Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
 PANEL_SLOT "Dashboard.Agricultural Adj" -1
 PANEL_SLOT "Dashboard.Climate" -1
@@ -503,6 +503,5 @@ PANEL_SLOT "Dashboard.NRCS Forecast Table" -1
 PANEL_SLOT "Dashboard.Supply Considerations" -1
 PANEL_SLOT "F and FF Pump.Exceedance and Adj" -1
 PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj" -1
-PANEL_SLOT "Lake Ewuana Gain.Exceedance and Adj" -1
 PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj" -1
 # SCT File End
