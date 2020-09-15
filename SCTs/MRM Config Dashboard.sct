@@ -1,5 +1,5 @@
-# SCT File Created 8/28/2020 12:47 PM
-#  as K:/Models/Mitch/KlamathOpsModel/SCTs/MRM Config Dashboard.sct
+# SCT File Created 9/15/2020 3:48 PM
+#  as C:/Klamath/Models/David/KlamathOpsModel/SCTs/MRM Config Dashboard.sct
 # Generated using RiverWare Version <RiverWare_Model 8.1.1>
 # Generated from Model File <KlamathOps2019.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
@@ -26,8 +26,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1841
-  WINDOW_HEIGHT           873
+  WINDOW_WIDTH            1092
+  WINDOW_HEIGHT           625
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -36,12 +36,12 @@ SCT_PROPERTIES
   AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
   NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_ALL 30
 
-  SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 230
-  SLOT_UNITS_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 110
-  SLOT_LABEL_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 191
-  SLOT_UNITS_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 55
-  SLOT_LABEL_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 278
-  SLOT_UNITS_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 55
+  SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 150
+  SLOT_UNITS_SHEET_COL_WIDTH  "Agricultural Forecast Settings" COLFIT_METHOD_ALL 70
+  SLOT_LABEL_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 126
+  SLOT_UNITS_SHEET_COL_WIDTH  "Inflow Forecast Settings" COLFIT_METHOD_ALL 37
+  SLOT_LABEL_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 181
+  SLOT_UNITS_SHEET_COL_WIDTH  "Accretion Forecast Settings" COLFIT_METHOD_ALL 37
   SLOT_LABEL_SHEET_COL_WIDTH  "Historical Hydrology Scenario Settings" COLFIT_METHOD_ALL 291
   SLOT_UNITS_SHEET_COL_WIDTH  "Historical Hydrology Scenario Settings" COLFIT_METHOD_ALL 55
   SLOT_LABEL_SHEET_COL_WIDTH  "Agricultural Metrics" COLFIT_METHOD_ALL 233
@@ -640,8 +640,8 @@ SLOT_DIV  55
 
 SLOT_REF  56
   SLOT_LABEL        "Short"
-  SLOT_MULTILINE    "Lake Ewuana Short Exceedance"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Exceedance"
+  SLOT_MULTILINE    "Short"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Exceedance"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -650,8 +650,8 @@ SLOT_REF  56
 
 SLOT_REF  57
   SLOT_LABEL        "Long"
-  SLOT_MULTILINE    "Lake Ewuana Long Exceedance"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Exceedance.Long"
+  SLOT_MULTILINE    "Long"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Exceedance.Long"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -660,8 +660,8 @@ SLOT_REF  57
 
 SLOT_REF  58
   SLOT_LABEL        "Default"
-  SLOT_MULTILINE    "Lake Ewuana Default Exceedance"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Exceedance.Default"
+  SLOT_MULTILINE    "Default"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Exceedance.Default"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -792,8 +792,8 @@ SLOT_DIV  73
 
 SLOT_REF  74
   SLOT_LABEL        "Short Adj"
-  SLOT_MULTILINE    "Lake Ewuana Short Adjustment"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Adj and Days"
+  SLOT_MULTILINE    "Short Adj"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Adj and Days"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -802,8 +802,8 @@ SLOT_REF  74
 
 SLOT_REF  75
   SLOT_LABEL        "Long Adj"
-  SLOT_MULTILINE    "Lake Ewuana Long Adjustment"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Adj and Days.Long Adj"
+  SLOT_MULTILINE    "Long Adj"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Adj and Days.Long Adj"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -812,8 +812,8 @@ SLOT_REF  75
 
 SLOT_REF  76
   SLOT_LABEL        "Short Duration"
-  SLOT_MULTILINE    "Lake Ewuana Short Adjustment Duration"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Adj and Days.Short Days"
+  SLOT_MULTILINE    "Short Duration"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Adj and Days.Short Days"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -822,8 +822,8 @@ SLOT_REF  76
 
 SLOT_REF  77
   SLOT_LABEL        "Long Duration"
-  SLOT_MULTILINE    "Lake Ewuana Long Adjustment Duration"
-  RW_SLOT_NAME      "MRM Dashboard.Lake Ewuana Gain Adj and Days.Long Days"
+  SLOT_MULTILINE    "Long Duration"
+  RW_SLOT_NAME      "MRM Dashboard.Lake Ewauna Gain Adj and Days.Long Days"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
