@@ -1,6 +1,6 @@
 ---
 title: "Testing Report"
-author: "Mitchell Frischmeyer"
+author: "Dan Broman"
 output: html_document
 ---
 
