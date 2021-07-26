@@ -1,12 +1,12 @@
-# SCT File Created 9/14/2020 11:40 AM
-#  as C:/Klamath/Models/David/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.1.1>
-# Generated from Model File <KlamathOps2019.mdl>
+# SCT File Created 2021-07-26 10:52 AM
+#  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
+# Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
+# Generated from Model File <KROM_20200722_V28_EBP.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           41
+  SLOT_ITEM_CNT           45
   PRESIM_TSTEP_CNT        3
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -141,6 +141,9 @@ SCT_PROPERTIES
 
   FULL_PRECISION_EDITING  True
 
+  CELL_TEXT_FLAGS         False
+  CELL_TEXT_PRIORITY      False
+
 TAB_DIV   0
   SLOT_LABEL        "USBR Daily"
 
@@ -270,7 +273,7 @@ SLOT_REF  15
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 45
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 51
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  16
@@ -330,7 +333,7 @@ SLOT_REF  21
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 48
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 51
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  22
@@ -479,6 +482,39 @@ SLOT_REF  40
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 144
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  41
+  SLOT_LABEL        "Eastside Balance"
+
+SLOT_REF  42
+  SLOT_LABEL        "Dashboard.Eastside Borrow"
+  SLOT_MULTILINE    "Dashboard<br>.Eastside Borrow"
+  RW_SLOT_NAME      "Dashboard.Eastside Borrow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  43
+  SLOT_LABEL        "Dashboard.Eastside Payback"
+  SLOT_MULTILINE    "Dashboard<br>.Eastside Payback"
+  RW_SLOT_NAME      "Dashboard.Eastside Payback"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  44
+  SLOT_LABEL        "Dashboard.Eastside Balance"
+  SLOT_MULTILINE    "Dashboard<br>.Eastside Balance"
+  RW_SLOT_NAME      "Dashboard.Eastside Balance"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 PANEL_SLOT "Dashboard.Operation Start Timestep" -1
