@@ -1,12 +1,12 @@
-# SCT File Created 2021-07-26 10:52 AM
+# SCT File Created 2021-10-12 12:27 PM
 #  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
-# Generated from Model File <KROM_20200722_V28_EBP.mdl>
+# Generated from Model File <KROM_20200722_V29.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           45
+  SLOT_ITEM_CNT           51
   PRESIM_TSTEP_CNT        3
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -511,6 +511,59 @@ SLOT_REF  44
   SLOT_LABEL        "Dashboard.Eastside Balance"
   SLOT_MULTILINE    "Dashboard<br>.Eastside Balance"
   RW_SLOT_NAME      "Dashboard.Eastside Balance"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+TAB_DIV   45
+  SLOT_LABEL        "Distribution Percent"
+
+SLOT_REF  46
+  SLOT_LABEL        "A Canal.Distribution Percent"
+  SLOT_MULTILINE    "A Canal<br>.Distribution Percent"
+  RW_SLOT_NAME      "A Canal.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  47
+  SLOT_LABEL        "Ady Canal.Distribution Percent"
+  SLOT_MULTILINE    "Ady Canal<br>.Distribution Percent"
+  RW_SLOT_NAME      "Ady Canal.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  48
+  SLOT_LABEL        "Miller Hill Pump.Distribution Percent"
+  SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Percent"
+  RW_SLOT_NAME      "Miller Hill Pump.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  49
+  SLOT_LABEL        "North Canal.Distribution Percent"
+  SLOT_MULTILINE    "North Canal<br>.Distribution Percent"
+  RW_SLOT_NAME      "North Canal.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  50
+  SLOT_LABEL        "Station 48.Distribution Percent"
+  SLOT_MULTILINE    "Station 48<br>.Distribution Percent"
+  RW_SLOT_NAME      "Station 48.Distribution Percent"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
