@@ -1,6 +1,6 @@
-# SCT File Created 2021-10-12 12:27 PM
+# SCT File Created 2021-11-17 2:17 PM
 #  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.2.2 Patch>
+# Generated using RiverWare Version <RiverWare_Model 8.3.4 Patch>
 # Generated from Model File <KROM_20200722_V29.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
@@ -113,6 +113,7 @@ SCT_PROPERTIES
   COLOR_FLAG          'M'  85 192 240
   COLOR_FLAG          'D' 255 236 136
   COLOR_FLAG          'R' 192 255 192
+  COLOR_FLAG          'i'   0 255   0
   COLOR_FLAG          'S' 255 192 208
   COLOR_FLAG          'G' 136 208 240
   COLOR_FLAG          'U' 200 200 255
