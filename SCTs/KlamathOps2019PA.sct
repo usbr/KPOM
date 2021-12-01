@@ -1,4 +1,4 @@
-# SCT File Created 2021-11-30 1:34 PM
+# SCT File Created 2021-12-01 10:35 AM
 #  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.3.4 Patch>
 # Generated from Model File <KROM_20200722_V29.mdl>
@@ -6,7 +6,7 @@
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           51
+  SLOT_ITEM_CNT           53
   PRESIM_TSTEP_CNT        3
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -565,6 +565,26 @@ SLOT_REF  50
   SLOT_LABEL        "Station 48.Distribution Percent"
   SLOT_MULTILINE    "Station 48<br>.Distribution Percent"
   RW_SLOT_NAME      "Station 48.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  51
+  SLOT_LABEL        "F and FF Pump.Distribution Percent"
+  SLOT_MULTILINE    "F and FF Pump<br>.Distribution Percent"
+  RW_SLOT_NAME      "F and FF Pump.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  52
+  SLOT_LABEL        "Lost River Diversion Channel.Distribution Percent"
+  SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Percent"
+  RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Percent"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
