@@ -1,6 +1,6 @@
-# SCT File Created 2021-12-01 10:35 AM
+# SCT File Created 2021-12-15 1:58 PM
 #  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.3.4 Patch>
+# Generated using RiverWare Version <RiverWare_Model 8.3.5 Patch>
 # Generated from Model File <KROM_20200722_V29.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
@@ -597,6 +597,7 @@ PANEL_SLOT "UKL.Initial Difference Ratio" -1
 PANEL_SLOT "F and FF Pump.Average Switch" -1
 PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
+PANEL_SLOT "Dashboard.Alt UKL Net Inflow Forecast" -1
 PANEL_SLOT "Dashboard.Agricultural Adj" -1
 PANEL_SLOT "Dashboard.Climate" -1
 PANEL_SLOT "UKL.Inflow Adj" -1
