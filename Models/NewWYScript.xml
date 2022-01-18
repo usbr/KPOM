@@ -1,0 +1,1098 @@
+<rwScriptsAndScriptGroups>
+  <rwScript uuid="{a1a78d1d-41e6-45cf-a0c8-24ddc13ccbb2}">
+    <Name>Set Up Model for New WY</Name>
+    <Description>This script is in development. This script configures the KROM for a new water year.</Description>
+    <EditActionPanelHeight>352</EditActionPanelHeight>
+    <Action uuid="{0b8a80b9-1b13-46d8-b224-adcb67120904}">
+      <ActionType>SetRunRange</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property>
+          <Name>Value</Name>
+          <Value>Start Date should be October 1 YEAR; End Date should be Feburary 28/29 YEAR+2</Value>
+        </Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunRangeStartDate</Value></Property>
+        <Property><Name>Value</Name><Value>Start Timestep - 1 Timesteps</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunRangeEndDate</Value></Property>
+        <Property><Name>Value</Name><Value>Finish Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunRangeAllowStartDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Yes</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunRangeAllowEndDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Yes</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{19912298-9f9a-47de-93a0-49c9db923ecb}">
+      <ActionType>SetRunTimestep</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value>Set Run Timestep to 1 Month to Sync Monthly Slots</Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestep</Value></Property>
+        <Property><Name>Value</Name><Value>1 Month</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>5 Minute</Value></Property>
+        <Property><Name>Option</Name><Value>5 Minute</Value></Property>
+        <Property><Name>Option</Name><Value>15 Minute</Value></Property>
+        <Property><Name>Option</Name><Value>1 Hour</Value></Property>
+        <Property><Name>Option</Name><Value>6 Hour</Value></Property>
+        <Property><Name>Option</Name><Value>12 Hour</Value></Property>
+        <Property><Name>Option</Name><Value>1 Day</Value></Property>
+        <Property><Name>Option</Name><Value>1 Month</Value></Property>
+        <Property><Name>Option</Name><Value>1 Year</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepSyncObjs</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepExcludeSlots</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepAggregateInputData</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepHandleNans</Value></Property>
+        <Property><Name>Value</Name><Value>Ignore NaN/Output values</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Ignore NaN/Output values</Value></Property>
+        <Property><Name>Option</Name><Value>Ignore NaN/Output values</Value></Property>
+        <Property><Name>Option</Name><Value>Do not aggregate intervals having NaN/Output values</Value></Property>
+        <Property><Name>Option</Name><Value>Error on NaN (excluding pre-simulation timesteps)</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{107384bf-1edb-4a2e-84b6-6b0792fa99fb}">
+      <ActionType>SynchronizeSlots</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value>Sync Monthly Timestep Slot (UKL.Inflow Exceedance)</Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsSlotSelection</Value></Property>
+        <Property>
+          <Name>Value</Name>
+          <Value>RootSelection Version1 \
+RootSel_Name       "Synchronize Slots Action: Slot Selection" \
+RootSel_UserLabel  "" \
+RootSel_UseUserLabel        false \
+RootSel_RootType   ROOT_SUBCLASS_SLOT \
+RoolSel_AllowSlots_Physical RoolSel_AllowSlots_Account RoolSel_AllowSlots_Supply RoolSel_AllowSlots_Exchange RoolSel_AllowSlots_ExchangeSply RoolSel_AllowSlots_Payback RoolSel_AllowSlots_PaybackSply  \
+RootSel_SelMode    SELMODE_SLOT_PHYSICAL \
+RootSel_UseSlotSet false \
+RootSel_SlotSetID  "{00000000-0000-0000-0000-000000000000}" \
+RootSel_SubBasin_WildAllowed    true \
+RootSel_SubBasin_Wildcarded     false \
+RootFilter FILTER_SIMOBJ_NAME_WILDCARD ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_HAS_ACCOUNT ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_IN_SUBBASIN ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_IN_CLUSTER ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_HAS_ATTRIB_VALUE ROOT_SUBCLASS_SIMOBJ \
+RootSel_SimObj_WildAllowed      true \
+RootSel_SimObj_Wildcarded       false \
+RootSel_SimObj_ExclAggObjElems  false \
+RootFilter FILTER_EXCHANGE_NAME_WILDCARD ROOT_SUBCLASS_EXCHANGE \
+RootSel_Exch_WildAllowed        true \
+RootSel_Exch_Wildcarded         false \
+RootFilter FILTER_ACCOUNT_NAME_WILDCARD ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_WATER_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_WATER_OWNER ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_JUNIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_SENIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootSel_Acct_WildAllowed        true \
+RootSel_Acct_Wildcarded         false \
+RootSel_InclStorageAccts        true \
+RootSel_InclDiversionAccts      true \
+RootSel_InclInstreamFlowAccts   true \
+RootSel_InclPassThroughAccts    true \
+RootFilter FILTER_PAYBACK_NAME_WILDCARD ROOT_SUBCLASS_PAYBACK \
+RootSel_Pback_WildAllowed       true \
+RootSel_Pback_Wildcarded        false \
+RootFilter FILTER_SUPPLY_NAME_WILDCARD ROOT_SUBCLASS_SUPPLY \
+RootFilter FILTER_SUPPLY_RELEASE_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_SUPPLY_DESTINATION ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_SUPPLY_ROLE ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_SUPPLY_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SUPPLY_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootSel_Supply_WildAllowed      true \
+RootSel_Supply_Wildcarded       false \
+RootSel_Supply_ShowFromAccts    true \
+RootSel_Supply_ShowToAccts      false \
+RootSel_ShowSupplies_InOut      true \
+RootSel_ShowSupplies_DivRet     true \
+RootSel_ShowSupplies_Trans      true \
+RootFilter FILTER_SLOT_NAME_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_COL_LABEL_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_UNIT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_HAS_RPL_EXPR ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_TIMESTEP ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_ATTRIB ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_USES_OPT_LIMITS ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_IS_CUSTOM ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_SET ROOT_SUBCLASS_SLOT \
+RootSel_Slot_WildAllowed        true \
+RootSel_Slot_Wildcarded         false \
+RootSel_SlotTypeBits_InclMask   0 \
+RootSel_SlotTypeBits_ExclMask   0 \
+RootSel_AllowAggSeriesCols      false \
+RootSel_AllowTableSeriesCols    false \
+RootSel_AllowAggTableCols       false \
+RootSel_ShowAggSeriesCols       false \
+RootSel_ShowTableSeriesCols     false \
+RootSel_ShowAggTableCols        false \
+RootSel_RequiresSlotColRefs     false \
+RootSel_SimObjClass "Reservoir" \
+RootSel_SimObjClass "StorageReservoir" \
+RootSel_SimObj "UKL" \
+RootSel_Slot "UKL.Inflow Exceedance" \
+RootSel_End \
+</Value>
+        </Property>
+        <Property><Name>Type</Name><Value>Selection</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsStartDate</Value></Property>
+        <Property><Name>Value</Name><Value>Start Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Start Timestep - 1</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsEndDate</Value></Property>
+        <Property><Name>Value</Name><Value>End Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>End Timestep</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsAllowStartDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsAllowEndDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{b57210c4-73d7-4755-bbc7-a670766a6146}">
+      <ActionType>SetRunTimestep</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value>Set Run Timestep to 1 Day</Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestep</Value></Property>
+        <Property><Name>Value</Name><Value>1 Day</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>5 Minute</Value></Property>
+        <Property><Name>Option</Name><Value>5 Minute</Value></Property>
+        <Property><Name>Option</Name><Value>15 Minute</Value></Property>
+        <Property><Name>Option</Name><Value>1 Hour</Value></Property>
+        <Property><Name>Option</Name><Value>6 Hour</Value></Property>
+        <Property><Name>Option</Name><Value>12 Hour</Value></Property>
+        <Property><Name>Option</Name><Value>1 Day</Value></Property>
+        <Property><Name>Option</Name><Value>1 Month</Value></Property>
+        <Property><Name>Option</Name><Value>1 Year</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepSyncObjs</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepExcludeSlots</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepAggregateInputData</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetRunTimestepHandleNans</Value></Property>
+        <Property><Name>Value</Name><Value>Ignore NaN/Output values</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Ignore NaN/Output values</Value></Property>
+        <Property><Name>Option</Name><Value>Ignore NaN/Output values</Value></Property>
+        <Property><Name>Option</Name><Value>Do not aggregate intervals having NaN/Output values</Value></Property>
+        <Property><Name>Option</Name><Value>Error on NaN (excluding pre-simulation timesteps)</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{32591add-cffd-4cb6-9dd0-421429b82ed8}">
+      <ActionType>SynchronizeObjects</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeObjectsObjSelection</Value></Property>
+        <Property>
+          <Name>Value</Name>
+          <Value>RootSelection Version1 \
+RootSel_Name       "Synchronize Objects: Object selection" \
+RootSel_UserLabel  "" \
+RootSel_UseUserLabel        false \
+RootSel_RootType   ROOT_SUBCLASS_SIMOBJ \
+RootSel_SelMode    SELMODE_SIMOBJ \
+RootSel_UseSlotSet false \
+RootSel_SlotSetID  "{00000000-0000-0000-0000-000000000000}" \
+RootSel_SubBasin_WildAllowed    true \
+RootSel_SubBasin_Wildcarded     false \
+RootFilter FILTER_SIMOBJ_NAME_WILDCARD ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_HAS_ACCOUNT ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Account" "Has Account" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_SUBBASIN ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Subbasin" "In Subbasin" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_CLUSTER ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Object Cluster" "In Object Cluster" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_HAS_ATTRIB_VALUE ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Attribute Value" "Has Attribute Value" "" rf_OFF rf_HIDE rf_POS \
+RootSel_SimObj_WildAllowed      true \
+RootSel_SimObj_Wildcarded       false \
+RootSel_SimObj_ExclAggObjElems  false \
+RootSel_Exch_WildAllowed        true \
+RootSel_Exch_Wildcarded         false \
+RootSel_Acct_WildAllowed        true \
+RootSel_Acct_Wildcarded         false \
+RootSel_InclStorageAccts        true \
+RootSel_InclDiversionAccts      true \
+RootSel_InclInstreamFlowAccts   true \
+RootSel_InclPassThroughAccts    true \
+RootSel_Pback_WildAllowed       true \
+RootSel_Pback_Wildcarded        false \
+RootSel_Supply_WildAllowed      true \
+RootSel_Supply_Wildcarded       false \
+RootSel_Supply_ShowFromAccts    true \
+RootSel_Supply_ShowToAccts      false \
+RootSel_ShowSupplies_InOut      true \
+RootSel_ShowSupplies_DivRet     true \
+RootSel_ShowSupplies_Trans      true \
+RootSel_Slot_WildAllowed        true \
+RootSel_Slot_Wildcarded         false \
+RootSel_SlotTypeBits_InclMask   0 \
+RootSel_SlotTypeBits_ExclMask   0 \
+RootSel_AllowAggSeriesCols      false \
+RootSel_AllowTableSeriesCols    false \
+RootSel_AllowAggTableCols       false \
+RootSel_ShowAggSeriesCols       false \
+RootSel_ShowTableSeriesCols     false \
+RootSel_ShowAggTableCols        false \
+RootSel_RequiresSlotColRefs     false \
+RootSel_SimObjClass "Confluence" \
+RootSel_SimObjClass "DiversionObject" \
+RootSel_SimObjClass "InlinePump" \
+RootSel_SimObjClass "Reach" \
+RootSel_SimObjClass "Reservoir" \
+RootSel_SimObjClass "StorageReservoir" \
+RootSel_SimObjClass "StreamGage" \
+RootSel_SimObjClass "WaterUser" \
+RootSel_SimObj "Lost River To Klamath River" \
+RootSel_SimObj "Total Canal Flow" \
+RootSel_SimObj "A Canal" \
+RootSel_SimObj "Ady Canal" \
+RootSel_SimObj "Ady to Refuge" \
+RootSel_SimObj "Div To LRDC" \
+RootSel_SimObj "Lost To LRDC" \
+RootSel_SimObj "Miller Hill Pump" \
+RootSel_SimObj "North Canal" \
+RootSel_SimObj "Station 48" \
+RootSel_SimObj "F and FF Pump" \
+RootSel_SimObj "Ady Split" \
+RootSel_SimObj "Diversion To Ady" \
+RootSel_SimObj "Diversion to Miller" \
+RootSel_SimObj "Diversion To North" \
+RootSel_SimObj "Diversion To Station 48" \
+RootSel_SimObj "KDD Supply" \
+RootSel_SimObj "Keno to IGD Gain" \
+RootSel_SimObj "Keno to IGD Routing" \
+RootSel_SimObj "Klamath Straits Drain" \
+RootSel_SimObj "Lake Ewauna Gain" \
+RootSel_SimObj "Link River" \
+RootSel_SimObj "Lost River Diversion Channel" \
+RootSel_SimObj "LRDC Draw from Klamath" \
+RootSel_SimObj "Refuge Returns" \
+RootSel_SimObj "Refuge Supply" \
+RootSel_SimObj "Returns and Pumping" \
+RootSel_SimObj "Williamson To UKL Gain" \
+RootSel_SimObj "Wilson Dam" \
+RootSel_SimObj "IGD" \
+RootSel_SimObj "Keno" \
+RootSel_SimObj "UKL" \
+RootSel_SimObj "11502500 Williamson River nr Chiloquin" \
+RootSel_SimObj "11509500 Klamath at Keno" \
+RootSel_SimObj "11516530 Klamath bl Iron Gate" \
+RootSel_SimObj "KDD" \
+RootSel_SimObj "Refuge" \
+RootSel_End \
+</Value>
+        </Property>
+        <Property><Name>Type</Name><Value>Selection</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeObjectsExcludeDiffTs</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeObjectsStartDate</Value></Property>
+        <Property><Name>Value</Name><Value>Start Timestep - 60</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Start Timestep - 1</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeObjectsEndDate</Value></Property>
+        <Property><Name>Value</Name><Value>End Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>End Timestep</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeObjectsAllowStartDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeObjectsAllowEndDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{b373d288-e762-4567-86bf-09954dc84925}">
+      <ActionType>SynchronizeSlots</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsSlotSelection</Value></Property>
+        <Property>
+          <Name>Value</Name>
+          <Value>RootSelection Version1 \
+RootSel_Name       "Synchronize Slots Action: Slot Selection" \
+RootSel_UserLabel  "" \
+RootSel_UseUserLabel        false \
+RootSel_RootType   ROOT_SUBCLASS_SLOT \
+RoolSel_AllowSlots_Physical RoolSel_AllowSlots_Account RoolSel_AllowSlots_Supply RoolSel_AllowSlots_Exchange RoolSel_AllowSlots_ExchangeSply RoolSel_AllowSlots_Payback RoolSel_AllowSlots_PaybackSply  \
+RootSel_SelMode    SELMODE_SLOT_PHYSICAL \
+RootSel_UseSlotSet false \
+RootSel_SlotSetID  "{00000000-0000-0000-0000-000000000000}" \
+RootSel_SubBasin_WildAllowed    true \
+RootSel_SubBasin_Wildcarded     false \
+RootFilter FILTER_SIMOBJ_NAME_WILDCARD ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_HAS_ACCOUNT ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Account" "Has Account" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_SUBBASIN ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Subbasin" "In Subbasin" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_CLUSTER ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Object Cluster" "In Object Cluster" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_HAS_ATTRIB_VALUE ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Attribute Value" "Has Attribute Value" "" rf_OFF rf_HIDE rf_POS \
+RootSel_SimObj_WildAllowed      true \
+RootSel_SimObj_Wildcarded       false \
+RootSel_SimObj_ExclAggObjElems  false \
+RootFilter FILTER_EXCHANGE_NAME_WILDCARD ROOT_SUBCLASS_EXCHANGE \
+RootSel_Exch_WildAllowed        true \
+RootSel_Exch_Wildcarded         false \
+RootFilter FILTER_ACCOUNT_NAME_WILDCARD ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_WATER_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Water Type" "Water Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_WATER_OWNER ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Water Owner" "Water Owner" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_JUNIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Junior To" "Junior To" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_SENIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Senior To" "Senior To" "" rf_OFF rf_HIDE rf_POS \
+RootSel_Acct_WildAllowed        true \
+RootSel_Acct_Wildcarded         false \
+RootSel_InclStorageAccts        true \
+RootSel_InclDiversionAccts      true \
+RootSel_InclInstreamFlowAccts   true \
+RootSel_InclPassThroughAccts    true \
+RootFilter FILTER_PAYBACK_NAME_WILDCARD ROOT_SUBCLASS_PAYBACK \
+RootSel_Pback_WildAllowed       true \
+RootSel_Pback_Wildcarded        false \
+RootFilter FILTER_SUPPLY_NAME_WILDCARD ROOT_SUBCLASS_SUPPLY \
+RootFilter FILTER_SUPPLY_RELEASE_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Release Type" "Release Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_DESTINATION ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Destination" "Destination" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_ROLE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Supply Role" "Role" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Allows Flag" "Allows Flag" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootSel_Supply_WildAllowed      true \
+RootSel_Supply_Wildcarded       false \
+RootSel_Supply_ShowFromAccts    true \
+RootSel_Supply_ShowToAccts      false \
+RootSel_ShowSupplies_InOut      true \
+RootSel_ShowSupplies_DivRet     true \
+RootSel_ShowSupplies_Trans      true \
+RootFilter FILTER_SLOT_NAME_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_COL_LABEL_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_UNIT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Unit Type" "Unit Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Type" "Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_HAS_RPL_EXPR ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_TIMESTEP ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Timestep Size" "Timestep" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Allows Flag" "Allows Flag" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_ATTRIB ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Attrib" "Attrib" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_USES_OPT_LIMITS ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_IS_CUSTOM ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_SET ROOT_SUBCLASS_SLOT \
+RootSel_Slot_WildAllowed        true \
+RootSel_Slot_Wildcarded         false \
+RootSel_SlotTypeBits_InclMask   0 \
+RootSel_SlotTypeBits_ExclMask   0 \
+RootSel_AllowAggSeriesCols      false \
+RootSel_AllowTableSeriesCols    false \
+RootSel_AllowAggTableCols       false \
+RootSel_ShowAggSeriesCols       false \
+RootSel_ShowTableSeriesCols     false \
+RootSel_ShowAggTableCols        false \
+RootSel_RequiresSlotColRefs     false \
+RootSel_SimObjClass "DataObj" \
+RootSel_SimObjClass "Reservoir" \
+RootSel_SimObjClass "StorageReservoir" \
+RootSel_SimObj "Constants" \
+RootSel_SimObj "UKL" \
+RootSel_Slot "Constants.Diff Ratio Lower" \
+RootSel_Slot "Constants.Diff Ratio Upper" \
+RootSel_End \
+</Value>
+        </Property>
+        <Property><Name>Type</Name><Value>Selection</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsStartDate</Value></Property>
+        <Property><Name>Value</Name><Value>Start Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Start Timestep - 1</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsEndDate</Value></Property>
+        <Property><Name>Value</Name><Value>End Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>RplDateTime</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>End Timestep</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsAllowStartDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SynchronizeSlotsAllowEndDateEdit</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{1fd315e1-4176-4773-954d-6c1a5c48d3e3}">
+      <ActionType>SetScalarSlot</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property>
+          <Name>Value</Name>
+          <Value>RootSelection Version1 \
+RootSel_Name       "Set Scalar Slot Value Action: Slot Selection" \
+RootSel_UserLabel  "" \
+RootSel_UseUserLabel        false \
+RootSel_RootType   ROOT_SUBCLASS_SLOT \
+RoolSel_AllowSlots_Physical RoolSel_AllowSlots_Account RoolSel_AllowSlots_Supply RoolSel_AllowSlots_Exchange RoolSel_AllowSlots_ExchangeSply RoolSel_AllowSlots_Payback RoolSel_AllowSlots_PaybackSply  \
+RootSel_SelMode    SELMODE_SLOT_PHYSICAL \
+RootSel_UseSlotSet false \
+RootSel_SlotSetID  "{00000000-0000-0000-0000-000000000000}" \
+RootSel_SubBasin_WildAllowed    true \
+RootSel_SubBasin_Wildcarded     false \
+RootFilter FILTER_SIMOBJ_NAME_WILDCARD ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_HAS_ACCOUNT ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Account" "Has Account" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_SUBBASIN ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Subbasin" "In Subbasin" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_CLUSTER ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Object Cluster" "In Object Cluster" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_HAS_ATTRIB_VALUE ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Attribute Value" "Has Attribute Value" "" rf_OFF rf_HIDE rf_POS \
+RootSel_SimObj_WildAllowed      true \
+RootSel_SimObj_Wildcarded       false \
+RootSel_SimObj_ExclAggObjElems  false \
+RootFilter FILTER_EXCHANGE_NAME_WILDCARD ROOT_SUBCLASS_EXCHANGE \
+RootSel_Exch_WildAllowed        true \
+RootSel_Exch_Wildcarded         false \
+RootFilter FILTER_ACCOUNT_NAME_WILDCARD ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_WATER_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Water Type" "Water Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_WATER_OWNER ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Water Owner" "Water Owner" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_JUNIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Junior To" "Junior To" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_SENIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Senior To" "Senior To" "" rf_OFF rf_HIDE rf_POS \
+RootSel_Acct_WildAllowed        true \
+RootSel_Acct_Wildcarded         false \
+RootSel_InclStorageAccts        true \
+RootSel_InclDiversionAccts      true \
+RootSel_InclInstreamFlowAccts   true \
+RootSel_InclPassThroughAccts    true \
+RootFilter FILTER_PAYBACK_NAME_WILDCARD ROOT_SUBCLASS_PAYBACK \
+RootSel_Pback_WildAllowed       true \
+RootSel_Pback_Wildcarded        false \
+RootFilter FILTER_SUPPLY_NAME_WILDCARD ROOT_SUBCLASS_SUPPLY \
+RootFilter FILTER_SUPPLY_RELEASE_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Release Type" "Release Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_DESTINATION ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Destination" "Destination" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_ROLE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Supply Role" "Role" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Allows Flag" "Allows Flag" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootSel_Supply_WildAllowed      true \
+RootSel_Supply_Wildcarded       false \
+RootSel_Supply_ShowFromAccts    true \
+RootSel_Supply_ShowToAccts      false \
+RootSel_ShowSupplies_InOut      true \
+RootSel_ShowSupplies_DivRet     true \
+RootSel_ShowSupplies_Trans      true \
+RootFilter FILTER_SLOT_NAME_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_COL_LABEL_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_UNIT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Unit Type" "Unit Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Type" "Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_HAS_RPL_EXPR ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_TIMESTEP ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Timestep Size" "Timestep" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Allows Flag" "Allows Flag" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_ATTRIB ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Attrib" "Attrib" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_USES_OPT_LIMITS ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_IS_CUSTOM ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_SET ROOT_SUBCLASS_SLOT \
+RootSel_Slot_WildAllowed        true \
+RootSel_Slot_Wildcarded         false \
+RootSel_SlotTypeBits_InclMask   2 \
+RootSel_SlotTypeBits_ExclMask   0 \
+RootSel_AllowAggSeriesCols      false \
+RootSel_AllowTableSeriesCols    false \
+RootSel_AllowAggTableCols       false \
+RootSel_ShowAggSeriesCols       false \
+RootSel_ShowTableSeriesCols     false \
+RootSel_ShowAggTableCols        false \
+RootSel_RequiresSlotColRefs     false \
+RootSel_SimObjClass "DataObj" \
+RootSel_SimObj "Dashboard" \
+RootSel_Slot "Dashboard.Start Timestep" \
+RootSel_End \
+</Value>
+        </Property>
+        <Property><Name>Type</Name><Value>Selection</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueHow</Value></Property>
+        <Property><Name>Value</Name><Value>Value</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Value</Value></Property>
+        <Property><Name>Option</Name><Value>Value</Value></Property>
+        <Property><Name>Option</Name><Value>Function</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueSlotValue</Value></Property>
+        <Property><Name>Value</Name><Value>Start Timestep</Value></Property>
+        <Property><Name>Type</Name><Value>SlotValue</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>NaN</Value></Property>
+        <Property><Name>SlotNameSettingId</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property><Name>SlotColSettingId</Name><Value></Value></Property>
+        <Property><Name>UnitTypeSettingId</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueFuncName</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>RplGlobalFuncName</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueEditOption</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes: Editor</Value></Property>
+        <Property><Name>Option</Name><Value>Yes: Radio Buttons</Value></Property>
+        <Property><Name>Option</Name><Value>Yes: Slider</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueMinEditValue</Value></Property>
+        <Property><Name>Value</Name><Value>NaN</Value></Property>
+        <Property><Name>Type</Name><Value>SlotValue</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>NaN</Value></Property>
+        <Property><Name>SlotNameSettingId</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property><Name>SlotColSettingId</Name><Value></Value></Property>
+        <Property><Name>UnitTypeSettingId</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueMaxEditValue</Value></Property>
+        <Property><Name>Value</Name><Value>NaN</Value></Property>
+        <Property><Name>Type</Name><Value>SlotValue</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>NaN</Value></Property>
+        <Property><Name>SlotNameSettingId</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property><Name>SlotColSettingId</Name><Value></Value></Property>
+        <Property><Name>UnitTypeSettingId</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueEncodeSlotName</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>SlotName</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueShowCurVal</Value></Property>
+        <Property><Name>Value</Name><Value>No</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>False</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+    </Action>
+    <Action uuid="{2b71c23b-848b-4e6a-a00f-05c43e818966}">
+      <ActionType>SetScalarSlot</ActionType>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionEnabled</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptShowInMgr</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>True</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptDisplayText</Value></Property>
+        <Property><Name>Value</Name><Value>Set Keno Init Elevation (Current Value from KROM)</Value></Property>
+        <Property><Name>Type</Name><Value>SingleLineText</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>rwScriptActionDescription</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>Text</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property>
+          <Name>Value</Name>
+          <Value>RootSelection Version1 \
+RootSel_Name       "Set Scalar Slot Value Action: Slot Selection" \
+RootSel_UserLabel  "" \
+RootSel_UseUserLabel        false \
+RootSel_RootType   ROOT_SUBCLASS_SLOT \
+RoolSel_AllowSlots_Physical RoolSel_AllowSlots_Account RoolSel_AllowSlots_Supply RoolSel_AllowSlots_Exchange RoolSel_AllowSlots_ExchangeSply RoolSel_AllowSlots_Payback RoolSel_AllowSlots_PaybackSply  \
+RootSel_SelMode    SELMODE_SLOT_PHYSICAL \
+RootSel_UseSlotSet false \
+RootSel_SlotSetID  "{00000000-0000-0000-0000-000000000000}" \
+RootSel_SubBasin_WildAllowed    true \
+RootSel_SubBasin_Wildcarded     false \
+RootFilter FILTER_SIMOBJ_NAME_WILDCARD ROOT_SUBCLASS_SIMOBJ \
+RootFilter FILTER_SIMOBJ_HAS_ACCOUNT ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Account" "Has Account" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_SUBBASIN ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Subbasin" "In Subbasin" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_IN_CLUSTER ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "In Object Cluster" "In Object Cluster" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SIMOBJ_HAS_ATTRIB_VALUE ROOT_SUBCLASS_SIMOBJ \
+RootFilt_Dat "Has Attribute Value" "Has Attribute Value" "" rf_OFF rf_HIDE rf_POS \
+RootSel_SimObj_WildAllowed      true \
+RootSel_SimObj_Wildcarded       false \
+RootSel_SimObj_ExclAggObjElems  false \
+RootFilter FILTER_EXCHANGE_NAME_WILDCARD ROOT_SUBCLASS_EXCHANGE \
+RootSel_Exch_WildAllowed        true \
+RootSel_Exch_Wildcarded         false \
+RootFilter FILTER_ACCOUNT_NAME_WILDCARD ROOT_SUBCLASS_ACCOUNT \
+RootFilter FILTER_ACCOUNT_WATER_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Water Type" "Water Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_WATER_OWNER ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Water Owner" "Water Owner" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_JUNIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Junior To" "Junior To" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_ACCOUNT_SENIOR_TO_DATE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Senior To" "Senior To" "" rf_OFF rf_HIDE rf_POS \
+RootSel_Acct_WildAllowed        true \
+RootSel_Acct_Wildcarded         false \
+RootSel_InclStorageAccts        true \
+RootSel_InclDiversionAccts      true \
+RootSel_InclInstreamFlowAccts   true \
+RootSel_InclPassThroughAccts    true \
+RootFilter FILTER_PAYBACK_NAME_WILDCARD ROOT_SUBCLASS_PAYBACK \
+RootSel_Pback_WildAllowed       true \
+RootSel_Pback_Wildcarded        false \
+RootFilter FILTER_SUPPLY_NAME_WILDCARD ROOT_SUBCLASS_SUPPLY \
+RootFilter FILTER_SUPPLY_RELEASE_TYPE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Release Type" "Release Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_DESTINATION ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Destination" "Destination" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_ROLE ROOT_SUBCLASS_ACCOUNT \
+RootFilt_Dat "Supply Role" "Role" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Allows Flag" "Allows Flag" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SUPPLY_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootSel_Supply_WildAllowed      true \
+RootSel_Supply_Wildcarded       false \
+RootSel_Supply_ShowFromAccts    true \
+RootSel_Supply_ShowToAccts      false \
+RootSel_ShowSupplies_InOut      true \
+RootSel_ShowSupplies_DivRet     true \
+RootSel_ShowSupplies_Trans      true \
+RootFilter FILTER_SLOT_NAME_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_COL_LABEL_WILDCARD ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_UNIT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Unit Type" "Unit Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_TYPE ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Type" "Type" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_HAS_RPL_EXPR ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_TIMESTEP ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Timestep Size" "Timestep" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_ALLOWS_FLAG ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Allows Flag" "Allows Flag" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_ATTRIB ROOT_SUBCLASS_SLOT \
+RootFilt_Dat "Slot Attrib" "Attrib" "" rf_OFF rf_HIDE rf_POS \
+RootFilter FILTER_SLOT_HAS_DESCRIPT ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_USES_OPT_LIMITS ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_IS_CUSTOM ROOT_SUBCLASS_SLOT \
+RootFilter FILTER_SLOT_SET ROOT_SUBCLASS_SLOT \
+RootSel_Slot_WildAllowed        true \
+RootSel_Slot_Wildcarded         false \
+RootSel_SlotTypeBits_InclMask   2 \
+RootSel_SlotTypeBits_ExclMask   0 \
+RootSel_AllowAggSeriesCols      false \
+RootSel_AllowTableSeriesCols    false \
+RootSel_AllowAggTableCols       false \
+RootSel_ShowAggSeriesCols       false \
+RootSel_ShowTableSeriesCols     false \
+RootSel_ShowAggTableCols        false \
+RootSel_RequiresSlotColRefs     false \
+RootSel_SimObjClass "DataObj" \
+RootSel_SimObj "Constants" \
+RootSel_Slot "Constants.Keno Init Elevation" \
+RootSel_End \
+</Value>
+        </Property>
+        <Property><Name>Type</Name><Value>Selection</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueHow</Value></Property>
+        <Property><Name>Value</Name><Value>Value</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>Value</Value></Property>
+        <Property><Name>Option</Name><Value>Value</Value></Property>
+        <Property><Name>Option</Name><Value>Function</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueSlotValue</Value></Property>
+        <Property><Name>Value</Name><Value>1246.32720000000131222</Value></Property>
+        <Property><Name>Type</Name><Value>SlotValue</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>NaN</Value></Property>
+        <Property><Name>SlotNameSettingId</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property><Name>SlotColSettingId</Name><Value></Value></Property>
+        <Property><Name>UnitTypeSettingId</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueFuncName</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>RplGlobalFuncName</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueEditOption</Value></Property>
+        <Property><Name>Value</Name><Value>Yes: Editor</Value></Property>
+        <Property><Name>Type</Name><Value>Enumeration</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>No</Value></Property>
+        <Property><Name>Option</Name><Value>Yes: Editor</Value></Property>
+        <Property><Name>Option</Name><Value>Yes: Radio Buttons</Value></Property>
+        <Property><Name>Option</Name><Value>Yes: Slider</Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueMinEditValue</Value></Property>
+        <Property><Name>Value</Name><Value>NaN</Value></Property>
+        <Property><Name>Type</Name><Value>SlotValue</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>NaN</Value></Property>
+        <Property><Name>SlotNameSettingId</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property><Name>SlotColSettingId</Name><Value></Value></Property>
+        <Property><Name>UnitTypeSettingId</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueMaxEditValue</Value></Property>
+        <Property><Name>Value</Name><Value>NaN</Value></Property>
+        <Property><Name>Type</Name><Value>SlotValue</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>NaN</Value></Property>
+        <Property><Name>SlotNameSettingId</Name><Value>SetScalarSlotValueSlotSel</Value></Property>
+        <Property><Name>SlotColSettingId</Name><Value></Value></Property>
+        <Property><Name>UnitTypeSettingId</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueEncodeSlotName</Value></Property>
+        <Property><Name>Value</Name><Value></Value></Property>
+        <Property><Name>Type</Name><Value>SlotName</Value></Property>
+        <Property><Name>DefaultValue</Name><Value></Value></Property>
+      </Setting>
+      <Setting>
+        <Property><Name>Identifier</Name><Value>SetScalarSlotValueShowCurVal</Value></Property>
+        <Property><Name>Value</Name><Value>Yes</Value></Property>
+        <Property><Name>Type</Name><Value>Boolean</Value></Property>
+        <Property><Name>DefaultValue</Name><Value>False</Value></Property>
+        <Property><Name>TrueString</Name><Value>Yes</Value></Property>
+        <Property><Name>FalseString</Name><Value>No</Value></Property>
+      </Setting>
+    </Action>
+  </rwScript>
+</rwScriptsAndScriptGroups>

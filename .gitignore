@@ -1,3 +1,6 @@
 *.bak
 *.bak.gz
 *.R
+*.bak
+Database/~$KROM_DistributionPercent.xlsx
+debugnotes_20211229.txt
