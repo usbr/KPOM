@@ -1,4 +1,7 @@
 # Klamath RiverWare Operations Model (KROM)
+
+THIS BRANCH IS TO BE USED FOR TESTING KROM DURING WY2022.
+
 This repository contains the Klamath RiverWare Operations Model (KROM), a daily timestep water management model. The repository is structured as follows -
 * *Database* - model input data
 * *Function Sets* - model function sets
