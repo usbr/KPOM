@@ -1,13 +1,13 @@
-# SCT File Created 6/29/2020 4:17 PM
-#  as K:/Models/Mitch/KlamathOpsModel/KROM 2019 PA/SCT's/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.0.5>
-# Generated from Model File <KlamathOps2019 Editing.mdl>
+# SCT File Created 2021-12-15 1:58 PM
+#  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
+# Generated using RiverWare Version <RiverWare_Model 8.3.5 Patch>
+# Generated from Model File <KROM_20200722_V29.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           26
-  PRESIM_TSTEP_CNT        1
+  SLOT_ITEM_CNT           53
+  PRESIM_TSTEP_CNT        3
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
   DETAIL_MODE             DETAIL_MODE_NOSUM
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1621
-  WINDOW_HEIGHT           563
+  WINDOW_WIDTH            1558
+  WINDOW_HEIGHT           581
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -33,6 +33,11 @@ SCT_PROPERTIES
   SLOT_UNITS_COL_WIDTH    COLFIT_METHOD_UND 0
   AGG_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
   NOA_TIME_DATA_COL_WIDTH COLFIT_METHOD_UND 0
+
+  SLOT_LABEL_SHEET_COL_WIDTH  "USBR Daily" COLFIT_METHOD_ALL 171
+  SLOT_UNITS_SHEET_COL_WIDTH  "USBR Daily" COLFIT_METHOD_ALL 64
+  SLOT_LABEL_SHEET_COL_WIDTH  "Per Run Settings" COLFIT_METHOD_ALL 301
+  SLOT_UNITS_SHEET_COL_WIDTH  "Per Run Settings" COLFIT_METHOD_ALL 64
 
   SHOW_SELECTION_STATS    True
   SEL_STAT_MEDIAN_MAXCNT  31
@@ -60,7 +65,7 @@ SCT_PROPERTIES
   SHOW_SUM_FUNC_COL       True
   SHOW_WEEKDAY_COL        True
   MARK_WEEKEND_ROWDIV     False
-  MARK_MONTH_ROWDIV       False
+  MARK_MONTH_ROWDIV       True
   COLHEAD_SHOW_UNITS      True
   COLHEAD_SHOW_SUM_FUNC   True
   COLHEAD_SHOW_WEEKDAY    True
@@ -94,7 +99,7 @@ SCT_PROPERTIES
   TOOLBAR_RUN_CTRL        True
   TOOLBAR_START_RUN       True
   TOOLBAR_FLAGS           True
-  TOOLBAR_FLAG_BUT_CODES  "TBMDR"
+  TOOLBAR_FLAG_BUT_CODES  "RZ"
 
   TOOLBAR_SAVE_MODEL      False
   TOOLBAR_OPEN_SLOTS      False
@@ -102,16 +107,17 @@ SCT_PROPERTIES
 
   COLOR_TEXT_FG             0   0   0
   COLOR_FLAG          'O' 255 255 255
-  COLOR_FLAG          'I' 224 224 224
+  COLOR_FLAG          'I' 208 208 208
   COLOR_FLAG          'T'   0 255 255
   COLOR_FLAG          'B' 144 255   0
   COLOR_FLAG          'M'  85 192 240
   COLOR_FLAG          'D' 255 236 136
   COLOR_FLAG          'R' 192 255 192
+  COLOR_FLAG          'i'   0 255   0
   COLOR_FLAG          'S' 255 192 208
   COLOR_FLAG          'G' 136 208 240
   COLOR_FLAG          'U' 200 200 255
-  COLOR_FLAG          'Z' 224 224 224
+  COLOR_FLAG          'Z' 223 223 223
   COLOR_GRID              160 160 160
   COLOR_SUMMARY_BG        224 255 224
   COLOR_INACT_CELL_FG     128 128 128
@@ -136,83 +142,238 @@ SCT_PROPERTIES
 
   FULL_PRECISION_EDITING  True
 
+  CELL_TEXT_FLAGS         False
+  CELL_TEXT_PRIORITY      False
+
 TAB_DIV   0
-  SLOT_LABEL        "Per Run Settings"
+  SLOT_LABEL        "USBR Daily"
 
-SLOT_DIV  1
-  SLOT_LABEL        "Ag Demand"
-
-SLOT_REF  2
-  SLOT_LABEL        "A Canal.Distribution Percent"
-  SLOT_MULTILINE    "A Canal<br>.Distribution Percent"
-  RW_SLOT_NAME      "A Canal.Distribution Percent"
+SLOT_REF  1
+  SLOT_LABEL        "Williamson River Flows "
+  SLOT_MULTILINE    "Williamson<br>River"
+  RW_SLOT_NAME      "11502500 Williamson River nr Chiloquin.Gage Inflow"
   RW_SLOT_COL_INDEX 0
-  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 81
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
+SLOT_DIV  2
+  SLOT_LABEL        ""
+
 SLOT_REF  3
-  SLOT_LABEL        "Ady Canal.Distribution Percent"
-  SLOT_MULTILINE    "Ady Canal<br>.Distribution Percent"
-  RW_SLOT_NAME      "Ady Canal.Distribution Percent"
+  SLOT_LABEL        "UKL Elevation "
+  SLOT_MULTILINE    "UKL <br>Elevation"
+  RW_SLOT_NAME      "UKL.Pool Elevation"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 79
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  4
-  SLOT_LABEL        "F and FF Pump.Distribution Percent"
-  SLOT_MULTILINE    "F and FF Pump<br>.Distribution Percent"
-  RW_SLOT_NAME      "F and FF Pump.Distribution Percent"
+  SLOT_LABEL        "UKL Storage "
+  SLOT_MULTILINE    "UKL<br>Storage"
+  RW_SLOT_NAME      "UKL.Storage"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 91
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  5
-  SLOT_LABEL        "Lost River Diversion Channel.Distribution Percent"
-  SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Percent"
-  RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Percent"
+  SLOT_LABEL        "USBR UKL Inflow "
+  SLOT_MULTILINE    "USBR UKL <br>Inflow"
+  RW_SLOT_NAME      "UKL.Inflow"
   RW_SLOT_COL_INDEX 0
-  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 85
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  6
-  SLOT_LABEL        "Miller Hill Pump.Distribution Percent"
-  SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Percent"
-  RW_SLOT_NAME      "Miller Hill Pump.Distribution Percent"
+  SLOT_LABEL        "Smoothed Inflow "
+  SLOT_MULTILINE    "Smoothed<br>Inflow"
+  RW_SLOT_NAME      "UKL.Smoothed Inflow"
   RW_SLOT_COL_INDEX 0
-  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 81
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  7
-  SLOT_LABEL        "North Canal.Distribution Percent"
-  SLOT_MULTILINE    "North Canal<br>.Distribution Percent"
-  RW_SLOT_NAME      "North Canal.Distribution Percent"
+  SLOT_LABEL        "Link River"
+  SLOT_MULTILINE    "Link River"
+  RW_SLOT_NAME      "UKL.Link River"
   RW_SLOT_COL_INDEX 0
-  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 79
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  8
-  SLOT_LABEL        "Station 48.Distribution Percent"
-  SLOT_MULTILINE    "Station 48<br>.Distribution Percent"
-  RW_SLOT_NAME      "Station 48.Distribution Percent"
+  SLOT_LABEL        "Keno Power Canal"
+  SLOT_MULTILINE    "Keno Power <br>Canal"
+  RW_SLOT_NAME      "UKL.Keno Power Canal Outflow"
   RW_SLOT_COL_INDEX 0
-  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 97
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  9
+  SLOT_LABEL        "Link + Keno Power Canal "
+  SLOT_MULTILINE    "UKL Outflow = <br>Link + Keno Canal"
+  RW_SLOT_NAME      "UKL.Outflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 96
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  10
+  SLOT_LABEL        ""
+
+SLOT_REF  11
+  SLOT_LABEL        "Keno Releases "
+  SLOT_MULTILINE    "Keno <br>Releases"
+  RW_SLOT_NAME      "11509500 Klamath at Keno.Gage Inflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 79
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  12
+  SLOT_LABEL        "Iron Gate Releases "
+  SLOT_MULTILINE    "Iron Gate <br>Releases"
+  RW_SLOT_NAME      "11516530 Klamath bl Iron Gate.Gage Inflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 80
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  13
+  SLOT_LABEL        ""
+
+SLOT_REF  14
+  SLOT_LABEL        "A Canal"
+  SLOT_MULTILINE    "A Canal"
+  RW_SLOT_NAME      "A Canal.Diversion Request"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 68
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  15
+  SLOT_LABEL        "LRDC "
+  SLOT_MULTILINE    "LRDC"
+  RW_SLOT_NAME      "Lost River Diversion Channel.Inflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 51
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  16
+  SLOT_LABEL        "Station 48"
+  SLOT_MULTILINE    "Station 48"
+  RW_SLOT_NAME      "Station 48.Diversion Request"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 66
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  17
+  SLOT_LABEL        "Miller Hill Pump "
+  SLOT_MULTILINE    "Miller Hill<br>Pump"
+  RW_SLOT_NAME      "Miller Hill Pump.Diversion Request"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 59
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  18
+  SLOT_LABEL        "Miller Hill Spill "
+  SLOT_MULTILINE    "Miller Hill<br>Spill"
+  RW_SLOT_NAME      "Miller Hill Pump.Spill"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_ALL 68
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  19
+  SLOT_LABEL        "North Canal"
+  SLOT_MULTILINE    "North Canal"
+  RW_SLOT_NAME      "North Canal.Diversion Request"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 73
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  20
+  SLOT_LABEL        "Ady Canal"
+  SLOT_MULTILINE    "Ady Canal"
+  RW_SLOT_NAME      "Ady Canal.Diversion Request"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 64
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  21
+  SLOT_LABEL        "Ady to Refuge "
+  SLOT_MULTILINE    "Ady to<br>Refuge"
+  RW_SLOT_NAME      "Ady to Refuge.Diversion Request"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 51
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  22
+  SLOT_LABEL        "Ady Canal To Ag "
+  SLOT_MULTILINE    "Ady Canal <br>To Ag"
+  RW_SLOT_NAME      "Ady Canal.To Ag"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 64
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  23
+  SLOT_LABEL        "F and FF Pump"
+  SLOT_MULTILINE    "F and FF Pump"
+  RW_SLOT_NAME      "F and FF Pump.Inflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 88
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  24
+  SLOT_LABEL        "Accretions From Pacificorp "
+  SLOT_MULTILINE    "Accretions<br>From Pacificorp"
+  RW_SLOT_NAME      "Keno to IGD Gain.Local Inflow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 95
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+TAB_DIV   25
+  SLOT_LABEL        "Per Run Settings"
+
+SLOT_DIV  26
+  SLOT_LABEL        "Ag Demand"
+
+SLOT_REF  27
   SLOT_LABEL        "UKL.Ag Override"
   SLOT_MULTILINE    "UKL<br>.Ag Override"
   RW_SLOT_NAME      "UKL.Ag Override"
@@ -222,10 +383,10 @@ SLOT_REF  9
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  10
+SLOT_DIV  28
   SLOT_LABEL        "Accretion Forecasts"
 
-SLOT_REF  11
+SLOT_REF  29
   SLOT_LABEL        "Keno to IGD Gain.Accretion Override"
   SLOT_MULTILINE    "Keno to IGD Gain<br>.Accretion Override"
   RW_SLOT_NAME      "Keno to IGD Gain.Accretion Override"
@@ -235,7 +396,7 @@ SLOT_REF  11
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  12
+SLOT_REF  30
   SLOT_LABEL        "Lost River Diversion Channel.Accretion Override"
   SLOT_MULTILINE    "Lost River Diversion Channel<br>.Accretion Override"
   RW_SLOT_NAME      "Lost River Diversion Channel.Accretion Override"
@@ -245,7 +406,7 @@ SLOT_REF  12
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  13
+SLOT_REF  31
   SLOT_LABEL        "Refuge Supply.Local Inflow"
   SLOT_MULTILINE    "Refuge Supply<br>.Local Inflow"
   RW_SLOT_NAME      "Refuge Supply.Local Inflow"
@@ -255,10 +416,10 @@ SLOT_REF  13
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  14
+SLOT_DIV  32
   SLOT_LABEL        "PAC Balance"
 
-SLOT_REF  15
+SLOT_REF  33
   SLOT_LABEL        "Dashboard.PacifiCorp Borrow"
   SLOT_MULTILINE    "Dashboard<br>.PacifiCorp Borrow"
   RW_SLOT_NAME      "Dashboard.PacifiCorp Borrow"
@@ -268,7 +429,7 @@ SLOT_REF  15
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  16
+SLOT_REF  34
   SLOT_LABEL        "Dashboard.PacifiCorp Payback"
   SLOT_MULTILINE    "Dashboard<br>.PacifiCorp Payback"
   RW_SLOT_NAME      "Dashboard.PacifiCorp Payback"
@@ -278,10 +439,10 @@ SLOT_REF  16
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  17
+SLOT_DIV  35
   SLOT_LABEL        "IGD Calc"
 
-SLOT_REF  18
+SLOT_REF  36
   SLOT_LABEL        "Dashboard.May June Augment"
   SLOT_MULTILINE    "Dashboard<br>.May June Augment"
   RW_SLOT_NAME      "Dashboard.May June Augment"
@@ -291,49 +452,139 @@ SLOT_REF  18
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  19
+SLOT_REF  37
   SLOT_LABEL        "Dashboard.Flex Release"
   SLOT_MULTILINE    "Dashboard<br>.Flex Release"
   RW_SLOT_NAME      "Dashboard.Flex Release"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 119
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  20
+SLOT_DIV  38
   SLOT_LABEL        "Flood Control"
 
-SLOT_REF  21
+SLOT_REF  39
   SLOT_LABEL        "IGD.Flood Accounting Switch"
   SLOT_MULTILINE    "IGD<br>.Flood Accounting Switch"
   RW_SLOT_NAME      "IGD.Flood Accounting Switch"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 138
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  22
+SLOT_REF  40
   SLOT_LABEL        "UKL.Flood Accounting Switch"
   SLOT_MULTILINE    "UKL<br>.Flood Accounting Switch"
   RW_SLOT_NAME      "UKL.Flood Accounting Switch"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 144
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_DIV  41
+  SLOT_LABEL        "Eastside Balance"
+
+SLOT_REF  42
+  SLOT_LABEL        "Dashboard.Eastside Borrow"
+  SLOT_MULTILINE    "Dashboard<br>.Eastside Borrow"
+  RW_SLOT_NAME      "Dashboard.Eastside Borrow"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-TAB_DIV   23
-  SLOT_LABEL        "Inflow Forecasts"
+SLOT_REF  43
+  SLOT_LABEL        "Dashboard.Eastside Payback"
+  SLOT_MULTILINE    "Dashboard<br>.Eastside Payback"
+  RW_SLOT_NAME      "Dashboard.Eastside Payback"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  24
-  SLOT_LABEL        "UKL Inflow Forecasts"
+SLOT_REF  44
+  SLOT_LABEL        "Dashboard.Eastside Balance"
+  SLOT_MULTILINE    "Dashboard<br>.Eastside Balance"
+  RW_SLOT_NAME      "Dashboard.Eastside Balance"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  25
-  SLOT_LABEL        "UKL.Inflow Exceedance"
-  SLOT_MULTILINE    "UKL<br>.Inflow Exceedance"
-  RW_SLOT_NAME      "UKL.Inflow Exceedance"
+TAB_DIV   45
+  SLOT_LABEL        "Distribution Percent"
+
+SLOT_REF  46
+  SLOT_LABEL        "A Canal.Distribution Percent"
+  SLOT_MULTILINE    "A Canal<br>.Distribution Percent"
+  RW_SLOT_NAME      "A Canal.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  47
+  SLOT_LABEL        "Ady Canal.Distribution Percent"
+  SLOT_MULTILINE    "Ady Canal<br>.Distribution Percent"
+  RW_SLOT_NAME      "Ady Canal.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  48
+  SLOT_LABEL        "Miller Hill Pump.Distribution Percent"
+  SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Percent"
+  RW_SLOT_NAME      "Miller Hill Pump.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  49
+  SLOT_LABEL        "North Canal.Distribution Percent"
+  SLOT_MULTILINE    "North Canal<br>.Distribution Percent"
+  RW_SLOT_NAME      "North Canal.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  50
+  SLOT_LABEL        "Station 48.Distribution Percent"
+  SLOT_MULTILINE    "Station 48<br>.Distribution Percent"
+  RW_SLOT_NAME      "Station 48.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  51
+  SLOT_LABEL        "F and FF Pump.Distribution Percent"
+  SLOT_MULTILINE    "F and FF Pump<br>.Distribution Percent"
+  RW_SLOT_NAME      "F and FF Pump.Distribution Percent"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  52
+  SLOT_LABEL        "Lost River Diversion Channel.Distribution Percent"
+  SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Percent"
+  RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Percent"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -345,10 +596,11 @@ PANEL_SLOT "UKL.Initial Credit" -1
 PANEL_SLOT "UKL.Initial Difference Ratio" -1
 PANEL_SLOT "F and FF Pump.Average Switch" -1
 PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
-PANEL_SLOT "Lake Ewuana Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
-PANEL_SLOT "Dashboard.Climate" -1
+PANEL_SLOT "Dashboard.Alt UKL Net Inflow Forecast" -1
 PANEL_SLOT "Dashboard.Agricultural Adj" -1
+PANEL_SLOT "Dashboard.Climate" -1
+PANEL_SLOT "UKL.Inflow Adj" -1
 PANEL_SLOT "A Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Ady Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "F and FF Pump.Seasonal Supply and Adj" -1
@@ -356,15 +608,11 @@ PANEL_SLOT "Lost River Diversion Channel.Seasonal Supply and Adj" -1
 PANEL_SLOT "Miller Hill Pump.Seasonal Supply and Adj" -1
 PANEL_SLOT "North Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Station 48.Seasonal Supply and Adj" -1
-PANEL_SLOT "F and FF Pump.Accretion Adj" -1
-PANEL_SLOT "Keno to IGD Gain.Accretion Adj" -1
-PANEL_SLOT "Lake Ewuana Gain.Accretion Adj" -1
-PANEL_SLOT "Lost River Diversion Channel.Accretion Adj" -1
-PANEL_SLOT "UKL.Inflow Adj" -1
-PANEL_SLOT "F and FF Pump.Exceedance Percent" -1
-PANEL_SLOT "Keno to IGD Gain.Exceedance Percent" -1
-PANEL_SLOT "Lake Ewuana Gain.Exceedance Percent" -1
-PANEL_SLOT "Lost River Diversion Channel.Exceedance Percent" -1
 PANEL_SLOT "F and FF Pump.Contribution Percent" -1
 PANEL_SLOT "Lost River Diversion Channel.Contribution Percent" -1
+PANEL_SLOT "Dashboard.NRCS Forecast Table" -1
+PANEL_SLOT "Dashboard.Supply Considerations" -1
+PANEL_SLOT "F and FF Pump.Exceedance and Adj" -1
+PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj" -1
+PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj" -1
 # SCT File End
