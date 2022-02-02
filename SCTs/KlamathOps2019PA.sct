@@ -1,12 +1,12 @@
-# SCT File Created 2021-12-15 1:58 PM
-#  as C:/Projects/git/KlamathOpsModel/SCTs/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.3.5 Patch>
+# SCT File Created 2/2/2022 1:55 PM
+#  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
+# Generated using RiverWare Version <RiverWare_Model 8.4>
 # Generated from Model File <KROM_20200722_V29.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           53
+  SLOT_ITEM_CNT           56
   PRESIM_TSTEP_CNT        3
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -24,7 +24,7 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1558
+  WINDOW_WIDTH            1866
   WINDOW_HEIGHT           581
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
@@ -518,10 +518,33 @@ SLOT_REF  44
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-TAB_DIV   45
-  SLOT_LABEL        "Distribution Percent"
+SLOT_DIV  45
+  SLOT_LABEL        "April Lock Limts"
 
 SLOT_REF  46
+  SLOT_LABEL        "Dashboard.April Lock Switch"
+  SLOT_MULTILINE    "Dashboard<br>.April Lock Switch"
+  RW_SLOT_NAME      "Dashboard.April Lock Switch"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  47
+  SLOT_LABEL        "Dashboard.April Lock Limit"
+  SLOT_MULTILINE    "Dashboard<br>.April Lock Limit"
+  RW_SLOT_NAME      "Dashboard.April Lock Limit"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+TAB_DIV   48
+  SLOT_LABEL        "Distribution Percent"
+
+SLOT_REF  49
   SLOT_LABEL        "A Canal.Distribution Percent"
   SLOT_MULTILINE    "A Canal<br>.Distribution Percent"
   RW_SLOT_NAME      "A Canal.Distribution Percent"
@@ -531,7 +554,7 @@ SLOT_REF  46
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  47
+SLOT_REF  50
   SLOT_LABEL        "Ady Canal.Distribution Percent"
   SLOT_MULTILINE    "Ady Canal<br>.Distribution Percent"
   RW_SLOT_NAME      "Ady Canal.Distribution Percent"
@@ -541,7 +564,7 @@ SLOT_REF  47
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  48
+SLOT_REF  51
   SLOT_LABEL        "Miller Hill Pump.Distribution Percent"
   SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Percent"
   RW_SLOT_NAME      "Miller Hill Pump.Distribution Percent"
@@ -551,7 +574,7 @@ SLOT_REF  48
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  49
+SLOT_REF  52
   SLOT_LABEL        "North Canal.Distribution Percent"
   SLOT_MULTILINE    "North Canal<br>.Distribution Percent"
   RW_SLOT_NAME      "North Canal.Distribution Percent"
@@ -561,7 +584,7 @@ SLOT_REF  49
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  50
+SLOT_REF  53
   SLOT_LABEL        "Station 48.Distribution Percent"
   SLOT_MULTILINE    "Station 48<br>.Distribution Percent"
   RW_SLOT_NAME      "Station 48.Distribution Percent"
@@ -571,7 +594,7 @@ SLOT_REF  50
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  51
+SLOT_REF  54
   SLOT_LABEL        "F and FF Pump.Distribution Percent"
   SLOT_MULTILINE    "F and FF Pump<br>.Distribution Percent"
   RW_SLOT_NAME      "F and FF Pump.Distribution Percent"
@@ -581,7 +604,7 @@ SLOT_REF  51
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  52
+SLOT_REF  55
   SLOT_LABEL        "Lost River Diversion Channel.Distribution Percent"
   SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Percent"
   RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Percent"
