@@ -14,4 +14,5 @@ This repository contains the Klamath RiverWare Operations Model (KROM), a daily 
 
 Model documentation in the *Documentation* folder will be added when complete for the 2019PA model.
 
+This branch is for development of KPOM and particularly the planning mode. 
 KROM was developed in [RiverWare](http://riverware.org/), a water systems modeling platform, developed by the Center for Advanced Decision Support for Water and Environmental Systems ([CADSWES](https://www.colorado.edu/cadswes/)) at the University of Colorado, Boulder, to support water management by the Bureau of Reclamation's [Klamath Basin Area Office](https://www.usbr.gov/mp/kbao/).
