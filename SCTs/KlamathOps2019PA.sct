@@ -1,7 +1,7 @@
-# SCT File Created 2/2/2022 1:55 PM
+# SCT File Created 2/8/2022 8:37 AM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.4>
-# Generated from Model File <KROM_20200722_V29.mdl>
+# Generated from Model File <KPOM.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
@@ -24,7 +24,7 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1866
+  WINDOW_WIDTH            764
   WINDOW_HEIGHT           581
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
@@ -420,9 +420,9 @@ SLOT_DIV  32
   SLOT_LABEL        "PAC Balance"
 
 SLOT_REF  33
-  SLOT_LABEL        "Dashboard.PacifiCorp Borrow"
-  SLOT_MULTILINE    "Dashboard<br>.PacifiCorp Borrow"
-  RW_SLOT_NAME      "Dashboard.PacifiCorp Borrow"
+  SLOT_LABEL        "Exchanges.PacifiCorp Borrow"
+  SLOT_MULTILINE    "Exchanges<br>.PacifiCorp Borrow"
+  RW_SLOT_NAME      "Exchanges.PacifiCorp Borrow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -430,9 +430,9 @@ SLOT_REF  33
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  34
-  SLOT_LABEL        "Dashboard.PacifiCorp Payback"
-  SLOT_MULTILINE    "Dashboard<br>.PacifiCorp Payback"
-  RW_SLOT_NAME      "Dashboard.PacifiCorp Payback"
+  SLOT_LABEL        "Exchanges.PacifiCorp Payback"
+  SLOT_MULTILINE    "Exchanges<br>.PacifiCorp Payback"
+  RW_SLOT_NAME      "Exchanges.PacifiCorp Payback"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -443,9 +443,9 @@ SLOT_DIV  35
   SLOT_LABEL        "IGD Calc"
 
 SLOT_REF  36
-  SLOT_LABEL        "Dashboard.May June Augment"
-  SLOT_MULTILINE    "Dashboard<br>.May June Augment"
-  RW_SLOT_NAME      "Dashboard.May June Augment"
+  SLOT_LABEL        "EWA.May June Augment"
+  SLOT_MULTILINE    "EWA<br>.May June Augment"
+  RW_SLOT_NAME      "EWA.May June Augment"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
@@ -453,13 +453,13 @@ SLOT_REF  36
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  37
-  SLOT_LABEL        "Dashboard.Flex Release"
-  SLOT_MULTILINE    "Dashboard<br>.Flex Release"
-  RW_SLOT_NAME      "Dashboard.Flex Release"
+  SLOT_LABEL        "EWA.Flex Release"
+  SLOT_MULTILINE    "EWA<br>.Flex Release"
+  RW_SLOT_NAME      "EWA.Flex Release"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 119
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_DIV  38
@@ -489,9 +489,9 @@ SLOT_DIV  41
   SLOT_LABEL        "Eastside Balance"
 
 SLOT_REF  42
-  SLOT_LABEL        "Dashboard.Eastside Borrow"
-  SLOT_MULTILINE    "Dashboard<br>.Eastside Borrow"
-  RW_SLOT_NAME      "Dashboard.Eastside Borrow"
+  SLOT_LABEL        "Exchanges.Eastside Borrow"
+  SLOT_MULTILINE    "Exchanges<br>.Eastside Borrow"
+  RW_SLOT_NAME      "Exchanges.Eastside Borrow"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -499,9 +499,9 @@ SLOT_REF  42
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  43
-  SLOT_LABEL        "Dashboard.Eastside Payback"
-  SLOT_MULTILINE    "Dashboard<br>.Eastside Payback"
-  RW_SLOT_NAME      "Dashboard.Eastside Payback"
+  SLOT_LABEL        "Exchanges.Eastside Payback"
+  SLOT_MULTILINE    "Exchanges<br>.Eastside Payback"
+  RW_SLOT_NAME      "Exchanges.Eastside Payback"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -509,9 +509,9 @@ SLOT_REF  43
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  44
-  SLOT_LABEL        "Dashboard.Eastside Balance"
-  SLOT_MULTILINE    "Dashboard<br>.Eastside Balance"
-  RW_SLOT_NAME      "Dashboard.Eastside Balance"
+  SLOT_LABEL        "Exchanges.Eastside Balance"
+  SLOT_MULTILINE    "Exchanges<br>.Eastside Balance"
+  RW_SLOT_NAME      "Exchanges.Eastside Balance"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -522,9 +522,9 @@ SLOT_DIV  45
   SLOT_LABEL        "April Lock Limts"
 
 SLOT_REF  46
-  SLOT_LABEL        "Dashboard.April Lock Switch"
-  SLOT_MULTILINE    "Dashboard<br>.April Lock Switch"
-  RW_SLOT_NAME      "Dashboard.April Lock Switch"
+  SLOT_LABEL        "Supply.April Lock Switch"
+  SLOT_MULTILINE    "Supply<br>.April Lock Switch"
+  RW_SLOT_NAME      "Supply.April Lock Switch"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -532,9 +532,9 @@ SLOT_REF  46
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  47
-  SLOT_LABEL        "Dashboard.April Lock Limit"
-  SLOT_MULTILINE    "Dashboard<br>.April Lock Limit"
-  RW_SLOT_NAME      "Dashboard.April Lock Limit"
+  SLOT_LABEL        "Supply.April Lock Limit"
+  SLOT_MULTILINE    "Supply<br>.April Lock Limit"
+  RW_SLOT_NAME      "Supply.April Lock Limit"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -614,15 +614,14 @@ SLOT_REF  55
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-PANEL_SLOT "Dashboard.Operation Start Timestep" -1
+PANEL_SLOT "Seasons and Dates.Operation Start Timestep" -1
 PANEL_SLOT "UKL.Initial Credit" -1
 PANEL_SLOT "UKL.Initial Difference Ratio" -1
 PANEL_SLOT "F and FF Pump.Average Switch" -1
 PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
-PANEL_SLOT "Dashboard.Alt UKL Net Inflow Forecast" -1
-PANEL_SLOT "Dashboard.Agricultural Adj" -1
-PANEL_SLOT "Dashboard.Climate" -1
+PANEL_SLOT "EWA.Climate" -1
+PANEL_SLOT "Supply.Agricultural Adj" -1
 PANEL_SLOT "UKL.Inflow Adj" -1
 PANEL_SLOT "A Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Ady Canal.Seasonal Supply and Adj" -1
@@ -633,8 +632,6 @@ PANEL_SLOT "North Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Station 48.Seasonal Supply and Adj" -1
 PANEL_SLOT "F and FF Pump.Contribution Percent" -1
 PANEL_SLOT "Lost River Diversion Channel.Contribution Percent" -1
-PANEL_SLOT "Dashboard.NRCS Forecast Table" -1
-PANEL_SLOT "Dashboard.Supply Considerations" -1
 PANEL_SLOT "F and FF Pump.Exceedance and Adj" -1
 PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj" -1
 PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj" -1
