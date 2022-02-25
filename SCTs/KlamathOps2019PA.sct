@@ -1,6 +1,6 @@
-# SCT File Created 2/8/2022 8:37 AM
+# SCT File Created 2/24/2022 4:35 PM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.4>
+# Generated using RiverWare Version <RiverWare_Model 8.4.1 Patch>
 # Generated from Model File <KPOM.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
@@ -620,9 +620,7 @@ PANEL_SLOT "UKL.Initial Difference Ratio" -1
 PANEL_SLOT "F and FF Pump.Average Switch" -1
 PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
-PANEL_SLOT "EWA.Climate" -1
-PANEL_SLOT "Supply.Agricultural Adj" -1
-PANEL_SLOT "UKL.Inflow Adj" -1
+PANEL_SLOT "UKL.Inflow Adj Table" -1
 PANEL_SLOT "A Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Ady Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "F and FF Pump.Seasonal Supply and Adj" -1
@@ -632,7 +630,8 @@ PANEL_SLOT "North Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Station 48.Seasonal Supply and Adj" -1
 PANEL_SLOT "F and FF Pump.Contribution Percent" -1
 PANEL_SLOT "Lost River Diversion Channel.Contribution Percent" -1
-PANEL_SLOT "F and FF Pump.Exceedance and Adj" -1
-PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj" -1
-PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj" -1
+PANEL_SLOT "F and FF Pump.Exceedance and Adj Input" -1
+PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj Input" -1
+PANEL_SLOT "Lake Ewauna Gain.Exceedance and Adj Input" -1
+PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj Input" -1
 # SCT File End
