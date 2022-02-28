@@ -1,4 +1,4 @@
-# SCT File Created 2/24/2022 4:35 PM
+# SCT File Created 2/28/2022 12:37 PM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.4.1 Patch>
 # Generated from Model File <KPOM.mdl>
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            764
-  WINDOW_HEIGHT           581
+  WINDOW_WIDTH            1961
+  WINDOW_HEIGHT           910
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -117,7 +117,7 @@ SCT_PROPERTIES
   COLOR_FLAG          'S' 255 192 208
   COLOR_FLAG          'G' 136 208 240
   COLOR_FLAG          'U' 200 200 255
-  COLOR_FLAG          'Z' 223 223 223
+  COLOR_FLAG          'Z' 172 172 172
   COLOR_GRID              160 160 160
   COLOR_SUMMARY_BG        224 255 224
   COLOR_INACT_CELL_FG     128 128 128
