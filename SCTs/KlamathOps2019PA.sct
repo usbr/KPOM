@@ -1,6 +1,6 @@
-# SCT File Created 3/16/2022 6:08 AM
+# SCT File Created 5/9/2022 9:38 AM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
-# Generated using RiverWare Version <RiverWare_Model 8.4.2 Patch>
+# Generated using RiverWare Version <RiverWare_Model 8.4.4 Patch>
 # Generated from Model File <KPOM.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
@@ -545,9 +545,9 @@ TAB_DIV   48
   SLOT_LABEL        "Distribution Percent"
 
 SLOT_REF  49
-  SLOT_LABEL        "A Canal.Distribution Percent"
-  SLOT_MULTILINE    "A Canal<br>.Distribution Percent"
-  RW_SLOT_NAME      "A Canal.Distribution Percent"
+  SLOT_LABEL        "A Canal.Distribution Fraction"
+  SLOT_MULTILINE    "A Canal<br>.Distribution Fraction"
+  RW_SLOT_NAME      "A Canal.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -555,9 +555,9 @@ SLOT_REF  49
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  50
-  SLOT_LABEL        "Ady Canal.Distribution Percent"
-  SLOT_MULTILINE    "Ady Canal<br>.Distribution Percent"
-  RW_SLOT_NAME      "Ady Canal.Distribution Percent"
+  SLOT_LABEL        "Ady Canal.Distribution Fraction"
+  SLOT_MULTILINE    "Ady Canal<br>.Distribution Fraction"
+  RW_SLOT_NAME      "Ady Canal.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -565,9 +565,9 @@ SLOT_REF  50
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  51
-  SLOT_LABEL        "Miller Hill Pump.Distribution Percent"
-  SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Percent"
-  RW_SLOT_NAME      "Miller Hill Pump.Distribution Percent"
+  SLOT_LABEL        "Miller Hill Pump.Distribution Fraction"
+  SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Fraction"
+  RW_SLOT_NAME      "Miller Hill Pump.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -575,9 +575,9 @@ SLOT_REF  51
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  52
-  SLOT_LABEL        "North Canal.Distribution Percent"
-  SLOT_MULTILINE    "North Canal<br>.Distribution Percent"
-  RW_SLOT_NAME      "North Canal.Distribution Percent"
+  SLOT_LABEL        "North Canal.Distribution Fraction"
+  SLOT_MULTILINE    "North Canal<br>.Distribution Fraction"
+  RW_SLOT_NAME      "North Canal.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -585,9 +585,9 @@ SLOT_REF  52
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  53
-  SLOT_LABEL        "Station 48.Distribution Percent"
-  SLOT_MULTILINE    "Station 48<br>.Distribution Percent"
-  RW_SLOT_NAME      "Station 48.Distribution Percent"
+  SLOT_LABEL        "Station 48.Distribution Fraction"
+  SLOT_MULTILINE    "Station 48<br>.Distribution Fraction"
+  RW_SLOT_NAME      "Station 48.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -595,9 +595,9 @@ SLOT_REF  53
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  54
-  SLOT_LABEL        "F and FF Pump.Distribution Percent"
-  SLOT_MULTILINE    "F and FF Pump<br>.Distribution Percent"
-  RW_SLOT_NAME      "F and FF Pump.Distribution Percent"
+  SLOT_LABEL        "F and FF Pump.Distribution Fraction"
+  SLOT_MULTILINE    "F and FF Pump<br>.Distribution Fraction"
+  RW_SLOT_NAME      "F and FF Pump.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
@@ -605,9 +605,9 @@ SLOT_REF  54
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  55
-  SLOT_LABEL        "Lost River Diversion Channel.Distribution Percent"
-  SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Percent"
-  RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Percent"
+  SLOT_LABEL        "Lost River Diversion Channel.Distribution Fraction"
+  SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Fraction"
+  RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Fraction"
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_LAST 0
   SLOT_DETAILS_OPEN False
