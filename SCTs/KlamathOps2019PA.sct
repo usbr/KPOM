@@ -1,4 +1,4 @@
-# SCT File Created 5/9/2022 9:38 AM
+# SCT File Created 6/17/2022 5:27 AM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.4.4 Patch>
 # Generated from Model File <KPOM.mdl>
@@ -6,7 +6,7 @@
 #
 SCT 0 0 Version: 20.4
 SCT_PROPERTIES
-  SLOT_ITEM_CNT           56
+  SLOT_ITEM_CNT           57
   PRESIM_TSTEP_CNT        3
   POSTSIM_TSTEP_CNT       0
   TSTEP_AXIS_HORZ         False
@@ -397,6 +397,16 @@ SLOT_REF  29
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  30
+  SLOT_LABEL        "F and FF Pump.Accretion Override"
+  SLOT_MULTILINE    "F and FF Pump<br>.Accretion Override"
+  RW_SLOT_NAME      "F and FF Pump.Accretion Override"
+  RW_SLOT_COL_INDEX 0
+  SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
+  SLOT_DETAILS_OPEN False
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+  A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
+
+SLOT_REF  31
   SLOT_LABEL        "Lost River Diversion Channel.Accretion Override"
   SLOT_MULTILINE    "Lost River Diversion Channel<br>.Accretion Override"
   RW_SLOT_NAME      "Lost River Diversion Channel.Accretion Override"
@@ -406,7 +416,7 @@ SLOT_REF  30
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  31
+SLOT_REF  32
   SLOT_LABEL        "Refuge Supply.Local Inflow"
   SLOT_MULTILINE    "Refuge Supply<br>.Local Inflow"
   RW_SLOT_NAME      "Refuge Supply.Local Inflow"
@@ -416,10 +426,10 @@ SLOT_REF  31
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  32
+SLOT_DIV  33
   SLOT_LABEL        "PAC Balance"
 
-SLOT_REF  33
+SLOT_REF  34
   SLOT_LABEL        "Exchanges.PacifiCorp Borrow"
   SLOT_MULTILINE    "Exchanges<br>.PacifiCorp Borrow"
   RW_SLOT_NAME      "Exchanges.PacifiCorp Borrow"
@@ -429,7 +439,7 @@ SLOT_REF  33
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  34
+SLOT_REF  35
   SLOT_LABEL        "Exchanges.PacifiCorp Payback"
   SLOT_MULTILINE    "Exchanges<br>.PacifiCorp Payback"
   RW_SLOT_NAME      "Exchanges.PacifiCorp Payback"
@@ -439,10 +449,10 @@ SLOT_REF  34
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  35
+SLOT_DIV  36
   SLOT_LABEL        "IGD Calc"
 
-SLOT_REF  36
+SLOT_REF  37
   SLOT_LABEL        "EWA.May June Augment"
   SLOT_MULTILINE    "EWA<br>.May June Augment"
   RW_SLOT_NAME      "EWA.May June Augment"
@@ -452,7 +462,7 @@ SLOT_REF  36
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  37
+SLOT_REF  38
   SLOT_LABEL        "EWA.Flex Release"
   SLOT_MULTILINE    "EWA<br>.Flex Release"
   RW_SLOT_NAME      "EWA.Flex Release"
@@ -462,10 +472,10 @@ SLOT_REF  37
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  38
+SLOT_DIV  39
   SLOT_LABEL        "Flood Control"
 
-SLOT_REF  39
+SLOT_REF  40
   SLOT_LABEL        "IGD.Flood Accounting Switch"
   SLOT_MULTILINE    "IGD<br>.Flood Accounting Switch"
   RW_SLOT_NAME      "IGD.Flood Accounting Switch"
@@ -475,7 +485,7 @@ SLOT_REF  39
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 138
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  40
+SLOT_REF  41
   SLOT_LABEL        "UKL.Flood Accounting Switch"
   SLOT_MULTILINE    "UKL<br>.Flood Accounting Switch"
   RW_SLOT_NAME      "UKL.Flood Accounting Switch"
@@ -485,10 +495,10 @@ SLOT_REF  40
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 144
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  41
+SLOT_DIV  42
   SLOT_LABEL        "Eastside Balance"
 
-SLOT_REF  42
+SLOT_REF  43
   SLOT_LABEL        "Exchanges.Eastside Borrow"
   SLOT_MULTILINE    "Exchanges<br>.Eastside Borrow"
   RW_SLOT_NAME      "Exchanges.Eastside Borrow"
@@ -498,7 +508,7 @@ SLOT_REF  42
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  43
+SLOT_REF  44
   SLOT_LABEL        "Exchanges.Eastside Payback"
   SLOT_MULTILINE    "Exchanges<br>.Eastside Payback"
   RW_SLOT_NAME      "Exchanges.Eastside Payback"
@@ -508,7 +518,7 @@ SLOT_REF  43
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  44
+SLOT_REF  45
   SLOT_LABEL        "Exchanges.Eastside Balance"
   SLOT_MULTILINE    "Exchanges<br>.Eastside Balance"
   RW_SLOT_NAME      "Exchanges.Eastside Balance"
@@ -518,10 +528,10 @@ SLOT_REF  44
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_DIV  45
+SLOT_DIV  46
   SLOT_LABEL        "April Lock Limts"
 
-SLOT_REF  46
+SLOT_REF  47
   SLOT_LABEL        "Supply.April Lock Switch"
   SLOT_MULTILINE    "Supply<br>.April Lock Switch"
   RW_SLOT_NAME      "Supply.April Lock Switch"
@@ -531,7 +541,7 @@ SLOT_REF  46
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  47
+SLOT_REF  48
   SLOT_LABEL        "Supply.April Lock Limit"
   SLOT_MULTILINE    "Supply<br>.April Lock Limit"
   RW_SLOT_NAME      "Supply.April Lock Limit"
@@ -541,10 +551,10 @@ SLOT_REF  47
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-TAB_DIV   48
+TAB_DIV   49
   SLOT_LABEL        "Distribution Percent"
 
-SLOT_REF  49
+SLOT_REF  50
   SLOT_LABEL        "A Canal.Distribution Fraction"
   SLOT_MULTILINE    "A Canal<br>.Distribution Fraction"
   RW_SLOT_NAME      "A Canal.Distribution Fraction"
@@ -554,7 +564,7 @@ SLOT_REF  49
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  50
+SLOT_REF  51
   SLOT_LABEL        "Ady Canal.Distribution Fraction"
   SLOT_MULTILINE    "Ady Canal<br>.Distribution Fraction"
   RW_SLOT_NAME      "Ady Canal.Distribution Fraction"
@@ -564,7 +574,7 @@ SLOT_REF  50
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  51
+SLOT_REF  52
   SLOT_LABEL        "Miller Hill Pump.Distribution Fraction"
   SLOT_MULTILINE    "Miller Hill Pump<br>.Distribution Fraction"
   RW_SLOT_NAME      "Miller Hill Pump.Distribution Fraction"
@@ -574,7 +584,7 @@ SLOT_REF  51
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  52
+SLOT_REF  53
   SLOT_LABEL        "North Canal.Distribution Fraction"
   SLOT_MULTILINE    "North Canal<br>.Distribution Fraction"
   RW_SLOT_NAME      "North Canal.Distribution Fraction"
@@ -584,7 +594,7 @@ SLOT_REF  52
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  53
+SLOT_REF  54
   SLOT_LABEL        "Station 48.Distribution Fraction"
   SLOT_MULTILINE    "Station 48<br>.Distribution Fraction"
   RW_SLOT_NAME      "Station 48.Distribution Fraction"
@@ -594,7 +604,7 @@ SLOT_REF  53
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  54
+SLOT_REF  55
   SLOT_LABEL        "F and FF Pump.Distribution Fraction"
   SLOT_MULTILINE    "F and FF Pump<br>.Distribution Fraction"
   RW_SLOT_NAME      "F and FF Pump.Distribution Fraction"
@@ -604,7 +614,7 @@ SLOT_REF  54
   N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
-SLOT_REF  55
+SLOT_REF  56
   SLOT_LABEL        "Lost River Diversion Channel.Distribution Fraction"
   SLOT_MULTILINE    "Lost River Diversion Channel<br>.Distribution Fraction"
   RW_SLOT_NAME      "Lost River Diversion Channel.Distribution Fraction"
