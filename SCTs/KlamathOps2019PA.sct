@@ -1,4 +1,4 @@
-# SCT File Created 6/17/2022 5:27 AM
+# SCT File Created 6/26/2022 3:45 PM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.4.4 Patch>
 # Generated from Model File <KPOM.mdl>
@@ -24,8 +24,8 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1164
-  WINDOW_HEIGHT           554
+  WINDOW_WIDTH            1542
+  WINDOW_HEIGHT           722
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -264,7 +264,7 @@ SLOT_REF  14
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 68
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 73
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  15
@@ -284,7 +284,7 @@ SLOT_REF  16
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 67
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 73
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  17
@@ -294,7 +294,7 @@ SLOT_REF  17
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 62
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 68
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  18
@@ -324,7 +324,7 @@ SLOT_REF  20
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 67
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 73
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  21
@@ -334,7 +334,7 @@ SLOT_REF  21
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 68
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 73
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  22
@@ -632,16 +632,16 @@ PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
 PANEL_SLOT "UKL.Inflow Adj Table" -1
 PANEL_SLOT "A Canal.Seasonal Supply and Adj" -1
-PANEL_SLOT "Ady Canal.Seasonal Supply and Adj" -1
-PANEL_SLOT "F and FF Pump.Seasonal Supply and Adj" -1
 PANEL_SLOT "Lost River Diversion Channel.Seasonal Supply and Adj" -1
+PANEL_SLOT "Station 48.Seasonal Supply and Adj" -1
 PANEL_SLOT "Miller Hill Pump.Seasonal Supply and Adj" -1
 PANEL_SLOT "North Canal.Seasonal Supply and Adj" -1
-PANEL_SLOT "Station 48.Seasonal Supply and Adj" -1
-PANEL_SLOT "F and FF Pump.Contribution Percent" -1
+PANEL_SLOT "Ady Canal.Seasonal Supply and Adj" -1
+PANEL_SLOT "F and FF Pump.Seasonal Supply and Adj" -1
 PANEL_SLOT "Lost River Diversion Channel.Contribution Percent" -1
+PANEL_SLOT "F and FF Pump.Contribution Percent" -1
+PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj Input" -1
+PANEL_SLOT "Lake Ewauna Gain.Exceedance and Adj Input" -1
 PANEL_SLOT "F and FF Pump.Exceedance and Adj Input" -1
 PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj Input" -1
-PANEL_SLOT "Lake Ewauna Gain.Exceedance and Adj Input" -1
-PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj Input" -1
 # SCT File End
