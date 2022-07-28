@@ -1,0 +1,16 @@
+{
+  "SlotList": [
+    {
+      "ObjectSlot": "<Object Name>.<Slot Name>",
+      "AltName": "..."
+    },
+    {
+      "ObjectAccountSlot": "<Object Name>^<Account Name>.<Slot Name>",
+      "AltName": "..."
+    },
+    {
+      "SupplySlot": "<Supply Name>.Supply",
+      "AltName": "..."
+    }
+  ]
+}
