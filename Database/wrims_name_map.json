@@ -1,16 +1,244 @@
 {
   "SlotList": [
     {
-      "ObjectSlot": "<Object Name>.<Slot Name>",
-      "AltName": "..."
+      "ObjectSlot": "WRIMS Output.C1_UKL_Outflow",
+      "AltName": "C1"
     },
     {
-      "ObjectAccountSlot": "<Object Name>^<Account Name>.<Slot Name>",
-      "AltName": "..."
+      "ObjectSlot": "WRIMS Output.C13_Keno_Outflow",
+      "AltName": "C13"
     },
     {
-      "SupplySlot": "<Supply Name>.Supply",
-      "AltName": "..."
+      "ObjectSlot": "WRIMS Output.C131_F_and_FF_Pump_Inflow",
+      "AltName": "C131"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.C15_11516530_Klamath_bl_Iron_Gate_Gage_Inflow",
+      "AltName": "C15"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.C15_IGD_Target_Release",
+      "AltName": "C15TARGET_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.C1_UKL_Release_for_River",
+      "AltName": "C1_RIVER"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.C1_UKL_Ag_Demand",
+      "AltName": "C1_AG"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.C1_PA_Link_excess_release",
+      "AltName": "C1_EXC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.C91_PA_LRDC_gains_and_losses_to_Klamath",
+      "AltName": "C91"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D1_A_Canal_Diversion",
+      "AltName": "D1"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_North_Canal_Diversion",
+      "AltName": "D11"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12_Ady_Canal_Diversion",
+      "AltName": "D12"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_Total_Canal_Flow_Inflow2",
+      "AltName": "D12A"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12B_Ady_to_Refuge_Outflow",
+      "AltName": "D12B"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D91_PA_St48_and_Miller_Hill_deliveries",
+      "AltName": "D91"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.EWA_EWA_Remain",
+      "AltName": "EWAREMAINDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.EWA_EWA_used_thru_Yesterday",
+      "AltName": "EWAUSEDDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.EWA_EWA_Volume",
+      "AltName": "EWA_RIVERDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.I10_Lake_Ewauna_Gain_Measured_Accretion",
+      "AltName": "I10_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.I15_Keno_to_IGD_Gain_Local_Inflow",
+      "AltName": "I15_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.I1_UKL_Smoothed_Inflow",
+      "AltName": "I1_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.I1_UKL_Inflow",
+      "AltName": "I1_RAW_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.I91_Wilson_Dam_Outflow",
+      "AltName": "I91_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.LINK_PA_UKL_max_release",
+      "AltName": "LINK_MAX_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.LINK_PA_UKL_min_release",
+      "AltName": "LINK_MIN_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.MAR50VOLDV_PA_UKL_actual_plus_forecasted_volume",
+      "AltName": "MAR50VOLDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.PRJSUPPLYDV_Supply_Project_Supply",
+      "AltName": "PRJSUPPLYDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.PROJECTMAXDV_PA_UKL_max_project_allocation",
+      "AltName": "PROJECTMAXDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.R131A_KDD_Return_Flow",
+      "AltName": "R131A"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.R131B_Refuge_Return_Flow",
+      "AltName": "R131B"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.S1_UKL_Storage",
+      "AltName": "S1"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.S15_IGD_Storage",
+      "AltName": "S15"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.S1_PA_UKL_yesterdays_elevation",
+      "AltName": "S1YESTELEVDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.UKLSUPPLYDV_UKL_Supply",
+      "AltName": "UKLSUPPLYDV"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.ADJ_UKLCENTRAL_UKL_Central_Tendency_Elevation",
+      "AltName": "ADJ_UKLCENTRAL_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.STOR_DIFF_RATIO_UKL_Storage_Diff_Ratio_5_Day",
+      "AltName": "STOR_DIFF_RATIO_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_PA_North_canal_FW_FFF_offsets",
+      "AltName": "D11_FW_FFF"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_PA_North_canal_FW_LRDC_offsets",
+      "AltName": "D11_FW_LRDC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_PA_North_canal_FW_from_UKL",
+      "AltName": "D11_FW_UKL"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_PA_North_canal_SS_FFF_offsets",
+      "AltName": "D11_SS_FFF"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_PA_North_canal_SS_LRDC_offsets",
+      "AltName": "D11_SS_LRDC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D11_PA_North_canal_SS_from_UKL",
+      "AltName": "D11_SS_UKL"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_PA_Ady_canal_FW_FFF_offsets",
+      "AltName": "D12A_FW_FFF"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_PA_Ady_canal_FW_LRDC_offsets",
+      "AltName": "D12A_FW_LRDC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_PA_Ady_canal_FW_from_UKL",
+      "AltName": "D12A_FW_UKL"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_PA_Ady_canal_SS_FFF_offsets",
+      "AltName": "D12A_SS_FFF"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_PA_Ady_canal_SS_LRDC_offsets",
+      "AltName": "D12A_SS_LRDC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12A_PA_Ady_canal_SS_from_UKL",
+      "AltName": "D12A_SS_UKL"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12B_PA_Ady_to_Refuge_FFF_offsets",
+      "AltName": "D12B_FFF"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12B_PA_Ady_to_Refuge_LRDC_offsets",
+      "AltName": "D12B_LRDC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D12B_PA_Ady_to_Refuge_from_UKL",
+      "AltName": "D12B_UKL"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D91_PA_S48_Miller_Hill_FFF_offsets",
+      "AltName": "D91_FFF"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D91_PA_S48_Miller_Hill_LRDC_offsets",
+      "AltName": "D91_LRDC"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.D91_PA_S48_Miller_Hill_from_UKL",
+      "AltName": "D91_UKL"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.PRJ_UKL_CREDIT_UKL_credit",
+      "AltName": "PRJ_UKL_CREDIT_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.PrjSupply_irrdv_PA_Project_supply_for_irrigation",
+      "AltName": "PrjSupply_irrdv"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.Refuge_Transfer_PA_Refuge_Transfer",
+      "AltName": "Refuge_Transfer"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.PrjSupply_irr_Apr1mindv_Supply_April_lock_limit",
+      "AltName": "PrjSupply_irr_Apr1mindv"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.MayJuneAugment_PA_May_June_Augment",
+      "AltName": "MayJuneAugment_"
+    },
+    {
+      "ObjectSlot": "WRIMS Output.FlexFlowAdjust_PA_Link_excess_release_NOT_USED",
+      "AltName": "FlexFlowAdjust_"
     }
   ]
 }
