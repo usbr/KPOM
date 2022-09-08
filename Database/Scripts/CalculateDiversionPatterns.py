@@ -59,7 +59,7 @@ def ClusterAnalysis():  # Function to perform simple cluster analysis on the dat
 
 
 inpath = ("C:\\Users\\JLanini\\Documents\\GitHub\\KROM\\Database\\")  # Path containing diversion data
-figpath = ("C:\\Users\\JLanini\\OneDrive - DOI\\Klamath\\Scripts\Output\\")  # Path containing diversion data
+figpath = ("C:\\Users\\JLanini\\Documents\\GitHub\\KROM\\Database\\Scripts\Output\\")  # Path containing diversion data
 # Dictionary for line plotting
 color_dict = {'DRY': 'brown',
               'NORMAL': 'green',
@@ -71,7 +71,7 @@ if __name__ == '__main__':
     df_out = pd.DataFrame()  # create empty dataframe for exporting curves
     divlist = ['ACHO', 'ADDO Ag', 'MHPO - Spill', 'NOCO', 'ST48', 'FFF', 'LRDC',
                'LKNWR']  # list of diversion points to map
-    divdict = {}
+    divdict = {} #empty dictionary for storing diversion data
     df_class = pd.read_excel(inpath + 'KROM_DistributionPercent.xlsx', sheet_name='YearType', header=0,
                              index_col=0)  # Read in the classification data performed by BM
     rows = int(np.ceil(len(divlist) / 2))  # calculate the number of rows in the pot
@@ -79,7 +79,8 @@ if __name__ == '__main__':
                             squeeze=False)  # set up multipanel plots to show each diversion
     for divname in divlist:
         df = pd.read_excel(inpath + 'KROM_DistributionPercent.xlsx', sheet_name=divname, skiprows=range(6),
-                           usecols='E:AS', header=0)  # Read in the individual diversion data
+                           usecols='A,E:AS', nrows=366, header=0, parse_dates=True, index_col=0)
+        # df.set_index=pd.date_range(start='3/1/2019', end='2/29/2020')  # Read in the individual diversion data
         divdict[divname] = df.clip(lower=0)  # set values less than zero to zero
         if divname == 'ACHO':  # if it's the first diversion, initialize dataframe
             df_divsum = divdict[divname].sum()
@@ -88,36 +89,38 @@ if __name__ == '__main__':
     pltcount = 0
     for key in divdict:
         divdict[key].drop(columns=[2001, 2010, 2020, 2021], axis=1,
-                        inplace=True)  # drop the last year due to missing data and anomalous years.
+                          inplace=True)  # drop the last year due to missing data and anomalous years.
         # Years to drop determined by BM (9/6/22)
         if (key == 'LKNWR'):  # Special drop for LKNWR
             divdict[key].drop(columns=2014, axis=1,
-                            inplace=True)  # 2014 only had one day of diversions, throwing everything off
+                              inplace=True)  # 2014 only had one day of diversions, throwing everything off
         if (key == 'NOCO' or key == 'ADDO Ag'):  # split the data into two diversion periods for these PODs.
-            df_fall = divdict[key].iloc[244:, ] / divdict[key].iloc[244:, ].sum()
-            df_summer = divdict[key].iloc[:244, ] / divdict[key].iloc[
-                                                    :244, ].sum()  # pull the values through day 245, starting on March 1.
+            fmask = (divdict[key].index >= '11/1/2019') & (divdict[key].index <= '2/29/2020')
+            df_fall = divdict[key].loc[fmask] / divdict[key].loc[fmask].sum()
+            smask = (divdict[key].index >= '3/1/2019') & (divdict[key].index < '11/1/2019')
+            df_summer = divdict[key].loc[smask] / divdict[key].loc[
+                smask].sum()  # pull the values through day 245, starting on March 1.
             df_Percent = df_summer.append(df_fall)  #
         else:
             df_Percent = divdict[key] / divdict[key].sum()  # otherwise, calculate for the total
-        median = df_Percent.cumsum().ge(0.5).idxmax()
+            median = df_Percent.cumsum().ge(0.5).idxmax()
         # ClusterAnalysis() #Perform cluster analysis
         count = 0
 
-        df_out[key] = df_Percent.mean(axis=1) #export the mean of the percentages.  This is used in RiverWare
-        for column, vals in df_Percent.iteritems(): #Plot each diversion trace
+        df_out[key] = df_Percent.mean(axis=1)  # export the mean of the percentages.  This is used in RiverWare
+        for column, vals in df_Percent.iteritems():  # Plot each diversion trace
             # find the row and column to plot
             col = int(pltcount / rows)
-            row = pltcount % rows
-            print(row, col)
-            # set the title to the diversion name
-            axs[row][col].set_title(key, fontsize=10)
-            #axs[row][col].plot(df_Percent.index.values, vals,
-            #                   c=color_dict[labels[count]], linewidth=0.5)  # Plot the annual traces
-            axs[row][col].plot(df_Percent.index.values, vals,
-                               c='green', linewidth=0.2)  # Plot the annual traces
+        row = pltcount % rows
+        print(row, col)
+        # set the title to the diversion name
+        axs[row][col].set_title(key, fontsize=10)
+        # axs[row][col].plot(df_Percent.index.values, vals,
+        #                   c=color_dict[labels[count]], linewidth=0.5)  # Plot the annual traces
+        axs[row][col].plot(df_Percent.index.values, vals,
+                           c='green', linewidth=0.2)  # Plot the annual traces
 
-            count = count + 1
+        count = count + 1
         axs[row][col].plot(df_out[key], c='Black', linewidth=2)  # Plot the average
         axs[row][col].set_ylim(0, .05)
         pltcount = pltcount + 1
@@ -127,13 +130,14 @@ if __name__ == '__main__':
         #                            c=color_dict[label], linewidth=0.5)
         #     axs[row][col].legend(loc="lower right")
 
-    # labels=[]
-    # fig.legend([x, y], loc="upper right")
-    # Set common labels
-    fig.text(0.5, 0.04, 'Day of year (Mar-Feb)', ha='center', va='center')
-    fig.text(0.06, 0.5, 'Percent of Total Diversion', ha='center', va='center', rotation='vertical')
-    fig.suptitle('Annual and mean diversion patterns by day of year', fontsize=18)
-    plt.savefig(figpath + '\\diversionpatterns2.png')
-    df_out.to_csv(figpath + '\\patterns.csv')
-    # df_out.plot()
-    # plt.show()
+        # labels=[]
+        # fig.legend([x, y], loc="upper right")
+        # Set common labels
+        fig.text(0.5, 0.04, 'Day of year (Mar-Feb)', ha='center', va='center')
+        fig.text(0.06, 0.5, 'Percent of Total Diversion', ha='center', va='center', rotation='vertical')
+        fig.suptitle('Annual and mean diversion patterns by day of year', fontsize=18)
+        plt.savefig(figpath + '\\diversionpatterns2.png')
+        df_out['doy'] = df_out.index.dayofyear
+        df_out.sort_values(['doy']).to_csv(figpath + '\\patterns.csv')
+        # df_out.plot()
+        # plt.show()
