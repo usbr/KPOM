@@ -1,4 +1,4 @@
-# SCT File Created 10/5/2022 10:11 AM
+# SCT File Created 10/5/2022 1:16 PM
 #  as E:/RiverWare/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.5.4 Patch>
 # Generated from Model File <KPOM.mdl>
@@ -25,7 +25,7 @@ SCT_PROPERTIES
   TSAGG_START_MONTH       0
 
   WINDOW_WIDTH            1542
-  WINDOW_HEIGHT           576
+  WINDOW_HEIGHT           635
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
 
@@ -304,7 +304,7 @@ SLOT_REF  18
   RW_SLOT_COL_INDEX 0
   SLOT_SUMFUNC      SLOT_SUMFUNC_AVE 0
   SLOT_DETAILS_OPEN False
-  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 71
+  N_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 79
   A_SLOT_COL_WIDTH  COLFIT_METHOD_MANUAL 120
 
 SLOT_REF  19
@@ -630,6 +630,7 @@ PANEL_SLOT "UKL.Initial Difference Ratio" -1
 PANEL_SLOT "F and FF Pump.Average Switch" -1
 PANEL_SLOT "Keno to IGD Gain.Average Switch" -1
 PANEL_SLOT "Lost River Diversion Channel.Average Switch" -1
+PANEL_SLOT "PAViewer.PlottingYear" -1
 PANEL_SLOT "UKL.Inflow Adj Table" -1
 PANEL_SLOT "A Canal.Seasonal Supply and Adj" -1
 PANEL_SLOT "Lost River Diversion Channel.Seasonal Supply and Adj" -1
