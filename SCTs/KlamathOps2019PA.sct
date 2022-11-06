@@ -1,7 +1,7 @@
-# SCT File Created 11/4/2022 2:52 PM
+# SCT File Created 11/6/2022 6:14 AM
 #  as E:/riverware/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.5.4 Patch>
-# Generated from Model File <20221104b_KPOM-OM_WY2021.mdl>
+# Generated from Model File <KPOM.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
@@ -656,4 +656,6 @@ PANEL_SLOT "Lake Ewauna Gain.Exceedance and Adj Input" -1
 PANEL_SLOT "F and FF Pump.Exceedance and Adj Input" -1
 PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj Input" -1
 PANEL_SLOT "Forecasts.NRCS Forecast Input Table for Ops Mode" -1
+PANEL_SLOT "Forecasts.CNRFC Percentile Forecasts for Comparison" -1
+PANEL_SLOT "Forecasts.NRCS Percentile Forecasts for Comparison" -1
 # SCT File End
