@@ -1,7 +1,7 @@
-# SCT File Created 11/3/2022 4:48 PM
+# SCT File Created 11/4/2022 2:52 PM
 #  as E:/riverware/staff/neumannd/KROM/SCTs/KlamathOps2019PA.sct
 # Generated using RiverWare Version <RiverWare_Model 8.5.4 Patch>
-# Generated from Model File <KPOM.mdl>
+# Generated from Model File <20221104b_KPOM-OM_WY2021.mdl>
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 #
 SCT 0 0 Version: 20.4
@@ -24,7 +24,7 @@ SCT_PROPERTIES
   TSAGG_START_MDAY        1
   TSAGG_START_MONTH       0
 
-  WINDOW_WIDTH            1883
+  WINDOW_WIDTH            1034
   WINDOW_HEIGHT           889
   RIGHT_MARGIN            0
   DIAG_WINDOW_HEIGHT      0
@@ -655,4 +655,5 @@ PANEL_SLOT "Lost River Diversion Channel.Exceedance and Adj Input" -1
 PANEL_SLOT "Lake Ewauna Gain.Exceedance and Adj Input" -1
 PANEL_SLOT "F and FF Pump.Exceedance and Adj Input" -1
 PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj Input" -1
+PANEL_SLOT "Forecasts.NRCS Forecast Input Table for Ops Mode" -1
 # SCT File End
