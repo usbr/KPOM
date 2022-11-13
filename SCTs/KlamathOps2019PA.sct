@@ -656,6 +656,6 @@ PANEL_SLOT "Lake Ewauna Gain.Exceedance and Adj Input" -1
 PANEL_SLOT "F and FF Pump.Exceedance and Adj Input" -1
 PANEL_SLOT "Keno to IGD Gain.Exceedance and Adj Input" -1
 PANEL_SLOT "Forecasts.NRCS Forecast Input Table for Ops Mode" -1
-PANEL_SLOT "Forecasts.CNRFC Percentile Forecasts for Comparison" -1
-PANEL_SLOT "Forecasts.NRCS Percentile Forecasts for Comparison" -1
+PANEL_SLOT "Forecasts.CNRFC Forecasts for Comparison" -1
+PANEL_SLOT "Forecasts.NRCS Forecasts for Comparison" -1
 # SCT File End
