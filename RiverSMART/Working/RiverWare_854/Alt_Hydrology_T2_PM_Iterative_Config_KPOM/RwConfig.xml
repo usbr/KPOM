@@ -1,0 +1,37 @@
+<document>
+<distrib>
+<name/>
+<descrip/>
+<app>C:/CADSWES/RiverWare 8.5.4/riverware.exe</app>
+<model>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/RwModel.mdl</model>
+<gfslist/>
+<mrmlist config="PM Iterate on Accretions for RiverSMART" totalTrace="-1" abortLimit="-1" stopRun="0">
+<mrm firstTrace="1" numTrace="-1"></mrm>
+</mrmlist>
+<rdflist num="3">
+<rdf fileInfo="0||" name="C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM/DemandOutputs.rdf"></rdf>
+<rdf fileInfo="1||" name="C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM/HydrologicOutputs.rdf"></rdf>
+<rdf fileInfo="2||" name="C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM/SimulationOutputs.rdf"></rdf>
+</rdflist>
+<slotlist>
+<slot name="F and FF Pump.Ag Offset" linenum="21" idxlist="0"></slot>
+<slot name="F and FF Pump.Inflow" linenum="14" idxlist="1"></slot>
+<slot name="Keno to IGD Gain.Local Inflow" linenum="15" idxlist="1"></slot>
+<slot name="Lake Ewauna Gain.Local Inflow" linenum="16" idxlist="1"></slot>
+<slot name="Lost River Diversion Channel.Ag Offset" linenum="22" idxlist="0"></slot>
+<slot name="Lost River Diversion Channel.Inflow" linenum="17" idxlist="1"></slot>
+<slot name="UKL.Outflow" linenum="6" idxlist="2"></slot>
+<slot name="UKL.Release Difference" linenum="7" idxlist="2"></slot>
+<slot name="UKL.Pool Elevation" linenum="10" idxlist="2"></slot>
+<slot name="UKL.Storage" linenum="8" idxlist="2"></slot>
+<slot name="UKL.Inflow" linenum="13" idxlist="1"></slot>
+<slot name="UKL.Ag Demand" linenum="20" idxlist="0"></slot>
+<slot name="UKL.Storage Diff Ratio 5 Day" linenum="9" idxlist="2"></slot>
+<slot name="IGD.Outflow" linenum="2" idxlist="2"></slot>
+<slot name="IGD.Target Release" linenum="4" idxlist="2"></slot>
+<slot name="IGD.Scheduled Release" linenum="3" idxlist="2"></slot>
+</slotlist>
+<envlist/>
+<tempdir>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM</tempdir>
+</distrib>
+</document>

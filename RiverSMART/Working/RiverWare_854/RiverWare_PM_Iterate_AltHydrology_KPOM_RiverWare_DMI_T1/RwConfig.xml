@@ -1,0 +1,36 @@
+<document>
+<distrib>
+<name/>
+<descrip/>
+<app>C:/CADSWES/RiverWare 8.5.4/riverware.exe</app>
+<model>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T1/RwModel.mdl</model>
+<gfslist/>
+<mrmlist config="PM Iterate on Accretions for RiverSMART" totalTrace="-1" abortLimit="-1" stopRun="0">
+<mrm numTrace="-1" firstTrace="1"></mrm>
+</mrmlist>
+<rdflist num="3">
+<rdf fileInfo="0||" name="C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T1/DemandOutputs.rdf"></rdf>
+<rdf fileInfo="1||" name="C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T1/HydrologicOutputs.rdf"></rdf>
+<rdf fileInfo="2||" name="C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T1/SimulationOutputs.rdf"></rdf>
+</rdflist>
+<slotlist>
+<slot linenum="21" name="F and FF Pump.Ag Offset" idxlist="0"></slot>
+<slot linenum="14" name="F and FF Pump.Inflow" idxlist="1"></slot>
+<slot linenum="15" name="Keno to IGD Gain.Local Inflow" idxlist="1"></slot>
+<slot linenum="16" name="Lake Ewauna Gain.Local Inflow" idxlist="1"></slot>
+<slot linenum="22" name="Lost River Diversion Channel.Ag Offset" idxlist="0"></slot>
+<slot linenum="17" name="Lost River Diversion Channel.Inflow" idxlist="1"></slot>
+<slot linenum="6" name="UKL.Outflow" idxlist="2"></slot>
+<slot linenum="10" name="UKL.Pool Elevation" idxlist="2"></slot>
+<slot linenum="8" name="UKL.Storage" idxlist="2"></slot>
+<slot linenum="13" name="UKL.Inflow" idxlist="1"></slot>
+<slot linenum="20" name="UKL.Ag Demand" idxlist="0"></slot>
+<slot linenum="9" name="UKL.Storage Diff Ratio 5 Day" idxlist="2"></slot>
+<slot linenum="2" name="IGD.Outflow" idxlist="2"></slot>
+<slot linenum="4" name="IGD.Target Release" idxlist="2"></slot>
+<slot linenum="3" name="IGD.Scheduled Release" idxlist="2"></slot>
+</slotlist>
+<envlist/>
+<tempdir>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T1</tempdir>
+</distrib>
+</document>

@@ -1,0 +1,11 @@
+TRACE: RiverSmartVersion 8.5 
+TRACE: OpenWorkspace C:/Users/MMcguire/Documents/GitHub/KROM/Models/KPOM.mdl 
+_REQINFO_:    "Model File Information: "
+_REQINFO_:    "Last saved on: 11-09-2022 23:21:15."
+_REQINFO_:    "Last saved by "MMcguire" using "RiverWare 8.5.4"."
+TRACE: CreateTracesDMI Trace6 
+TRACE: ConfigureTracesDMI Trace6 directory=$KPOM_DIR/RiverSMART/dmi/All/ ctlFileTemplate=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Control/All.ctl 
+TRACE: ConfigureMRM {PM Iterate on Accretions for RiverSMART} numTrace=1 inputDmi=Trace6 {outputFolder=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T6} workingFolder=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T6 saveModelFlag=0 saveModelPolicy=afterall distribMode=1 
+TRACE: DescribeMRM {PM Iterate on Accretions for RiverSMART} {MRM Config=RiverWare_PM_Iterate_AltHydrology} Model=KPOM {Scenario=RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T6} 
+TRACE: SaveWorkspace C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T6/RwModel.mdl 
+TRACE: StartController !MRM {PM Iterate on Accretions for RiverSMART} distribCfgFile=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T6/RwConfig.xml startDistribRun=0 

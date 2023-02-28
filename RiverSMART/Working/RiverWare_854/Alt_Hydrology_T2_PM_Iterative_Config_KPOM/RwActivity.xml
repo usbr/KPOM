@@ -1,0 +1,14 @@
+<document>
+<activityList><activity name="Init Distrib MRM Controller"><state>perfOk</state>
+<dateTime>Wed Nov 9 14:38:53 2022</dateTime>
+<logFile>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/rw__RemoteMgr_MMcguire.log</logFile>
+<sortKey>0</sortKey>
+</activity>
+<activity name="Traces"><state>perfErr</state>
+<msg>RiverWare exited with code 1</msg>
+<dateTime>Wed Nov 9 14:46:04 2022</dateTime>
+<logFile>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/rw__000_MMcguire.log</logFile>
+<sortKey>0</sortKey>
+</activity>
+</activityList>
+</document>

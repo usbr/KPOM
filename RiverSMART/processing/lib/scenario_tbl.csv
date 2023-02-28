@@ -1,0 +1,12 @@
+Trace,Scenario,Folder,File
+1,Historical,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T1",historical.csv
+2,Alt_1,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T2",scen1.csv
+3,Alt_2,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T3",scen2.csv
+4,Alt_3,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T4",scen3.csv
+5,Alt_4,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T5",scen4.csv
+6,Alt_5,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T6",scen5.csv
+7,Alt_6,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T7",scen6.csv
+8,Alt_7,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T8",scen7.csv
+9,Alt_8,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T9",scen8.csv
+10,Alt_9,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T10",scen9.csv
+11,Alt_10,"RiverWare_PM_Iterate_AltHydrology,KPOM,RiverWare DMI T11",scen10.csv

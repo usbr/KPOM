@@ -1,0 +1,3 @@
+OpenWorkspace {C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/RwModel.mdl}
+StartController !MRM {PM Iterate on Accretions for RiverSMART} firstTrace=1 numTrace=-1 {ctlFile=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/rw__000_MMcguire.ctl} distribMode=0 impOptRestPt=1
+CloseWorkspace

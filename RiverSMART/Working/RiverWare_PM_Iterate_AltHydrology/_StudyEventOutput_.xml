@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Thu Nov 17 08:32:09 2022
+Document created by MMcguire
+-->
+<RwMrmEvent>
+<inputList type="MRM Config"><input name="RiverWare_PM_Iterate_AltHydrology" type="MRM Config" uuid="{92b7f655-1875-497c-abea-752ad4ca6585}"><configName>PM Iterate on Accretions for RiverSMART</configName>
+<saveModel flag="0" policy="afterall"></saveModel>
+</input>
+</inputList>
+</RwMrmEvent>

@@ -1,0 +1,4 @@
+WRIMS_ID,RW_ID,RW_fil_nm
+I1,UKL.Smoothed Inflow,UKL.Smoothed_Inflow.dat
+I15,Keno to IGD Gain.Local Inflow,Keno_to_IGD_Gain.Local_Inflow.dat
+I91,Lost River Diversion Channel.Inflow,Lost_River_Diversion_Channel.Inflow.dat

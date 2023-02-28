@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Thu Nov 17 08:30:47 2022
+Document created by MMcguire
+-->
+<RwDmiEvent>
+<inputList metaType="DMI" type="Scenario"><input name="DMI_Trace5" metaType="DMI" type="Scenario" uuid="{143ee861-ef8b-4d3f-aef3-d2b4eb1cff39}"><dmiName>Traces to Input</dmiName>
+<execTime>preRun</execTime>
+<dmiType isDmiEvent="1">directConnect</dmiType>
+<datasetList><dataset name="RiverSMART traces" type="Excel"><workbook>$KPOM_RIVERSMART_DIR\dmi\KPOM_11InflowTraces.xlsx</workbook>
+<sheet>Trace5</sheet>
+</dataset>
+</datasetList>
+</input>
+</inputList>
+</RwDmiEvent>

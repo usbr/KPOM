@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Thu Nov 17 08:32:10 2022
+Document created by MMcguire
+-->
+<RwModelEvent>
+<inputList type="Model"><input name="KPOM" type="Model" uuid="{02efe78d-faf8-42a6-b7a4-3153d8f375cd}"><modelPath>$KPOM_RIVERSMART_DIR/Model/KPOM.mdl</modelPath>
+</input>
+</inputList>
+</RwModelEvent>

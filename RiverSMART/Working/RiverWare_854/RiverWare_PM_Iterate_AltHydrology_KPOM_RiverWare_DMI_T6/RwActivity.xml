@@ -1,0 +1,13 @@
+<document>
+<activityList><activity name="Init Distrib MRM Controller"><state>perfOk</state>
+<dateTime>Wed Nov 9 23:32:42 2022</dateTime>
+<logFile>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T6/rw__RemoteMgr_MMcguire.log</logFile>
+<sortKey>0</sortKey>
+</activity>
+<activity name="Traces"><state>perfOk</state>
+<dateTime>Wed Nov 9 23:35:57 2022</dateTime>
+<logFile>C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/RiverWare_PM_Iterate_AltHydrology_KPOM_RiverWare_DMI_T6/rw__000_MMcguire.log</logFile>
+<sortKey>0</sortKey>
+</activity>
+</activityList>
+</document>

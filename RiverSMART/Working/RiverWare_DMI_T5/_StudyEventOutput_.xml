@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CADSWES, University of Colorado, http://cadswes.colorado.edu/
+
+Document created on Thu Nov 17 08:32:10 2022
+Document created by MMcguire
+-->
+<RwDmiEvent>
+<inputList metaType="DMI" type="Scenario"><input name="RiverWare DMI T5" metaType="DMI" type="Scenario" uuid="{143ee861-ef8b-4d3f-aef3-d2b4eb1cff39}"><dmiName>Trace5</dmiName>
+<execTime>preRun</execTime>
+<dmiType>traceBased</dmiType>
+<tracesDir>$KPOM_RIVERSMART_DIR/dmi/All/</tracesDir>
+<templateCtlFile>$KPOM_RIVERSMART_DIR/Control/All.ctl</templateCtlFile>
+</input>
+</inputList>
+</RwDmiEvent>

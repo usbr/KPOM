@@ -1,0 +1,15 @@
+#
+# Batch script created Wed Nov 9 14:38:48 2022
+#
+SetTrace 1
+RiverSmartVersion 8.5
+OpenWorkspace {C:/Users/MMcguire/Documents/GitHub/KROM/Models/KPOM.mdl}
+ConfigureExcelDataset {Simulation Outputs} {workbookDir=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM}
+ConfigureExcelDataset {Hydrologic Outputs} {workbookDir=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM}
+ConfigureExcelDataset {Demand Outputs} {workbookDir=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM}
+CreateTracesDMI {Trace2}
+ConfigureTracesDMI {Trace2} {directory=$KPOM_DIR/RiverSMART/dmi/All/} {ctlFileTemplate=$KPOM_DIR/RiverSMART/Control/Output.ctl}
+ConfigureMRM {PM Iterate on Accretions for RiverSMART} numTrace=1 {inputDmi=Trace2} {outputFolder=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Scenario/Alt Hydrology T2,PM_Iterative_Config,KPOM} {workingFolder=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM} saveModelFlag=0 {saveModelPolicy=afterall} distribMode=1
+DescribeMRM {PM Iterate on Accretions for RiverSMART} {Hydrology=Alt Hydrology T2} {MRM Config=PM_Iterative_Config} {Model=KPOM} {Scenario=Alt Hydrology T2,PM_Iterative_Config,KPOM}
+SaveWorkspace {C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/RwModel.mdl}
+StartController !MRM {PM Iterate on Accretions for RiverSMART} {distribCfgFile=C:/Users/MMcguire/Documents/GitHub/KROM/RiverSMART/Working/RiverWare_854/Alt_Hydrology_T2_PM_Iterative_Config_KPOM/RwConfig.xml} startDistribRun=0
